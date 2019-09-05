@@ -10,5 +10,9 @@ oci setup repair-file-permissions –file /home/holouser/.oci/private.pem
 
 Create OCIR Secret.
 ```
-kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='<tenant_storage_namespace>/<your_user>' --dockerpassword='<your_auth_token>' --docker-email='<your_email>'
+kubectl create secret docker-registry ocirsecret --docker-server=<region>.ocir.io --docker-username='<tenant_storage_namespace>/<your_user>' --dockerpassword='<your_auth_token>' --docker-email='<your_email>'
+```
+Example
+```
+kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='wedoinfra/wedo.devops' --dockerpassword='92(·38434"4Gjhle14%' --docker-email='test.email@oracle.com'
 ```
