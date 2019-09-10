@@ -16,3 +16,9 @@ Example
 ```
 kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='wedoinfra/wedo.devops' --docker-password='92(·38434"4Gjhle14%' --docker-email='test.email@oracle.com'
 ```
+
+Oracle Cloud Regions:
+https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm
+
+Oracle OCIR Regions:
+https://docs.cloud.oracle.com/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab
