@@ -1164,7 +1164,7 @@ forget to commit changes:
 Important Note: modify the three other .yaml files in the same way in
 each git:
 
-![](./media/image141.tiff)
+![](./media/image141.png)
 
   - 
 Now it is time to manually launch the build process….but before we have
