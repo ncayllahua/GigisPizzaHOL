@@ -513,17 +513,14 @@ Now let’s configure kubectl. Inside your cluster information page, click the �
 A popup window will appear providing you with the commands you have to run to configure kubectl to connect to the Kubernetes cluster just created(change value below with your own cluster id and region):
 ```
 1)  mkdir -p $HOME/.kube
-
 2)  oci ce cluster create-kubeconfig --cluster-id
     ocid1.cluster.oc1.eu-frankfurt-1.aaaaaaaaae4geytfmnsgiobyhe3gemzqmrrtszlemnrginjrgczdgyjtmrqt
     --file $HOME/.kube/config --region eu-frankfurt-1
-
 3)  export KUBECONFIG=$HOME/.kube/config
 ```
 ![](./media/image82.png)
 
 When you execute commands below, you can face an issue and you must run an extra command to configure private key permissions:
-
 oci setup-repair-file-permissions –file /home/holouser/.oci/private.pem
 
 ![](./media/image83.png)
@@ -533,11 +530,10 @@ We will follow steps mentioned in Getting Started section, so that we can launch
 ![](./media/image84.png)
 
 Execute:
-
-1.  kubectl proxy
-
+```
+kubectl proxy
+```
 And then open Firefox inside VM to go to Kubernetes Dashboard:
-
 > [<span class="underline">http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/</span>](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/)
 
 ![](./media/image85.png)
@@ -610,33 +606,27 @@ docker run -it -p 8001:8001 -v \~/ociimage/tmp:/root/tmp colivares1974/ociimage:
 Now let’s configure access to oci tenancy via ocicli with our tenancy details. info will be used by kubectl to configure a config file to access to Kubernetes cluster previously created. Then, to enable Kubernetes to pull an image from Oracle Cloud Infrastructure Registry when deploying our application, you need to create a Kubernetes secret. The secret includes all the login details you would provide if you were manually logging in to Oracle Cloud Infrastructure Registry using the docker login command, including your auth token. Finally we will launch Kubernetes proxy so that we can have access to Kubernetes Dashboard from a web browser.
 
 All these steps are explained in detail:
-
-1)  Edit oci config file using. Modify config file with your tenancy
-    details:
-
+1)  Edit oci config file using. Modify config file with your tenancy details:
+```
 nano .oci/config
-
+```
 ![](./media/image96.png)
-
+```
 > Modify config file with your tenancy details(User OCID, Fingerprint,
 > Tenancy OCID and Region). Keep path to private key in key\_file as it
 > has already been loaded to that default path. When done press CTRL+o
 > to save changes and CTRL+x to close nano editor:
-
+```
 ![](./media/image97.png)
 
-2)  Launch command to create a kubeconfig file modifying cluster-id and
-    region with your tenancy details:
-
-oci ce cluster create-kubeconfig **\<cluster-id\>** --file
-$HOME/.kube/config --region **\<region\>**
-
+2)  Launch command to create a kubeconfig file modifying cluster-id and region with your tenancy details:
+```
+oci ce cluster create-kubeconfig **\<cluster-id\>** --file $HOME/.kube/config --region **\<region\>**
+```
 For example I used this command for my tenancy:
-
-oci ce cluster create-kubeconfig --cluster-id
-ocid1.cluster.oc1.iad.aaaaaaaaafqtomjsmq3tszddmuyggyrtmqzdenzrmyygmzjzhc2dkoldgvst
---file $HOME/.kube/config --region us-ashburn-1
-
+```
+oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.aaaaaaaaafqtomjsmq3tszddmuyggyrtmqzdenzrmyygmzjzhc2dkoldgvst --file $HOME/.kube/config --region us-ashburn-1
+```
 ![](./media/image98.png)
 
 You can check details for config file created:
@@ -645,46 +635,33 @@ cat .kube/config
 
 ![](./media/image99.png)
 
-Note: as we have preconfigured for you this env, we have already updated
-the KUBECONFIG env variable for you. So he have already run next command
-for you: export KUBECONFIG=$HOME/.kube/config
-
-3)  Now let’s create Secret. You need to execute command below with your
-    own tenancy credentials:
-
-kubectl create secret docker-registry ocirsecret
---docker-server=**\<region\>**.ocir.io --docker-username='**\<object
-storage namespace\>**/**\<tenancy username\>**'
---docker-password='**\<Auth Token\>**' --docker-email='**\<tenancy
-username\>**'
-
+Note: as we have preconfigured for you this env, we have already updated the KUBECONFIG env variable for you. So he have already run next command for you: 
+```
+export KUBECONFIG=$HOME/.kube/config
+```
+3)  Now let’s create Secret. You need to execute command below with your own tenancy credentials:
+```
+kubectl create secret docker-registry ocirsecret --docker-server=**\<region\>**.ocir.io --docker-username='**\<object_storage namespace\>**/**\<tenancy username\>**' --docker-password='**\<Auth Token\>**' --docker-email='**\<tenancy_username\>**'
+```
 > For example I used this command for my tenancy:
-
-kubectl create secret docker-registry ocirsecret
---docker-server=iad.ocir.io
---docker-username='idkmbiwb03s9/colivares1974@gmail.com'
---docker-password='vm{wRs\>0d9DR4HedsAIY'
---docker-email='colivares1974@gmail.com'
-
+```
+kubectl create secret docker-registry ocirsecret --docker-server=iad.ocir.io --docker-username='idkmbiwb03s9/colivares1974@gmail.com' --docker-password='vm{wRs\>0d9DR4HedsAIY' --docker-email='colivares1974@gmail.com'
+```
 ![](./media/image100.png)
 
 If successful, this line should appear as in previous screen:
-
+```
 secret/ocirsecret created
-
+```
 # **Importing a Developer Cloud Service Project**
 
-Once that we have a Kubernetes Cluster, let’s move on to next step which
-is importing a DevCS that contains all the microservices that we will
-have to deploy in this Kubernetes Cluster.
+Once that we have a Kubernetes Cluster, let’s move on to next step which is importing a DevCS that contains all the microservices that we will have to deploy in this Kubernetes Cluster.
 
-Go to your DevCS instance and in Organization Menu option, under
-Projects tab, click in Create:
+Go to your DevCS instance and in Organization Menu option, under Projects tab, click in Create:
 
 ![](./media/image101.png)
 
-Enter a Name for your Project, for Security select Private and your
-Preferred Language. Then Click in Next:
+Enter a Name for your Project, for Security select Private and your Preferred Language. Then Click in Next:
 
 ![](./media/image102.png)
 
@@ -692,9 +669,7 @@ In Template Section, select Import Project Option:
 
 ![](./media/image103.png)
 
-For Properties section, we will provide you with details to connect to a
-preconfigured DevCS instance from which you an import the project in
-this url:
+For Properties section, we will provide you with details to connect to a preconfigured DevCS instance from which you an import the project in this url:
 
 https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/Credentials
 
@@ -702,9 +677,7 @@ Click on Next:
 
 ![](./media/image104.png)
 
-In next section, select the Container named: “DevCS\_Clone\_Wedodevops”
-and the zip File available with the Project export to be imported. Then
-Click in Finish:
+In next section, select the Container named: “DevCS\_Clone\_Wedodevops” and the zip File available with the Project export to be imported. Then Click in Finish:
 
 ![](./media/image105.png)
 
@@ -722,8 +695,7 @@ Finally you will have project imported:
 
 Review different projects source code in Git menu:
 
-Note: We will work in next sections with all git but db\_management.git
-and PizzaDeliveryMobileApp.git
+Note: We will work in next sections with all git but db\_management.git and PizzaDeliveryMobileApp.git
 
 ![](./media/image109.png)
 
@@ -737,71 +709,56 @@ And click in Pipelines tab to check different Pipelines
 
 # **Configuring the Project to match our Kubernetes Cluster**
 
-What we have to do now is to adapt parameters and code in project we
-have just imported to fit with our OKE deployment in your OCI tenancy.
+What we have to do now is to adapt parameters and code in project we have just imported to fit with our OKE deployment in your OCI tenancy.
 
-But before we have to create DNS Zones in OCI. A zone is a portion of
-the DNS namespace. A Start of Authority record (SOA) defines a zone. A
-zone contains all labels underneath itself in the tree, unless otherwise
-specified.
+But before we have to create DNS Zones in OCI. A zone is a portion of the DNS namespace. A Start of Authority record (SOA) defines a zone. A zone contains all labels underneath itself in the tree, unless otherwise specified.
 
-So let’s create a couple of DNS Zones. These will be used later to
-modify DNSZONE parameter in project. In OCI Dashboard Menu go to:
+So let’s create a couple of DNS Zones. These will be used later to modify DNSZONE parameter in project. In OCI Dashboard Menu go to:
 Networking-\>DNS Zone Management
 
 ![](./media/image112.png)
 
-If not selected yet, select Compartment we created in List Scope Area.
-Then, click in Create Zone Button:
+If not selected yet, select Compartment we created in List Scope Area. Then, click in Create Zone Button:
 
 ![](./media/image113.png)
 
-And create a Manual Zone of type Primary named for example hol5967 and
-your username.com:
-
+And create a Manual Zone of type Primary named for example hol5967 and your username.com:
+```
 hol5967-carlos.j.olivares.com
-
+```
 Then click in Submit button:
 
 ![](./media/image114.png)
 
 ![](./media/image115.png)
 
-You have to create a second DNS zone with same parameters but named like
-previous one prefixed with front-:
-
+You have to create a second DNS zone with same parameters but named like previous one prefixed with front-:
+```
 front-hol5967-carlos.j.olivares.com
-
+```
 You should have a DNS Zone Management like this:
 
 ![](./media/image116.png)
 
-Now let’s go back to DevCS instance and let’s configure Build Jobs and
-Git:
+Now let’s go back to DevCS instance and let’s configure Build Jobs and Git:
 
 ## Configuring Builds
 
-In this project we have three types of builds, one for Fn Function
-(Serverless) deployment, other 4 for docker build jobs and finally 4
-others for OKE build jobs that will deploy previously generated docker
-images in OKE cluster.
+In this project we have three types of builds, one for Fn Function (Serverless) deployment, other 4 for docker build jobs and finally 4
+others for OKE build jobs that will deploy previously generated docker images in OKE cluster.
 
 ### Fn Function Jobs modification
 
-In DevCs interface, Click in Build Menu option, then select the Job
-named fn\_discount\_to\_FaaS\_CK. Then click in Configure button(right
-side of screen):
+In DevCs interface, Click in Build Menu option, then select the Job named fn\_discount\_to\_FaaS\_CK. Then click in Configure button(right side of screen):
 
 ![](./media/image117.png)
 
-The screen will appear and will take you to Software tab where you have
-to select a Software template. Make sure you select
+The screen will appear and will take you to Software tab where you have to select a Software template. Make sure you select
 Vm\_basic\_Template\_FN so that Fn function build process will work:
 
 ![](./media/image118.png)
 
-Now click in ![](./media/image119.png), then in Git tab and make sure
-that discount-func.git is selected as Repository
+Now click in ![](./media/image119.png), then in Git tab and make sure that discount-func.git is selected as Repository
 
 ![](./media/image120.png)
 
@@ -812,18 +769,18 @@ Then Select Parameter and add your tenancy parameters:
 Finally select Steps tab and enter details with my tenancy details:
 
 Remember that for Docker Login you have to enter as user:
-
+```
 \<object storage namespace\>/\<OCI tenancy user\>
-
+```
 And password is:
-
+```
 Authtoken for OCI Tenancy user
-
-Also for Fn OCI section our Passphrase is empty. This has to be
-reflected as two single quotation marks: ‘’
-
-Finally check Unix Shell and modify it accordingly with your tenancy
-details:
+```
+Also for Fn OCI section our Passphrase is empty. This has to be reflected as two single quotation marks: 
+```
+''
+```
+Finally check Unix Shell and modify it accordingly with your tenancy details:
 
 ![](./media/image122.png)
 
@@ -833,8 +790,7 @@ Please don’t forget to click Save button.
 
 ### Docker Jobs modification
 
-Now let’s change the 4 Docker Jobs. Go back to Builds menu and select
-the Job named:
+Now let’s change the 4 Docker Jobs. Go back to Builds menu and select the Job named:
 
 front\_order\_docker\_create
 
@@ -842,68 +798,58 @@ Then click in Configure Button:
 
 ![](./media/image124.png)
 
-The screen will appear and will take you to Software tab where you have
-to select a Software template. Make sure you select Vm\_basic\_Template
-so that microservices and docker build process will work:
+The screen will appear and will take you to Software tab where you have to select a Software template. Make sure you select Vm\_basic\_Template so that microservices and docker build process will work:
 
 ![](./media/image125.png)
 
-Now click in ![](./media/image119.png), then in Git tab and make sure
-that gigis-order-front.git is selected as Repository
+Now click in ![](./media/image119.png), then in Git tab and make sure that gigis-order-front.git is selected as Repository
 
 ![](./media/image126.png)
 
-Then select Steps tab and enter details with my tenancy details:
-
+Then select Steps tab and enter details with my tenancy details: 
 From:
 
 ![](./media/image127.png)
 
-To your tenancy details:
-
+To your tenancy details: 
 To check the name of your region identifier go to the table in this url:
 
 <https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm>
 
 Remember that for Docker Login you have to enter as user:
-
+```
 \<object storage namespace\>/\<OCI tenancy user\>
-
-And password is: Authtoken for OCI Tenancy user
-
+```
+And password is: 
+```
+Authtoken for OCI Tenancy user
+```
 ![](./media/image128.png)
 
 ![](./media/image129.png)
 
 And Click Save Button
-
 Important Note: change the three other docker Jobs in the same way:
-
-  - ms\_orchestrator\_docker\_create
-
-  - ms\_order\_docker\_create
-
-  - ms\_payment\_docker\_create
-
+```
+  - ms_orchestrator_docker_create
+  - ms_order_docker_create
+  - ms_payment_docker_reate
+```
 ### OKE Jobs modification
 
-Now let’s change the 4 Docker Jobs. Go back to Builds menu and select
-the Job named:
-
-Front\_order\_to\_OKE
-
+Now let’s change the 4 Docker Jobs. Go back to Builds menu and select the Job named:
+```
+Front_order_to_OKE
+```
 Then click in Configure Button:
 
 ![](./media/image130.png)
 
-The screen will appear and will take you to Software tab where you have
-to select a Software template. Make sure you select Vm\_basic\_Template
-so that microservices and docker build process will work:
+The screen will appear and will take you to Software tab where you have to select a Software template. Make sure you select Vm\_basic\_Template so that microservices and docker build process will work:
 
 ![](./media/image131.png)
 
-Now click in ![](./media/image119.png), then in Git tab and make sure
-that gigis\_order\_front.git is selected as Repository:
+Now click in ![](./media/image119.png), then in Git tab and make sure that gigis\_order\_front.git is selected as Repository:
 
 ![](./media/image132.png)
 
@@ -915,9 +861,7 @@ Changed to(your tenancy details):
 
 Leave demozone as it is (default)
 
-Important Note: for DNSZONE in this service select value with DNS Zone
-previously created with front- as prefix. For the three other OKE Jobs
-to modify later, select the DNS Zone name created without -front prefix.
+Important Note: for DNSZONE in this service select value with DNS Zone previously created with front- as prefix. For the three other OKE Jobs to modify later, select the DNS Zone name created without -front prefix.
 
 ![](./media/image134.png)
 
@@ -934,36 +878,27 @@ And Click Save
 Important Note: modify the three other docker Jobs in the same way as
 previous job:
 
-  - ms\_orchestrator\_to\_OKE
-    
-      - VM Template: VM\_Basic\_Template
-    
+  - ms\_orchestrator\_to\_OKE    
+      - VM Template: VM\_Basic\_Template    
       - Git Repo: microservice\_orchestrator.git
 
-  - ms\_order\_to\_OKE
-    
-      - VM Template: VM\_Basic\_Template
-    
+  - ms\_order\_to\_OKE    
+      - VM Template: VM\_Basic\_Template    
       - Git Repo: gigis-order-front.git
 
-  - ms\_payment\_to\_OKE:
-    
-      - VM Template: VM\_Basic\_Template
-    
+  - ms\_payment\_to\_OKE:    
+      - VM Template: VM\_Basic\_Template    
       - Git Repo: microservice-payment.git
 
 ## Configuring Git repositories
 
-Now let’s change the yaml in different GIT repositories to fit with your
-Tenancy details(review all but db\_management.git, discount-func.git and
-PizzaDeliveryMobileapp.git).
+Now let’s change the yaml in different GIT repositories to fit with your Tenancy details(review all but db\_management.git, discount-func.git and PizzaDeliveryMobileapp.git).
 
 Let’s get started by selecting microservice\_orchestrator.git:
 
 ![](./media/image137.png)
 
-Select only microservice-orchestrator.yaml (the two other .yaml don’t
-require to be modified):
+Select only microservice-orchestrator.yaml (the two other .yaml don’t require to be modified):
 
 ![](./media/image138.png)
 
@@ -971,24 +906,18 @@ Now change references in yaml from:
 
 ![](./media/image139.png)
 
-To your tenancy details in line 34 by clicking in edit button . Don’t
-forget to commit changes:
+To your tenancy details in line 34 by clicking in edit button . Don’t forget to commit changes:
 
 ![](./media/image140.png)
 
-Important Note: modify the three other .yaml files in the same way in
-each git:
+Important Note: modify the three other .yaml files in the same way in each git:
 
 ![](./media/image141.png)
 
-  - 
-Now it is time to manually launch the build process….but before we have
-to do a couple of things:
+Now it is time to manually launch the build process….but before we have to do a couple of things:
 
 1)  Create the application for the Fn function in OCI
-
-2)  Create a policy so that the Fn fuction Managed Service(FaaS) can
-    manage all the resources in the tenancy
+2)  Create a policy so that the Fn fuction Managed Service(FaaS) can manage all the resources in the tenancy
 
 > Let’s start creating the application for the Fn function in OCI. Go
 > back to OCI Dashboard console and go to: Developer
@@ -1004,26 +933,21 @@ Click in Create Application button:
 
 ![](./media/image144.png)
 
-Important Note: So that we don’t have to modify source code, the
-application name must be: gigis-fn. Also remember to add the three
-subnets.
+Important Note: So that we don’t have to modify source code, the application name must be: gigis-fn. Also remember to add the three subnets.
 
 ![](./media/image145.png)
 
 And click in create
 
-Now let’s create the policy above mentioned. In OCI Console Menu go to:
-Identity-\>Policies:
+Now let’s create the policy above mentioned. In OCI Console Menu go to: Identity-\>Policies:
 
 ![](./media/image146.png)
 
-If not selected yet, select root Compartment in List Scope Area and
-click in Create Policy Button:
+If not selected yet, select root Compartment in List Scope Area and click in Create Policy Button:
 
 ![](./media/image147.png)
 
-Fill in Name: Fn\_Tenancy\_Policy\_Resources add a Description and
-finally add next Statement:
+Fill in Name: Fn\_Tenancy\_Policy\_Resources add a Description and finally add next Statement:
 
 allow service FaaS to manage all-resources in tenancy
 
@@ -1035,21 +959,15 @@ Then click in Create Button.
 
 A new policy is created.
 
-Now let’s run the build process to check if all the changes have been
-done correctly. Go back to DevCS Dashboard and select Builds menu. There
-select Pipelines tab:
+Now let’s run the build process to check if all the changes have been done correctly. Go back to DevCS Dashboard and select Builds menu. There select Pipelines tab:
 
 ![](./media/image150.png)
 
-Then in gigispizza\_CD pipeline click in Build button so that build
-process starts: ![](./media/image151.png)
+Then in gigispizza\_CD pipeline click in Build button so that build process starts: ![](./media/image151.png)
 
 ![](./media/image152.png)
 
-Check parameters are correct and click in Build Now button. Shortly
-afterwards The build process will start and you will have to wait for
-executor to start(an executor is one of the VM build servers that you
-previously configured):
+Check parameters are correct and click in Build Now button. Shortly afterwards The build process will start and you will have to wait for executor to start(an executor is one of the VM build servers that you previously configured):
 
 ![](./media/image153.png)
 
@@ -1061,11 +979,9 @@ If job ends successfully you will see an screen like this:
 
 ![](./media/image155.png)
 
-Note: If not successful, Click in View Recent Build History and check
-what Job failed.
+Note: If not successful, Click in View Recent Build History and check what Job failed.
 
-Now let’s launch the second pipeline named gigispizza\_front in the same
-way, check parameters in popup window and click in Build now button:
+Now let’s launch the second pipeline named gigispizza\_front in the same way, check parameters in popup window and click in Build now button:
 
 ![](./media/image156.png)
 
@@ -1073,8 +989,7 @@ If everything goes fine you should see an screen like this:
 
 ![](./media/image157.png)
 
-Finally go back to jobs tab, select the one named
-fn\_discount\_to\_FaaS\_CK and manually launch the build process for the
+Finally go back to jobs tab, select the one named fn\_discount\_to\_FaaS\_CK and manually launch the build process for the
 Fn Function service by clicking in Build Now button:
 
 ![](./media/image158.png)
@@ -1085,45 +1000,33 @@ Check that deployment is successful:
 
 # **Testing my implementation**
 
-Now let’s see how to check that our microservices have been correctly
-deployed first and then, that they are working correctly.
+Now let’s see how to check that our microservices have been correctly deployed first and then, that they are working correctly.
 
-First, come back to VM and if not launch yet, run the Kubernetes proxy
-program to have access to Kubernetes Dashboard(explained already in
-section Using Virtualbox and a preconfigured VM image).
+First, come back to VM and if not launch yet, run the Kubernetes proxy program to have access to Kubernetes Dashboard(explained already in section Using Virtualbox and a preconfigured VM image).
 
-Once logged in, navigate to services section and make a note of the two
-public ip addresses created, one for microservice orchestrator and the
-other for the front end:
+Once logged in, navigate to services section and make a note of the two public ip addresses created, one for microservice orchestrator and the other for the front end:
 
 ![](./media/image160.png)
 
-If you open a browser and navigate to front-end url, you should see a
-page with orders already created:
+If you open a browser and navigate to front-end url, you should see a page with orders already created:
 
-Note: you may need to install a CORS plugin to avoid issues. We have
-used Firefox as browser and have installed the “CORS Everywhere”
-Extension:
+Note: you may need to install a CORS plugin to avoid issues. We have used Firefox as browser and have installed the “CORS Everywhere” Extension:
 
 ![](./media/image161.png)
 
 If you now navigate to:
-
-orchestrator ip\>/getAllOrders you should see all the orders created:
+```
+<orchestrator ip\>/getAllOrders 
+```
+you should see all the orders created:
 
 ![](./media/image162.png)
 
 # **Modify the Project to match new feature**
 
-So that we can create a new upgrade feature to be used in Pizza orders,
-we will modify the frontend to support a new upgrade feature so that we
-can choose if we want to upgrade an order with a present or not.
+So that we can create a new upgrade feature to be used in Pizza orders, we will modify the frontend to support a new upgrade feature so that we can choose if we want to upgrade an order with a present or not.
 
-To do this we have first to modify the. Frontend index.html feature so
-that we can see for each order if user has chosed upgrade or not. In
-next session we will modify a Digital Assistant(Skill in a chatbot) to
-ask for this upgrade before finish the pizza order. In DevCS go to
-gigis-order-front.git and open index.html:
+To do this we have first to modify the. Frontend index.html feature so that we can see for each order if user has chosed upgrade or not. In next session we will modify a Digital Assistant(Skill in a chatbot) to ask for this upgrade before finish the pizza order. In DevCS go to gigis-order-front.git and open index.html:
 
 ![](./media/image163.png)
 
@@ -1131,13 +1034,11 @@ Click edit button to modify it:
 
 ![](./media/image164.png)
 
-Add: "\<li\>Upgrade Selected: "+currentValue.upgrade+"\</li\>"+ after
-toppings info in line 206 . Then commit your changes:
+Add: "\<li\>Upgrade Selected: "+currentValue.upgrade+"\</li\>"+ after toppings info in line 206 . Then commit your changes:
 
 ![](./media/image165.png)
 
-Go back to Builds section and then to pipelines tab and execute the
-gigispizza front pipeline:
+Go back to Builds section and then to pipelines tab and execute the gigispizza front pipeline:
 
 ![](./media/image166.png)
 
@@ -1154,166 +1055,116 @@ will see:
 
 ![](./media/image161.png)
 
-Reload the page and now you should see a new field Upgrade Selected
-appear:
+Reload the page and now you should see a new field Upgrade Selected appear:
 
 ![](./media/image169.png)
 
 Now I can create a new order using postman.
 
 It has to be a POST request to endpoint:
-
-orchestrator ip\>/createOrder
-
+```
+<orchestrator ip\>/createOrder
+```
 Header: Content-Type: application-json
 
 And body of type raw(JSON):
-
+```json
 {
-
 "order": {
-
 "orderId": "FerInt101",
-
 "dateTimeOrderTaken": "2002-09-24-06:00",
-
 "takenByEmployee": "emp002",
-
 "customer": {
-
 "customerId": {
-
 "telephone": "657765412",
-
 "email": "carlos.j.olivares@oracle.com"
-
 }
-
 },
-
 "pizzaOrdered": {
-
 "baseType": "dough & tomatoe & cheese",
-
 "topping1": "Ham",
-
 "topping2": "Pepperoni",
-
 "topping3": "Prawn"
-
 },
-
 "totalPrice": "10$",
-
 "upgrade":"yes"
-
 },
-
 "payment": {
-
 "paymentid": "FerInt001",
-
 "paymentTime": "30-APR-2019 12:45 AM",
-
 "orderId": "FerInt001",
-
 "paymentMethod": "VISA",
-
 "serviceSurvey": "5",
-
 "totalPayed": "33",
-
 "customerId": "c345"
-
 },
-
 "customerAdress": {
-
 "street": "Plaza de la Puerta del Sol",
-
 "number": "s/n",
-
 "door": "",
-
 "email": "joe.smith@myemail.es",
-
 "cityCode": "28013",
-
 "city": "Madrid"
-
 },
-
 "status": "ORDERED"
-
 }
 
 ![](./media/image170.png)
 
-After that check in Orders list that this request with orderId is
-correctly created and appears in Microservice URL:
+After that check in Orders list that this request with orderId is correctly created and appears in Microservice URL:
 
 ![](./media/image171.png)
 
-You can also use postman to check for instance by searching by your user
-email (in my case
-[<span class="underline">carlos.j.olivares@oracle.com</span>](mailto:carlos.j.olivares@oracle.com))
-that the order has been correctly created:
+You can also use postman to check for instance by searching by your user email (in my case [<span class="underline">carlos.j.olivares@oracle.com</span>](mailto:carlos.j.olivares@oracle.com)) that the order has been correctly created:
 
 It has to be a GET request to endpoint:
-
-orchestrator ip\>/getOrder
-
-Header: Content-Type: application-json
-
+```
+<orchestrator ip\>/getOrder
+```
+Header: 
+```
+Content-Type: application-json
+```
 And body of type raw(JSON):
-
+```
 {"orderId":"","where":\[{"cond":{"field":"customer.customerId.email","operator":"LIKE","value":"'carlos.j.olivares@oracle.com'"},"relation":""}\]}
-
+```
 ![](./media/image172.png)
 
 # **The Cherry on the Cake: Digital Assistant User Interface**
 
 ## **Before You Begin**
 
-This part of the hands-on lab is an entry-level exercise for modifying a
-skill in Oracle Digital Assistant.
+This part of the hands-on lab is an entry-level exercise for modifying a skill in Oracle Digital Assistant.
 
 ## **Background**
 
-Oracle Digital Assistant is an environment for building digital
-assistants, which are user interfaces driven by artificial intelligence
-(AI) that help users accomplish a variety of tasks in natural language
-conversations. Digital assistants consist of one or more skills, which
-are individual chatbots that are focused on specific types of tasks.
+Oracle Digital Assistant is an environment for building digital assistants, which are user interfaces driven by artificial intelligence
+(AI) that help users accomplish a variety of tasks in natural language conversations. Digital assistants consist of one or more skills, which are individual chatbots that are focused on specific types of tasks.
 
-In this lab, we are going to modify a skill that can be used for
-interactions with a pizzeria, including ordering. As part of this
+In this lab, we are going to modify a skill that can be used for interactions with a pizzeria, including ordering. As part of this
 process, you will:
 
   - > Modify a conversation flow.
-
   - > Validate, debug, and test your skill.
 
-  - 
 ## **What Do You Need?**
 
   - Access to Oracle Digital Assistant.
 
 [<span class="underline">http://hol.wedoteam.io:9990/botsui</span>](http://hol.wedoteam.io:9990/botsui)
 
-  - A basic knowledge about Oracle Digital Assistant. If it’s the first
-    time that you use it, please read carefully each step with this
+  - A basic knowledge about Oracle Digital Assistant. If it’s the first time that you use it, please read carefully each step with this
     format
-
+    
 > *Oracle Digital Assistant is a platform that allows enterprises to
 > create and deploy digital assistants for their users.*
 
 ## Clone a Skill
 
-In this lab, we're starting from an existing one. So, the first thing
-you'll do is clone an existing skill.
+In this lab, we're starting from an existing one. So, the first thing you'll do is clone an existing skill.
 
-1.  > With the Oracle Digital Assistant UI open in your browser,
+1.  > With the Oracle Digital Assistant UI open in your browser, 
     > click ![main menu icon](./media/image173.png) to open the side
     > menu.
 
@@ -1334,36 +1185,22 @@ you'll do is clone an existing skill.
 
 7.  > Introduce these values:
     
-    1.  Display Name: HOL\_XX (where XX is your initials. Example: John
-        Snow Green should use HOL\_JSG)
-    
-    2.  Name: HOL\_XX
-    
-    3.  Check “Open cloned skill bot afterwards”
-    
+    1.  Display Name: HOL\_XX (where XX is your initials. Example: John Snow Green should use HOL\_JSG)    
+    2.  Name: HOL\_XX    
+    3.  Check “Open cloned skill bot afterwards”    
     4.  Click “Clone” button
 
 ## Create Intents
 
-*Oracle Digital Assistant's underlying natural language processing (NLP)
-engine doesn't inherently know about the business or task that skill is
-supposed to assist with. For the skill to understand what it should
-react to, you need to define intents and examples (utterances) for how a
-user would request a specific intent.*
+*Oracle Digital Assistant's underlying natural language processing (NLP) engine doesn't inherently know about the business or task that skill is supposed to assist with. For the skill to understand what it should react to, you need to define intents and examples (utterances) for how a user would request a specific intent.*
 
 As we don’t have enough time, we will skip this step.
 
 ## Modify the Dialog Flow
 
-*The dialog flow is a conversation blueprint that defines interactions
-users may have with the skill. Each interaction is defined as a state.
-Each state references a component, which renders a skill response,
-receives user input, sets and resets variables, resolves user intents,
-or authenticates users.*
+*The dialog flow is a conversation blueprint that defines interactions users may have with the skill. Each interaction is defined as a state. Each state references a component, which renders a skill response, receives user input, sets and resets variables, resolves user intents, or authenticates users.*
 
-On this case, we are going to modify the existing dialog flow to ask the
-user to carry out an upgrade of their order, and we will give him a
-towel.
+On this case, we are going to modify the existing dialog flow to ask the user to carry out an upgrade of their order, and we will give him a towel.
 
 1.  > After cloning the skill on step one, you can test that all it’s
     > ok. So, click Train button on the upper right corner.
@@ -1512,52 +1349,30 @@ towel.
 
 ### Troubleshooting Errors in the Dialog Flow
 
-If you don't see a success message, then most likely you misspelled a
-property name or did not follow the required two-space indenting
-increments. In this case, scroll through the dialog flow until you see
-an ![error icon](./media/image191.png) icon in the left margin. Mouse
-over the icon to display the tooltip with a description of the problem.
+If you don't see a success message, then most likely you misspelled a property name or did not follow the required two-space indenting
+increments. In this case, scroll through the dialog flow until you see an ![error icon](./media/image191.png) icon in the left margin. Mouse over the icon to display the tooltip with a description of the problem.
 
-Besides, you can click the debug icon (![debug
-icon](./media/image192.png)), which appears to the left of the dialog
-flow editor. It often provides additional information about the reason.
-You close the debug window by clicking the debug icon again.
+Besides, you can click the debug icon (![debug icon](./media/image192.png)), which appears to the left of the dialog flow editor. It often provides additional information about the reason. You close the debug window by clicking the debug icon again.
 
-If you have gotten into a jam and can’t get anything to work, open
-the [<span class="underline">flow.txt</span>](https://docs.oracle.com/en/cloud/paas/digital-assistant/tutorial-skill/files/your-first-dialog-flow.txt),
-and replace the content in your dialog flow with the content from the
-file.
+If you have gotten into a jam and can’t get anything to work, open the [<span class="underline">flow.txt</span>](https://docs.oracle.com/en/cloud/paas/digital-assistant/tutorial-skill/files/your-first-dialog-flow.txt), and replace the content in your dialog flow with the content from the file.
 
 **Orders against our microservices**
 
-Currently, our orders are being stored on a shared database. Now, we
-will modify the flow to point to our database.
+Currently, our orders are being stored on a shared database. Now, we will modify the flow to point to our database.
 
-*Most skills need to integrate with data from remote systems. For
-example, your skill might need to get a list of products or save order
-information. You use custom components to integrate a skill with a
-backend. Another use is to perform complex logic that you can't
-accomplish using FreeMarker. We are providing the custom components that
-carry out this actions.*
+*Most skills need to integrate with data from remote systems. For example, your skill might need to get a list of products or save order information. You use custom components to integrate a skill with a backend. Another use is to perform complex logic that you can't accomplish using FreeMarker. We are providing the custom components that carry out this actions.*
 
 Look for state “saveOrder”
 
 ![](./media/image193.png)
 
-  - Change component name from devops.saveOrder to
-    devops.saveOrderUpgrade
+  - Change component name from devops.saveOrder to devops.saveOrderUpgrade
+  - Change demozone value to yours. This value must be configured to the IP address of the microservice previously used and path to Creation order endpoint named: /createOrder. For example:
 
-  - Change demozone value to yours. This value must be configured to the
-    IP address of the microservice previously used and path to Creation
-    order endpoint named: /createOrder. For example:
-
-  - Include a new property named: upgrade with the variable you create
-    to store the upgrade question "${upgrade.value.yesno}"
-
-  - Also Include another property named email with the value of your
-    email address so that this will be used as the email address that
-    will appear in the order. For example:
-
+  - Include a new property named: upgrade with the variable you create to store the upgrade question "${upgrade.value.yesno}"
+  - Also Include another property named email with the value of your email address so that this will be used as the email address that
+    will appear in the order. For example: 
+    
 email: "carlos.j.olivares@oracle.com"
 
 The final result looks like this:
