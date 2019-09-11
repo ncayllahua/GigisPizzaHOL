@@ -562,11 +562,7 @@ Run kubectl command below with your credentials(remember that username is made o
 Authtoken we generated):
 
 ```
-﻿kubectl create secret docker-registry ocirsecret
---docker-server=fra.ocir.io
---docker-username='frcjosyavuar/carlos.j.olivares@oracle.com'
---docker-password='gewuo5U)b2)T6;r1yL\>1'
---docker-email='carlos.j.olivares@oracle.com'
+kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='frcjosyavuar/carlos.j.olivares@oracle.com' --docker-password='gewuo5U)b2)T6;r1yL\>1' --docker-mail='carlos.j.olivares@oracle.com'
 ```
 
 NOTE: To make sure that you don’t copy hidden characters, please copy this command template from: [<span class="underline">https://github.com/oraclespainpresales/GigisPizzaHOL</span>](https://github.com/oraclespainpresales/GigisPizzaHOL)
@@ -588,11 +584,14 @@ docker pull colivares1974/ociimage:hol5967
 ![](./media/image93.png)
 
 Now create a folder in your local drive:
-
+Linux/MacOS:
 ```Linux/MacOS: 
-mkdir -p \~/ociimage/tmp or Windows: c:\\\> md ociimage/tmp
+mkdir -p ~/ociimage/tmp
 ```
-
+or Windows: 
+```Windows: 
+c:\> md ociimage/tmp
+```
 ![](./media/image94.png)
 
 Launch Container while mounting the ociimage file:
@@ -628,9 +627,9 @@ oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.aaaaaaaaafqt
 ![](./media/image98.png)
 
 You can check details for config file created:
-
+```
 cat .kube/config
-
+```
 ![](./media/image99.png)
 
 Note: as we have preconfigured for you this env, we have already updated the KUBECONFIG env variable for you. So he have already run next command for you: 
