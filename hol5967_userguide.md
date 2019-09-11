@@ -1048,8 +1048,7 @@ Check that build is successfully executed:
 
 ![](./media/image168.png)
 
-Now go back to gigis-frontend page opened in previous session, you still
-will see:
+Now go back to gigis-frontend page opened in previous session, you still will see:
 
 ![](./media/image161.png)
 
@@ -1106,7 +1105,7 @@ And body of type raw(JSON):
 },
 "status": "ORDERED"
 }
-
+```
 ![](./media/image170.png)
 
 After that check in Orders list that this request with orderId is correctly created and appears in Microservice URL:
@@ -1143,8 +1142,8 @@ Oracle Digital Assistant is an environment for building digital assistants, whi
 In this lab, we are going to modify a skill that can be used for interactions with a pizzeria, including ordering. As part of this
 process, you will:
 
-  - > Modify a conversation flow.
-  - > Validate, debug, and test your skill.
+  - Modify a conversation flow.
+  - Validate, debug, and test your skill.
 
 ## **What Do You Need?**
 
@@ -1155,34 +1154,25 @@ process, you will:
   - A basic knowledge about Oracle Digital Assistant. If it’s the first time that you use it, please read carefully each step with this
     format
     
-> *Oracle Digital Assistant is a platform that allows enterprises to
-> create and deploy digital assistants for their users.*
+*Oracle Digital Assistant is a platform that allows enterprises to create and deploy digital assistants for their users.*
 
 ## Clone a Skill
 
 In this lab, we're starting from an existing one. So, the first thing you'll do is clone an existing skill.
 
-1.  > With the Oracle Digital Assistant UI open in your browser, 
-    > click ![main menu icon](./media/image173.png) to open the side
-    > menu.
+1. With the Oracle Digital Assistant UI open in your browser, click ![main menu icon](./media/image173.png) to open the side menu.
+2. Click Development and select Skills.
+3. Click ![main menu icon](./media/image173.png) again to collapse the side menu.
+4. Search “HOL\_Microservices”
 
-2.  > Click Development and select Skills.
+![](./media/image174.png)
 
-3.  > Click ![main menu icon](./media/image173.png) again to collapse
-    > the side menu.
+5. click on the menu
 
-4.  > Search “HOL\_Microservices”
+![](./media/image175.png)
 
-> ![](./media/image174.png)
-
-5.  > click on the menu
-
-> ![](./media/image175.png)
-
-6.  > Click Clone to open Create clone form.
-
-7.  > Introduce these values:
-    
+6. Click Clone to open Create clone form.
+7. Introduce these values:    
     1.  Display Name: HOL\_XX (where XX is your initials. Example: John Snow Green should use HOL\_JSG)    
     2.  Name: HOL\_XX    
     3.  Check “Open cloned skill bot afterwards”    
