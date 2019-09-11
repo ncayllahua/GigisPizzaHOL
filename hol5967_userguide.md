@@ -87,81 +87,47 @@ Flow</span> - 98 -](#troubleshooting-errors-in-the-dialog-flow)
 
 # **Introduction**
 
-This HOL is based in a Demo developed by WeDo Team as part of an
-innovation initiative to approach Oracle Cloud Solutions by providing
+This HOL is based in a Demo developed by WeDo Team as part of an innovation initiative to approach Oracle Cloud Solutions by providing
 practical examples that could be “touched” and easily understood.
 
-Demo is known as Gigi’s Pizza. The Use Case is focused
-in microservices/serverless (fn) and Multitenant DataBase. We
-have three microservices coded in different languages like nodejs and
-of course Java (Helidon framework). This three microservices are part of
-a delivery pizza app, one microservice controls the orders, other one
-controls the pizza delivery and the last one controls the accounting. We
-coded a serverless function to calculate discounts, according to several
-bussiness rules like credit card type or pizza order total prize.
+Demo is known as Gigi’s Pizza. The Use Case is focused in microservices/serverless (fn) and Multitenant DataBase. We
+have three microservices coded in different languages like nodejs and of course Java (Helidon framework). This three microservices are part of a delivery pizza app, one microservice controls the orders, other one controls the pizza delivery and the last one controls the accounting. We coded a serverless function to calculate discounts, according to several bussiness rules like credit card type or pizza order total prize.
 
-1.  Order data will be saved as JSON files in multitenant DB (nodejs
-    microservice)
+1.  Order data will be saved as JSON files in multitenant DB (nodejs microservice)
+2.  Delivery data will be accessed as graph node DB (nodejs microservice and mobile app)
+3.  Accounting data will be saved as regular SQL data (Java -Helidon- microservice)
+    
+We have coded the front-end part of Gigi's pizza app with Visual Builder Cloud Service, that is the Oracle WYSIWYG - What You See Is What You Get - Service. We have three front-end webapps:
 
-2.  Delivery data will be accessed as graph node DB (nodejs microservice
-    and mobile app)
+1.  Orders front-end. It's a list of orders to the cookers (only PIZZA ORDER and PIZZA COOKED status are visualized)
 
-3.  Accounting data will be saved as regular SQL data (Java -Helidon-
-    microservice)
+2.  Payment front-end. It's the accounting part of the demo and a dashboard to the manager of the gigi's pizza store.
 
-We have coded the front-end part of Gigi's pizza app with Visual Builder
-Cloud Service, that is the Oracle WYSIWYG - What You See Is What You Get
-- Service. We have three front-end webapps:
+3.  Stream front-end. It visualize the pizza status messages (We use Oracle Cloud Streams).
 
-1.  Orders front-end. It's a list of orders to the cookers (only PIZZA
-    ORDER and PIZZA COOKED status are visualized)
-
-2.  Payment front-end. It's the accounting part of the demo and a
-    dashboard to the manager of the gigi's pizza store.
-
-3.  Stream front-end. It visualize the pizza status messages (We use
-    Oracle Cloud Streams).
-
-Finally we have tied a chatbot(Skill) with the microservice-order as a
-front-end to order the pizzas. And a mobile application for the delivery
-employees. This mobile app gets the PIZZA OUT FOR DELIVERY status orders
-and calculates the best route from the Gigi's pizza store to the
-customer address using Oracle Spatial PDB as location gps
-points/nodes database.
+Finally we have tied a chatbot(Skill) with the microservice-order as a front-end to order the pizzas. And a mobile application for the delivery employees. This mobile app gets the PIZZA OUT FOR DELIVERY status orders and calculates the best route from the Gigi's pizza store to the customer address using Oracle Spatial PDB as location gps points/nodes database.
 
 ![](./media/image2.tiff)
 
 ## **HOL to be done in 2 hours.**
 
-This HOL is a subset of the above mentioned demo. Due to time
-restrictions, we will focus in three main tasks for you to complete
+This HOL is a subset of the above mentioned demo. Due to time restrictions, we will focus in three main tasks for you to complete
 during the HOL delivery:
 
-1.  Setup an Oracle Cloud Infrastructure Free Trial instance where you
-    can:
+1.  Setup an Oracle Cloud Infrastructure Free Trial instance where you can:
     
-    1.  Provision a Developer Cloud Service(DevCS) Instance
-    
-    2.  Create a Kubernetes Clusters and setup access via ocicli and
-        kubectl
+    1.  Provision a Developer Cloud Service(DevCS) Instance    
+    2.  Create a Kubernetes Clusters and setup access via ocicli and kubectl
 
-2.  Import a DevCS Gigi’s pizza project and configure it to deploy demo
-    Microservices apps into the Kubernetes Cluster
+2.  Import a DevCS Gigi’s pizza project and configure it to deploy demo Microservices apps into the Kubernetes Cluster
 
-3.  Add a new feature to Microservices, deployment in Kubernetes Cluster
-    and configure and modify the user interface (A Digital Assistant) to
-    be able to provide new feature
+3.  Add a new feature to Microservices, deployment in Kubernetes Cluster and configure and modify the user interface (A Digital Assistant) to be able to provide new feature
 
 # **Setting up an Oracle Cloud Account**
 
-As an attendee to OOW/CodeOne 19 you have been provided with access to a
-free trial account part of Free Oracle Cloud Program with 500$ / 30 days
-trial. This trial is associated with the email address you used to
-register to event.
+As an attendee to OOW/CodeOne 19 you have been provided with access to a free trial account part of Free Oracle Cloud Program with 500$ / 30 days trial. This trial is associated with the email address you used to register to event.
 
-Go to
-[<span class="underline">http://cloud.oracle.com</span>](http://cloud.oracle.com)
-and click in the “Try for Free” button in the top right:
+Go to [<span class="underline">http://cloud.oracle.com</span>](http://cloud.oracle.com) and click in the “Try for Free” button in the top right:
 
 ![](./media/image3.png)
 
@@ -169,22 +135,17 @@ Then enter your email address and select your Country/Territory:
 
 ![](./media/image4.png)
 
-The system will detect that your email address has been whitelisted as
-Oracle attendee and you will be offered a free trial with no need to use
-a credit card or sms. Trial offered is for 500$ for 30 days.
+The system will detect that your email address has been whitelisted as Oracle attendee and you will be offered a free trial with no need to use a credit card or sms. Trial offered is for 500$ for 30 days.
 
 ![](./media/image5.png)
 
-Fill in required fields. For account type, select “Personal Use”. Select
-a name for your trial tenancy, a region and the rest of details:
+Fill in required fields. For account type, select “Personal Use”. Select a name for your trial tenancy, a region and the rest of details:
 
 ![](./media/image6.png)
 
 ![](./media/image7.png)
 
-Then enter a password required to authenticate in your tenancy when
-provisioned. Remember password has to be longer than 12 character and
-including at least an upper character and a special character:
+Then enter a password required to authenticate in your tenancy when provisioned. Remember password has to be longer than 12 character and including at least an upper character and a special character:
 
 ![](./media/image8.png)
 
@@ -192,8 +153,7 @@ Accept the Terms and Conditions:
 
 ![](./media/image9.png)
 
-And you will be redirected to the initial page or Oracle Cloud
-Infrastructure to authenticate for the first time in your tenancy:
+And you will be redirected to the initial page or Oracle Cloud Infrastructure to authenticate for the first time in your tenancy:
 
 ![](./media/image10.png)
 
@@ -201,24 +161,19 @@ Enter your user and password just created:
 
 ![](./media/image11.png)
 
-And you will be directed to initial Oracle Cloud Infrastructure
-Dashboard (referred from now on as OCI Dashboard):
+And you will be directed to initial Oracle Cloud Infrastructure Dashboard (referred from now on as OCI Dashboard):
 
 ![](./media/image12.png)
 
-Click in the hamburger icon on the top left side and menu will be shown.
-There select Platform Services(under More Oralce Cloud Services”
-Area)-\> Developer menu option.
+Click in the hamburger icon on the top left side and menu will be shown. There select Platform Services(under More Oralce Cloud Services” Area)-\> Developer menu option.
 
 ![](./media/image13.png)
 
-There you will be taken to Developer Cloud Service Welcome Page. Let’s
-start creating a DevCS instance. Click in Create Instance.
+There you will be taken to Developer Cloud Service Welcome Page. Let’s start creating a DevCS instance. Click in Create Instance.
 
 ![](./media/image14.png)
 
-In next screen provide an Instance Name and fill in also Region you want
-to create your instance, then click in Next Button:
+In next screen provide an Instance Name and fill in also Region you want to create your instance, then click in Next Button:
 
 ![](./media/image15.png)
 
@@ -226,53 +181,34 @@ Check the selections in previous screen an click in Create button:
 
 ![](./media/image16.png)
 
-Instance creation starts creating service as you can see in Status
-screen:
+Instance creation starts creating service as you can see in Status screen:
 
 ![](./media/image17.png)
 
-This process will take some time so let’s take advantage of time while
-this process ends, and we can then configure the Developer Cloud Service
-Instance.
-
-# 
+This process will take some time so let’s take advantage of time while this process ends, and we can then configure the Developer Cloud Service Instance.
 
 # **Getting key config data from Oracle Cloud Tenancy**
 
-Now before we are able to configure a Developer Cloud Service Instance,
-let’s gather some key info about our OCI tenancy that will be required
-throughout the whole lab. So we recommend you to create a txt file where
-you store this basic info you will be required to use several times
-during this lab:
+Now before we are able to configure a Developer Cloud Service Instance, let’s gather some key info about our OCI tenancy that will be required throughout the whole lab. So we recommend you to create a txt file where you store this basic info you will be required to use several times during this lab:
 
   - Tenancy OCID
-
   - User OCID
-
   - Private Key
-
   - Public Key
-
   - Fingerprint
-
   - Auth Token
-
   - Compartment OCID
-
   - Object Storage Namespace
 
 ## How to get OCI tenancy config data to configure DevCS
 
-In Oracle Cloud Infrastructure interface menu, go to
-Administration-\>Tenancy Details:
+In Oracle Cloud Infrastructure interface menu, go to Administration-\>Tenancy Details:
 
 ![](./media/image18.png)
 
-In Tenancy information area, select copy button so that you copy the
-OCID for tenancy and don’t forget to make a note in a txt file.
+In Tenancy information area, select copy button so that you copy the OCID for tenancy and don’t forget to make a note in a txt file.
 
-Also copy the Object Storage Namespace under the Object Storage Setting
-area and don’t forget to make a note in a text file.
+Also copy the Object Storage Namespace under the Object Storage Setting area and don’t forget to make a note in a text file.
 
 ![](./media/image19.png)
 
@@ -280,58 +216,44 @@ Now go to Menu option Identity-\>Users:
 
 ![](./media/image20.png)
 
-In Users area, click on copy button for your email address user(remember
-this user has admin role in OCI tenancy) so that you can copy the user’s
-OCID. Don’t forget to make a note in a txt file.
+In Users area, click on copy button for your email address user(remember this user has admin role in OCI tenancy) so that you can copy the user’s OCID. Don’t forget to make a note in a txt file.
 
 ![](./media/image21.png)
 
-Now we will create an Auth token for the user by using a public and
-private key. We will provide you with two already created .pem keys to
-download in:
+Now we will create an Auth token for the user by using a public and private key. We will provide you with two already created .pem keys to download in:
 
 [<span class="underline">https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/Credentials</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/Credentials)
 
-First thing you need to do is viewing content of Private Key and copying
-private key, making a note in a txt file. Then do the same with public
-key and copy content into clipboard.
+First thing you need to do is viewing content of Private Key and copying private key, making a note in a txt file. Then do the same with public key and copy content into clipboard.
 
 ![](./media/image22.png)
 
-Now click in your email user and you will be directed to a details
-screen, where you must click in Api Keys area in “Add Public Key”
+Now click in your email user and you will be directed to a details screen, where you must click in Api Keys area in “Add Public Key”
 button.
 
 ![](./media/image23.png)
 
-Now paste in popup window the Public Key previously copied in clipboard.
-Make sure you have copied public.pem content and not private.pem
-content. Click in Add button.
+Now paste in popup window the Public Key previously copied in clipboard. Make sure you have copied public.pem content and not private.pem content. Click in Add button.
 
 ![](./media/image24.png)
 
-Now copy Fingerprint generated as it will be used later. Don’t forget to
-make a note in a txt file.
+Now copy Fingerprint generated as it will be used later. Don’t forget to make a note in a txt file.
 
 ![](./media/image25.png)
 
-Now create parameter required (AuthToken) by clicking in Auth Tokens
-under Resources area, clicking in Generate Token button and then
+Now create parameter required (AuthToken) by clicking in Auth Tokens under Resources area, clicking in Generate Token button and then
 providing a description:
 
-IMPORTANT REMINDER: AFTER YOU CLICK IN Generate Token Button, COPY THIS
-AUTHTOKEN AND KEEP SAFE AS IT CANNOT BE FOUND LATER
+IMPORTANT REMINDER: AFTER YOU CLICK IN Generate Token Button, COPY THIS AUTHTOKEN AND KEEP SAFE AS IT CANNOT BE FOUND LATER
 
 ![](./media/image26.png)
 
-IMPORTANT: Copy the Generated Token in a txt file and keep safe as we
-will require it later:
+IMPORTANT: Copy the Generated Token in a txt file and keep safe as we will require it later:
 
 ![](./media/image27.png)
 
-Now we have to create a new Compartment as currently we only have the
-root one in tenancy by default. In OCI Dashboard Menu go to
-Identity-\>Compartments
+Now we have to create a new Compartment as currently we only have the root one in tenancy by default. In OCI Dashboard Menu go to
+Identity-\>Compartments 
 
 ![](./media/image28.png)
 
@@ -345,55 +267,41 @@ Now click in Compartment name you have just created (HandOnLab for me):
 
 ![](./media/image30.png)
 
-And click on copy link to copy the Compartment OCID. Don’t forget to
-make a note in a txt file.
+And click on copy link to copy the Compartment OCID. Don’t forget to make a note in a txt file.
 
 ![](./media/image31.png)
 
-This concludes the list of OCI tenancy parameters you will require to
-run next section.
+This concludes the list of OCI tenancy parameters you will require to run next section.
 
 # **Configuring a Developer Cloud Service Instance**
 
-Now let’s check that Developer Cloud Service has been created so that we
-can configure it.
+Now let’s check that Developer Cloud Service has been created so that we can configure it.
 
 Check updated status by clicking in ![](./media/image32.png) icon:
 
 ![](./media/image33.png)
 
-Once the Developer Cloud Service instance has been provisioned, click on
-the right side menu and select: “Access Service Instance”:
+Once the Developer Cloud Service instance has been provisioned, click on the right side menu and select: “Access Service Instance”:
 
 ![](./media/image34.png)
 
-You will see next screen where you are requested to run some extra
-configurations related with Compute & Storage. Click in OCI Credentials
-link in Message and have close to you the txt file with OCI information
-previously gathered:
+You will see next screen where you are requested to run some extra configurations related with Compute & Storage. Click in OCI Credentials link in Message and have close to you the txt file with OCI information previously gathered:
 
 ![](./media/image35.png)
 
-Select OCI for Account type and fill in the rest of the fields. Leave
-passphrase blank and also check the box below.
+Select OCI for Account type and fill in the rest of the fields. Leave passphrase blank and also check the box below.
 
-Then click on validate button and if compute and storage connections are
-correct, then click on Save button.
+Then click on validate button and if compute and storage connections are correct, then click on Save button.
 
 ![](./media/image36.png)
 
 ## Virtual Machines Template configuration in DevCS
 
-Now we need to configure one or two VM servers to be able to build your
-project developments. We will create a VM Build Server to be used to
-compile and Build Microservices components and another to compile and
-Build Fn Function (Serverless) components that will require a different
-set of Software components:
+Now we need to configure one or two VM servers to be able to build your project developments. We will create a VM Build Server to be used to compile and Build Microservices components and another to compile and Build Fn Function (Serverless) components that will require a different set of Software components:
 
 ![](./media/image37.png)
 
-To do this, we have to create a first virtual Machine Template to be
-used with Microservices, so click in Virtual Machines Templates tab:
+To do this, we have to create a first virtual Machine Template to be used with Microservices, so click in Virtual Machines Templates tab:
 
 ![](./media/image38.png)
 
@@ -401,8 +309,7 @@ Now click on Create button:
 
 ![](./media/image39.png)
 
-Provide a Name(like VM\_basic\_Template) and select Oracle Linux 7 as
-Platform:
+Provide a Name(like VM\_basic\_Template) and select Oracle Linux 7 as Platform:
 
 ![](./media/image40.png)
 
@@ -410,47 +317,30 @@ Now Click in Configure Software button:
 
 ![](./media/image41.png)
 
-Now select the mínimum Software packages will will require later to
-build our project. If you remember from Introduction section, we will
-build microservices developed with Node JS v8 and Java . We will also
-require to access to OCI so OCICli will be required and thus Python will
-be also needed. Then we will have to build Docker images and also deploy
-those images in a Kubernetes Cluster thus KUBECtl will be needed too.
-Finally we also need the Minimum required Build VM components. So mark
-software components options below:
+Now select the mínimum Software packages will will require later to build our project. If you remember from Introduction section, we will build microservices developed with Node JS v8 and Java . We will also require to access to OCI so OCICli will be required and thus Python will be also needed. Then we will have to build Docker images and also deploy those images in a Kubernetes Cluster thus KUBECtl will be needed too. Finally we also need the Minimum required Build VM components. So mark software components options below:
 
   - Docker 17.12
-
   - Kubectl
-
   - Node.js 8
-
   - OCIcli
-
   - Python 3.3.6
-
   - Required Build VM Components
 
 ![](./media/image42.png)
 
-Click in Done button and we will have finally our VM template created
-like below:
+Click in Done button and we will have finally our VM template created like below:
 
 ![](./media/image43.png)
 
-Now we will create a second Virtual Machine Template for Serverless
-Components. Click in Create Template again and fill in fields and click
-on Create button:
+Now we will create a second Virtual Machine Template for Serverless Components. Click in Create Template again and fill in fields and click on Create button:
 
 ![](./media/image44.png)
 
-Now we will select specific Software components required for Fn Function
-build process. Click in Configure Software button:
+Now we will select specific Software components required for Fn Function build process. Click in Configure Software button:
 
 ![](./media/image45.png)
 
-Now configure software components. Fn 0 will have to be selected
-together with Docker, OCIcli, Kubectl, Python and required build VM
+Now configure software components. Fn 0 will have to be selected together with Docker, OCIcli, Kubectl, Python and required build VM
 components. No Node JS and Java components this time required:
 
 ![](./media/image46.png)
@@ -461,14 +351,11 @@ Click on Done and these are the software components in VM template:
 
 ## Build Virtual Machines configuration in DevCS
 
-Now we have to create a couple of real VM in OCI based in Virtual
-Machine template just created. So, we will select Build Virtual Machines
-Tab and will click on Create button:
+Now we have to create a couple of real VM in OCI based in Virtual Machine template just created. So, we will select Build Virtual Machines Tab and will click on Create button:
 
 ![](./media/image48.png)
 
-Now Select 1 as quantity, select the previously created template, your
-region and finally select as Shape the option VM.Standard.E2.2:
+Now Select 1 as quantity, select the previously created template, your region and finally select as Shape the option VM.Standard.E2.2:
 
 ![](./media/image49.png)
 
@@ -476,21 +363,17 @@ Now your VM will start creation process
 
 ![](./media/image50.png)
 
-It is important to modify to Sleep Timeout a recommend value of300
-minutes (basically longer than lab duration) so that once started, the
-build server won’t automatically enter into sleep mode.
+It is important to modify to Sleep Timeout a recommend value of300 minutes (basically longer than lab duration) so that once started, the build server won’t automatically enter into sleep mode.
 
 ![](./media/image51.png)
 
-And now we will create following the same process a second Build Virtual
-machine using the Fn Function defined template:
+And now we will create following the same process a second Build Virtual machine using the Fn Function defined template:
 
 ![](./media/image52.png)
 
 ![](./media/image53.png)
 
-IMPORTANT NOTE: At this point try to manually start both VM Servers like
-in screenshot below:
+IMPORTANT NOTE: At this point try to manually start both VM Servers like in screenshot below:
 
 ![](./media/image54.png)
 
@@ -500,21 +383,16 @@ And check that Status changes to starting in both servers:
 
 # **Creating a Kubernetes Cluster**
 
-Now it is time to create a Kubernetes Cluster to deploy the
-microservices we will create in next section.
+Now it is time to create a Kubernetes Cluster to deploy the microservices we will create in next section.
 
-Start by creating a policy that allows Service OKE to be created to
-manage all resources in this tenancy. To do this in OCI Dashboard Menu
-go to Identity-\>Policies.
+Start by creating a policy that allows Service OKE to be created to manage all resources in this tenancy. To do this in OCI Dashboard Menu go to Identity-\>Policies.
 
 ![](./media/image56.png)
 
-Check that root compartment is selected. Then click in Button Create
-Policy and fill in fields taking special care of filling in Statement
-field in Policy Statements area with this value:
-
+Check that root compartment is selected. Then click in Button Create Policy and fill in fields taking special care of filling in Statement field in Policy Statements area with this value:
+```
 Allow service OKE to manage all-resources in tenancy
-
+```
 And then click in Create button:
 
 ![](./media/image57.png)
@@ -523,28 +401,21 @@ Then check that the policy has been created:
 
 ![](./media/image58.png)
 
-Then in OCI Dashboard Menu go to: Developer Services-\> Container
-Clusters (OKE)
+Then in OCI Dashboard Menu go to: Developer Services-\> Container Clusters (OKE)
 
 ![](./media/image59.png)
 
-Select the compartment you have previously created under List Scope and
-click in Create Cluster button:
+Select the compartment you have previously created under List Scope and click in Create Cluster button:
 
 ![](./media/image60.png)
 
-Provide a name for the cluster, then select QUICK CREATE option and in
-Shape select VM.Standard1.1 and the click in Create button setting the
-default options for the rest of parameters:
+Provide a name for the cluster, then select QUICK CREATE option and in Shape select VM.Standard1.1 and the click in Create button setting the default options for the rest of parameters:
 
 ![](./media/image61.png)
 
 ![](./media/image62.png)
 
-The previous QUICK CREATE Option will setup a 3 nodes Kubernetes Cluster
-with predefined Virtual Cloud Network, 3 Subnets, Security Lists, Route
-tables. When you are done with checks, please click on the Requesting
-Cluster area in your Cluster name.
+The previous QUICK CREATE Option will setup a 3 nodes Kubernetes Cluster with predefined Virtual Cloud Network, 3 Subnets, Security Lists, Route tables. When you are done with checks, please click on the Requesting Cluster area in your Cluster name.
 
 Note: Cluster creation process can take several minutes.
 
@@ -552,68 +423,46 @@ Note: Cluster creation process can take several minutes.
 
 ![](./media/image64.png)
 
-Then you are taken to the Cluster Information page. Please copy Cluster
-id and don’t forget to make a note in a txt file as you will need this
-data later:
+Then you are taken to the Cluster Information page. Please copy Cluster id and don’t forget to make a note in a txt file as you will need this data later:
 
 ![](./media/image65.png)
 
-It will take several minutes for the cluster to be created. Once
-created, if you scroll down in previous screen and select Node Pools
-under Resources area,you can check that a Node Pool with three Node
-Clusters have been created:
+It will take several minutes for the cluster to be created. Once created, if you scroll down in previous screen and select Node Pools
+under Resources area,you can check that a Node Pool with three Node Clusters have been created:
 
 ![](./media/image66.png)
 
-Note: you may find that Compute nodes have not been created yet as. This
-process can take several minutes as compute instances have to be created
-and then started:
+Note: you may find that Compute nodes have not been created yet as. This process can take several minutes as compute instances have to be created and then started:
 
 ![](./media/image67.tiff)
 
-Now your Kubernetes Cluster is created. But we need to run some extra
-steps to get started with managing the Kubernetes Cluster.
+Now your Kubernetes Cluster is created. But we need to run some extra steps to get started with managing the Kubernetes Cluster.
 
-If you click under Resources section in Getting Started. This section
-explains steps to access to you Cluster dashboard by using Kubectl. In
-this section it is explained in detail how to install ocicli and kubectl
-to access to Kubernetes management tool:
+If you click under Resources section in Getting Started. This section explains steps to access to you Cluster dashboard by using Kubectl. In this section it is explained in detail how to install ocicli and kubectl to access to Kubernetes management tool:
 
 ![](./media/image68.png)
 
 ![](./media/image69.png)
 
-So that we avoid installing in your laptops these components that also
-require Python and other prereqs, we will provide you in next section
-with **two preinstalled options(YOU ONLY NEED TO DO ONE OF THE NEXT TWO
-SECTIONS)** for which **you should have either Virtual Box or Docker
-installed in advance in your laptop**:
+So that we avoid installing in your laptops these components that also require Python and other prereqs, we will provide you in next section with **two preinstalled options(YOU ONLY NEED TO DO ONE OF THE NEXT TWO SECTIONS)** for which **you should have either Virtual Box or Docker installed in advance in your laptop**:
 
 1)  An OVA VM image if you already have VirtualBox installed
-
 2)  A Docker Image if you already have Docker installed
 
 ## Using Virtualbox and a preconfigured VM image
 
-You can start downloading OVA image from
-<span class="underline">[here](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/uSoIJjzgKco9rcad8mxMhJJZmZHxct2NLzMzLC27ffc/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/OOW2019HOL.ova)
-.</span>Alternative we will provide USB memory sticks with OVA image to
-be copied.
+You can start downloading OVA image from <span class="underline">[here](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/uSoIJjzgKco9rcad8mxMhJJZmZHxct2NLzMzLC27ffc/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/OOW2019HOL.ova).</span>Alternative we will provide USB memory sticks with OVA image to be copied.
 
-Note: If you are not familiar with VirtualBox, please make sure you have
-Guest Additions installed or follow this manual to install:
+Note: If you are not familiar with VirtualBox, please make sure you have Guest Additions installed or follow this manual to install:
 [<span class="underline">https://www.virtualbox.org/manual/ch04.html\#sharedfolders</span>](https://www.virtualbox.org/manual/ch04.html#sharedfolders)
 
-This tooling will help you for instance to copy/paste between the VM and
-the host.
+This tooling will help you for instance to copy/paste between the VM and the host.
 
-Once Image is downloaded or copied, please import the image in Oracle VM
-VirtualBox. Select Menu File and Import Appliance…:
+Once Image is downloaded or copied, please import the image in Oracle VM VirtualBox. Select Menu File and Import Appliance…:
 
 ![](./media/image70.tiff)
 
-Then choose the path to the .OVA copied or downloaded before and click
-in Continue button:
+Then choose the path to the .OVA copied or downloaded before and click in Continue button:
 
 ![](./media/image71.tiff)
 
@@ -625,17 +474,13 @@ The process will take several minutes:
 
 ![](./media/image73.tiff)
 
-Once imported, you will have a VM named DOC-1017486. Start the VM by
-clicking in start button:
+Once imported, you will have a VM named DOC-1017486. Start the VM by clicking in start button:
 
 ![](./media/image74.tiff)
 
-It should take some time to start the VM. Click on enter and you should
-see the login screen.
+It should take some time to start the VM. Click on enter and you should see the login screen.
 
-**NOTE:** If you face any issue, please check that Graphic Controller
-selected is VBoxSVGA as there are some issues in VirtualBox 6 if you use
-a different one.
+**NOTE:** If you face any issue, please check that Graphic Controller selected is VBoxSVGA as there are some issues in VirtualBox 6 if you use a different one.
 
 ![](./media/image75.tiff)
 
@@ -643,37 +488,30 @@ Click on Hand-On Lab User. Password for user is oracle.
 
 ![](./media/image76.png)
 
-Once logged in, open a terminal window and execute next command to
-configure ocicli:
+Once logged in, open a terminal window and execute next command to configure ocicli:
 
 oci setup config
 
 ![](./media/image77.png)
 
-Keep your txt file with your OCI Tenancy parameters close as you will be
-asked for those parameters. Before starting, please copy into the VM the
-private key previously provided:
+Keep your txt file with your OCI Tenancy parameters close as you will be asked for those parameters. Before starting, please copy into the VM the private key previously provided:
 
 ![](./media/image78.png)
 
 ![](./media/image79.png)
 
-Decline to generate a new RSA key pair, copy your private key previously
-provided into the VM. We recommend you to paste it into this path:
+Decline to generate a new RSA key pair, copy your private key previously provided into the VM. We recommend you to paste it into this path:
 
 /home/holouser/.oci
 
 ![](./media/image80.png)
 
-Now let’s configure kubectl. Inside your cluster information page, click
-the “Access Kubeconfig” button:
+Now let’s configure kubectl. Inside your cluster information page, click the “Access Kubeconfig” button:
 
 ![](./media/image81.png)
 
-A popup window will appear providing you with the commands you have to
-run to configure kubectl to connect to the Kubernetes cluster just
-created(change value below with your own cluster id and region):
-
+A popup window will appear providing you with the commands you have to run to configure kubectl to connect to the Kubernetes cluster just created(change value below with your own cluster id and region):
+```
 1)  mkdir -p $HOME/.kube
 
 2)  oci ce cluster create-kubeconfig --cluster-id
@@ -681,18 +519,16 @@ created(change value below with your own cluster id and region):
     --file $HOME/.kube/config --region eu-frankfurt-1
 
 3)  export KUBECONFIG=$HOME/.kube/config
-
+```
 ![](./media/image82.png)
 
-When you execute commands below, you can face an issue and you must run
-an extra command to configure private key permissions:
+When you execute commands below, you can face an issue and you must run an extra command to configure private key permissions:
 
 oci setup-repair-file-permissions –file /home/holouser/.oci/private.pem
 
 ![](./media/image83.png)
 
-We will follow steps mentioned in Getting Started section, so that we
-can launch the Kubernetes Dashboard:
+We will follow steps mentioned in Getting Started section, so that we can launch the Kubernetes Dashboard:
 
 ![](./media/image84.png)
 
@@ -706,13 +542,11 @@ And then open Firefox inside VM to go to Kubernetes Dashboard:
 
 ![](./media/image85.png)
 
-You will have to login using the kube config file created in previous
-steps:
+You will have to login using the kube config file created in previous steps:
 
 ![](./media/image86.png)
 
-NOTE: If you don’t see the .kube file, right click any folder and select
-option “Show Hidden Files”:
+NOTE: If you don’t see the .kube file, right click any folder and select option “Show Hidden Files”:
 
 ![](./media/image87.tiff)
 
@@ -728,43 +562,32 @@ And finally you are logged in Kube Dashboard:
 
 ![](./media/image90.png)
 
-To enable Kubernetes to pull an image from Oracle Cloud Infrastructure
-Registry when deploying an application, you need to create a Kubernetes
-secret. The secret includes all the login details you would provide if
-you were manually logging in to Oracle Cloud Infrastructure Registry
-using the docker login command, including your auth token.
+To enable Kubernetes to pull an image from Oracle Cloud Infrastructure Registry when deploying an application, you need to create a Kubernetes secret. The secret includes all the login details you would provide if you were manually logging in to Oracle Cloud Infrastructure Registry using the docker login command, including your auth token.
 
-Run kubectl command below with your credentials(remember that username
-is made of object storage namespace/username and password is the
+Run kubectl command below with your credentials(remember that username is made of object storage namespace/username and password is the
 Authtoken we generated):
 
+```
 ﻿kubectl create secret docker-registry ocirsecret
 --docker-server=fra.ocir.io
 --docker-username='frcjosyavuar/carlos.j.olivares@oracle.com'
 --docker-password='gewuo5U)b2)T6;r1yL\>1'
 --docker-email='carlos.j.olivares@oracle.com'
+```
 
-NOTE: To make sure that you don’t copy hidden characters, please copy
-this command template from:
-[<span class="underline">https://github.com/oraclespainpresales/GigisPizzaHOL</span>](https://github.com/oraclespainpresales/GigisPizzaHOL)
+NOTE: To make sure that you don’t copy hidden characters, please copy this command template from: [<span class="underline">https://github.com/oraclespainpresales/GigisPizzaHOL</span>](https://github.com/oraclespainpresales/GigisPizzaHOL)
 
 ![](./media/image91.png)
 
-If you go then to Kubernetes Dashboard in browser inside the VM and
-navigate to Secrets menu under Config and Storage Area, you will see the
-Secret you have just created:
+If you go then to Kubernetes Dashboard in browser inside the VM and navigate to Secrets menu under Config and Storage Area, you will see the Secret you have just created:
 
 ![](./media/image92.png)
 
-**IMPORTANT NOTE:** Once you finish this section, skip section below and
-move to next section Titled [**<span class="underline">Importing a
-Developer Cloud Service Project</span>**](#_Toc18932109)
+**IMPORTANT NOTE:** Once you finish this section, skip section below and move to next section Titled [**<span class="underline">Importing a Developer Cloud Service Project</span>**](#_Toc18932109)
 
 ## Using Docker and a preconfigured image
 
-If you have docker already installed in your laptop (ideally on Mac or
-Linux as Windows docker version may face some issues), open a terminal
-window and pull docker image associated to this hands-on-lab:
+If you have docker already installed in your laptop (ideally on Mac or Linux as Windows docker version may face some issues), open a terminal window and pull docker image associated to this hands-on-lab:
 
 docker pull colivares1974/ociimage:hol5967
 
@@ -772,27 +595,19 @@ docker pull colivares1974/ociimage:hol5967
 
 Now create a folder in your local drive:
 
-Linux/MacOS: mkdir -p \~/ociimage/tmp or Windows: c:\\\> md ociimage/tmp
+```Linux/MacOS: 
+mkdir -p \~/ociimage/tmp or Windows: c:\\\> md ociimage/tmp
+```
 
 ![](./media/image94.png)
 
 Launch Container while mounting the ociimage file:
-
-docker run -it -p 8001:8001 -v \~/ociimage/tmp:/root/tmp
-colivares1974/ociimage:hol5967
-
+```
+docker run -it -p 8001:8001 -v \~/ociimage/tmp:/root/tmp colivares1974/ociimage:hol5967
+```
 ![](./media/image95.png)
 
-Now let’s configure access to oci tenancy via ocicli with our tenancy
-details. This info will be used by kubectl to configure a config file to
-access to Kubernetes cluster previously created. Then, to enable
-Kubernetes to pull an image from Oracle Cloud Infrastructure Registry
-when deploying our application, you need to create a Kubernetes secret.
-The secret includes all the login details you would provide if you were
-manually logging in to Oracle Cloud Infrastructure Registry using the
-docker login command, including your auth token. Finally we will launch
-Kubernetes proxy so that we can have access to Kubernetes Dashboard from
-a web browser.
+Now let’s configure access to oci tenancy via ocicli with our tenancy details. info will be used by kubectl to configure a config file to access to Kubernetes cluster previously created. Then, to enable Kubernetes to pull an image from Oracle Cloud Infrastructure Registry when deploying our application, you need to create a Kubernetes secret. The secret includes all the login details you would provide if you were manually logging in to Oracle Cloud Infrastructure Registry using the docker login command, including your auth token. Finally we will launch Kubernetes proxy so that we can have access to Kubernetes Dashboard from a web browser.
 
 All these steps are explained in detail:
 
