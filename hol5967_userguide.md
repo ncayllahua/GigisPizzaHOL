@@ -1070,43 +1070,41 @@ Content-Type: application-json
 And body of type raw(JSON):
 ```json
 {
-"order":{
-    "orderId": "FerInt101",
-    "dateTimeOrderTaken": "2002-09-24-06:00",
-    "takenByEmployee": "emp002",
-    "customer": {
-        "customerId": {
-            "telephone": "657765412",
-            "email": "carlos.j.olivares@oracle.com"
-        }
-     },
-     "pizzaOrdered": {
-        "baseType": "dough & tomatoe & cheese",
-        "topping1": "Ham",
-        "topping2": "Pepperoni",
-        "topping3": "Prawn"
-     },
-     "totalPrice": "10$",
-     "upgrade":"yes"
-    },
-    "payment":{
-        "paymentid": "FerInt001",
-        "paymentTime": "30-APR-2019 12:45 AM",
-        "orderId": "FerInt001",
-        "paymentMethod": "VISA",
-        "serviceSurvey": "5",
-        "totalPayed": "33",
-        "customerId": "c345"
-     },
-     "customerAdress": {
-         "street": "Plaza de la Puerta del Sol",
-         "number": "s/n",
-         "door": "",
-         "email": "joe.smith@myemail.es",
-         "cityCode": "28013",
-         "city": "Madrid"
-     },
-     "status": "ORDERED"
+ "order": {
+   "orderId": "FerInt047",
+   "dateTimeOrderTaken": "2002-09-24-06:00",
+   "takenByEmployee": "emp001",
+   "customer": {
+     "customerId": {
+       "telephone": "657765412",
+       "email": "ivan.smith@myemail.es"
+     }
+   },
+   "pizzaOrdered": {
+     "baseType": "dough & tomatoe & cheese",
+     "topping1": "Cheese",
+     "topping2": "Pepperoni",
+     "topping3": "Prawn"
+   },
+   "totalPrice": "12$"
+ },
+ "payment": {
+   "paymentid": "FerInt047",
+   "paymentTime": "01-JUN-2019 12:45 AM",
+   "orderId": "FerInt001",
+   "paymentMethod": "AMEX",
+   "serviceSurvey": "5",
+   "totalPaid": "10",
+   "customerId": "c345"
+ },
+ "customerAdress": {
+   "street": "Plaza de la Puerta del Sol",
+   "number": "s/n",
+   "door": "",
+   "email": "joe.smith@myemail.es",
+   "cityCode": "28013",
+   "city": "Madrid"
+ }
 }
 ```
 ![](./media/image170.png)
