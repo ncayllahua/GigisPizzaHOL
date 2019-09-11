@@ -105,7 +105,7 @@ We have coded the front-end part of Gigi's pizza app with Visual Builder Cloud S
 
 Finally we have tied a chatbot(Skill) with the microservice-order as a front-end to order the pizzas. And a mobile application for the delivery employees. This mobile app gets the PIZZA OUT FOR DELIVERY status orders and calculates the best route from the Gigi's pizza store to the customer address using Oracle Spatial PDB as location gps points/nodes database.
 
-![](./media/image2.tiff)
+![](./media/image2.png)
 
 ## **HOL to be done in 2 hours.**
 
