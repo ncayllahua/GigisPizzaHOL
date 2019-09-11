@@ -1029,7 +1029,11 @@ Click edit button to modify it:
 
 ![](./media/image164.png)
 
-Add: "\<li\>Upgrade Selected: "+currentValue.upgrade+"\</li\>"+ after toppings info in line 206 . Then commit your changes:
+Add after toppings info in **line 206**.
+```
+"<li>Upgrade Selected: " + currentValue.upgrade + "</li>" +
+```
+Then commit your changes:
 
 ![](./media/image165.png)
 
