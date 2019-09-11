@@ -163,7 +163,7 @@ And you will be directed to initial Oracle Cloud Infrastructure Dashboard (refer
 
 ![](./media/image12.png)
 
-Click in the hamburger icon on the top left side and menu will be shown. There select Platform Services(under More Oralce Cloud Services” Area)-\> Developer menu option.
+Click in the hamburger icon on the top left side and menu will be shown. There select Platform Services (under More Oracle Cloud Services” Area)-\> Developer menu option.
 
 ![](./media/image13.png)
 
