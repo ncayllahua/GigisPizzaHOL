@@ -1200,150 +1200,87 @@ As we don’t have enough time, we will skip this step.
 
 On this case, we are going to modify the existing dialog flow to ask the user to carry out an upgrade of their order, and we will give him a towel.
 
-1.  > After cloning the skill on step one, you can test that all it’s
-    > ok. So, click Train button on the upper right corner.
+1. After cloning the skill on step one, you can test that all it’s ok. So, click Train button on the upper right corner.
 
-> ![](./media/image176.png)
+![](./media/image176.png)
 
-2.  > *We provide two models that learn from your corpus: Trainer Ht and
-    > Trainer Tm. Each uses a different algorithm to reconcile the user
-    > input against your intents. Trainer Ht uses pattern matching while
-    > Trainer Tm a machine learning algorithm which uses word vectors.*
+2. *We provide two models that learn from your corpus: Trainer Ht and Trainer Tm. Each uses a different algorithm to reconcile the user  input against your intents. Trainer Ht uses pattern matching while Trainer Tm a machine learning algorithm which uses word vectors.*
+In this case, we are going to use Ht 
+Now click on Submit button
+ 
+![](./media/image177.png)
 
-> In this case, we are going to use Ht
-> 
-> Now click on Submit button
-> 
-> ![](./media/image177.png)
+3. After a few seconds of training, you should receive a message that all it’s ok.
 
-3.  > After a few seconds of training, you should receive a message that
-    > all it’s ok.
+![](./media/image178.png)
 
-> ![](./media/image178.png)
+4. *The dialog flow definition is the model for the conversation itself, one that lets you choreograph the interaction between a skill and its users. Oracle Digital Assistant provide a graphical editor (conversation designer) and code editor.*
 
-4.  > *The dialog flow definition is the model for the conversation
-    > itself, one that lets you choreograph the interaction between a
-    > skill and its users. Oracle Digital Assistant provide a graphical
-    > editor (conversation designer) and code editor.*
+*Using the Skill Builder (code editor), you define the framework of the user-skill exchange in OBotML, Digital Assistant’s own implementation of YAML. This is a simple markup language, one that lets you describe a dialog both in terms of what your skill says and what it does.*
 
-> *Using the Skill Builder (code editor), you define the framework of
-> the user-skill exchange in OBotML, Digital Assistant’s own
-> implementation of YAML. This is a simple markup language, one that
-> lets you describe a dialog both in terms of what your skill says and
-> what it does.*
-> 
-> *You define each bit of dialog and its related operations as a
-> sequence of transitory states, which manage the logic within the
-> dialog flow. To cue the action, each state node within your OBotML
-> definition names a component that provides the functionality needed at
-> that point in the dialog. States are essentially built around the
-> components. They contain component-specific properties and define the
-> transitions to other states that get triggered after the component
-> executes.*
-> 
-> Now, click on flows button on the left side.
-> 
-> ![](./media/image179.png)
+*You define each bit of dialog and its related operations as a sequence of transitory states, which manage the logic within the dialog flow. To cue the action, each state node within your OBotML definition names a component that provides the functionality needed at that point in the dialog. States are essentially built around the components. They contain component-specific properties and define the transitions to other states that get triggered after the component executes.*
+ 
+Now, click on flows button on the left side.
+ 
+![](./media/image179.png)
 
-5.  > Now we are going to include a new state to ask the customer if
-    > they want an upgrade and a free towel. Go to line 12 and declare a
-    > new “upgrade” variable to collect the customer’s answer. Keep in
-    > mind that editor provide the autosaving feature, don’t look for a
-    > Save button ;-)
+5. Now we are going to include a new state to ask the customer if they want an upgrade and a free towel. Go to line 12 and declare a new “upgrade” variable to collect the customer’s answer. Keep in mind that editor provide the autosaving feature, don’t look for a Save button ;-)
 
-> ![](./media/image180.png)
+![](./media/image180.png)
 
-6.  > Include a new state to ask about the upgrade to the customer.
+6. Include a new state to ask about the upgrade to the customer. *Components give your skill its actual functionality. The state nodes in your dialog flow definition are built around them. These reusable units of work perform all manner of tasks and functions, from the basic management of the dialog flow to case-specific actions*
 
-> *Components give your skill its actual functionality. The state nodes
-> in your dialog flow definition are built around them. These reusable
-> units of work perform all manner of tasks and functions, from the
-> basic management of the dialog flow to case-specific actions*
-> 
-> *Every state in your dialog flow names a component that performs an
-> action, such as accepting user input, verifying that input, or
-> responding with text. Each component has a specified set of properties
-> that you can use to pass and receive values as well as control the
-> component's behavior. For example, the following state uses
-> the System.List component to display a list of values that the user
-> can choose from.*
-> 
-> *There are two types of components that you can use in a dialog flow –
-> built-in components and custom components. When the Dialog Engine
-> enters a state in the dialog flow, it assesses the component. When it
-> encounters one of the built-in components (noted by System.), it
-> executes one of the generic tasks, such as display a message or prompt
-> the user to enter text. When the Dialog Engine discovers a custom
-> component, however, it calls the component's service, which hosts one
-> or more custom components.*
-> 
-> Now, click on Components button.
-> 
-> ![](./media/image181.png)
+*Every state in your dialog flow names a component that performs an action, such as accepting user input, verifying that input, or responding with text. Each component has a specified set of properties that you can use to pass and receive values as well as control the component's behavior. For example, the following state uses the System.List component to display a list of values that the user can choose from.*
 
-7.  > On the components window, choose “User interface”
+*There are two types of components that you can use in a dialog flow – built-in components and custom components. When the Dialog Engine enters a state in the dialog flow, it assesses the component. When it encounters one of the built-in components (noted by System.), it executes one of the generic tasks, such as display a message or prompt the user to enter text. When the Dialog Engine discovers a custom component, however, it calls the component's service, which hosts one or more custom components.*
 
-> ![](./media/image182.png)
+Now, click on Components button.
+ 
+![](./media/image181.png)
 
-8.  > Now choose “Text”, after that on the value list select
-    > “confirmation” to insert the System.Text component after
-    > “confirmation” status and click on Apply
+7. On the components window, choose “User interface”
 
-> ![](./media/image183.png)
-> 
-> *The System.Text component enables your bot to set a context or user
-> variable by asking the user to enter some text.*
-> 
-> *When the Dialog Engine enters a System.Text state for the first time,
-> it prompts the user to enter some text. When the user enters a value,
-> the Dialog Engine returns to this state. The component processes the
-> user response and if it can convert the user input to the variable
-> type, it stores the value in the variable. The Dialog Engine moves on
-> to another state when this variable has a value.*
+![](./media/image182.png)
 
-9.  > So, you can check that the new state has been included in the
-    > flow.
-
-> ![](./media/image184.png)
-
-10. > Rename “text” to “askUpgrade” as the state name. Fill in the
-    > blanks:
+8.Now choose “Text”, after that on the value list select “confirmation” to insert the System.Text component after
+    > “confirmation” status and click on Apply 
     
-    1.  Prompt: "Do you want a 2-liter soda bottle for $1 and a free
-        towel?"
+![](./media/image183.png)
+ 
+*The System.Text component enables your bot to set a context or user variable by asking the user to enter some text.*
+
+*When the Dialog Engine enters a System.Text state for the first time, it prompts the user to enter some text. When the user enters a value, the Dialog Engine returns to this state. The component processes the user response and if it can convert the user input to the variable type, it stores the value in the variable. The Dialog Engine moves on to another state when this variable has a value.*
+
+9. So, you can check that the new state has been included in the flow.
+
+![](./media/image184.png)
+
+10. Rename “text” to “askUpgrade” as the state name. Fill in the blanks:
     
-    2.  variable: upgrade
-    
-    3.  Delete the following property "nlpResultVariable"
-    
-    4.  maxPrompts: 3 (to ask 3 times about the upgrade. If you answer
-        something different to yes or no three times, the component will
-        execute “cancel” action.)
-    
-    5.  translate: false
-    
+    1.  Prompt: "Do you want a 2-liter soda bottle for $1 and a free towel?"    
+    2.  variable: upgrade    
+    3.  Delete the following property "nlpResultVariable"    
+    4.  maxPrompts: 3 (to ask 3 times about the upgrade. If you answer something different to yes or no three times, the component will execute “cancel” action.)    
+    5.  translate: false    
     6.  Update transition actions so that it looks like the following:
 
-> ![](./media/image185.png)
+![](./media/image185.png)
 
-11. > Move to the prior state named “confirmation” and change transition
-    > “next” value from “saveOrder” to “askUpgrade” to make the flow
-    > execute our new state. Result:
+11. Move to the prior state named “confirmation” and change transition “next” value from “saveOrder” to “askUpgrade” to make the flow execute our new state. Result:
 
-> ![](./media/image186.png)![](./media/image187.png)
+![](./media/image186.png)![](./media/image187.png)
 
-12. > To check that your new code it’s okay, click on Validate button.
+12. To check that your new code it’s okay, click on Validate button.
 
-> ![](./media/image188.png)
+![](./media/image188.png)
 
-13. > If all it’s okay, you will see this message:
+13. If all it’s okay, you will see this message:
 
-> ![](./media/image189.png)
+![](./media/image189.png)
 
-14. > If you have received this alert, review all the steps again and
-    > keep in mind that all indentations are very important
+14. If you have received this alert, review all the steps again and keep in mind that all indentations are very important
 
-> ![](./media/image190.png)
+![](./media/image190.png)
 
 ### Troubleshooting Errors in the Dialog Flow
 
@@ -1381,71 +1318,55 @@ The final result looks like this:
 
 Now that all of the skill's pieces are in place let's test its behavior.
 
-1.  > Open the skill tester by clicking ![the Skill Tester
-    > icon](./media/image195.png) on the bottom of the skill's left
-    > navigation bar.
+1. Open the skill tester by clicking ![the Skill Tester icon](./media/image195.png) on the bottom of the skill's left navigation bar.
+2. Click Reset.
+3. In the Message field, type I want to order a pizza and then press Enter.
 
-2.  > Click Reset.
+All kind of pizza will be shown (choose one)
+ 
+![](./media/image196.png)
+ 
+You should see a menu of pizza sizes:
+ 
+![](./media/image197.png)
 
-3.  > In the Message field, type I want to order a pizza and then press
-    > Enter.
+4. In the pizza size menu, select an option, e.g. Small.
+5. Select a topping e.g. 1 2 4 (Mushrooms, BBQ Sauce, Tuna)
 
-> All kind of pizza will be shown (choose one)
-> 
-> ![](./media/image196.png)
-> 
-> You should see a menu of pizza sizes:
-> 
-> ![](./media/image197.png)
+![](./media/image198.png)
 
-4.  > In the pizza size menu, select an option, e.g. Small.
+6. Enter a delivery location
 
-5.  > Select a topping e.g. 1 2 4 (Mushrooms, BBQ Sauce, Tuna)
+You should receive an order confirmation similar to the one shown in the image below. Please click on Send Location 
 
-> ![](./media/image198.png)
+![](./media/image199.png)
 
-6.  > Enter a delivery location
+7. Immediately you will be asked about payment method
 
-> You should receive an order confirmation similar to the one shown in
-> the image below. Please click on Send Location
-> 
-> ![](./media/image199.png)
+![](./media/image200.png)
 
-7.  > Immediately you will be asked about payment method
+8. To end, our digital assistant will make a summary and ask about our upgrade.
 
-> ![](./media/image200.png)
+![](./media/image201.png)
 
-8.  > To end, our digital assistant will make a summary and ask about
-    > our upgrade.
+9. Due to we have defined a YES\_NO variable, it only accepts "YES" or "NO" values. Other "YES" or "NO" synonyms are also recognized, such as "YEAH", "NOPE".
 
-> ![](./media/image201.png)
-
-9.  > Due to we have defined a YES\_NO variable, it only accepts "YES"
-    > or "NO" values. Other "YES" or "NO" synonyms are also recognized,
-    > such as "YEAH", "NOPE".
-
-> ![](./media/image202.png)
+![](./media/image202.png)
 
 10. > Now, we type Yes to finish the order.
 
-> ![](./media/image203.png)
+![](./media/image203.png)
 
-11. > Click **Reset**. To clean conversation screen an reset all the
-    > variables.
+11. Click **Reset**. To clean conversation screen an reset all the variables.
+12. Now try entering I want a large cheese basic pizza with mushrooms, tuna, and tomatoes paying with cash and pressing Enter.
 
-12. > Now try entering I want a large cheese basic pizza with mushrooms,
-    > tuna, and tomatoes paying with cash and pressing Enter.
+This time, you should be immediately presented with the results of the order after asking about the location.
 
-> This time, you should be immediately presented with the results of the
-> order after asking about the location.
-> 
-> ![](./media/image204.png)
-> 
-> ![](./media/image205.png)
-> 
-> ![](./media/image203.png)
+![](./media/image204.png)
+
+![](./media/image205.png)
+
+![](./media/image203.png)
 
 **Want to Learn More?**
-
-  - > [<span class="underline">Using Oracle Digital
-    > Assistant</span>](http://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/digital-assistant&id=DACUA-GUID-386AB33B-C131-4A0A-9138-6732AE841BD8)
+- [<span class="underline">Using Oracle Digital Assistant</span>](http://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/digital-assistant&id=DACUA-GUID-386AB33B-C131-4A0A-9138-6732AE841BD8)
