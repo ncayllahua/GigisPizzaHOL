@@ -432,7 +432,7 @@ under Resources area,you can check that a Node Pool with three Node Clusters hav
 
 Note: you may find that Compute nodes have not been created yet as. This process can take several minutes as compute instances have to be created and then started:
 
-![](./media/image67.tiff)
+![](./media/image67.png)
 
 Now your Kubernetes Cluster is created. But we need to run some extra steps to get started with managing the Kubernetes Cluster.
 
@@ -458,29 +458,29 @@ This tooling will help you for instance to copy/paste between the VM and the hos
 
 Once Image is downloaded or copied, please import the image in Oracle VM VirtualBox. Select Menu File and Import Appliance…:
 
-![](./media/image70.tiff)
+![](./media/image70.png)
 
 Then choose the path to the .OVA copied or downloaded before and click in Continue button:
 
-![](./media/image71.tiff)
+![](./media/image71.png)
 
 Leave default options and click on Import button:
 
-![](./media/image72.tiff)
+![](./media/image72.png)
 
 The process will take several minutes:
 
-![](./media/image73.tiff)
+![](./media/image73.png)
 
 Once imported, you will have a VM named DOC-1017486. Start the VM by clicking in start button:
 
-![](./media/image74.tiff)
+![](./media/image74.png)
 
 It should take some time to start the VM. Click on enter and you should see the login screen.
 
 **NOTE:** If you face any issue, please check that Graphic Controller selected is VBoxSVGA as there are some issues in VirtualBox 6 if you use a different one.
 
-![](./media/image75.tiff)
+![](./media/image75.png)
 
 Click on Hand-On Lab User. Password for user is oracle.
 
@@ -542,11 +542,11 @@ You will have to login using the kube config file created in previous steps:
 
 NOTE: If you don’t see the .kube file, right click any folder and select option “Show Hidden Files”:
 
-![](./media/image87.tiff)
+![](./media/image87.png)
 
 Then you should see the .kube file and select config file inside it:
 
-![](./media/image88.tiff)
+![](./media/image88.png)
 
 Click on SIGN IN:
 
