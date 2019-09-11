@@ -578,9 +578,9 @@ If you go then to Kubernetes Dashboard in browser inside the VM and navigate to 
 ## Using Docker and a preconfigured image
 
 If you have docker already installed in your laptop (ideally on Mac or Linux as Windows docker version may face some issues), open a terminal window and pull docker image associated to this hands-on-lab:
-
+```
 docker pull colivares1974/ociimage:hol5967
-
+```
 ![](./media/image93.png)
 
 Now create a folder in your local drive:
@@ -596,7 +596,7 @@ c:\> md ociimage/tmp
 
 Launch Container while mounting the ociimage file:
 ```
-docker run -it -p 8001:8001 -v \~/ociimage/tmp:/root/tmp colivares1974/ociimage:hol5967
+docker run -it -p 8001:8001 -v ~/ociimage/tmp:/root/tmp colivares1974/ociimage:hol5967
 ```
 ![](./media/image95.png)
 
@@ -618,7 +618,7 @@ nano .oci/config
 
 2)  Launch command to create a kubeconfig file modifying cluster-id and region with your tenancy details:
 ```
-oci ce cluster create-kubeconfig **\<cluster-id\>** --file $HOME/.kube/config --region **\<region\>**
+oci ce cluster create-kubeconfig <cluster-id> --file $HOME/.kube/config --region <region>
 ```
 For example I used this command for my tenancy:
 ```
@@ -638,7 +638,7 @@ export KUBECONFIG=$HOME/.kube/config
 ```
 3)  Now let’s create Secret. You need to execute command below with your own tenancy credentials:
 ```
-kubectl create secret docker-registry ocirsecret --docker-server=**\<region\>**.ocir.io --docker-username='**\<object_storage namespace\>**/**\<tenancy username\>**' --docker-password='**\<Auth Token\>**' --docker-email='**\<tenancy_username\>**'
+kubectl create secret docker-registry ocirsecret --docker-server=<region>.ocir.io --docker-username='<object_storage namespace>/<tenancy username>' --docker-password='<Auth Token>' --docker-email='<tenancy_username>'
 ```
 > For example I used this command for my tenancy:
 ```
@@ -648,7 +648,7 @@ kubectl create secret docker-registry ocirsecret --docker-server=iad.ocir.io --d
 
 If successful, this line should appear as in previous screen:
 ```
-secret/ocirsecret created
+$ secret/ocirsecret created
 ```
 # **Importing a Developer Cloud Service Project**
 
@@ -767,7 +767,7 @@ Finally select Steps tab and enter details with my tenancy details:
 
 Remember that for Docker Login you have to enter as user:
 ```
-\<object storage namespace\>/\<OCI tenancy user\>
+\<object storage namespace>\<OCI tenancy user>
 ```
 And password is:
 ```
@@ -815,7 +815,7 @@ To check the name of your region identifier go to the table in this url:
 
 Remember that for Docker Login you have to enter as user:
 ```
-\<object storage namespace\>/\<OCI tenancy user\>
+<object storage namespace>\<OCI tenancy user>
 ```
 And password is: 
 ```
@@ -916,9 +916,7 @@ Now it is time to manually launch the build process….but before we have to do 
 1)  Create the application for the Fn function in OCI
 2)  Create a policy so that the Fn fuction Managed Service(FaaS) can manage all the resources in the tenancy
 
-> Let’s start creating the application for the Fn function in OCI. Go
-> back to OCI Dashboard console and go to: Developer
-> Services-\>Functions:
+Let’s start creating the application for the Fn function in OCI. Go back to OCI Dashboard console and go to: Developer Services -\> Functions:
 
 ![](./media/image142.png)
 
@@ -936,7 +934,7 @@ Important Note: So that we don’t have to modify source code, the application n
 
 And click in create
 
-Now let’s create the policy above mentioned. In OCI Console Menu go to: Identity-\>Policies:
+Now let’s create the policy above mentioned. In OCI Console Menu go to: Identity -\>Policies:
 
 ![](./media/image146.png)
 
@@ -1013,7 +1011,7 @@ Note: you may need to install a CORS plugin to avoid issues. We have used Firefo
 
 If you now navigate to:
 ```
-<orchestrator ip\>/getAllOrders 
+<microservice_orchestrator public ip>/getAllOrders 
 ```
 you should see all the orders created:
 
@@ -1059,50 +1057,52 @@ Now I can create a new order using postman.
 
 It has to be a POST request to endpoint:
 ```
-<orchestrator ip\>/createOrder
+<orchestrator ip>/createOrder
 ```
-Header: Content-Type: application-json
-
+Header: 
+```
+Content-Type: application-json
+```
 And body of type raw(JSON):
 ```json
 {
-"order": {
-"orderId": "FerInt101",
-"dateTimeOrderTaken": "2002-09-24-06:00",
-"takenByEmployee": "emp002",
-"customer": {
-"customerId": {
-"telephone": "657765412",
-"email": "carlos.j.olivares@oracle.com"
-}
-},
-"pizzaOrdered": {
-"baseType": "dough & tomatoe & cheese",
-"topping1": "Ham",
-"topping2": "Pepperoni",
-"topping3": "Prawn"
-},
-"totalPrice": "10$",
-"upgrade":"yes"
-},
-"payment": {
-"paymentid": "FerInt001",
-"paymentTime": "30-APR-2019 12:45 AM",
-"orderId": "FerInt001",
-"paymentMethod": "VISA",
-"serviceSurvey": "5",
-"totalPayed": "33",
-"customerId": "c345"
-},
-"customerAdress": {
-"street": "Plaza de la Puerta del Sol",
-"number": "s/n",
-"door": "",
-"email": "joe.smith@myemail.es",
-"cityCode": "28013",
-"city": "Madrid"
-},
-"status": "ORDERED"
+"order":{
+    "orderId": "FerInt101",
+    "dateTimeOrderTaken": "2002-09-24-06:00",
+    "takenByEmployee": "emp002",
+    "customer": {
+        "customerId": {
+            "telephone": "657765412",
+            "email": "carlos.j.olivares@oracle.com"
+        }
+     },
+     "pizzaOrdered": {
+        "baseType": "dough & tomatoe & cheese",
+        "topping1": "Ham",
+        "topping2": "Pepperoni",
+        "topping3": "Prawn"
+     },
+     "totalPrice": "10$",
+     "upgrade":"yes"
+    },
+    "payment":{
+        "paymentid": "FerInt001",
+        "paymentTime": "30-APR-2019 12:45 AM",
+        "orderId": "FerInt001",
+        "paymentMethod": "VISA",
+        "serviceSurvey": "5",
+        "totalPayed": "33",
+        "customerId": "c345"
+     },
+     "customerAdress": {
+         "street": "Plaza de la Puerta del Sol",
+         "number": "s/n",
+         "door": "",
+         "email": "joe.smith@myemail.es",
+         "cityCode": "28013",
+         "city": "Madrid"
+     },
+     "status": "ORDERED"
 }
 ```
 ![](./media/image170.png)
@@ -1115,15 +1115,15 @@ You can also use postman to check for instance by searching by your user email (
 
 It has to be a GET request to endpoint:
 ```
-<orchestrator ip\>/getOrder
+<orchestrator ip>/getOrder
 ```
 Header: 
 ```
 Content-Type: application-json
 ```
 And body of type raw(JSON):
-```
-{"orderId":"","where":\[{"cond":{"field":"customer.customerId.email","operator":"LIKE","value":"'carlos.j.olivares@oracle.com'"},"relation":""}\]}
+```json
+{"orderId":"","where":[{"cond":{"field":"customer.customerId.email","operator":"LIKE","value":"'carlos.j.olivares@oracle.com'"},"relation":""}]}
 ```
 ![](./media/image172.png)
 
