@@ -830,7 +830,7 @@ Important Note: change the three other docker Jobs in the same way:
 ```
   - ms_orchestrator_docker_create
   - ms_order_docker_create
-  - ms_payment_docker_reate
+  - ms_payment_docker_create
 ```
 ### OKE Jobs modification
 
