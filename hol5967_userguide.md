@@ -618,7 +618,7 @@ nano .oci/config
 
 2)  Launch command to create a kubeconfig file modifying cluster-id and region with your tenancy details:
 ```
-oci ce cluster create-kubeconfig <cluster-id> --file $HOME/.kube/config --region <region>
+oci ce cluster create-kubeconfig --cluster-id <cluster-id> --file $HOME/.kube/config --region <region>
 ```
 For example I used this command for my tenancy:
 ```
@@ -632,7 +632,7 @@ cat .kube/config
 ```
 ![](./media/image99.png)
 
-Note: as we have preconfigured for you this env, we have already updated the KUBECONFIG env variable for you. So he have already run next command for you: 
+To setup KUBECONFIG env variable, run next command: 
 ```
 export KUBECONFIG=$HOME/.kube/config
 ```
