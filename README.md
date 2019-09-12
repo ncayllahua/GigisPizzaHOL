@@ -5,7 +5,7 @@ HOL 5967 [link](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master
 
 ## Interesting information for the demo:
 
-OVA [link](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/9wPkmNOP5__c47V8ajoZCP8zE2qbL26XbmdItGgFd30/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/OOW2019HOL.ova "ova hol")
+OVA [link](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/5GHVwD_wVr3dvNhDKRq4V_o1n_Cx8hJo6vF2WM9HjNY/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/HOL5967-OOW2019.ova "ova hol")
 
 OCICLI upgrade to last version (OVA upgrade)
 ```
