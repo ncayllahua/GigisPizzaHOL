@@ -767,7 +767,7 @@ Finally select Steps tab and enter details with my tenancy details:
 
 Remember that for Docker Login you have to enter as user:
 ```
-\<object storage namespace>\<OCI tenancy user>
+<object storage namespace>/<OCI tenancy user>
 ```
 And password is:
 ```
@@ -815,7 +815,7 @@ To check the name of your region identifier go to the table in this url:
 
 Remember that for Docker Login you have to enter as user:
 ```
-<object storage namespace>\<OCI tenancy user>
+<object storage namespace>/<OCI tenancy user>
 ```
 And password is: 
 ```
