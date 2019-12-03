@@ -31,3 +31,7 @@ https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm
 
 Oracle OCIR Regions:
 https://docs.cloud.oracle.com/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab
+
+# OKE in Rancher UI
+
+https://medium.com/swlh/oke-clusters-from-rancher-2-0-409131ad1293
