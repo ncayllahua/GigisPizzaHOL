@@ -449,7 +449,7 @@ So that we avoid installing in your laptops these components that also require P
 
 ## Using Virtualbox and a preconfigured VM image
 
-You can start downloading OVA image from <span class="underline">[here](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/uSoIJjzgKco9rcad8mxMhJJZmZHxct2NLzMzLC27ffc/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/OOW2019HOL.ova).</span>Alternative we will provide USB memory sticks with OVA image to be copied.
+You can start downloading OVA image from <span class="underline">[here](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/hZnw2wJSeVpigjnOHBwSO9-GcZrdNyjqgWi1FObBvHg/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/HOL5967-OOW2019.ova "ova hol").</span>Alternative we will provide USB memory sticks with OVA image to be copied.
 
 Note: If you are not familiar with VirtualBox, please make sure you have Guest Additions installed or follow this manual to install:
 [<span class="underline">https://www.virtualbox.org/manual/ch04.html\#sharedfolders</span>](https://www.virtualbox.org/manual/ch04.html#sharedfolders)
