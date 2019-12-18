@@ -407,17 +407,23 @@ Select the compartment you have previously created under List Scope and click in
 
 ![](./media/image60.png)
 
-Provide a name for the cluster, then select QUICK CREATE option and in Shape select VM.Standard1.1 and the click in Create button setting the default options for the rest of parameters:
+Provide a name for the cluster, then select QUICK CREATE option:
 
-![](./media/image61.png)
+![](./media/image300.png)
 
-![](./media/image62.png)
+Select Shape VM.Standard1.1 and 3 (or less if you don't want to create a 3 workernodes nodepool) in the NUMBER OF NODES (this number is the VMs that will be created into the node pool). Then click in NEXT button setting the default options for the rest of parameters for a cluster review:
+
+![](./media/image301.png)
+
+Review the cluster information before to create it, and click on Create Cluster Button or back to modify cluster options:
+
+![](./media/image302.png)
 
 The previous QUICK CREATE Option will setup a 3 nodes Kubernetes Cluster with predefined Virtual Cloud Network, 3 Subnets, Security Lists, Route tables. When you are done with checks, please click on the Requesting Cluster area in your Cluster name.
 
 Note: Cluster creation process can take several minutes.
 
-![](./media/image63.png)
+![](./media/image303.png)
 
 ![](./media/image64.png)
 
@@ -438,9 +444,9 @@ Now your Kubernetes Cluster is created. But we need to run some extra steps to g
 
 If you click under Resources section in Getting Started. This section explains steps to access to you Cluster dashboard by using Kubectl. In this section it is explained in detail how to install ocicli and kubectl to access to Kubernetes management tool:
 
-![](./media/image68.png)
+![](./media/image310.png)
 
-![](./media/image69.png)
+![](./media/image311.png)
 
 So that we avoid installing in your laptops these components that also require Python and other prereqs, we will provide you in next section with **two preinstalled options(YOU ONLY NEED TO DO ONE OF THE NEXT TWO SECTIONS)** for which **you should have either Virtual Box or Docker installed in advance in your laptop**:
 
@@ -511,48 +517,23 @@ Now let’s configure kubectl. Inside your cluster information page, click the �
 A popup window will appear providing you with the commands you have to run to configure kubectl to connect to the Kubernetes cluster just created(change value below with your own cluster id and region):
 ```
 1)  mkdir -p $HOME/.kube
-2)  oci ce cluster create-kubeconfig --cluster-id
-    ocid1.cluster.oc1.eu-frankfurt-1.aaaaaaaaae4geytfmnsgiobyhe3gemzqmrrtszlemnrginjrgczdgyjtmrqt
-    --file $HOME/.kube/config --region eu-frankfurt-1
+2)  $ mkdir -p $HOME/.kube
+    $ oci ce cluster create-kubeconfig --cluster-id <your_cluster_id> --file $HOME/.kube/config --region eu-frankfurt-1 
+    --token-version 2.0.0
 3)  export KUBECONFIG=$HOME/.kube/config
 ```
-![](./media/image82.png)
+![](./media/image311.png)
 
 When you execute commands below, you can face an issue and you must run an extra command to configure private key permissions:
 oci setup-repair-file-permissions –file /home/holouser/.oci/private.pem
 
 ![](./media/image83.png)
 
-We will follow steps mentioned in Getting Started section, so that we can launch the Kubernetes Dashboard:
+You will follow steps mentioned in Access Kubernetes Dashboard section, so that we can launch the Kubernetes Dashboard:
 
-![](./media/image84.png)
+![](./media/image312.png)
 
-Execute:
-```
-kubectl proxy
-```
-And then open Firefox inside VM to go to Kubernetes Dashboard:
-> [<span class="underline">http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/</span>](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/)
-
-![](./media/image85.png)
-
-You will have to login using the kube config file created in previous steps:
-
-![](./media/image86.png)
-
-NOTE: If you don’t see the .kube file, right click any folder and select option “Show Hidden Files”:
-
-![](./media/image87.png)
-
-Then you should see the .kube file and select config file inside it:
-
-![](./media/image88.png)
-
-Click on SIGN IN:
-
-![](./media/image89.png)
-
-And finally you are logged in Kube Dashboard:
+Click on SIGN IN and finally you are logged in Kube Dashboard:
 
 ![](./media/image90.png)
 
