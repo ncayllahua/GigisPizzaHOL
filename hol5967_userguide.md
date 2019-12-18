@@ -533,7 +533,7 @@ You will follow steps mentioned in Access Kubernetes Dashboard section, so that 
 
 ![](./media/image312.png)
 
-Click on SIGN IN and finally you are logged in Kube Dashboard:
+Click on SIGN IN button and finally you are logged in Kube Dashboard:
 
 ![](./media/image90.png)
 
