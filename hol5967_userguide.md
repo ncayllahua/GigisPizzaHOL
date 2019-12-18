@@ -407,7 +407,7 @@ Select the compartment you have previously created under List Scope and click in
 
 ![](./media/image60.png)
 
-Provide a name for the cluster, then select QUICK CREATE option:
+Provide a name for the cluster, then select QUICK CREATE option and Launch Workflow button:
 
 ![](./media/image300.PNG)
 
