@@ -517,8 +517,8 @@ Now letâ€™s configure kubectl. Inside your cluster information page, click the â
 A popup window will appear providing you with the commands you have to run to configure kubectl to connect to the Kubernetes cluster just created(change value below with your own cluster id and region):
 ```
 1)  mkdir -p $HOME/.kube
-2)  $ mkdir -p $HOME/.kube
-    $ oci ce cluster create-kubeconfig --cluster-id <your_cluster_id> --file $HOME/.kube/config --region eu-frankfurt-1 
+2)  mkdir -p $HOME/.kube
+    oci ce cluster create-kubeconfig --cluster-id <your_cluster_id> --file $HOME/.kube/config --region eu-frankfurt-1 
     --token-version 2.0.0
 3)  export KUBECONFIG=$HOME/.kube/config
 ```
