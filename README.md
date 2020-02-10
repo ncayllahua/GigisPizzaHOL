@@ -5,7 +5,7 @@ HOL 5967 [link](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master
 
 ## Interesting information for the demo:
 
-OVA [link](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/hZnw2wJSeVpigjnOHBwSO9-GcZrdNyjqgWi1FObBvHg/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/HOL5967-OOW2019.ova "ova hol")
+OVA VM machine [link](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/hZnw2wJSeVpigjnOHBwSO9-GcZrdNyjqgWi1FObBvHg/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/HOL5967-OOW2019.ova "ova hol")
 
 OCICLI upgrade to last version (OVA upgrade)
 ```
@@ -25,13 +25,13 @@ Example
 ```
 kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='wedoinfra/wedo.devops' --docker-password='92(·38434"4Gjhle14%' --docker-email='test.email@oracle.com'
 ```
-# Install Kubectl with curl
+## Install Kubectl with curl
 https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-el-binario-de-kubectl-usando-curl
 
-# Oracle Cloud Regions:
+## Oracle Cloud Regions:
 https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm
 
-# Oracle OCIR Regions:
+## Oracle OCIR Regions:
 https://docs.cloud.oracle.com/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab
 
 # OKE in Rancher UI
