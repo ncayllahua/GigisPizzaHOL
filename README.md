@@ -17,7 +17,7 @@ sudo yum install python3
 ```
 bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
 ```
-## Install Kubectl with curl
+### Install Kubectl with curl
 Download last version of kubectl
 ```
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
