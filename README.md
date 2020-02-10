@@ -25,13 +25,13 @@ Example
 ```
 kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='wedoinfra/wedo.devops' --docker-password='92(·38434"4Gjhle14%' --docker-email='test.email@oracle.com'
 ```
-Install Kubectl with curl
+# Install Kubectl with curl
 https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-el-binario-de-kubectl-usando-curl
 
-Oracle Cloud Regions:
+# Oracle Cloud Regions:
 https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm
 
-Oracle OCIR Regions:
+# Oracle OCIR Regions:
 https://docs.cloud.oracle.com/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab
 
 # OKE in Rancher UI
