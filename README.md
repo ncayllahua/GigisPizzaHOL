@@ -13,22 +13,9 @@ OVA VM machine [link](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/smp
 ```
 sudo yum install python3
 ```
-### OCICLI upgrade to last version (OVA upgrade)
+### OCICLI upgrade to latest version
 ```
 bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
-```
-
-### OCI SETUP repair permissions error
-```
-oci setup repair-file-permissions –file /home/holouser/.oci/private.pem
-```
-## Create OCIR Secret.
-```
-kubectl create secret docker-registry ocirsecret --docker-server=<region>.ocir.io --docker-username='<tenant_storage_namespace>/<your_user>' --docker-password='<your_auth_token>' --docker-email='<your_email>'
-```
-Example
-```
-kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='wedoinfra/wedo.devops' --docker-password='xxxxxxxxxxxxx' --docker-email='test.email@oracle.com'
 ```
 ## Install Kubectl with curl
 Download last version of kubectl
@@ -43,7 +30,18 @@ Move binary to you PATH
 ```
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
-
+### OCI SETUP repair permissions error
+```
+oci setup repair-file-permissions –file /home/holouser/.oci/private.pem
+```
+## Create OCIR Secret.
+```
+kubectl create secret docker-registry ocirsecret --docker-server=<region>.ocir.io --docker-username='<tenant_storage_namespace>/<your_user>' --docker-password='<your_auth_token>' --docker-email='<your_email>'
+```
+Example
+```
+kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='wedoinfra/wedo.devops' --docker-password='xxxxxxxxxxxxx' --docker-email='test.email@oracle.com'
+```
 ## Oracle Cloud Regions:
 https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm
 
