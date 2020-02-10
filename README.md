@@ -22,7 +22,7 @@ bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scrip
 ```
 oci setup repair-file-permissions –file /home/holouser/.oci/private.pem
 ```
-##Create OCIR Secret.
+## Create OCIR Secret.
 ```
 kubectl create secret docker-registry ocirsecret --docker-server=<region>.ocir.io --docker-username='<tenant_storage_namespace>/<your_user>' --docker-password='<your_auth_token>' --docker-email='<your_email>'
 ```
