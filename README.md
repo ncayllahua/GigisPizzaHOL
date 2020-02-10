@@ -9,17 +9,20 @@ HOL 5967 [link](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master
 
 OVA VM machine [link](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/smpE_ekRW19rd4H31B4fPspIqXxRm-iSuaQ9kOc8_K8/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/HOL5967-OOW2019%20OVAHOL5967-OOW2019.ova "ova hol")
 
-OCICLI upgrade to last version (OVA upgrade)
+### Python upgrade to python 3
+```
+sudo yum install python3
+```
+### OCICLI upgrade to last version (OVA upgrade)
 ```
 bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
 ```
 
-OCI SETUP repair permissions error
+### OCI SETUP repair permissions error
 ```
 oci setup repair-file-permissions –file /home/holouser/.oci/private.pem
 ```
-
-Create OCIR Secret.
+##Create OCIR Secret.
 ```
 kubectl create secret docker-registry ocirsecret --docker-server=<region>.ocir.io --docker-username='<tenant_storage_namespace>/<your_user>' --docker-password='<your_auth_token>' --docker-email='<your_email>'
 ```
