@@ -1,7 +1,7 @@
 # GigisPizzaHOL
 Hands on Lab - Gigis pizza microservices/serverless app
 
-HOL 5967 `<link>` [link](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/hol5967_userguide.md "HOL5967")
+HOL 5967 `<link>`: <https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/hol5967_userguide.md>
 - oci version 2.9.1
 - kubectl version 1.17.0
 
