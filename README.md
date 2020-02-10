@@ -28,7 +28,7 @@ kubectl create secret docker-registry ocirsecret --docker-server=<region>.ocir.i
 ```
 Example
 ```
-kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='wedoinfra/wedo.devops' --docker-password='92(·38434"4Gjhle14%' --docker-email='test.email@oracle.com'
+kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='wedoinfra/wedo.devops' --docker-password='xxxxxxxxxxxxx' --docker-email='test.email@oracle.com'
 ```
 ## Install Kubectl with curl
 Download last version of kubectl
