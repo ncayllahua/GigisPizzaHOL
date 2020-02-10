@@ -26,7 +26,18 @@ Example
 kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --docker-username='wedoinfra/wedo.devops' --docker-password='92(·38434"4Gjhle14%' --docker-email='test.email@oracle.com'
 ```
 ## Install Kubectl with curl
-https://kubernetes.io/es/docs/tasks/tools/install-kubectl/#instalar-el-binario-de-kubectl-usando-curl
+Download last version of kubectl
+```
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
+```
+Change permission of the binary file
+```
+chmod +x ./kubectl
+```
+Move binary to you PATH
+```
+sudo mv ./kubectl /usr/local/bin/kubectl
+```
 
 ## Oracle Cloud Regions:
 https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm
