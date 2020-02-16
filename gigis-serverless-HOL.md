@@ -20,6 +20,46 @@ This serverless Hands On Lab includes:
 * CloudEvents to trigger this json files and upload them to the ATP.
 * Oracle managed Functions (serverless fn based) to upload data, get data and send it to microservices.
 
+# In this Hands on Lab
+
+In this HOL you will create a serverless app for discount campaigns. 
+You will:
+
+- Create an **ATP (Autonomous Database)** to store the discount campaign.
+- Create an **OCI Object Storage** to upload the json files.
+- Create a **CloudEvents** trigger to upload automatically the campaigns to ATP.
+- Create a discount campaign **json file** like this:
+
+```yaml
+{
+  "campaigns": [
+    {
+    "demozone": 'MADRID',
+    "paymentmethod": "VISA",
+    "date_bgn": "2020-01-21T00:00:00Z",
+    "date_end": "2020-01-22T00:00:00Z",
+    "min_amount": "15",
+    "discount": "10"
+    },
+    {
+    "demozone": "MADRID",
+    "paymentmethod": "AMEX",
+    "date_bgn": "2020-01-21T00:00:00Z",
+    "date_end": "2020-01-22T00:00:00Z",
+    "min_amount": "7",
+    "discount": "10"
+    }
+  ]
+}
+```
+
+- Create **2 serverless Functions** to capture the event, process the file and upload the data to ATP PDB.
+- Create **1 serverless Function** to get the discount amount for a pizza order
+
+All the code project will be stored in a GIT repo in Developer Cloud Service. If you attend our previous HOL about Gigi's pizza, you had created a DevCS instance with the Gigi's project copied on it. You can use that DevCS instance and the same Gigi's project to this lab. You can continue in <meter paso> step.
+
+If you don't have any Oracle Cloud Account or DevCS instance you could create one following the first steps of the LAB to create them. After creating the DevCS instance you must create a new project to continue with the lab.
+
 ## Summary
 
 [<span class="underline">Setting up an Oracle Cloud Account</span>](#setting-up-an-oracle-cloud-account)
