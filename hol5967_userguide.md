@@ -1,4 +1,4 @@
-![](./media/image1.png)
+[![](./media/image1.png)](https://www.oracle.com/code-one/)
 
 <span class="underline">**Introduction**</span> - 3 -
 
