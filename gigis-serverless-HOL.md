@@ -1,4 +1,4 @@
-![](./media/image1.png)
+[![](./media/image1.png)](https://www.oracle.com/code-one/)
 
 # Gigi's Discount Campaigns - Serverless HOL
 This HOL is based in a Demo developed by WeDo Team as part of an innovation initiative to approach Oracle Cloud Solutions by providing practical examples that could be “touched” and easily understood.
