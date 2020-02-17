@@ -75,7 +75,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 
 [<span class="underline">Create Development Environment Machine</span>](#create-development-environment-machine)
 
-[<span class="underline">OPTIONAL - Creating a Developer Cloud Service Instance</span>](#creating-a-developer-cloud-service-instance)
+[<span class="underline">OPTIONAL - FaaS and Developer Cloud Service</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/edit/master/devcs2fn.md)
 
 [<span class="underline">OPTIONAL - Configuring a Developer Cloud Service Instance</span>](#configuring-a-developer-cloud-service-instance)
 
