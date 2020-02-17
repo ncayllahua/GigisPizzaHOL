@@ -3,7 +3,7 @@
 <span class="underline">**Introduction**</span> - 3 -
 
 [**<span class="underline">HOL to be done in 2 hours.</span>** - 4
--](#hol-to-be-done-in-2-hours.)
+-](#hol-to-be-done-in-2-hours)
 
 [**<span class="underline">Setting up an Oracle Cloud Account</span>** -
 4 -](#setting-up-an-oracle-cloud-account)
@@ -107,7 +107,7 @@ Finally we have tied a chatbot(Skill) with the microservice-order as a front-en
 
 ![](./media/image2.png)
 
-## **HOL to be done in 2 hours.**
+## **HOL to be done in 2 hours**
 
 This HOL is a subset of the above mentioned demo. Due to time restrictions, we will focus in three main tasks for you to complete
 during the HOL delivery:
