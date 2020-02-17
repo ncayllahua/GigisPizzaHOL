@@ -78,7 +78,7 @@ If you don't have any Oracle Cloud Account or DevCS instance you could create on
 
 [<span class="underline">Create GIT Repositories</span>](#create-git-repositories)
 
-[<span class="underline">Create Development Environmet Machine</span>](#create-development-environment-machine)
+[<span class="underline">Create Development Environment Machine</span>](#create-development-environment-machine)
 
 # **Setting up an Oracle Cloud Account**
 
@@ -375,12 +375,27 @@ Check that you have three GIT repositories in the main project menu.
 
 ![](./media/devcs-project-create-git-repo03.PNG)
 
-## Create Development Environmet Machine
-This is an optional step. Check that you have installed next development resources and applications:
+## Create Development Environment Machine
+This is an optional step. We recomend a linux development machine, but you cab use Windows too.
+Check that you have installed next development resources and applications:
 
 - IDE software
 - OCI cli
 - Fn cli
-- Docker Registry (OCIR)
+- OCI user Api Key and Auth Token credentials to access OCIR (Docker Registry)
 
-Make sure you've setup your API signing key, installed the Fn CLI, completed the CLI configuration steps and have setup the OCI Registry you want to use.
+Make sure you've setup your OCI API signing key and Auth Token (for OCIR access), installed the Fn CLI, completed the CLI configuration steps and have setup the OCI Registry you want to use.
+
+### API signing key and Auth Token
+You had created it before, when you was setting up the Developer Cloud Environment. If you didn't create the Api Key and Auth Token credentials you must follow next steps:
+
+[<span class="underline">How to get OCI tenancy config data to configure DevCS</span>](#how-to-get-oci-tenancy-config-data-to-configure-devcs)
+
+###Fn Cli Installation
+####Linux
+```sh
+curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
+```
+####Windows
+You must download de fn.exe file from fn github public [repository]<https://github.com/fnproject/cli/releases>
+
