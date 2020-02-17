@@ -376,7 +376,7 @@ Check that you have three GIT repositories in the main project menu.
 ![](./media/devcs-project-create-git-repo03.PNG)
 
 ## Create Development Environment Machine
-This is an optional step. We recomend a linux development machine, but you cab use Windows too.
+This is an optional step. We recomend a linux development machine, but you can use Windows too.
 Check that you have installed next development resources and applications:
 
 - IDE software
@@ -391,11 +391,11 @@ You had created it before, when you was setting up the Developer Cloud Environme
 
 [<span class="underline">How to get OCI tenancy config data to configure DevCS</span>](#how-to-get-oci-tenancy-config-data-to-configure-devcs)
 
-###Fn Cli Installation
-####Linux
+### Fn Cli Installation
+#### Linux
 ```sh
 curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
 ```
-####Windows
+#### Windows
 You must download de fn.exe file from fn github public [repository]<https://github.com/fnproject/cli/releases>
 
