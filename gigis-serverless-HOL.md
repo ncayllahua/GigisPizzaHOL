@@ -76,6 +76,8 @@ If you don't have any Oracle Cloud Account or DevCS instance you could create on
 
 [<span class="underline">Create New Project in DevCS</span>](#create-new-project-in-devcs)
 
+[<span class="underline">Create GIT Repositories</span>](#create-git-repositories)
+
 # **Setting up an Oracle Cloud Account**
 
 As an attendee to OOW/CodeOne 19 you have been provided with access to a free trial account part of Free Oracle Cloud Program with 500$ / 30 days trial. This trial is associated with the email address you used to register to event.
@@ -338,5 +340,9 @@ And check that Status changes to starting in both servers:
 Now that you have created the environment connection to OCI and Build Machines, you must create a new project. This project will contain all the code source files in the GIT repository and the jobs and pipelines to CI/CD.
 
 To create a new DevCS project click on Project menu and then click on +Create Button. 
+
+![](./media/image55.png)
+
+## Create GIT Repositories
 
 ![](./media/image55.png)
