@@ -57,9 +57,9 @@ You will:
 - Create **2 serverless Functions** to capture the event, process the file and upload the data to ATP PDB.
 - Create **1 serverless Function** to get the discount amount for a pizza order
 
-(OPTIONAL) All the code project will be stored in a GIT repo in Developer Cloud Service. If you attend our previous HOL about Gigi's pizza, you had created a DevCS instance with the Gigi's project copied on it. You can use that DevCS instance and the same Gigi's project to this lab.
+If you attend our previous HOL about Gigi's pizza, you had created a Cloud Account and DevCS instance, but if you don't have any Oracle Cloud Account you could create one, following the first step of the LAB. 
 
-If you don't have any Oracle Cloud Account or DevCS instance you could create one following the first steps of the LAB to create them. After creating the DevCS instance you must create a new project to continue with the lab.
+(OPTIONAL) All the code project could be stored in a GIT repo in Developer Cloud Service. if you attended our previous LAB about microservices (gigi's pizza) before, you should have a DevCS instance with the Gigi's project copied on it. You can use that DevCS instance and the same Gigi's project to do this optional part.
 
 ## Summary
 
