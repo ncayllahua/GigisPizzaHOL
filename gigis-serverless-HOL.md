@@ -380,8 +380,8 @@ This is an optional step. We recomend a linux development machine, but you can u
 Check that you have installed next development resources and applications:
 
 - IDE software
-- OCI cli
 - Fn cli
+- OCI cli
 - OCI user Api Key and Auth Token credentials to access OCIR (Docker Registry)
 
 Make sure you've setup your OCI API signing key and Auth Token (for OCIR access), installed the Fn CLI, completed the CLI configuration steps and have setup the OCI Registry you want to use.
@@ -397,5 +397,23 @@ You had created it before, when you was setting up the Developer Cloud Environme
 curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
 ```
 #### Windows
-You must download de fn.exe file from fn github public [repository]<https://github.com/fnproject/cli/releases>
+You must download de fn.exe file from fn github public [repository](https://github.com/fnproject/cli/releases)
+
+### OCI cli installation and Configuration
+```sh
+oci setup config
+```
+![](./media/image77.png)
+
+Keep your txt file with your OCI Tenancy parameters close as you will be asked for those parameters. Before starting, please copy into the VM the private key previously provided:
+
+![](./media/image78.png)
+
+![](./media/image79.png)
+
+Decline to generate a new RSA key pair, copy your private key previously provided into you environmet machine. We recommend you to paste it into this path:
+```sh
+/home/holouser/.oci
+```
+![](./media/image80.png)
 
