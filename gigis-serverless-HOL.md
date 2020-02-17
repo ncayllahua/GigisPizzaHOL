@@ -78,6 +78,8 @@ If you don't have any Oracle Cloud Account or DevCS instance you could create on
 
 [<span class="underline">Create GIT Repositories</span>](#create-git-repositories)
 
+[<span class="underline">Create Development Environmet Machine</span>](#create-development-environment-machine)
+
 # **Setting up an Oracle Cloud Account**
 
 As an attendee to OOW/CodeOne 19 you have been provided with access to a free trial account part of Free Oracle Cloud Program with 500$ / 30 days trial. This trial is associated with the email address you used to register to event.
@@ -373,3 +375,12 @@ Check that you have three GIT repositories in the main project menu.
 
 ![](./media/devcs-project-create-git-repo03.PNG)
 
+## Create Development Environmet Machine
+This is an optional step. Check that you have installed next development resources and applications:
+
+- IDE software
+- OCI cli
+- Fn cli
+- Docker Registry (OCIR)
+
+Make sure you've setup your API signing key, installed the Fn CLI, completed the CLI configuration steps and have setup the OCI Registry you want to use.
