@@ -339,9 +339,17 @@ And check that Status changes to starting in both servers:
 ## Create New Project in DevCS
 Now that you have created the environment connection to OCI and Build Machines, you must create a new project. This project will contain all the code source files in the GIT repository and the jobs and pipelines to CI/CD.
 
-To create a new DevCS project click on Project menu and then click on +Create Button. 
+To create a new DevCS project click on Project menu and then click on +Create Button. Next introduce a representative name and optionally a Project Description. Select Private (Shared if you want your project accesible from external teams) and Preferred Language for the project. Then click Next button.
 
 ![](./media/devcs-projectcreation-newproject01.PNG)
+
+Select Empty Project and Click Next button.
+
+![](./media/devcs-projectcreation-newproject02.PNG)
+
+Click Finish to create the new project.
+
+![](./media/devcs-projectcreation-newproject03.PNG)
 
 ## Create GIT Repositories
 
