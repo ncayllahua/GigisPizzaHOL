@@ -25,6 +25,7 @@ This serverless Hands On Lab includes:
 In this HOL you will create a serverless app for discount campaigns. 
 You will:
 
+- Create and Configure a **VCN Virtual Cloud Network** to store the discount campaign.
 - Create and Configure an **ATP (Autonomous Database)** to store the discount campaign.
 - Create an **OCI Object Storage** to upload the json files.
 - Create a **CloudEvents** trigger to upload automatically the campaigns to ATP.
@@ -56,7 +57,7 @@ You will:
 - Create **2 serverless Functions** to capture the event, process the file and upload the data to ATP PDB.
 - Create **1 serverless Function** to get the discount amount for a pizza order
 
-All the code project will be stored in a GIT repo in Developer Cloud Service. If you attend our previous HOL about Gigi's pizza, you had created a DevCS instance with the Gigi's project copied on it. You can use that DevCS instance and the same Gigi's project to this lab. You can continue in <meter paso> step.
+(OPTIONAL) All the code project will be stored in a GIT repo in Developer Cloud Service. If you attend our previous HOL about Gigi's pizza, you had created a DevCS instance with the Gigi's project copied on it. You can use that DevCS instance and the same Gigi's project to this lab.
 
 If you don't have any Oracle Cloud Account or DevCS instance you could create one following the first steps of the LAB to create them. After creating the DevCS instance you must create a new project to continue with the lab.
 
@@ -66,17 +67,17 @@ If you don't have any Oracle Cloud Account or DevCS instance you could create on
 
 [<span class="underline">Getting key config data from Oracle Cloud Tenancy</span>](#getting-key-config-data-from-oracle-cloud-tenancy)
 
-[<span class="underline">How to get OCI tenancy config data to configure DevCS</span>](#how-to-get-oci-tenancy-config-data-to-configure-devcs)
+[<span class="underline">OPTIONAL - How to get OCI tenancy config data to configure DevCS</span>](#how-to-get-oci-tenancy-config-data-to-configure-devcs)
 
-[<span class="underline">Configuring a Developer Cloud Service Instance</span>](#configuring-a-developer-cloud-service-instance)
+[<span class="underline">OPTIONAL - Configuring a Developer Cloud Service Instance</span>](#configuring-a-developer-cloud-service-instance)
 
-[<span class="underline">Virtual Machines Template configuration in DevCS</span>](#virtual-machines-template-configuration-in-devcs)
+[<span class="underline">OPTIONAL - Virtual Machines Template configuration in DevCS</span>](#virtual-machines-template-configuration-in-devcs)
 
-[<span class="underline">Build Virtual Machines configuration in DevCS</span>](#build-virtual-machines-configuration-in-devcs)
+[<span class="underline">OPTIONAL - Build Virtual Machines configuration in DevCS</span>](#build-virtual-machines-configuration-in-devcs)
 
-[<span class="underline">Create New Project in DevCS</span>](#create-new-project-in-devcs)
+[<span class="underline">OPTIONAL - Create New Project in DevCS</span>](#create-new-project-in-devcs)
 
-[<span class="underline">Create GIT Repositories</span>](#create-git-repositories)
+[<span class="underline">OPTIONAL - Create GIT Repositories</span>](#create-git-repositories)
 
 [<span class="underline">Create OCI Resources</span>](#create-oci-resources)
 
