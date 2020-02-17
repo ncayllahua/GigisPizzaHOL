@@ -176,7 +176,7 @@ Now copy Fingerprint generated as it will be used later. Don’t forget to make 
 Now create parameter required (AuthToken) by clicking in Auth Tokens under Resources area, clicking in Generate Token button and then
 providing a description:
 
-IMPORTANT REMINDER: AFTER YOU CLICK IN Generate Token Button, COPY THIS AUTHTOKEN AND KEEP SAFE AS IT CANNOT BE FOUND LATER
+IMPORTANT REMINDER :grey_exclamation::grey_exclamation:: AFTER YOU CLICK IN Generate Token Button, COPY THIS AUTHTOKEN AND KEEP SAFE AS IT CANNOT BE FOUND LATER
 
 ![](./media/image26.png)
 
