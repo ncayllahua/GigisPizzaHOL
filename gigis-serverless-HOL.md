@@ -67,7 +67,9 @@ If you don't have any Oracle Cloud Account or DevCS instance you could create on
 
 [<span class="underline">Getting key config data from Oracle Cloud Tenancy</span>](#getting-key-config-data-from-oracle-cloud-tenancy)
 
-[<span class="underline">OPTIONAL - How to get OCI tenancy config data to configure DevCS</span>](#how-to-get-oci-tenancy-config-data-to-configure-devcs)
+[<span class="underline">How to get OCI tenancy config data to configure DevCS</span>](#how-to-get-oci-tenancy-config-data-to-configure-devcs)
+
+[<span class="underline">OPTIONAL - Creating a Developer Cloud Service Instance</span>](#creating-a-developer-cloud-service-instance)
 
 [<span class="underline">OPTIONAL - Configuring a Developer Cloud Service Instance</span>](#configuring-a-developer-cloud-service-instance)
 
@@ -126,28 +128,6 @@ Enter your user and password just created:
 And you will be directed to initial Oracle Cloud Infrastructure Dashboard (referred from now on as OCI Dashboard):
 
 ![](./media/image12.png)
-
-Click in the hamburger icon on the top left side and menu will be shown. There select Platform Services (under More Oracle Cloud Services” Area)-\> Developer menu option.
-
-![](./media/image13.png)
-
-There you will be taken to Developer Cloud Service Welcome Page. Let’s start creating a DevCS instance. Click in Create Instance.
-
-![](./media/image14.png)
-
-In next screen provide an Instance Name and fill in also Region you want to create your instance, then click in Next Button:
-
-![](./media/image15.png)
-
-Check the selections in previous screen an click in Create button:
-
-![](./media/image16.png)
-
-Instance creation starts creating service as you can see in Status screen:
-
-![](./media/image17.png)
-
-This process will take some time so let’s take advantage of time while this process ends, and we can then configure the Developer Cloud Service Instance.
 
 # **Getting key config data from Oracle Cloud Tenancy**
 
@@ -234,6 +214,29 @@ And click on copy link to copy the Compartment OCID. Don’t forget to make a no
 ![](./media/image31.png)
 
 This concludes the list of OCI tenancy parameters you will require to run next section.
+
+# **Creating a Developer Cloud Service Instance**
+Click in the hamburger icon on the top left side and menu will be shown. There select Platform Services (under More Oracle Cloud Services” Area)-\> Developer menu option.
+
+![](./media/image13.png)
+
+There you will be taken to Developer Cloud Service Welcome Page. Let’s start creating a DevCS instance. Click in Create Instance.
+
+![](./media/image14.png)
+
+In next screen provide an Instance Name and fill in also Region you want to create your instance, then click in Next Button:
+
+![](./media/image15.png)
+
+Check the selections in previous screen an click in Create button:
+
+![](./media/image16.png)
+
+Instance creation starts creating service as you can see in Status screen:
+
+![](./media/image17.png)
+
+This process will take some time so let’s take advantage of time while this process ends, and we can then configure the Developer Cloud Service Instance.
 
 # **Configuring a Developer Cloud Service Instance**
 
