@@ -400,6 +400,30 @@ curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
 You must download de fn.exe file from fn github public [repository](https://github.com/fnproject/cli/releases)
 
 ### OCI cli installation and Configuration
+#### Linux
+Check that you have installed python3 in you develpment machine. If you don't have python3 installed please install it first.
+```sh
+sudo yum install python3
+```
+Then use this command to install OCI cli
+```sh
+bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
+```
+#### Window
+Check that you have python3 installed. If you don't have python3 installed please install it [first](https://www.python.org/downloads/)
+
+Follow Next steps:
+1. Open the PowerShell console using the **Run as Administrator** option.
+2. The installer enables auto-complete by installing and running a script. To allow this script to run, you must enable the RemoteSigned execution policy. To configure the remote execution policy for PowerShell, run the following command.
+```sh
+Set-ExecutionPolicy RemoteSigned
+```
+3. To run the installer script, run the following command.
+```sh
+powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.ps1'))"
+```
+#### Configuration
+If you are upgrading the OCI cli you don't have to configure it again, but if this is your first installation you must execute the configuration command and follow on-screen instructions.
 ```sh
 oci setup config
 ```
@@ -416,4 +440,3 @@ Decline to generate a new RSA key pair, copy your private key previously provide
 /home/holouser/.oci
 ```
 ![](./media/image80.png)
-
