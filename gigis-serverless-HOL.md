@@ -63,29 +63,19 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 
 ## Summary
 
-[<span class="underline">Setting up an Oracle Cloud Account</span>](#setting-up-an-oracle-cloud-account)
+[<span class="underline">1. Setting up an Oracle Cloud Account</span>](#setting-up-an-oracle-cloud-account)
 
-[<span class="underline">Getting key config data from Oracle Cloud Tenancy</span>](#getting-key-config-data-from-oracle-cloud-tenancy)
+[<span class="underline">2. Getting key config data from Oracle Cloud Tenancy</span>](#getting-key-config-data-from-oracle-cloud-tenancy)
 
-[<span class="underline">How to get OCI tenancy config data</span>](#how-to-get-oci-tenancy-config-data)
+[<span class="underline">3. How to get OCI tenancy config data</span>](#how-to-get-oci-tenancy-config-data)
 
-[<span class="underline">Create OCI Resources</span>](#create-oci-resources)
+[<span class="underline">4. Create OCI Resources</span>](#create-oci-resources)
 
-[<span class="underline">Serverless Functions Code</span>](#serverless-functions-code)
+[<span class="underline">5. Serverless Functions Code</span>](#serverless-functions-code)
 
 [<span class="underline">Create Development Environment Machine</span>](#create-development-environment-machine)
 
 [<span class="underline">OPTIONAL - FaaS and Developer Cloud Service</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/edit/master/devcs2fn.md)
-
-[<span class="underline">OPTIONAL - Configuring a Developer Cloud Service Instance</span>](#configuring-a-developer-cloud-service-instance)
-
-[<span class="underline">OPTIONAL - Virtual Machines Template configuration in DevCS</span>](#virtual-machines-template-configuration-in-devcs)
-
-[<span class="underline">OPTIONAL - Build Virtual Machines configuration in DevCS</span>](#build-virtual-machines-configuration-in-devcs)
-
-[<span class="underline">OPTIONAL - Create New Project in DevCS</span>](#create-new-project-in-devcs)
-
-[<span class="underline">OPTIONAL - Create GIT Repositories</span>](#create-git-repositories)
 
 # **Setting up an Oracle Cloud Account**
 
