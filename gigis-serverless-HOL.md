@@ -334,7 +334,7 @@ IMPORTANT NOTE: At this point try to manually start both VM Servers like in scre
 
 And check that Status changes to starting in both servers:
 
-![](./media/image55.png)
+![](./media/devcs-projectcreation-newproject01.png)
 
 ## Create New Project in DevCS
 Now that you have created the environment connection to OCI and Build Machines, you must create a new project. This project will contain all the code source files in the GIT repository and the jobs and pipelines to CI/CD.
