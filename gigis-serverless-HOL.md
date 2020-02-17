@@ -78,6 +78,10 @@ If you don't have any Oracle Cloud Account or DevCS instance you could create on
 
 [<span class="underline">Create GIT Repositories</span>](#create-git-repositories)
 
+[<span class="underline">Create OCI Resources</span>](#create-oci-resources)
+
+[<span class="underline">Serverless Functions Code</span>](#serverless-functions-code)
+
 [<span class="underline">Create Development Environment Machine</span>](#create-development-environment-machine)
 
 # **Setting up an Oracle Cloud Account**
@@ -375,28 +379,39 @@ Check that you have three GIT repositories in the main project menu.
 
 ![](./media/devcs-project-create-git-repo03.PNG)
 
-## Create Development Environment Machine
-This is an optional step. We recomend a linux development machine, but you can use Windows too.
-Check that you have installed next development resources and applications:
+# Create OCI Resources
+- VCN
+- Function App
+- Object Storage
+- ATP
+
+# Serverless Functions Code
+
+# Create Development Environment Machine
+This is an optional step. We recomend a linux development machine, but you can use Windows too. Also you can use a Developer Cloud Virtual Machine from Oracle Cloud marketplace.
+
+If you had you own development machine, please check that you have installed next development resources and applications:
 
 - IDE software
+- Java jdk 11
+- Docker
 - Fn cli
 - OCI cli
 - OCI user Api Key and Auth Token credentials to access OCIR (Docker Registry)
 
 Make sure you've setup your OCI API signing key and Auth Token (for OCIR access), installed the Fn CLI, completed the CLI configuration steps and have setup the OCI Registry you want to use.
 
-### API signing key and Auth Token
+## API signing key and Auth Token
 You had created it before, when you was setting up the Developer Cloud Environment. If you didn't create the Api Key and Auth Token credentials you must follow next steps:
 
 [<span class="underline">How to get OCI tenancy config data to configure DevCS</span>](#how-to-get-oci-tenancy-config-data-to-configure-devcs)
 
-### Fn Cli Installation
-#### Linux
+## Fn Cli Installation
+### Linux
 ```sh
 curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
 ```
-#### Windows
+### Windows
 You must download de fn.exe file from fn github public [repository](https://github.com/fnproject/cli/releases)
 
 ### OCI cli installation and Configuration
@@ -409,7 +424,7 @@ Then use this command to install OCI cli
 ```sh
 bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
 ```
-#### Window
+### Window
 Check that you have python3 installed. If you don't have python3 installed please install it [first](https://www.python.org/downloads/)
 
 Follow Next steps:
@@ -422,7 +437,7 @@ Set-ExecutionPolicy RemoteSigned
 ```sh
 powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.ps1'))"
 ```
-#### Configuration
+### Configuration
 If you are upgrading the OCI cli you don't have to configure it again, but if this is your first installation you must execute the configuration command and follow on-screen instructions.
 ```sh
 oci setup config
