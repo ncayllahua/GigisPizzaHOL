@@ -1,7 +1,7 @@
 # GigisPizzaHOL
 Hands on Lab - Gigis pizza microservices/serverless app
 
-[HOL 5967](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/hol5967_userguide.md)
+- [x] [HOL 5967](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/hol5967_userguide.md)
 
 ## Interesting information for the demo:
 
