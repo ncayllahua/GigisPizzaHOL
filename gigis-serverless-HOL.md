@@ -67,7 +67,7 @@ If you don't have any Oracle Cloud Account or DevCS instance you could create on
 
 [<span class="underline">Getting key config data from Oracle Cloud Tenancy</span>](#getting-key-config-data-from-oracle-cloud-tenancy)
 
-[<span class="underline">How to get OCI tenancy config data</span>](#how-to-get-oci-tenancy-config-data-to-configure-devcs)
+[<span class="underline">How to get OCI tenancy config data</span>](#how-to-get-oci-tenancy-config-data)
 
 [<span class="underline">Create OCI Resources</span>](#create-oci-resources)
 
@@ -142,7 +142,7 @@ Now before we are able to configure a Developer Cloud Service Instance, let’s 
   - Compartment OCID
   - Object Storage Namespace
 
-## How to get OCI tenancy config data to configure DevCS
+## How to get OCI tenancy config data
 
 In Oracle Cloud Infrastructure interface menu, go to Administration-\>Tenancy Details:
 
