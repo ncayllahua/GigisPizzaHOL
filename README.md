@@ -19,15 +19,15 @@ sudo yum install python3
 bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
 ```
 ### Install Kubectl with curl
-Download last version of kubectl
+1. Download last version of kubectl
 ```sh
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 ```
-Change permission of the binary file
+2. Change permission of the binary file
 ```sh
 chmod +x ./kubectl
 ```
-Move binary to you PATH
+3. Move binary to you PATH
 ```sh
 sudo mv ./kubectl /usr/local/bin/kubectl
 ```
