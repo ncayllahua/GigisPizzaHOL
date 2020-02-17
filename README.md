@@ -12,6 +12,7 @@ OVA VM machine [link](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/smp
 ### Python upgrade to python 3
 ```
 sudo yum install python3
+
 ```
 ### OCICLI upgrade to latest version
 ```
@@ -33,6 +34,10 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 ### OCI SETUP repair permissions error
 ```
 oci setup repair-file-permissions –file /home/holouser/.oci/private.pem
+```
+### Fn Cli install
+```
+curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
 ```
 ## Create OCIR Secret.
 ```
