@@ -75,7 +75,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 
 [<span class="underline">Create Development Environment Machine</span>](#create-development-environment-machine)
 
-[<span class="underline">OPTIONAL - FaaS and Developer Cloud Service</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/edit/master/devcs2fn.md)
+[<span class="underline">OPTIONAL - FaaS and Developer Cloud Service</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md)
 
 # **Setting up an Oracle Cloud Account**
 
