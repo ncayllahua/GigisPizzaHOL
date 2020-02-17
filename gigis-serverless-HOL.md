@@ -337,9 +337,9 @@ And check that Status changes to starting in both servers:
 ![](./media/image55.png)
 
 ## Create New Project in DevCS
-Now that you have created the environment connection to OCI and Build Machines, you must create a new project. This project will contain all the code source files in the GIT repository and the jobs and pipelines to CI/CD.
+Now that you have created the environment connection to OCI and Build Machines, you must create a new project. This project will contain all the source code files in the GIT repository and the jobs and pipelines to CI/CD.
 
-To create a new DevCS project click on Project menu and then click on +Create Button. Next introduce a representative name and optionally a Project Description. Select Private (Shared if you want your project accesible from external teams) and Preferred Language for the project. Then click Next button.
+To create a new DevCS project click on Project Home menu and then click on +Create Button. Next introduce a representative name (ServerlessHOL for example) and optionally a Project Description. Select Private (Shared if you want your project accesible from external teams) and Preferred Language for the project. Then click Next button.
 
 ![](./media/devcs-projectcreation-newproject01.PNG)
 
@@ -351,6 +351,25 @@ Click Finish to create the new project.
 
 ![](./media/devcs-projectcreation-newproject03.PNG)
 
+Wait to project environment creation (about 2 or 3 minutes)
+
+![](./media/devcs-projectcreation-newproject04.PNG)
+
 ## Create GIT Repositories
+You have now a new empty project created. Now we are going to create 3 GIT reporsitories, one for each serverless function.
+To create a new GIT repo go to Project Home menu and click on Create Repository button. Next you write **fn_pizza_discount_upoload** as GIT name and optionally a Description. Then click Create button.
 
 ![](./media/devcs-project-create-git-repo01.PNG)
+
+New GIT repo will be created with a README.md file only.
+
+![](./media/devcs-project-create-git-repo02.PNG)
+
+Repeat again to create 2 new GIT repos:
+* **fn_pizza_discount_campaign**
+* **fn_pizza_discount_cloudevents**
+
+Check that you have three GIT repositories in the main project menu.
+
+![](./media/devcs-project-create-git-repo03.PNG)
+
