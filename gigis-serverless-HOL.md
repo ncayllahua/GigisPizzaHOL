@@ -7,7 +7,7 @@ Demo is known as Gigi’s Pizza. This Use Case is focused in serverless (fn) and
 
 ![](./media/image2.png)
 
-In the first demo version, we had one serverless function that got you a pizza price discount acording to a basic bussiness rule, if the pizza price was between 10$ - 15$ you receive discount of 1%, if the pizza price was between 15$ - 19$ you receive 2% and if the pizza price was over 19$ you receive a 2% discount. It was very interesting to show a basic serverless function and graalvm compiler, but the idea is to show more about serverless. Now we show you a more elavorated serverless app and you can touch it an modify the code as you want.
+In the first demo version, we had one serverless function that got you a pizza price discount acording to a basic bussiness rule, if the pizza price was between 10$ - 15$ you received discount of 1%, if the pizza price was between 15$ - 19$ you received 2% and if the pizza price was over 19$ you received a 2% discount. It was very interesting to show a basic serverless function and graalvm compiler, but the idea is to show more about serverless. Now we show you a more elaborated serverless app and you can touch it and modify the code as your needs.
 
 ![](./media/imageserverless0001.png)
 
@@ -59,7 +59,7 @@ You will:
 
 If you attend our previous HOL about Gigi's pizza, you had created a Cloud Account and DevCS instance, but if you don't have any Oracle Cloud Account you could create one, following the first step of the LAB. 
 
-(OPTIONAL) All the code project could be stored in a GIT repo in Developer Cloud Service. if you attended our previous LAB about microservices (gigi's pizza) before, you should have a DevCS instance with the Gigi's project copied on it. You can use that DevCS instance and the same Gigi's project to do this optional part.
+(OPTIONAL) All the code project could be stored in a project and GIT repos in Developer Cloud Service. if you attended our previous LAB about microservices (gigi's pizza) before, you should have a DevCS instance with the Gigi's project copied on it. You can use that DevCS instance and the same Gigi's project to do this optional part.
 
 ## Summary
 
