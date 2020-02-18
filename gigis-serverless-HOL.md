@@ -207,9 +207,9 @@ This concludes the list of OCI tenancy parameters you will require to run next s
 
 # Create OCI Resources
 - VCN - Virtual Cloud Network
-- Function App
 - Object Storage
 - ATP
+- Function App
 
 ## VCN - Virtual Cloud Network Creation
 If you have created previously a VCN in your compartment, you can use it instead of create a new want, but if you don't have any VNC created, please follow next steps:
@@ -247,6 +247,25 @@ You should see a creation process window. It takes a few second to create the ne
 You new vnc should be created. You can check vnc subnets (2 networks: public and private), route tablets, internet gateway and so. You can click on Security List to check available open ports for example.
 
 ![](./media/vnc-create07.PNG)
+
+## Object Storage Creation
+Once you created a VNC, you will need an Object Storage element to upload discount campaign json files. Let's create an Object Storage Bucket following next steps:
+
+Go to Core Infrastructure -> Object Storage in the main menu and click in Object Storage.
+
+![](./media/objectstorage-create01.PNG)
+
+Check your campartment name [HandsOnLab] and click Create Bucket button.
+
+![](./media/objectstorage-create02.PNG)
+
+Write a descriptive name for the bucket as GigisDiscountCampaigns-Bucket or something like that. Then check STANDARD selection, check EMIT OBJECT EVENTS to enable CloudEvents in this bucket and check ENCRYPT USING ORACLE MANAGED KEYS. Next click Create Bucket button.
+
+![](./media/objectstorage-create03.PNG)
+
+Review you new bucket.
+
+![](./media/objectstorage-create04.PNG)
 
 # Serverless Functions Code
 
