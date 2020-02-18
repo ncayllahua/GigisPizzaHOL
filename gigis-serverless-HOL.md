@@ -206,10 +206,47 @@ And click on copy link to copy the Compartment OCID. Don’t forget to make a no
 This concludes the list of OCI tenancy parameters you will require to run next section.
 
 # Create OCI Resources
-- VCN
+- VCN - Virtual Cloud Network
 - Function App
 - Object Storage
 - ATP
+
+## VCN - Virtual Cloud Network Creation
+If you have created previously a VCN in your compartment, you can use it instead of create a new want, but if you don't have any VNC created, please follow next steps:
+
+Go to Core Infrastructure -> Networking in the main menu and click in Virtual Cloud Networks.
+
+![](./media/vnc-create01.PNG)
+
+Check that you are in you HandsOnLab compartment. If the compartment doesn't appear in the dropdown list, please refresh your browser (F5). After refreshing, select the HandsOnLab compartment. Then click Networking Quickstart button.
+
+![](./media/vnc-create02.PNG)
+
+Select VCN with Internet Connectivity if it's not selected and click Start Workflow button
+
+![](./media/vnc-create03.PNG)
+
+Write a descriptive name for the new VCN like functions-vcn or something like that. Check the compartment name [HandsOnLab]. Then write the CIDRs for public and private networks. You can copy them from the Example text.
+
+* VCN CIDR BLOCK: **10.0.0.0/16**
+* PUBLIC SUBNET CIDR BLOCK: **10.0.0.0/24**
+* PRIVATE SUBNET CIDR BLOCK: **10.0.1.0/24**
+
+Click Next button to continue the creation process
+
+![](./media/vnc-create04.PNG)
+
+Review and check data for the new vnc and click Create button
+
+![](./media/vnc-create05.PNG)
+
+You should see a creation process window. It takes a few second to create the new vnc.
+
+![](./media/vnc-create06.PNG)
+
+You new vnc should be created. You can check vnc subnets (2 networks: public and private), route tablets, internet gateway and so. You can click on Security List to check available open ports for example.
+
+![](./media/vnc-create07.PNG)
 
 # Serverless Functions Code
 
