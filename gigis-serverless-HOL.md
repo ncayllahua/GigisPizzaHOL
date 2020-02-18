@@ -208,7 +208,7 @@ This concludes the list of OCI tenancy parameters you will require to run next s
 # Create OCI Resources
 - VCN - Virtual Cloud Network
 - Object Storage
-- ATP
+- ATP - Autonomous Transaction Processing
 - Function App
 
 ## VCN - Virtual Cloud Network Creation
@@ -266,6 +266,40 @@ Write a descriptive name for the bucket as GigisDiscountCampaigns-Bucket or some
 Review you new bucket.
 
 ![](./media/objectstorage-create04.PNG)
+
+## ATP - Autonomous Database Creation
+This demo includes an ATP as data repository and you will access to this Database with two differents methods [ORDS or REST] and [JDBC]. In this section you will create an ATP DB from your always free tier (always free tier includes 2 ATP testing DBs) and next section you will configure it to access from JDBC and ORDS (REST). Please follow next step to create the ATP DB.
+
+Click over Oracle Cloud logo and then click Create an ATP Database from Quick Actions menu. You can go to Database main menu and click Autonomous Transaction Processing and then click Create Autonomous Database, but first option is quicker.
+
+![](./media/ATP-create01.png)
+
+Check your compartment [HandsOnLab]. Write a display name (can contain spaces) for the ATP and a Database name (not spaces and only 14 chars). Check Transacion Processing is selected and Shared Infrastructure. Then Check Always Free to enable always free instance.
+
+Warning NOTE :grey_exclamation::grey_exclamation:: If your Always Free Autonomous Database has **no activity for 7 consecutive days**, the database will be automatically stopped. Your data will be preserved, and you can restart the database to continue using it. If the database **remains stopped for 3 months, it will be reclaimed**.
+
+Always free instance use 18c database version only, check it. Then write an ADMIN password for the DB.
+Next Click Create Autonomous Database button.
+
+![](./media/ATP-create02.png)
+
+After several seconds you should see the ATP provisioning in Orange. When the ATP logo changes from orange to green the ATP will be ready for service.
+
+![](./media/ATP-create03.png)
+
+## ATP - Autonomous Database Configuration
+When your always free ATP goes green (available) you can configure it to access from JDBC (wallet) and ORDS. Of course you will have to create a new schema to store the discount campaigns. So let's configure your ATP DB following next steps:
+
+### Get ATP Wallet file
+To secure the access to an ATPDB from JDBC you will need a wallet file. This file contains the conection strings, profile access and credentials to access to the ATP. Next diagram describe the connection to the ATP from JDBC driver.
+
+![](./media/autonomous-transaction-processing.png)
+
+Click DB Connection button to access wallet download and connection Strings menu.
+
+![](./media/ATP-configure01.png)
+
+In this menu you can check the connection string to the ATP. As you can see you could connect with differents profiles like TP, TPURGENT, LOW, MEDIUM or HIGH 
 
 # Serverless Functions Code
 
