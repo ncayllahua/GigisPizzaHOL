@@ -16,7 +16,7 @@ Make sure you've setup your OCI API signing key and Auth Token (for OCIR access)
 ## API signing key and Auth Token
 You had created it before, when you was setting up the Developer Cloud Environment. If you didn't create the Api Key and Auth Token credentials you must follow next steps:
 
-[<span class="underline">How to get OCI tenancy config data to configure DevCS</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md#how-to-get-oci-tenancy-config-data-to-configure-devcs)
+[<span class="underline">How to get OCI tenancy config data to configure DevCS</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md#how-to-get-oci-tenancy-config-data-to-configure-devcs)
 
 ## Fn Cli Installation
 ### Linux
