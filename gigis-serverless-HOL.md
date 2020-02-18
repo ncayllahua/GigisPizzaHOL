@@ -314,7 +314,7 @@ Next step in your ATP configuration is to access to ATP Service Console clicking
 
 ![](./media/ATP-configure04b.PNG)
 
-A new tab will appear in your browser with ATP Service Console menu. You can see the ATP Overview and Performance.
+A new browser tab will appear with ATP Service Console menu. You can see the ATP Overview and Performance.
 
 ![](./media/ATP-configure04.PNG)
 
@@ -326,6 +326,13 @@ Next click Development menu and then click SQL Developer Web
 
 ![](./media/ATP-configure06.PNG)
 
+A new browser tab will appear with Username and Password login form to access to ATP via web browser.
+
+![](./media/ATP-configure07.PNG)
+
+Write user as ADMIN and your ATP admin password that you wrote in the ATP creation process and click Sign in button.
+
+![](./media/ATP-configure-websql01.PNG)
 
 
 # Serverless Functions Code
