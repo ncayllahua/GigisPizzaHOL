@@ -299,7 +299,34 @@ Click DB Connection button to access wallet download and connection Strings menu
 
 ![](./media/ATP-configure01.png)
 
-In this menu you can check the connection string to the ATP. As you can see you could connect with differents profiles like TP, TPURGENT, LOW, MEDIUM or HIGH 
+In this menu you can check the connection strings to the ATP. As you can see you could connect with differents service names like TP, TPURGENT, LOW, MEDIUM or HIGH. You can visit the ["Exadata Infrastructure web"](https://docs.oracle.com/en/cloud/paas/atp-cloud/atpug/connect-predefined.html#GUID-9747539B-FD46-44F1-8FF8-F5AC650F15BE) to know about the Service Names meaning. You will use MEDIUM TNS in this demo.
+
+![](./media/ATP-configure02.png)
+
+Click Download Wallet button to download to your computer/laptop the ATP wallet.zip file. You will write a password to download the wallet, please write one and note it for future uses. Click Download button to download the wallet zip file.
+
+![](./media/ATP-configure03.png)
+
+After wallet file download, click Close button to close the connections menu.
+
+### ATP Service Console
+Next step in your ATP configuration is to access to ATP Service Console clicking in Service Console button.
+
+![](./media/ATP-configure04b.png)
+
+A new tab will appear in your browser with ATP Service Console menu. You can see the ATP Overview and Performance.
+
+![](./media/ATP-configure04.png)
+
+If you click in Activity you will see a real time monitor and monitored SQL dashboard.
+
+![](./media/ATP-configure05.png)
+
+Next click Development menu and then click SQL Developer Web
+
+![](./media/ATP-configure05.png)
+
+
 
 # Serverless Functions Code
 
