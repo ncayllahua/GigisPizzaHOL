@@ -324,7 +324,7 @@ If you click in Activity you will see a real time monitor and monitored SQL dash
 
 Next click Development menu and then click SQL Developer Web
 
-![](./media/ATP-configure05.PNG)
+![](./media/ATP-configure06.PNG)
 
 
 
