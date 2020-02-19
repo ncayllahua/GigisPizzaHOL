@@ -383,7 +383,7 @@ After table created, select MICROSERVICE, Tables and Click on Campaign Table to 
 ### ATP ORDS Configuration
 Next you have to configure ORDS (Oracle REST Data Services) to upload data to new table from REST calls. One of the serverless Function upload data with ORDS and other one get data with JDBS driver to show you different ways to deal with data from an ATP Database.
 
-Write next SQL sentences in Worksheet as you write in the previous sectioon.
+Write next SQL sentences in Worksheet as you write in the previous section.
 ```sql
 GRANT CONNECT, RESOURCE TO MICROSERVICE;
 GRANT UNLIMITED TABLESPACE TO MICROSERVICE;
