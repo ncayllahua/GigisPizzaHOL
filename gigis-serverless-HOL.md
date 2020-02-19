@@ -456,6 +456,20 @@ FROM user_ords_clients;
 
 Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the ORDS access from the serverless Functions.
 
+## Oracle FaaS app creation
+In this section you will create the FaaS (serverless Function app) and configure the environment variables to access to the ATP Database. 
+
+if your tenancy has OCI logging service enabled, you can send log traces to OCI logging system.
+
+![](./media/oci-logging-create01.PNG)
+
+Optionally you could create a free account in [papertrail](https://papertrailapp.com/) as syslog remote server to send log traces from the serverless functions, if your tenancy logging service is not enabled yet.
+
+### Function App Creation
+First you must create the serverless Function in OCI Managed Function Service. Go to Developer Services in the main menu and select Functions.
+
+![](./media/oci-faas-create01.PNG)
+
 # Serverless Functions Code
 
 
