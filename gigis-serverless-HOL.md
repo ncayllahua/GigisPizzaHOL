@@ -463,12 +463,6 @@ Note client_id and client_secrect fields, because you will use them later in the
 ## Oracle FaaS app creation
 In this section you will create the FaaS (serverless Function app) and configure the environment variables to access to the ATP Database. 
 
-if your tenancy has OCI logging service enabled, you can send log traces to OCI logging system.
-
-![](./media/oci-logging-create01.PNG)
-
-Optionally you could create a free account in [papertrail](https://papertrailapp.com/) as syslog remote server to send log traces from the serverless functions, if your tenancy logging service is not enabled yet.
-
 ### Function App Creation
 First you must create the serverless Function in OCI Managed Function Service. Go to Developer Services in the main menu and select Functions.
 
@@ -489,6 +483,19 @@ First you must create the serverless Function in OCI Managed Function Service. G
 |10| DB_USER ||
 |11| KEYSTORE_PASSWORD ||
 |12| TRUSTSTORE_PASSWORD ||
+
+### Functions Logging
+If you want to create a function logging to trace your code, you have several methods: create log ina OCI object storage bucket, use a remote syslog server or use the OCI logging service.
+
+If your tenancy has OCI logging service enabled, you can send log traces to OCI logging system and see them after functions execution. To check if your tenancy has the OCI logging service enabled, go to main menu -> Solutions and Platform and Logging.
+
+![](./media/oci-logging-create01.PNG)
+
+Optionally and if your tenancy logging service is not enabled yet, you could create a free account in [papertrail](https://papertrailapp.com/) or similar service as syslog remote server, to send log traces from the serverless functions.
+
+#### OCI Logging Service Configuration
+
+#### Papertrail syslog Configuration
 
 # Serverless Functions Code
 
