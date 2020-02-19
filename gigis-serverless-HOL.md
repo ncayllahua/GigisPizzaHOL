@@ -209,6 +209,7 @@ This concludes the list of OCI tenancy parameters you will require to run next s
 - VCN - Virtual Cloud Network
 - Object Storage
 - ATP - Autonomous Transaction Processing
+- IAM FaaS Policy
 - Function App
 
 ## VCN - Virtual Cloud Network Creation
@@ -455,6 +456,9 @@ FROM user_ords_clients;
 ![](./media/ATP-configure-ords01.PNG)
 
 Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the ORDS access from the serverless Functions.
+
+## OCI IAM FaaS Policy
+
 
 ## Oracle FaaS app creation
 In this section you will create the FaaS (serverless Function app) and configure the environment variables to access to the ATP Database. 
