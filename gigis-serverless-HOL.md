@@ -503,8 +503,8 @@ You must create all next environment variables to configure your serverless appl
 |04| DB_ORDS_CLIENT_SECRET|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
 |05| DB_ORDS_SERVICE||
 |06| DB_ORDS_SERVICE_OAUTH||
-|07| DB_USER||
-|08| DB_PASSWORD||
+|07| DB_USER|MICROSERVICE|
+|08| DB_PASSWORD|AAZZ__welcomedevops123|
 |09| DB_URL||
 |10| DB_SERVICE_NAME||
 |11| KEYSTORE_PASSWORD |[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
