@@ -380,6 +380,76 @@ After table created, select MICROSERVICE, Tables and Click on Campaign Table to 
 
 ![](./media/ATP-configure-schema03.PNG)
 
+### ATP ORDS Configuration
+Next you have to configure ORDS (Oracle REST Data Services) to upload data to new table from REST calls. One of the serverless Function upload data with ORDS and other one get data with JDBS driver to show you different ways to deal with data from an ATP Database.
+
+Write next SQL sentences in Worksheet as you write in the previous sectioon.
+```sql
+GRANT CONNECT, RESOURCE TO MICROSERVICE;
+GRANT UNLIMITED TABLESPACE TO MICROSERVICE;
+```
+
+Enable ORDS for your new Schema:
+```sql
+BEGIN    
+    ORDS.ENABLE_SCHEMA(p_enabled => TRUE,
+                       p_schema => 'MICROSERVICE',
+                       p_url_mapping_type => 'BASE_PATH',
+                       p_url_mapping_pattern => 'microservice',
+                       p_auto_rest_auth => TRUE);
+    COMMIT;
+END;
+```
+Create privileges and Auth token for ORDS Calls:
+```sql
+DECLARE
+ l_roles     OWA.VC_ARR;
+ l_modules   OWA.VC_ARR;
+ l_patterns  OWA.VC_ARR;
+BEGIN
+ l_roles(1)   := 'SQL Developer';
+ l_patterns(1) := '/campaign/*';
+ ORDS.DEFINE_PRIVILEGE(
+     p_privilege_name => 'rest_privilege',
+     p_roles          => l_roles,
+     p_patterns       => l_patterns,
+     p_modules        => l_modules,
+     p_label          => '',
+     p_description    => '',
+     p_comments       => NULL);
+ COMMIT;
+ END;
+ ```
+Create an oauth client associated with the privilege. Change p_owner and p_support_email to your name and email.
+```sql
+BEGIN
+  OAUTH.create_client(
+    p_name            => 'Rest Client',
+    p_grant_type      => 'client_credentials',
+    p_owner           => 'Iván Sampedro Postigo',
+    p_description     => 'ORDS Oauth Access to Campaign discounts',
+    p_support_email   => 'ivan.sampedro@oracle.com',
+    p_privilege_names => 'rest_privilege'
+  );
+
+  COMMIT;
+END;
+```
+Grant the SQL Developer role to the client application:
+```sql
+BEGIN
+  OAUTH.grant_client_role(
+    p_client_name => 'Rest Client',
+    p_role_name   => 'SQL Developer'
+  );
+  COMMIT;
+END;
+```
+You can now grab the client_id and client_secret executing next SQL sentence:
+```sql
+SELECT id, name, client_id, client_secret 
+FROM user_ords_clients;
+```
 
 # Serverless Functions Code
 
