@@ -497,8 +497,8 @@ You must create all next environment variables to configure your serverless appl
 
 || Key | Value | Section |
 | ------------- | ------------- | ------------- | ------------- |
-|01| CLIENT_CREDENTIALS|/function/wallet||
-|02| DB_ORDS_BASE|https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/||
+|01| CLIENT_CREDENTIALS|/function/wallet|
+|02| DB_ORDS_BASE|https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/|
 |03| DB_ORDS_CLIENT_ID|cPpla3w5rQEpj2CAO7tiPw..|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
 |04| DB_ORDS_CLIENT_SECRET|L_sDLztxkkU9B7NL-9t2kg..|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
 |05| DB_ORDS_SERVICE|||
