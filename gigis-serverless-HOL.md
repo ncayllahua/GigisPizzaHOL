@@ -337,7 +337,28 @@ Write user as ADMIN and your ATP admin password that you wrote in the ATP creati
 ### ATP Schema and Tables Creation
 Now you can create schemas and tables in the ATP. First you have to create a new schema and next you will can create the discount campaign table.
 
-To create the new schema called MICROSERVICE (or other descriptive name) you must copy this SQL sentences in 
+To create the new schema called MICROSERVICE (or other descriptive name) you must copy this SQL sentences in the Worksheet of SQL Developer webapp.
+
+```sql
+-- USER SQL
+CREATE USER "MICROSERVICE"
+IDENTIFIED BY "AAZZ__welcomedevops123"
+DEFAULT TABLESPACE "DATA"
+TEMPORARY TABLESPACE "TEMP"
+QUOTA UNLIMITED ON "DATA"
+ACCOUNT UNLOCK;
+```
+
+![](./media/ATP-configure-schema01.PNG)
+
+Grant Roles to the new MICROSERVICE user/schema writing this sentence:
+
+```sql
+-- USER ROLES
+GRANT "CONNECT","RESOURCE","DWROLE" TO "MICROSERVICE";
+```
+
+![](./media/ATP-configure-schema02.PNG)
 
 # Serverless Functions Code
 
