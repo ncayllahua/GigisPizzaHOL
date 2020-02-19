@@ -455,7 +455,7 @@ FROM user_ords_clients;
 ```
 ![](./media/ATP-configure-ords01.PNG)
 
-Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the ORDS access from the serverless Functions.
+Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the serverless Functions ATP ORDS access.
 
 ## OCI IAM FaaS Policy
 
@@ -468,21 +468,47 @@ First you must create the serverless Function in OCI Managed Function Service. G
 
 ![](./media/oci-faas-create01.PNG)
 
+Check that your compartment is [HandsOnLab] and click Create Application.
+
+![](./media/oci-faas-create02.PNG)
+
+Write a Name for your serverless application, something descriptive like gigis-serverless-hol. Then select the VCN that you created in the previous section [functions-vcn] and select Public Subnet-functions-vcn (Regional) as Subnets.
+
+The Logging Policy is none at this point, but in next sections you could change it to generate log tracing.
+
+Click Create button to create your new serverless app.
+
+![](./media/oci-faas-create03.PNG)
+
+Now you have a new serverless application but without configuration, so let's configure your new serverless application. Click on the application name [gigis-serverless-hol].
+
+![](./media/oci-faas-create04.PNG)
+
+As you can see Functions are empty because you haven't created a serverless function yet. But the serverless application will be composed of 3 serverless functions, that you will create in next sections after application configuration.
+
+![](./media/oci-faas-create05.PNG)
+
+Click Configuration menu to configure your serverless app environment variables.
+
+![](./media/oci-faas-create06.PNG)
+
 #### Function Environment Variables
+You must create all next environment variables to configure your serverless application before functions creation. When you create the serverless functions, they will can access your ATP Database with ORDS or JDBC methods.
+
 || Key | Value |
 | ------------- | ------------- | ------------- |
 |01| CLIENT_CREDENTIALS | /function/wallet |
 |02| DB_ORDS_BASE | https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/ |
-|03| DB_ORDS_CLIENT_ID||
-|04| DB_ORDS_CLIENT_SECRET||
+|03| DB_ORDS_CLIENT_ID|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
+|04| DB_ORDS_CLIENT_SECRET|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
 |05| DB_ORDS_SERVICE||
 |06| DB_ORDS_SERVICE_OAUTH||
-|07| DB_PASSWORD||
-|08| DB_SERVICE_NAME||
-|09| DB_URL ||
-|10| DB_USER ||
-|11| KEYSTORE_PASSWORD ||
-|12| TRUSTSTORE_PASSWORD ||
+|07| DB_USER||
+|08| DB_PASSWORD||
+|09| DB_URL||
+|10| DB_SERVICE_NAME||
+|11| KEYSTORE_PASSWORD |[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
+|12| TRUSTSTORE_PASSWORD |[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
 
 ### Functions Logging
 If you want to create a function logging to trace your code, you have several methods: create log ina OCI object storage bucket, use a remote syslog server or use the OCI logging service.
