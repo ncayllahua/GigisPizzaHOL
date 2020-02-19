@@ -450,6 +450,9 @@ You can now grab the client_id and client_secret executing next SQL sentence:
 SELECT id, name, client_id, client_secret 
 FROM user_ords_clients;
 ```
+![](./media/ATP-configure-ords01.PNG)
+
+Note them as you will use them later in the LAB. They are necessary to configure the ORDS access from the serverless Functions.
 
 # Serverless Functions Code
 
