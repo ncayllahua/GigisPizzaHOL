@@ -496,19 +496,19 @@ Click Configuration menu to configure your serverless app environment variables.
 You must create all next environment variables to configure your serverless application before functions creation. When you create the serverless functions, they will can access your ATP Database with ORDS or JDBC methods.
 
 || Key | Value |
-| ------------- | ------------- | ------------- |
-|01| CLIENT_CREDENTIALS | /function/wallet |
-|02| DB_ORDS_BASE | https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/ |
-|03| DB_ORDS_CLIENT_ID|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|04| DB_ORDS_CLIENT_SECRET|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|05| DB_ORDS_SERVICE||
-|06| DB_ORDS_SERVICE_OAUTH||
-|07| DB_USER|MICROSERVICE|
-|08| DB_PASSWORD|AAZZ__welcomedevops123|
-|09| DB_URL||
-|10| DB_SERVICE_NAME||
-|11| KEYSTORE_PASSWORD |[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
-|12| TRUSTSTORE_PASSWORD |[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
+| ------------- | ------------- | ------------- | ------------- |
+|01| CLIENT_CREDENTIALS|/function/wallet||
+|02| DB_ORDS_BASE|https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/||
+|03| DB_ORDS_CLIENT_ID||[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
+|04| DB_ORDS_CLIENT_SECRET||[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
+|05| DB_ORDS_SERVICE|||
+|06| DB_ORDS_SERVICE_OAUTH|||
+|07| DB_USER|MICROSERVICE|[from SQL USER creation](#atp-schema-and-tables-creation)|
+|08| DB_PASSWORD|AAZZ__welcomedevops123|[from SQL USER creation](#atp-schema-and-tables-creation)|
+|09| DB_URL|||
+|10| DB_SERVICE_NAME|||
+|11| KEYSTORE_PASSWORD ||[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
+|12| TRUSTSTORE_PASSWORD ||[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
 
 ### Functions Logging
 If you want to create a function logging to trace your code, you have several methods: create log ina OCI object storage bucket, use a remote syslog server or use the OCI logging service.
