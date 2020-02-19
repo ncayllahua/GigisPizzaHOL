@@ -386,6 +386,8 @@ Next you have to configure ORDS (Oracle REST Data Services) to upload data to ne
 Write next SQL sentences in Worksheet as you write in the previous section.
 ```sql
 GRANT CONNECT, RESOURCE TO MICROSERVICE;
+```
+```sql
 GRANT UNLIMITED TABLESPACE TO MICROSERVICE;
 ```
 
@@ -452,7 +454,7 @@ FROM user_ords_clients;
 ```
 ![](./media/ATP-configure-ords01.PNG)
 
-Note them as you will use them later in the LAB. They are necessary to configure the ORDS access from the serverless Functions.
+Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the ORDS access from the serverless Functions.
 
 # Serverless Functions Code
 
