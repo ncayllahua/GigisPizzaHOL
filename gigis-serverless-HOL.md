@@ -477,18 +477,18 @@ First you must create the serverless Function in OCI Managed Function Service. G
 #### Function Environment Variables
 || Key | Value |
 | ------------- | ------------- | ------------- |
-|| CLIENT_CREDENTIALS | /function/wallet |
-|| DB_ORDS_BASE | https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/ |
-|| DB_ORDS_CLIENT_ID||
-|| DB_ORDS_CLIENT_SECRET||
-|| DB_ORDS_SERVICE||
-|| DB_ORDS_SERVICE_OAUTH||
-|| DB_PASSWORD||
-|| DB_SERVICE_NAME||
-|| DB_URL ||
-|| DB_USER ||
-|| KEYSTORE_PASSWORD ||
-|| TRUSTSTORE_PASSWORD ||
+|01| CLIENT_CREDENTIALS | /function/wallet |
+|02| DB_ORDS_BASE | https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/ |
+|03| DB_ORDS_CLIENT_ID||
+|04| DB_ORDS_CLIENT_SECRET||
+|05| DB_ORDS_SERVICE||
+|06| DB_ORDS_SERVICE_OAUTH||
+|07| DB_PASSWORD||
+|08| DB_SERVICE_NAME||
+|09| DB_URL ||
+|10| DB_USER ||
+|11| KEYSTORE_PASSWORD ||
+|12| TRUSTSTORE_PASSWORD ||
 
 # Serverless Functions Code
 
