@@ -470,6 +470,22 @@ First you must create the serverless Function in OCI Managed Function Service. G
 
 ![](./media/oci-faas-create01.PNG)
 
+#### Function Environment Variables
+|| Key | Value |
+| ------------- | ------------- | ------------- |
+|| CLIENT_CREDENTIALS | /function/wallet |
+|| DB_ORDS_BASE | https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/ |
+|| DB_ORDS_CLIENT_ID||
+|| DB_ORDS_CLIENT_SECRET||
+|| DB_ORDS_SERVICE||
+|| DB_ORDS_SERVICE_OAUTH||
+|| DB_PASSWORD||
+|| DB_SERVICE_NAME||
+|| DB_URL ||
+|| DB_USER ||
+|| KEYSTORE_PASSWORD ||
+|| TRUSTSTORE_PASSWORD ||
+
 # Serverless Functions Code
 
 
