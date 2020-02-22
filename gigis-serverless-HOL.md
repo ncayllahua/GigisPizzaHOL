@@ -527,11 +527,11 @@ You must create all next environment variables to configure your serverless appl
 |02| DB_ORDS_BASE|https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/|[<span class="underline">from ORDS URL Section</span>](#atp-ords-url)|
 |03| DB_ORDS_CLIENT_ID|cPpla3w5rQEpj2CAO7tiPw..|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
 |04| DB_ORDS_CLIENT_SECRET|L_sDLztxkkU9B7NL-9t2kg..|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|05| DB_ORDS_SERVICE|atp/campaign||
-|06| DB_ORDS_SERVICE_OAUTH|atp/oauth/token||
+|05| DB_ORDS_SERVICE|atp/campaign|from ATP documentation|
+|06| DB_ORDS_SERVICE_OAUTH|atp/oauth/token|from ATP ORDS documentation|
 |07| DB_USER|MICROSERVICE|[from SQL USER creation](#atp-schema-and-tables-creation)|
 |08| DB_PASSWORD|AAZZ__welcomedevops123|[from SQL USER creation](#atp-schema-and-tables-creation)|
-|09| DB_URL|jdbc:oracle:thin:@||
+|09| DB_URL|jdbc:oracle:thin:@|from Java and JDBC documentation|
 |10| DB_SERVICE_NAME|ggdiscountatp_MEDIUM|[<span class="underline">from Get ATP Wallet file Section</span>](#get-atp-wallet-file)|
 |11| KEYSTORE_PASSWORD |WalletPassw0rd|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
 |12| TRUSTSTORE_PASSWORD |WalletPassw0rd|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
