@@ -331,7 +331,7 @@ A new browser tab will appear with Username and Password login form to access to
 
 ![](./media/ATP-configure07.PNG)
 
-Now you can write and seceute SQL commands in Worksheet tab.
+Now you can write and execute SQL commands in Worksheet tab. Click on Green Play button to run the SQL commands when you want.
 
 ![](./media/ATP-configure-websql01.PNG)
 
