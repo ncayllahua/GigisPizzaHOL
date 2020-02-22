@@ -545,7 +545,7 @@ Click Configuration menu to configure your serverless app environment variables.
 ![](./media/oci-faas-create06.PNG)
 
 #### Function Environment Variables
-You must create all next environment variables to configure your serverless application before functions creation. When you create the serverless functions, they will can access your ATP Database with ORDS or JDBC methods.
+You must create all next environment variables to setup your serverless application, before functions creation. When you create the serverless functions, they will can access your ATP Database with both ORDS or JDBC methods.
 
 || Key | Value | Section |
 | ------------- | ------------- | ------------- | ------------- |
