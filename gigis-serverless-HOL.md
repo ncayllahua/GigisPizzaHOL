@@ -327,11 +327,11 @@ Next click Development menu and then click SQL Developer Web
 
 ![](./media/ATP-configure06.PNG)
 
-A new browser tab will appear with Username and Password login form to access to ATP via web browser.
+A new browser tab will appear with Username and Password login form to access to ATP via web browser. Write username as ADMIN and your ATP admin password that you wrote in the ATP creation process and click Sign in button.
 
 ![](./media/ATP-configure07.PNG)
 
-Write user as ADMIN and your ATP admin password that you wrote in the ATP creation process and click Sign in button.
+Now you can write and seceute SQL commands in Worksheet tab.
 
 ![](./media/ATP-configure-websql01.PNG)
 
