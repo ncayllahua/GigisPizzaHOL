@@ -381,7 +381,7 @@ After table created, select MICROSERVICE, Tables and Click on Campaign Table to 
 
 ![](./media/ATP-configure-schema03.PNG)
 
-### ATP ORDS MICROSERVICE Schema Configuration
+### ATP ORDS Configuration
 Next you have to configure ORDS (Oracle REST Data Services) to upload data to new table from REST calls. One of the serverless Function upload data with ORDS and other one get data with JDBS driver to show you different ways to deal with data from an ATP Database.
 
 Write next SQL sentences in Worksheet as you write in the previous section.
@@ -467,7 +467,7 @@ FROM user_ords_clients;
 
 Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the serverless Functions ATP ORDS access.
 
-### ATP Enable ORDS Schema & Table
+### ATP Enable ORDS Table
 You must execute this command in Workset to enable ORDS in campaign table of MICROSERVICE schema
 ```sql
 BEGIN
@@ -477,7 +477,7 @@ BEGIN
     p_object          => 'CAMPAIGN',
     p_object_type     => 'TABLE',
     p_object_alias    => 'campaign',
-    p_auto_rest_auth  => TRUE);
+    p_auto_rest_auth  => FALSE);
   COMMIT;
 END;
 ```
@@ -553,7 +553,7 @@ You must create all next environment variables to configure your serverless appl
 |02| DB_ORDS_BASE|https://[ixcsyvrmtjm8ebr-ggdiscountatp].adb.eu-frankfurt-1.oraclecloudapps.com/ords/|[<span class="underline">from ORDS URL Section</span>](#atp-ords-url)|
 |03| DB_ORDS_CLIENT_ID|[cPpla3w5rQEpj2CAO7tiPw..]|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
 |04| DB_ORDS_CLIENT_SECRET|[L_sDLztxkkU9B7NL-9t2kg..]|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|05| DB_ORDS_SERVICE|atp/campaign|from ATP documentation|
+|05| DB_ORDS_SERVICE|atp/campaign|<span class="underline">from ORDS Section</span>](#atp-enable-ords-table)|
 |06| DB_ORDS_SERVICE_OAUTH|atp/oauth/token|from ATP ORDS documentation|
 |07| DB_USER|MICROSERVICE|[from SQL USER creation](#atp-schema-and-tables-creation)|
 |08| DB_PASSWORD|AAZZ__welcomedevops123|[from SQL USER creation](#atp-schema-and-tables-creation)|
