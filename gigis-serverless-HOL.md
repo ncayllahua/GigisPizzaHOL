@@ -551,8 +551,8 @@ You must create all next environment variables to configure your serverless appl
 | ------------- | ------------- | ------------- | ------------- |
 |01| CLIENT_CREDENTIALS|/function/wallet|N/A|
 |02| DB_ORDS_BASE|https://[ixcsyvrmtjm8ebr-ggdiscountatp].adb.eu-frankfurt-1.oraclecloudapps.com/ords/|[<span class="underline">from ORDS URL Section</span>](#atp-ords-url)|
-|03| DB_ORDS_CLIENT_ID|[cPpla3w5rQEpj2CAO7tiPw..]|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|04| DB_ORDS_CLIENT_SECRET|[L_sDLztxkkU9B7NL-9t2kg..]|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
+|03| DB_ORDS_CLIENT_ID|[DWxb8cNpjGJaJ415GN8Lqg..]|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
+|04| DB_ORDS_CLIENT_SECRET|[5VHamjpqAcTncEyIVOTdTA..]|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
 |05| DB_ORDS_SERVICE|atp/campaign|<span class="underline">from ORDS Section</span>](#atp-enable-ords-table)|
 |06| DB_ORDS_SERVICE_OAUTH|atp/oauth/token|from ATP ORDS documentation|
 |07| DB_USER|MICROSERVICE|[from SQL USER creation](#atp-schema-and-tables-creation)|
