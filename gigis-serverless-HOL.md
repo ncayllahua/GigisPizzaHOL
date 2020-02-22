@@ -457,6 +457,10 @@ FROM user_ords_clients;
 
 Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the serverless Functions ATP ORDS access.
 
+Note also ORDS and SODA URL from ATP Service Console, you will need when you configure your serverless app.
+
+![](./media/ATP-configure-ords-url01.PNG)
+
 ## OCI IAM FaaS Policy
 You have to create IAM-Security rules or policies to enable FaaS to use resources in your tenancy. Go to main menu Governance & Administration (at the bottom of main menu) and select Identity -> Policies.
 
