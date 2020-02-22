@@ -381,7 +381,7 @@ After table created, select MICROSERVICE, Tables and Click on Campaign Table to 
 
 ![](./media/ATP-configure-schema03.PNG)
 
-### ATP ORDS Configuration
+### ATP ORDS MICROSERVICE Schema Configuration
 Next you have to configure ORDS (Oracle REST Data Services) to upload data to new table from REST calls. One of the serverless Function upload data with ORDS and other one get data with JDBS driver to show you different ways to deal with data from an ATP Database.
 
 Write next SQL sentences in Worksheet as you write in the previous section.
@@ -403,6 +403,16 @@ BEGIN
     COMMIT;
 END;
 ```
+Sign out SQL Developer web as ADMIN user and Sign in again as MICROSERVICE user. To do that you must change the HTML  SQL Developer web URL from admin to <schema_name> [atp]:
+```html
+https://<your-ATP-Instance>.adb.eu-frankfurt-1.oraclecloudapps.com/ords/admin/_sdw/?nav=worksheet 
+```
+To
+```html
+https://<your-ATP-instance>.adb.eu-frankfurt-1.oraclecloudapps.com/ords/atp/_sdw/?nav=worksheet
+```
+Now you must write MICROSERVICE as username and the password [AAZZ__welcomedevops123] that you write when you created the user MICROSERVICE before. Then continue creating the ORDS privilages and credential with MICROSERVICE user:
+
 Create privileges and Auth token for ORDS Calls:
 ```sql
 DECLARE
