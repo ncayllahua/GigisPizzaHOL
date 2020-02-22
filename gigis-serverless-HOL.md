@@ -468,7 +468,7 @@ FROM user_ords_clients;
 Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the serverless Functions ATP ORDS access.
 
 ### ATP Enable ORDS Table
-You must execute this command in Workset to enable ORDS in campaign table of MICROSERVICE schema
+You must execute this command in Worksheet tab, to enable ORDS in campaign table of MICROSERVICE schema
 ```sql
 BEGIN
   ORDS.enable_object(
