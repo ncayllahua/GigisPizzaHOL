@@ -522,14 +522,14 @@ You must create all next environment variables to configure your serverless appl
 |02| DB_ORDS_BASE|https://ixcsyvrmtjm8ebr-dbgigisdtos.adb.eu-frankfurt-1.oraclecloudapps.com/ords/|
 |03| DB_ORDS_CLIENT_ID|cPpla3w5rQEpj2CAO7tiPw..|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
 |04| DB_ORDS_CLIENT_SECRET|L_sDLztxkkU9B7NL-9t2kg..|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|05| DB_ORDS_SERVICE|||
-|06| DB_ORDS_SERVICE_OAUTH|||
+|05| DB_ORDS_SERVICE|atp/campaign||
+|06| DB_ORDS_SERVICE_OAUTH|atp/oauth/token||
 |07| DB_USER|MICROSERVICE|[from SQL USER creation](#atp-schema-and-tables-creation)|
 |08| DB_PASSWORD|AAZZ__welcomedevops123|[from SQL USER creation](#atp-schema-and-tables-creation)|
-|09| DB_URL|||
-|10| DB_SERVICE_NAME|||
-|11| KEYSTORE_PASSWORD ||[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
-|12| TRUSTSTORE_PASSWORD ||[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
+|09| DB_URL|jdbc:oracle:thin:@||
+|10| DB_SERVICE_NAME|ggdiscountatp_MEDIUM|[<span class="underline">from Get ATP Wallet file Section</span>](#get-atp-wallet-file)|
+|11| KEYSTORE_PASSWORD |WalletPassw0rd|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
+|12| TRUSTSTORE_PASSWORD |WalletPassw0rd|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
 
 ### Functions Logging
 If you want to create a function logging to trace your code, you have several methods: create log ina OCI object storage bucket, use a remote syslog server or use the OCI logging service.
