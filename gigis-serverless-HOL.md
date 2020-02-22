@@ -458,7 +458,7 @@ FROM user_ords_clients;
 Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the serverless Functions ATP ORDS access.
 
 ### ATP ORDS URL
-Note also ORDS and SODA URL from ATP Service Console, you will need when you configure your serverless app.
+Note also ORDS and SODA URL from ATP Service Console, you will need when you configure your serverless app. Click Copy URL button and note it.
 
 ![](./media/ATP-configure-ords-url01.PNG)
 
