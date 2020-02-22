@@ -457,6 +457,22 @@ FROM user_ords_clients;
 
 Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the serverless Functions ATP ORDS access.
 
+### ATP Enable ORDS Schema & Table
+You must execute this command in Workset to enable ORDS in campaign table of MICROSERVICE schema
+```sql
+BEGIN
+  ORDS.enable_object(
+    p_enabled         => TRUE,
+    p_schema          => 'MICROSERVICE',
+    p_object          => 'CAMPAIGN',
+    p_object_type     => 'TABLE',
+    p_object_alias    => 'campaign',
+    p_auto_rest_auth  => FALSE);
+  COMMIT;
+END;
+```
+![](./media/ATP-configure-ords02.PNG)
+
 ### ATP ORDS URL
 Note also ORDS and SODA URL from ATP Service Console, you will need when you configure your serverless app. Click Copy URL button and note it.
 
