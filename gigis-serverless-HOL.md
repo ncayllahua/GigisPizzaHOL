@@ -467,7 +467,7 @@ BEGIN
     p_object          => 'CAMPAIGN',
     p_object_type     => 'TABLE',
     p_object_alias    => 'campaign',
-    p_auto_rest_auth  => FALSE);
+    p_auto_rest_auth  => TRUE);
   COMMIT;
 END;
 ```
