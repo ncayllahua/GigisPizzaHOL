@@ -465,11 +465,9 @@ You have to create IAM-Security rules or policies to enable FaaS to use resource
 Check that your selected compartment is the root compartment. All policies created in parent compartments are inherited to theirs "sons"
 and as security best practice, you must create important policies always at root compartment level, because only the tenant administrators can change the policies at this compartment level.
 
-![](./media/faas-configure-policies02.PNG)
-
 Click Create Policy button to create the new FaaS policy.
 
-![](./media/faas-configure-policies03.PNG)
+![](./media/faas-configure-policies02.PNG)
 
 Write a Policy name [FaaSPolicy] and a description [FaaS management] to remember that policy use. Then copy next policy sentence in Policy Statements field.
 ```
@@ -477,11 +475,12 @@ Allow service FaaS to manage all-resources in tenancy
 ```
 Then click Create button.
 
-![](./media/faas-configure-policies04.PNG)
+![](./media/faas-configure-policies03.PNG)
 
 Review your new Policy to check the sentence.
 
-![](./media/faas-configure-policies05.PNG)
+![](./media/faas-configure-policies04.PNG)
+
 ## Oracle FaaS app creation
 In this section you will create the FaaS (serverless Function app) and configure the environment variables to access to the ATP Database. 
 
