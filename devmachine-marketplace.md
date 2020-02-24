@@ -46,9 +46,39 @@ To create the new dev machine from developer image follow next steps:
 * Check terms and conditions. 
 * Click Launch Instance button.
 
--- Notice that the Software Price is $0.00/hr but the machine has an IaaS (hardware) cost depends on your shape selection in the next section.
+-- Notice that the Software Price is **$0.00/hr** but the machine has an IaaS (hardware) cost depends on your shape selection in the next steps.
 
 ![](./media/oci-marketplace-dev-machine-configuration03.PNG)
+
+Configure your virtual machine as:
+* Write a descriptive name [dev-machine].
+* Select your Availability domain [AD-1 by default]
+* Instance Type as [Virtual Machine]
+* Configure your compute as your needs. We recomend to create the developer machine with VM.StandardE2.1 shape (1 OCPU and 8GB vRAM) but the image create by default 2.1 (without E) machine (1 OCPU and 15GB vRAM). You can change the VM shape after you create it, so you could start with StandardE2.1 and if you need more vRAM or OCPUs you could change to a higher specs shape.
+
+![](./media/oci-marketplace-dev-machine-configuration04.PNG)
+
+Next, check Assign a public IP address is selected to access this VM from your internet connection in your laptop or desktop.
+
+![](./media/oci-marketplace-dev-machine-configuration05.PNG)
+
+For security reasons choose a SSH key file or paste a SSH key, to access the new VM (never use username and password to access a cloud machine as a best practice). If you don't have any private/pub keypair, then you must create them. You can use puttygen (recomended for windows) or openSSH to generate new keypair.
+
+Review your configuration and then click Create button to create the new developer VM instance in your compartment.
+
+![](./media/oci-marketplace-dev-machine-configuration06.PNG)
+
+You VM will be create in a few minutes. Provisioning orange!
+
+![](./media/oci-marketplace-dev-machine-configuration07.PNG)
+
+When you machine goes Green (Running) you can see a new **Public IP Address** to access it. please note it to future sections.
+
+![](./media/oci-marketplace-dev-machine-configuration08.PNG)
+
+If you click in View Usage Instructions button, you will be redirected to marketplace Image Usage Instructions. Read them to get SSH access to this VM. 
+
+![](./media/oci-marketplace-dev-machine-configuration09.PNG)
 
 ### Accessing a Graphical User Interface (GUI) via VNC
 To access a GUI via VNC, do the following:
