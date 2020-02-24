@@ -68,7 +68,7 @@ Review your configuration and then click Create button to create the new develop
 
 ![](./media/oci-marketplace-dev-machine-configuration06.PNG)
 
-You VM will be create in a few minutes. Provisioning orange!
+Your new VM will be created in a few minutes. Provisioning orange!
 
 ![](./media/oci-marketplace-dev-machine-configuration07.PNG)
 
@@ -76,7 +76,7 @@ When you machine goes Green (Running) you can see a new **Public IP Address** to
 
 ![](./media/oci-marketplace-dev-machine-configuration08.PNG)
 
-If you click in View Usage Instructions button, you will be redirected to marketplace Image Usage Instructions. Read them to get SSH access to this VM. 
+If you click in View Usage Instructions button, you will be redirected to the marketplace Image Usage Instructions. Read them to get SSH access to this VM. 
 
 ![](./media/oci-marketplace-dev-machine-configuration09.PNG)
 
