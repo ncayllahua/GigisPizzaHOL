@@ -36,6 +36,20 @@ Go to OCI main menu Solutions & Platform. Then click Marketplace
 
 ![](./media/oci-marketplace-dev-machine-configuration01.PNG)
 
+Select ORacle Cloud Developer image from the image list. You can use ```CRTL + F``` in your browser to search developer text.
+
+![](./media/oci-marketplace-dev-machine-configuration02.PNG)
+
+To create the new dev machine from developer image follow next steps:
+* Select your Version (currently only one version is available).
+* Compartment where the image will be created as compute virtual machine. 
+* Check terms and conditions. 
+* Click Launch Instance button.
+
+-- Notice that the Software Price is $0.00/hr but the machine has an IaaS (hardware) cost depends on your shape selection in the next section.
+
+![](./media/oci-marketplace-dev-machine-configuration03.PNG)
+
 ### Accessing a Graphical User Interface (GUI) via VNC
 To access a GUI via VNC, do the following:
 
