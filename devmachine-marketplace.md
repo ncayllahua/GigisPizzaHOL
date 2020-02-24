@@ -36,7 +36,7 @@ Go to OCI main menu Solutions & Platform. Then click Marketplace
 
 ![](./media/oci-marketplace-dev-machine-configuration01.PNG)
 
-## Accessing a Graphical User Interface (GUI) via VNC
+### Accessing a Graphical User Interface (GUI) via VNC
 To access a GUI via VNC, do the following:
 
 1. Install a VNC viewer on your local computer
@@ -52,3 +52,6 @@ sh -L 5901:localhost:5901 –i id_rsa opc@<IP Address>
 ```
 10. On your local computer, start a VNC viewer and establish a VNC connection to localhost:1
 11. Enter the VNC password you set earlier
+
+### Accessing a Graphical User Interface (GUI) via VNC with mobaxterm
+As previous section you could create an access to GUI, but using mobaxterm VNC integrated client and SSH tunneling.
