@@ -62,7 +62,7 @@ Next, check Assign a public IP address is selected to access this VM from your i
 
 ![](./media/oci-marketplace-dev-machine-configuration05.PNG)
 
-For security reasons choose a SSH key file or paste a SSH key, to access the new VM (never use username and password to access a cloud machine as a best practice). If you don't have any private/pub keypair, then you must create them. You can use puttygen (recomended for windows) or openSSH to generate new keypair. Go [Oracle Generating an SSH Key pair](https://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/compute-iaas/generating_ssh_key/generate_ssh_key.html) tutorial to create them
+For security reasons choose a SSH key file or paste a SSH key, to access the new VM (never use username and password to access a cloud machine as a best practice). If you don't have any private/pub keypair, then you must create them. You can use puttygen (recomended for windows) or openSSH to generate new keypair. Go to [Oracle Generating an SSH Key pair](https://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/compute-iaas/generating_ssh_key/generate_ssh_key.html) tutorial to create them in linux or Windows OS.
 
 Review your configuration and then click Create button to create the new developer VM instance in your compartment.
 
@@ -86,7 +86,7 @@ To access a GUI via VNC, do the following:
 1. Install a VNC viewer on your local computer
 2. Use SSH to connect to the compute instance running the Oracle Cloud Developer Image, as described above (connect to the opc user)
 3. Configure a VNC password by typing vncpasswd
-4. When prompted, enter a new password and verify it
+4. When prompted, enter a new password and verify it (note it for future uses)
 5. Optionally, enter a view only password
 6. After the vncpasswd utility exits, start the VNC server by typing vncserver
 8. This will start a VNC server with display number 1 for the opc user, and the VNC server will start automatically if your instance is rebooted
@@ -98,4 +98,52 @@ sh -L 5901:localhost:5901 –i id_rsa opc@<IP Address>
 11. Enter the VNC password you set earlier
 
 ### Accessing a Graphical User Interface (GUI) via VNC with mobaxterm
-As previous section you could create an access to GUI, but using [mobaxterm](https://mobaxterm.mobatek.net/) VNC integrated client and SSH tunneling.
+As in the previous section, you could create an access to GUI, but using mobaxterm VNC integrated client and SSH tunneling. Please follow next steps to create your VNC connection with mobaxterm.
+
+Follow steps in the previous section (2 - 8) to connect via SSH (not GUI) and create a vncserver password (if you didin't create before).
+
+Download [mobaxterm](https://mobaxterm.mobatek.net/) from its web page and install it. Then open mobaxterm in your computer (laptop or desktop). Next Select Tunneling.
+
+![](./media/mobaxterm-configure-tunneling01.png)
+
+A new window setup will be opened to configure the SSH tunneling. Click New SSH tunnel button.
+
+![](./media/mobaxterm-configure-tunneling02.png)
+
+A new window setup will be opened with the SSH tunnel configuration. 
+* Select Local port forwarding check.
+* Write **[5901]** as port in your local side.
+* Write **[localhost]** and **[5901]** port as Remote Server
+* Write **[developer machine Public IP address]**, user **[opc]** and port **[22]** as SSH server.
+
+Click Save button to create the SSH tunnel.
+
+![](./media/mobaxterm-configure-tunneling03.png)
+
+Click the Key icon in the new tunnel to attach the machine private key file that you create before (public/private key pair). Then click on play button to start the SSH tunnel.
+
+![](./media/mobaxterm-configure-tunneling04.png)
+
+You receive a message to introduce the passphrase if you create a public/private key pair with passphrase. Write it and continue to start the tunnel.
+
+![](./media/mobaxterm-configure-tunneling05.png)
+
+Select new Session Button and then Select VNC to create a VNC conection with the SSH tunnel.
+
+![](./media/mobaxterm-configure-tunneling06.png)
+
+Write **[localhost]** as Remote hostname or IP Address and **[5901]** as port. Then Click OK button to create the VNC connection.
+
+![](./media/mobaxterm-configure-tunneling07.png)
+
+Double click in the VNC connection to start it. Write your password for the vncserver connection that you create previously.
+
+![](./media/mobaxterm-configure-tunneling08.png)
+
+Mobaxterm question you about save this password internally. Click Yes or No according to your needs.
+
+![](./media/mobaxterm-configure-tunneling09.png)
+
+After that you can use the dev-machine GUI to create your programs, scripts or whatever you need.
+
+![](./media/mobaxterm-configure-tunneling10.png)
