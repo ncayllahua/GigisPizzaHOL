@@ -2,7 +2,7 @@
 If you want to create a development machine in your compartment you can choose a predefined development image from OCI marketplace. This development machine will have installed next development software:
 
 **Languages and Oracle Database Connectors**
-- Java Platform Standard Edition (Java SE) 8, 11, 12
+* Java Platform Standard Edition (Java SE) 8, 11, 12
 - GraalVM Enterprise Edition 19
 - Python 3.6 and cx_Oracle 7
 - Node.js 10 and node-oracledb
