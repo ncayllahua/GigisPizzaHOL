@@ -46,8 +46,8 @@ To access a GUI via VNC, do the following:
 6. After the vncpasswd utility exits, start the VNC server by typing vncserver
 8. This will start a VNC server with display number 1 for the opc user, and the VNC server will start automatically if your instance is rebooted
 9. On your local computer, connect to your instance and create an ssh tunnel for port 5901 (for display number 1): 
-```sh
-$ ssh -L 5901:localhost:5901 –i id_rsa opc@<IP Address>
+```ssh
+ssh -L 5901:localhost:5901 –i id_rsa opc@<IP Address>
 ```
 10. On your local computer, start a VNC viewer and establish a VNC connection to localhost:1
 11. Enter the VNC password you set earlier
