@@ -54,4 +54,4 @@ sh -L 5901:localhost:5901 –i id_rsa opc@<IP Address>
 11. Enter the VNC password you set earlier
 
 ### Accessing a Graphical User Interface (GUI) via VNC with mobaxterm
-As previous section you could create an access to GUI, but using mobaxterm VNC integrated client and SSH tunneling.
+As previous section you could create an access to GUI, but using [mobaxterm](https://mobaxterm.mobatek.net/) VNC integrated client and SSH tunneling.
