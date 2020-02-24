@@ -10,12 +10,14 @@ If you want to create a development machine in your compartment you can choose a
 - Oracle Instant Client 18.5
 - Oracle SQLcl 19.1
 - Oracle SQL Developer 19.1
+
 **Oracle Cloud Infrastructure Command Line Client Tools**
 - Oracle Cloud Infrastructure CLI
 - Python, Java, Go and Ruby Oracle Cloud Infrastructure SDKs
 - Terraform and Oracle Cloud Infrastructure Terraform Provider
 - Oracle Cloud Infrastructure Utilities
 - Ansible Modules for Oracle Cloud Infrastructure
+
 **Other**
 - Oracle Container Runtime for Docker
 - Extra Packages for Enterprise Linux (EPEL) via Yum
