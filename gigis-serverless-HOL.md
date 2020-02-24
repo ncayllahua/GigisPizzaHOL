@@ -563,7 +563,7 @@ You must create all next environment variables to setup your serverless applicat
 |12| TRUSTSTORE_PASSWORD |[WalletPassw0rd]|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
 
 ### Functions Logging
-If you want to create a function logging to trace your code, you have several methods: create log ina OCI object storage bucket, use a remote syslog server or use the OCI logging service.
+If you want to create a function logging to trace your code, you have several methods: create log in an OCI object storage bucket, use a remote syslog server or use the OCI logging service.
 
 If your tenancy has OCI logging service enabled, you can send log traces to OCI logging system and see them after functions execution. To check if your tenancy has the OCI logging service enabled, go to main menu -> Solutions and Platform and Logging.
 
@@ -571,9 +571,77 @@ If your tenancy has OCI logging service enabled, you can send log traces to OCI 
 
 Optionally and if your tenancy logging service is not enabled yet, you could create a free account in [papertrail](https://papertrailapp.com/) or similar service as syslog remote server, to send log traces from the serverless functions.
 
+Next sections will guide you to create an OCI logging service or a remote syslog server with papertrail, choose one of both methods as your needs.
+
 #### OCI Logging Service Configuration
+Go to Logging service clicking in the main menu Solutions & Platform -> Logging -> Log Management
+
+![](./media/oci-logging-create01.PNG)
+
+A message like "There is no group created in this compartment..." will be showed if you don't have created any Log Group before. Then click Create Log Group button to create a new Log group.
+
+![](./media/oci-logging-loggroup-create01.PNG)
+
+Write a name for the Log Group [FunctionsLogGroup] and a description. Then click Create button.
+
+![](./media/oci-logging-loggroup-create02.PNG)
+
+A new empty Logging group should be created. Next click Enable Log button
+
+![](./media/oci-logging-create02.PNG)
+
+Check your compartment is selected. Follow next steps:
+* Select [Functions] in Service dropdown menu.
+* Select you serverless app [gigis-serverless-hol] in Resource dropdown menu.
+* Select invoke in Log Creation dropdown.
+* Write a Log Name [gigis-FaaS-invoke-logging] for this log trace.
+
+Then click Enable Log button
+
+![](./media/oci-logging-create03.PNG)
+
+Check that your serverless app change Logs field from none to ObjectStorage. Go Functions -> Applications -> [gigis-serverless-hol] to review that field.
+
+![](./media/oci-logging-create04.PNG)
+
+Now you have configured the functions logging and you should see log traces in the logging service when a serverless Function will be invoked.
 
 #### Papertrail syslog Configuration
+If your tenancy logging service is not enabled yet or you want to use a syslog instead the logging service, you should follow next steps to configure a syslog server for logging serverless functions.
+
+Open a new browser tab and surf the web to www.papertrail.com to create a new account. click Sign Up green button to create your new papertrail account.
+
+![](./media/papertrail-configure01.PNG)
+
+Write your name, email and password. Then select a country, check privacy notice and click Start Logging button.
+
+![](./media/papertrail-configure02.PNG)
+
+Log into your new account and select Settings -> Account to configure your remote syslog server.
+
+![](./media/papertrail-configure03.PNG)
+
+Select Log Destinations and click Create Log Destination button.
+
+![](./media/papertrail-configure04.PNG)
+
+Check Yes, recognize logs from new systems and Accept connections via.. TCP > TLS encryption and UDP > Plain Text. Then click Create button.
+
+![](./media/papertrail-configure05.PNG)
+
+In Log Destinations you should see a new syslog URL like **[log<number>.papertrail.com:<port>]**. Please note this URL to copy it to syslog remote server in OCI Functions menu.
+	
+![](./media/papertrail-configure06.PNG)
+
+Go to Functions menu and [gigis-serverless-hol] app. Then Click Edit button.
+
+![](./media/papertrail-configure07.PNG)
+
+Change Logging Policy from none or Object Storate to SYSLOGURL and copy the papertril syslog server URL. Then click Save Changes.
+
+![](./media/papertrail-configure08.PNG)
+
+Now you have configured your remote syslog server in papertrail. When a Function is invoked you should see a new logging trace line in papertrail [Events] dashboard. You can open papertrail in a separate tab or window web browser to see your functions logging in almost real-time.
 
 # Serverless Functions Code
 
