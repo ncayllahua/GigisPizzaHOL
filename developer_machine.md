@@ -1,8 +1,8 @@
 # Create Development Machine
-We recomend a linux development machine, but you can use Windows too. 
+We recomend a linux development machine, but you can use Windows OS if you want. 
 You can create a Developer Cloud Virtual Machine from Oracle Cloud marketplace also.
 
-If you had you own development machine, please check that you have installed next development resources and applications:
+If you had your own development machine, please check that you have installed next development resources and applications:
 
 - IDE software
 - Java jdk 11
@@ -26,7 +26,9 @@ curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
 ### Windows
 You must download de fn.exe file from fn github public [repository](https://github.com/fnproject/cli/releases)
 
-### OCI cli installation and Configuration
+## OCI cli installation and Configuration
+Install OCI cli for linux or windows following next steps:
+### Installation
 #### Linux
 Check that you have installed python3 in you develpment machine. If you don't have python3 installed please install it first.
 ```sh
@@ -36,7 +38,7 @@ Then use this command to install OCI cli
 ```sh
 bash -c "$(curl -L https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh)"
 ```
-### Window
+#### Window
 Check that you have python3 installed. If you don't have python3 installed please install it [first](https://www.python.org/downloads/)
 
 Follow Next steps:
