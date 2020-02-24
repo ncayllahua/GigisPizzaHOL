@@ -10,6 +10,8 @@ Hands on Lab - Gigis pizza microservices/serverless app
 - kubectl version 1.17.0
 - fn cli 0.5.92
 
+:computer: marketplace developer VM machine [link](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace.md)
+
 ### Python upgrade to python 3
 ```sh
 sudo yum install python3
