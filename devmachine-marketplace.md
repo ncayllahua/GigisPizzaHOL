@@ -2,7 +2,7 @@
 If you want to create a development machine in your compartment you can choose a predefined development image from OCI marketplace. This development machine will have installed next development software:
 
 **Languages and Oracle Database Connectors**
-* Java Platform Standard Edition (Java SE) 8, 11, 12
+- Java Platform Standard Edition (Java SE) 8, 11, 12
 - GraalVM Enterprise Edition 19
 - Python 3.6 and cx_Oracle 7
 - Node.js 10 and node-oracledb
@@ -10,14 +10,12 @@ If you want to create a development machine in your compartment you can choose a
 - Oracle Instant Client 18.5
 - Oracle SQLcl 19.1
 - Oracle SQL Developer 19.1
-
 **Oracle Cloud Infrastructure Command Line Client Tools**
 - Oracle Cloud Infrastructure CLI
 - Python, Java, Go and Ruby Oracle Cloud Infrastructure SDKs
 - Terraform and Oracle Cloud Infrastructure Terraform Provider
 - Oracle Cloud Infrastructure Utilities
 - Ansible Modules for Oracle Cloud Infrastructure
-
 **Other**
 - Oracle Container Runtime for Docker
 - Extra Packages for Enterprise Linux (EPEL) via Yum
