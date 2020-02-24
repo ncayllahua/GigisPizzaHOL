@@ -1,4 +1,4 @@
-# Create a Development Machine from OCI marketplace.
+# Development Machine from OCI marketplace.
 If you want to create a development machine in your compartment you can choose a predefined development image from OCI marketplace. This development machine will have installed next development software:
 
 **Languages and Oracle Database Connectors**
@@ -29,13 +29,14 @@ If you want to create a development machine in your compartment you can choose a
 - Rclone
 - Eclipse IDE
 
+## Create a new Development VM from OCI marketplace
 To create your new development machine from OCI marketplace follow next steps:
 
 Go to OCI main menu Solutions & Platform. Then click Marketplace
 
 ![](./media/oci-marketplace-dev-machine-configuration01.PNG)
 
-##Accessing a Graphical User Interface (GUI) via VNC
+## Accessing a Graphical User Interface (GUI) via VNC
 To access a GUI via VNC, do the following:
 
 1. Install a VNC viewer on your local computer
