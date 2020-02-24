@@ -5,7 +5,7 @@ You can create a Developer Cloud Virtual Machine from Oracle Cloud marketplace a
 If you had your own development machine, please check that you have installed next development resources and applications:
 
 - IDE software
-- Java jdk 11
+- Java jdk 11 & 13 (in your IDE)
 - Docker
 - Fn cli
 - OCI cli
