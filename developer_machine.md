@@ -1,6 +1,6 @@
 # Create Development Machine
 We recomend a linux development machine, but you can use Windows OS if you want. 
-You can create a Developer Cloud Virtual Machine from Oracle Cloud marketplace also.
+You can create a Developer Cloud Virtual Machine from [<span class="underline"Oracle Cloud marketplace</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace.md).
 
 If you had your own development machine, please check that you have installed next development resources and applications:
 
