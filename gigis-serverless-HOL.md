@@ -827,3 +827,113 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 ![](./media/faas-create-function22.PNG)
 
 After that, click in File -> Save All in your IDE to save all changes.
+
+### Code recap
+You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
+
+- **DiscountCampaignUploader.java**
+Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [UploadDiscountCampaigns] function.
+```java
+Public class DiscountCampaignUploader {
+
+    public String handleRequest(CloudEvent event) {
+        String responseMess      = "";
+        String invokeEndpointURL = "https://gw7unyffbla.eu-frankfurt-1.functions.oci.oraclecloud.com";
+        String functionId        = "ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaack6vdtmj7n2wy3caoljvjvbcuexmvvhm3tp2k7673cg4jj3ir4a";
+```
+Next is the code for cloud event trigger catch. After a cloud event trigger firing you'll must receive a cloud event similar to
+```yaml
+{
+    "eventType" : "com.oraclecloud.objectstorage.createobject",
+    "cloudEventsVersion" : "0.1",
+    "eventTypeVersion" : "2.0",
+    "source" : "ObjectStorage",
+    "eventTime" : "2020-01-21T16:26:30.849Z",
+    "contentType" : "application/json",
+    "data" : {
+      "compartmentId" : "ocid1.compartment.oc1..aaaaaaaatz2chvjiz4d3xdrtzmtxspkul",
+      "compartmentName" : "DevOps",
+      "resourceName" : "campaigns.json",
+      "resourceId" : "/n/wedoinfra/b/bucket-gigis-pizza-discounts/o/campaigns.json",
+      "availabilityDomain" : "FRA-AD-1",
+      "additionalDetails" : {
+        "bucketName" : "bucket-gigis-pizza-discounts",
+        "archivalState" : "Available",
+        "namespace" : "wedoinfra",
+        "bucketId" : "ocid1.bucket.oc1.eu-frankfurt-1.aaaaaaaasndscagkbrqhfcrezkla6cqa2sippfq",
+        "eTag" : "199f8dbf-0b8c-41b6-9596-4d2a6792d7e5"
+      }
+    },
+    "eventID" : "3e47d127-19de-6eb8-eb67-0c1ab961fcbc",
+    "extensions" : {
+      "compartmentId" : "ocid1.compartment.oc1..aaaaaaaatz2chvjiz4d3xdrtzmtxspkul"
+    }
+}
+```
+this piece of code parse the cloudevent json description and get the important data like compartmentid, object storage name, bucket name or namespace.
+```java
+//get upload file properties like namespace or buckername.
+            ObjectMapper objectMapper = new ObjectMapper();
+            Map data                  = objectMapper.convertValue(event.getData().get(), Map.class);
+            Map additionalDetails     = objectMapper.convertValue(data.get("additionalDetails"), Map.class);
+
+            GetObjectRequest jsonFileRequest = GetObjectRequest.builder()
+                            .namespaceName(additionalDetails.get("namespace").toString())
+                            .bucketName(additionalDetails.get("bucketName").toString())
+                            .objectName(data.get("resourceName").toString())
+                            .build();
+```
+That relevant data will be use to access (with authProvider) to the object storage and get the campaign.json file.
+```java
+AuthenticationDetailsProvider authProvider = new ConfigFileAuthenticationDetailsProvider("/.oci/config","DEFAULT");
+            ObjectStorageClient objStoreClient         = ObjectStorageClient.builder().build(authProvider);
+            GetObjectResponse jsonFile                 = objStoreClient.getObject(jsonFileRequest);
+
+            StringBuilder jsonfileUrl = new StringBuilder("https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/")
+                    .append(additionalDetails.get("namespace"))
+                    .append("/b/")
+                    .append(additionalDetails.get("bucketName"))
+                    .append("/o/")
+                    .append(data.get("resourceName"));
+
+            System.out.println("JSON FILE:: " + jsonfileUrl.toString());
+            //InputStream isJson = new URL(jsonfileUrl.toString()).openStream();
+            InputStream isJson = jsonFile.getInputStream();
+
+            JSONTokener tokener = new JSONTokener(isJson);
+			JSONObject joResult = new JSONObject(tokener);
+
+            JSONArray campaigns = joResult.getJSONArray("campaigns");
+            System.out.println("Campaigns:: " + campaigns.length());
+			for (int i = 0; i < campaigns.length(); i++) {
+                JSONObject obj = campaigns.getJSONObject(i);
+                responseMess += invokeCreateCampaingFunction (invokeEndpointURL,functionId,obj.toString());
+            }
+```
+			 
+
+
+- **func.yaml**
+
+```yaml
+schema_version: 20180708
+name: fn_discount_cloud_events
+version: 0.0.1
+```
+You must have deleted this 4 lines to create your customized Dockerfile. This lines are using to setup the default deploy fn docker images for java.
+```
+runtime: java
+build_image: fnproject/fn-java-fdk-build:jdk11-1.0.105
+run_image: fnproject/fn-java-fdk:jre11-1.0.105
+cmd: com.example.fn.HelloFunction::handleRequest
+```
+Last line is the entry point to execute the function. Represent the path to the funcion name and handleRequest public method and you can find it in the new Dockerfile as CMD command.
+```
+cmd: com.example.fn.HelloFunction::handleRequest
+```
+- 
+
+
+
+### Deploy fn discount cloud-events function
+To deploy your
