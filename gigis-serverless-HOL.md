@@ -758,3 +758,44 @@ You can click n HelloFunction.java to review your serverless function code. Same
 ![](./media/faas-create-function11.PNG)
 
 #### fn discount cloud-events java code
+The function code is in the next github [repository](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events). You can open it in other web brower tab, to review the project.
+
+You can access java code to copy and paste it in your develpment machine IDE project. You could clone this github repository if you want, instead of copy and paste the different files. You see this second method (cloning the git repo) in the next functions sections.
+
+You can copy the java function code creating a new file with the function name, in the fn directory or overwriting the code inside the HelloFunction.java function and next rename it (F2 or right button Rename). We show you both methods in the next sections, please choose one of them.
+
+##### Creating new file
+Create new file in ```/src/main/java/com/example/fn``` directory. Right mouse button and then New File.
+
+![](./media/faas-create-function12.PNG)
+
+Then set the same name as java class **[DiscountCampaignUploader.java]**
+
+![](./media/faas-create-function13.PNG)
+
+Now copy raw function code and paste it from the [java function code](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events/blob/master/src/main/java/com/example/fn/DiscountCampaignUploader.java).
+
+![](./media/faas-create-function14.PNG)
+
+Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
+
+##### Overwriting HelloFunction.java
+You can overwrite the HelloFunction.java code with the DiscountCampaignUploader Function code.
+
+Select the raw [java function code](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events/blob/master/src/main/java/com/example/fn/DiscountCampaignUploader.java) from the repository and paste it overwriting the HelloFunction.java Function.
+
+![](./media/faas-create-function15.PNG)
+
+Click right mouse button in the HelloFunction.java file to Rename the file. You can press F2 key to rename the HelloFunction.java file as a shortcut.
+
+![](./media/faas-create-function16.PNG)
+
+Change the name of the java file to **[DiscountCampaignUploader.java]**.
+
+![](./media/faas-create-function17.PNG)
+
+You can delete the HelloFunctionTest.java file (and the test directory tree) or rename it and change the code to create your JUnit tests. In this lab we won't create JUnit test.
+
+![](./media/faas-create-function18.PNG)
+
+
