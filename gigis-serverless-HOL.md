@@ -467,6 +467,12 @@ FROM user_ords_clients;
 
 Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the serverless Functions ATP ORDS access.
 
+Change the timestamp and date formats.
+```sql
+alter session set nls_timestamp_tz_format='DD/MM/YYYY HH24:MI:SS.FF6 TZR';
+alter session set nls_date_format='DD/MM/YYYY';
+```
+
 ### ATP Enable ORDS Table
 You must execute this command in Worksheet tab, to enable ORDS in campaign table of MICROSERVICE schema
 ```sql
