@@ -689,6 +689,8 @@ fn update context api-url https://functions.[your-region].oraclecloud.com
 fn update context registry [YOUR-OCIR-REGION].ocir.io/[YOUR-TENANCY-NAMESPACE]/[YOUR-OCIR-REPO]
 ```
 
+![](./media/faas-create-function02.PNG)
+
 Once you create your new fn context, you can continue creating your three serverless functions. Step number 1 **fn init** will be execute 3 times, one for each function. This fn commands will be executed in your development machine in $HOME directory or other directory that you create for the lab.
 ```sh
 fn init --runctiome java fn_discount_cloud_events
