@@ -81,7 +81,7 @@ You can delete the HelloFunctionTest.java file (and the test directory tree) or 
 
 ![](./media/faas-create-function18.PNG)
 
-### Changing func.yaml file
+## Changing func.yaml file
 You have to delete several files in the func.yaml code to create your custom Docker multi stage file. In you IDE select func.yaml file and delete next lines:
 
 ```
@@ -93,12 +93,12 @@ cmd: com.example.fn.HelloFunction::handleRequest
 
 ![](./media/faas-create-function19.PNG)
 
-### Overwriting pom.xml file
+## Overwriting pom.xml file
 Next you must overwrite the example maven pom.xml file with the pom.xml content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar.
 
 ![](./media/faas-create-function20.PNG)
 
-### Creating Multi Stage Dockerfile
+## Creating Multi Stage Dockerfile
 You must create a new multi stage docker file, to deploy your serverless function as a docker image in your OCIR repository. This file must be created before deploying the function.
 
 Select fn_discount_cloud_events folder in your IDE and create new file with [Dockerfile] name clicking right mouse button
@@ -114,7 +114,7 @@ After that, click in File -> Save All in your IDE to save all changes.
 ## Code recap
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
 
-- **DiscountCampaignUploader.java**
+### **DiscountCampaignUploader.java**
 Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [UploadDiscountCampaigns] function.
 ```java
 Public class DiscountCampaignUploader {
@@ -196,7 +196,7 @@ AuthenticationDetailsProvider authProvider = new ConfigFileAuthenticationDetails
 			 
 
 
-- **func.yaml**
+### **func.yaml**
 
 ```yaml
 schema_version: 20180708
