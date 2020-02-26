@@ -1,4 +1,4 @@
-### Function fn discount cloud-events
+# Function fn discount cloud-events
 Verify that your function for cloud events has 2 files (func.yaml and pom.xml) and a **src** directory.
 
 ```sh 
@@ -17,7 +17,7 @@ A Junit textfile should be created at ```src/test/java/com/example/fn/HelloFunct
 
 ![](./media/faas-create-function06.PNG)
 
-### fn discount cloud-events IDE preparation
+## fn discount cloud-events IDE preparation
 You could deploy this new serverless function in your FaaS environment, but the idea is to change the example code by the real function code. You can use a text editor or you favourite IDE software. In this lab we used Visual Studio Code (from the developer machine imagen in OCI marketplace), so all images was captured with that IDE, but you can use what you want.
 
 Open Visual Studio Core (Applications -> Accessories in the development VM) or your favourite IDE 
@@ -40,14 +40,14 @@ You can click n HelloFunction.java to review your serverless function code. Same
 
 ![](./media/faas-create-function11.PNG)
 
-#### fn discount cloud-events java code
+### fn discount cloud-events java code
 The function code is in the next github [repository](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events). You can open it in other web brower tab, to review the project.
 
 You can access java code to copy and paste it in your develpment machine IDE project. You could clone this github repository if you want, instead of copy and paste the different files. You see this second method (cloning the git repo) in the next functions sections.
 
 You can copy the java function code creating a new file with the function name, in the fn directory or overwriting the code inside the HelloFunction.java function and next rename it (F2 or right button Rename). We show you both methods in the next sections, please choose one of them.
 
-##### Creating new file
+#### Creating new file
 Create new file in ```/src/main/java/com/example/fn``` directory. Right mouse button and then New File.
 
 ![](./media/faas-create-function12.PNG)
@@ -62,7 +62,7 @@ Now copy raw function code and paste it from the [java function code](https://ra
 
 Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 
-##### Overwriting HelloFunction.java
+#### Overwriting HelloFunction.java
 You can overwrite the HelloFunction.java code with the DiscountCampaignUploader Function code.
 
 Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/src/main/java/com/example/fn/DiscountCampaignUploader.java) from the repository and paste it overwriting the HelloFunction.java Function.
@@ -81,7 +81,7 @@ You can delete the HelloFunctionTest.java file (and the test directory tree) or 
 
 ![](./media/faas-create-function18.PNG)
 
-#### Changing func.yaml file
+### Changing func.yaml file
 You have to delete several files in the func.yaml code to create your custom Docker multi stage file. In you IDE select func.yaml file and delete next lines:
 
 ```
@@ -93,12 +93,12 @@ cmd: com.example.fn.HelloFunction::handleRequest
 
 ![](./media/faas-create-function19.PNG)
 
-#### Overwriting pom.xml file
+### Overwriting pom.xml file
 Next you must overwrite the example maven pom.xml file with the pom.xml content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar.
 
 ![](./media/faas-create-function20.PNG)
 
-#### Creating Multi Stage Dockerfile
+### Creating Multi Stage Dockerfile
 You must create a new multi stage docker file, to deploy your serverless function as a docker image in your OCIR repository. This file must be created before deploying the function.
 
 Select fn_discount_cloud_events folder in your IDE and create new file with [Dockerfile] name clicking right mouse button
@@ -111,7 +111,7 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 
 After that, click in File -> Save All in your IDE to save all changes.
 
-### Code recap
+## Code recap
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
 
 - **DiscountCampaignUploader.java**
@@ -218,5 +218,5 @@ cmd: com.example.fn.HelloFunction::handleRequest
 
 
 
-### Deploy fn discount cloud-events function
+## Deploy fn discount cloud-events function
 To deploy your
