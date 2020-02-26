@@ -674,6 +674,8 @@ Select Getting Started TAB.
 ### Fn context
 Before you create the new 3 functions you must follow steps **from 3 to 5** of Geeting Started guide to create your serverless fn context as the steps are unique for your tenancy (they are set with your appropiate information).
 
+![](./media/faas-create-function01b.PNG)
+
 * Create a context for your compartment and select it for use.
 ```sh
 fn create context <YOUR-COMPARTMENT> --provider oracle
