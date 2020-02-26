@@ -782,7 +782,7 @@ Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 ##### Overwriting HelloFunction.java
 You can overwrite the HelloFunction.java code with the DiscountCampaignUploader Function code.
 
-Select the raw [java function code](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events/blob/master/src/main/java/com/example/fn/DiscountCampaignUploader.java) from the repository and paste it overwriting the HelloFunction.java Function.
+Select the raw [java function code]https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/src/main/java/com/example/fn/DiscountCampaignUploader.java) from the repository and paste it overwriting the HelloFunction.java Function.
 
 ![](./media/faas-create-function15.PNG)
 
@@ -798,4 +798,33 @@ You can delete the HelloFunctionTest.java file (and the test directory tree) or 
 
 ![](./media/faas-create-function18.PNG)
 
+#### Changing func.yaml file
+You have to delete several files in the func.yaml code to create your custom Docker multi stage file. In you IDE select func.yaml file and delete next lines:
+
+```
+runtime: java
+build_image: fnproject/fn-java-fdk-build:jdk11-1.0.105
+run_image: fnproject/fn-java-fdk:jre11-1.0.105
+cmd: com.example.fn.HelloFunction::handleRequest
+```
+
+![](./media/faas-create-function19.PNG)
+
+#### Overwriting pom.xml file
+Next you must overwrite the example maven pom.xml file with the pom.xml content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar.
+
+After that, click in File -> Save All in your IDE to save all changes.
+
+![](./media/faas-create-function20.PNG)
+
+#### Creating Multi Stage Dockerfile
+You must create a new multi stage docker file, to deploy your serverless function as a docker image in your OCIR repository. This file must be created before deploying the function.
+
+Select fn_discount_cloud_events folder in your IDE and create new file with [Dockerfile] name clicking right mouse button
+
+![](./media/faas-create-function21.PNG)
+
+Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/Dockerfile) to your new local Dockerfile file.
+
+![](./media/faas-create-function22.PNG)
 
