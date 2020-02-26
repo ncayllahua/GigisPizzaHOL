@@ -773,7 +773,7 @@ Then set the same name as java class **[DiscountCampaignUploader.java]**
 
 ![](./media/faas-create-function13.PNG)
 
-Now copy raw function code and paste it from the [java function code](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events/blob/master/src/main/java/com/example/fn/DiscountCampaignUploader.java).
+Now copy raw function code and paste it from the [java function code](https://raw.github.com/oraclespainpresales/fn-pizza-discount-cloud-events/blob/master/src/main/java/com/example/fn/DiscountCampaignUploader.java).
 
 ![](./media/faas-create-function14.PNG)
 
