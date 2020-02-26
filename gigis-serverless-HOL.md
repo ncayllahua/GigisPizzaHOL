@@ -693,7 +693,7 @@ fn update context registry [YOUR-OCIR-REGION].ocir.io/[YOUR-TENANCY-NAMESPACE]/[
 
 ![](./media/faas-create-function02.PNG)
 
-Verify your current used context:
+Verify your current used context and OCIR repo - marked with (*):
 
 ```sh
 fn list context
@@ -714,5 +714,28 @@ fn init --runtime java fn_discount_campaign
 ```
 
 ![](./media/faas-create-function03.PNG)
+
+### Function fn discount cloud-events
+Verify that your function for cloud events has 2 files (func.yaml and pom.xml) and a **src** directory.
+
+```sh 
+cd fn_discount_cloud_events
+
+ls -la
+```
+
+![](./media/faas-create-function04.PNG)
+
+The serverless function should be created at ```src/main/java/com/example/fn/HelloFunction.java``` and you can review the example code with and your IDE or text editor. This file will be change in the next section.
+
+![](./media/faas-create-function05.PNG)
+
+A Junit textfile should be created at ```src/test/java/com/example/fn/HelloFunctionTest.java``` and used to test the serverless function before deploy it in OCI FaaS.
+
+![](./media/faas-create-function06.PNG)
+
+
+
+
 
 
