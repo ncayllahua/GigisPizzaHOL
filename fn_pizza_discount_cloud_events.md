@@ -219,4 +219,7 @@ cmd: com.example.fn.HelloFunction::handleRequest
 
 
 ## Deploy fn discount cloud-events function
-To deploy your
+To deploy your serverless function you must execute next command with ```--verbose``` option to get all the information about the deploy process.
+```sh
+fn --verbose deploy --app gigis-serverless-hol
+```
