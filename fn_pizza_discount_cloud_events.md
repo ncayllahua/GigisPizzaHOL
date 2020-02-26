@@ -1,5 +1,5 @@
 # Function fn discount cloud-events
-Verify that your function for cloud events has 2 files (func.yaml and pom.xml) and a **src** directory.
+Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
 ```sh 
 cd fn_discount_cloud_events
@@ -114,7 +114,7 @@ After that, click in File -> Save All in your IDE to save all changes.
 ## Code recap
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
 
-### **DiscountCampaignUploader.java**
+### DiscountCampaignUploader.java
 Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [UploadDiscountCampaigns] function.
 ```java
 Public class DiscountCampaignUploader {
@@ -196,7 +196,7 @@ AuthenticationDetailsProvider authProvider = new ConfigFileAuthenticationDetails
 			 
 
 
-### **func.yaml**
+### func.yaml
 
 ```yaml
 schema_version: 20180708
@@ -214,9 +214,9 @@ Last line is the entry point to execute the function. Represent the path to the 
 ```
 cmd: com.example.fn.HelloFunction::handleRequest
 ```
-- 
+### pom.xml
 
-
+### Dockerfile
 
 ## Deploy fn discount cloud-events function
 To deploy your serverless function you must execute next command with ```--verbose``` option to get all the information about the deploy process.
