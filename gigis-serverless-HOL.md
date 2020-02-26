@@ -25,7 +25,7 @@ This serverless Hands On Lab includes:
 In this HOL you will create a serverless app for discount campaigns. 
 You will:
 
-- Create and Configure a **VCN Virtual Cloud Network** to store the discount campaign.
+- Create and Configure a **VCN Virtual Cloud Network** to connect the serverless functions.
 - Create and Configure an **ATP (Autonomous Database)** to store the discount campaign.
 - Create an **OCI Object Storage** to upload the json files.
 - Create a **CloudEvents** trigger to upload automatically the campaigns to ATP.
