@@ -757,8 +757,4 @@ You can click n HelloFunction.java to review your serverless function code. Same
 
 ![](./media/faas-create-function11.PNG)
 
-
-
-
-
 #### fn discount cloud-events java code
