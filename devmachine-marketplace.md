@@ -147,3 +147,8 @@ Mobaxterm question you about save this password internally. Click Yes or No acco
 After that you can use the dev-machine GUI to create your programs, scripts or whatever you need.
 
 ![](./media/mobaxterm-configure-tunneling10.png)
+
+## Development Machine Configuration
+When you have created your developer market-place machine, you must configure it to use in your OCI tenant. Please follow next config tutorial
+
+* [Developer Machine Config](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md)
