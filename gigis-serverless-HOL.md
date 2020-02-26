@@ -643,7 +643,7 @@ Change Logging Policy from none or Object Storate to SYSLOGURL and copy the pape
 
 Now you have configured your remote syslog server in papertrail. When a Function is invoked you should see a new logging trace line in papertrail [Events] dashboard. You can open papertrail in a separate tab or window web browser to see your functions logging in almost real-time.
 
-# Serverless Functions Code
+# Serverless Functions Coding
 In this section you'll review the discount campaign functions code and you'll copy them to your [development computer](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md) to create the functions in OCI and launch the application. If you don't have a laptop or desktop with the appropiate tools, we recomend you create a [development machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace.md) in your compartment.
 
 Check that you have installed and configured next development resources and applications:
@@ -693,7 +693,14 @@ fn update context registry [YOUR-OCIR-REGION].ocir.io/[YOUR-TENANCY-NAMESPACE]/[
 
 ![](./media/faas-create-function02.PNG)
 
-## Fn 
+Verify your current used context:
+
+```sh
+fn list context
+```
+![](./media/faas-create-function02.PNG)
+
+## Create Serverless Functions
 Once you create your new fn context, you can continue creating your three serverless functions. Step number 1 **fn init** will be execute 3 times, one for each function. This fn commands will be executed in your development machine in $HOME directory or other directory that you create for the lab [holserverless].
 
 ```sh
