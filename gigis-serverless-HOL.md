@@ -646,6 +646,53 @@ Now you have configured your remote syslog server in papertrail. When a Function
 # Serverless Functions Code
 In this section you'll review the discount campaign functions code and you'll copy them to your [development computer](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md) to create the functions in OCI and launch the application. If you don't have a laptop or desktop with the appropiate tools, we recomend you create a [development machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace.md) in your compartment.
 
+Check that you have installed and configured next development resources and applications:
 
+- IDE software (Visual code, Eclipse, Jdeveloper ...)
+- Java jdk 11 & 13 (to use in your IDE workspaces)
+- Docker (to create and push docker images)
+- Fn cli (to create FDKs, create the functions and upload them to FaaS in OCI)
+- OCI cli installed and configured
 
+Please check that your development computer has internet connection without any limitation like proxies, firewalls and ports blocked to avoid connection problems when you upload or send fn commands to the serverless functions in OCI FaaS.
 
+## Creating the Serverless Functions.
+To create your three serverless functions you must configure a fn context in your development machine. We have created the HOL with a recomended linux machine. Please follow the **Getting Started** instructions in your OCI serverless app. 
+
+Go to your serverless app in main menu Developer Services -> Functions.
+
+![](./media/oci-faas-create01.PNG)
+
+Select your serverless app [gigis-serverless-hol]
+
+![](./media/oci-faas-create05.PNG)
+
+Select Getting Started TAB. 
+
+![](./media/faas-create-function01.PNG)
+
+### Fn context
+Before you create the new 3 functions you must follow steps **from 3 to 5** of Geeting Started guide to create your serverless fn context as the steps are unique for your tenancy (they are set with your appropiate information).
+
+* Create a context for your compartment and select it for use.
+```sh
+fn create context <YOUR-COMPARTMENT> --provider oracle
+fn use context <YOUR-COMPARTMENT>
+```
+* Update the context with the compartment ID and the Oracle Functions API URL.
+```sh
+fn update context [YOUR-COMPARTMENT-OCID]
+fn update context api-url https://functions.[your-region].oraclecloud.com
+```
+* Update the context with the location of the OCI Registry you want to use
+```sh
+fn update context registry [YOUR-OCIR-REGION].ocir.io/[YOUR-TENANCY-NAMESPACE]/[YOUR-OCIR-REPO]
+```
+
+Once you create your new fn context, you can continue creating your three serverless functions. Step number 1 **fn init** will be execute 3 times, one for each function. This fn commands will be executed in your development machine in $HOME directory or other directory that you create for the lab.
+```sh
+fn init --runctiome java fn_discount_cloud_events
+fn init --runctiome java fn_discount_upload
+fn init --runctiome java fn_discount_campaign
+```
+5
