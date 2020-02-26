@@ -218,6 +218,8 @@ cmd: com.example.fn.HelloFunction::handleRequest
 
 ### Dockerfile
 
+## New Environmet Variables
+
 ## Deploy fn discount cloud-events function
 To deploy your serverless function you must execute next command with ```--verbose``` option to get all the information about the deploy process.
 ```sh
