@@ -730,12 +730,35 @@ The serverless function should be created at ```src/main/java/com/example/fn/Hel
 
 ![](./media/faas-create-function05.PNG)
 
-A Junit textfile should be created at ```src/test/java/com/example/fn/HelloFunctionTest.java``` and used to test the serverless function before deploy it in OCI FaaS.
+A Junit textfile should be created at ```src/test/java/com/example/fn/HelloFunctionTest.java``` and used to test the serverless function before deploy it in OCI FaaS. We won't use Junit testing in this lab, but you could add some testing Junit file to your serverles function if you want.
 
 ![](./media/faas-create-function06.PNG)
 
+### fn discount cloud-events IDE preparation
+You could deploy this new serverless function in your FaaS environment, but the idea is to change the example code by the real function code. You can use a text editor or you favourite IDE software. In this lab we used Visual Studio Code (from the developer machine imagen in OCI marketplace), so all images was captured with that IDE, but you can use what you want.
+
+Open Visual Studio Core (Applications -> Accessories in the development VM) or your favourite IDE 
+
+![](./media/faas-create-function07.PNG)
+
+Select **add workspace folder ...** in the Start Menu.
+
+![](./media/faas-create-function08.PNG)
+
+Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_cloud_events]. Then click Add button to create a workspace from this directory in Visual Studio Core.
+
+![](./media/faas-create-function09.PNG)
+
+A new project will be available as workspace in the IDE
+
+![](./media/faas-create-function10.PNG)
+
+You can click n HelloFunction.java to review your serverless function code. Same for HelloFunctionTest.java file.
+
+![](./media/faas-create-function11.PNG)
 
 
 
 
 
+#### fn discount cloud-events java code
