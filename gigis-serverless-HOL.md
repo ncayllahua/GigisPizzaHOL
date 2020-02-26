@@ -693,10 +693,19 @@ fn update context registry [YOUR-OCIR-REGION].ocir.io/[YOUR-TENANCY-NAMESPACE]/[
 
 ![](./media/faas-create-function02.PNG)
 
-Once you create your new fn context, you can continue creating your three serverless functions. Step number 1 **fn init** will be execute 3 times, one for each function. This fn commands will be executed in your development machine in $HOME directory or other directory that you create for the lab.
+## Fn 
+Once you create your new fn context, you can continue creating your three serverless functions. Step number 1 **fn init** will be execute 3 times, one for each function. This fn commands will be executed in your development machine in $HOME directory or other directory that you create for the lab [holserverless].
+
 ```sh
-fn init --runctiome java fn_discount_cloud_events
-fn init --runctiome java fn_discount_upload
-fn init --runctiome java fn_discount_campaign
+mkdir holserverless
+
+cd holserverless
+
+fn init --runtime java fn_discount_cloud_events
+fn init --runtime java fn_discount_upload
+fn init --runtime java fn_discount_campaign
 ```
-5
+
+![](./media/faas-create-function03.PNG)
+
+
