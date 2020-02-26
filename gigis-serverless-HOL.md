@@ -773,7 +773,7 @@ Then set the same name as java class **[DiscountCampaignUploader.java]**
 
 ![](./media/faas-create-function13.PNG)
 
-Now copy raw function code and paste it from the [java function code](https://raw.github.com/oraclespainpresales/fn-pizza-discount-cloud-events/blob/master/src/main/java/com/example/fn/DiscountCampaignUploader.java).
+Now copy raw function code and paste it from the [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/src/main/java/com/example/fn/DiscountCampaignUploader.java).
 
 ![](./media/faas-create-function14.PNG)
 
@@ -813,8 +813,6 @@ cmd: com.example.fn.HelloFunction::handleRequest
 #### Overwriting pom.xml file
 Next you must overwrite the example maven pom.xml file with the pom.xml content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar.
 
-After that, click in File -> Save All in your IDE to save all changes.
-
 ![](./media/faas-create-function20.PNG)
 
 #### Creating Multi Stage Dockerfile
@@ -828,3 +826,4 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 
 ![](./media/faas-create-function22.PNG)
 
+After that, click in File -> Save All in your IDE to save all changes.
