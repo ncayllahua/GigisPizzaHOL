@@ -698,7 +698,7 @@ Verify your current used context:
 ```sh
 fn list context
 ```
-![](./media/faas-create-function02.PNG)
+![](./media/faas-create-function02b.PNG)
 
 ## Create Serverless Functions
 Once you create your new fn context, you can continue creating your three serverless functions. Step number 1 **fn init** will be execute 3 times, one for each function. This fn commands will be executed in your development machine in $HOME directory or other directory that you create for the lab [holserverless].
