@@ -454,7 +454,7 @@ RUN mkdir -p /.oci
 COPY /oci-config/config /.oci/config
 COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
 ```
-Copy the jar function from build stage temporal layer and set the entrypoint to execute the funcion handleRequest mehod when the docker container will be created.
+Copy the jar function from build stage temporal layer and set the entrypoint to execute the funcion handleRequest method when the docker container will be created.
 ```dockerfile
 WORKDIR /function
 COPY --from=build-stage /function/target/*.jar /function/app/
