@@ -1,7 +1,11 @@
 # Function fn discount cloud-events
 
 Summary:
-- [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-IDE-preparation)
+- [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-ide-preparation)
+- [fn discount cloud-events java code](#fn-discount-cloud-events-java-code)
+- [Changing func.yaml file](#changing-func.yaml-file)
+- [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-ide-preparation)
+
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
@@ -44,7 +48,7 @@ You can click n HelloFunction.java to review your serverless function code. Same
 
 ![](./media/faas-create-function11.PNG)
 
-### fn discount cloud-events java code
+## fn discount cloud-events java code
 The function code is in the next github [repository](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events). You can open it in other web brower tab, to review the project.
 
 You can access java code to copy and paste it in your develpment machine IDE project. You could clone this github repository if you want, instead of copy and paste the different files. You can learn how to clone the git repo in this [section](clone-git project to IDE).
@@ -53,7 +57,7 @@ For educational purposes you will change the code created before with ```fn init
 
 You can copy the java function code creating a new file with the function name, in the fn directory or overwriting the existing code inside the **[HelloFunction.java]** function and next rename it (F2 key or right mouse button and Rename). We show you both methods in the next sections, please choose one of them.
 
-#### Creating new file
+### Creating new file
 Create new file in ```/src/main/java/com/example/fn``` directory. Right mouse button and then New File.
 
 ![](./media/faas-create-function12.PNG)
@@ -68,7 +72,7 @@ Now copy raw function code and paste it from the [java function code](https://ra
 
 Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 
-#### Overwriting HelloFunction.java
+### Overwriting HelloFunction.java
 You can overwrite the HelloFunction.java code with the DiscountCampaignUploader Function code.
 
 Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/src/main/java/com/example/fn/DiscountCampaignUploader.java) from the repository and paste it overwriting the HelloFunction.java Function.
