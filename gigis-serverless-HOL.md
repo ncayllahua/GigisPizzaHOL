@@ -706,8 +706,12 @@ fn list context
 ```
 ![](./media/faas-create-function02b.PNG)
 
-## Create Serverless Functions
-Once you create your new fn context, you can continue creating your three serverless functions. Step number 1 **fn init** will be execute 3 times, one for each function. This fn commands will be executed in your development machine in $HOME directory or other directory that you create for the lab [holserverless].
+## Create Fn Serverless Functions
+Once you create your new fn context, you can continue creating your three serverless functions. For educational purposes you will change the code created with ```fn init``` commands instead of clone them from a git repository.
+
+You could clone the serverless functions from a GIT repository if you needed (developer cloud optional part of the HOL or github), instead of copy and paste the content of the files. You can learn how to clone from the GIT repository in this [section](clone-git project to IDE). 
+
+To create a serverless function you must execute **fn init** command. So you will have to execute that command 3 times, one for each function. Fn commands will be executed in your development machine in $HOME directory or other directory that you create for the lab, for example [holserverless].
 
 ```sh
 mkdir holserverless
