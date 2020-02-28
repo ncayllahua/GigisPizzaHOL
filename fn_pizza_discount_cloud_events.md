@@ -314,7 +314,7 @@ In the dependencies section you will describe your classes dependencies, for exa
         </dependency>
     </dependencies>
 ```
-Build section is used to define the maven and other building configurations like jdk version for example.
+Build section is used to define the maven and other building configurations like jdk version [11] for example.
 ```xml
     <build>
         <plugins>
