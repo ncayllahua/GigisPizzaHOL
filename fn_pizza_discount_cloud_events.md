@@ -118,8 +118,10 @@ For security reasons this two files haven't been uploaded to github and also dep
 You must create a new directory in your IDE project called **[oci-config]**, this directory will contain the OCI cli configuration necessary for your future docker image creation. 
 
 - Select fn_discount_cloud_events directory.
-- Right mouse button and Create Directory.
+- Right mouse button and New Folder.
 - Write **oci-config** as directory name and press enter key.
+
+![](./media/faas-create-function20a.PNG)
 
 Next create **config** file:
 - Select in oci-config directory and Click right mouse button New File.
@@ -135,10 +137,16 @@ fingerprint=<your_api_key_fingerprint_like_15:1b:90:9e:45:7c:b9:bf:73:f5:e2:0f:8
 key_file=<image_path_to_your_pem_file_like_/home/opc/.oci/oci_api_key.pem>
 ```
 
+![](./media/faas-create-function20b.PNG)
+
 Next create **oci_api_key.pem** file:
 - Select in oci-config directory and Click right mouse button New File.
 - Write oci_api_key.pem name and press enter key.
 - Write your private key in oci_api_key.pem
+
+![](./media/faas-create-function20c.PNG)
+
+To finish this section, please Select File -> Save All in your IDE to save all the changes.
 
 ## Creating Multi Stage Dockerfile
 You must create a new multi stage docker file, to deploy your serverless function as a docker image in your OCIR repository. This file must be created before deploying the function.
