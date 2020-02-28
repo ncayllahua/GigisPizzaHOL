@@ -244,7 +244,7 @@ cmd: com.example.fn.HelloFunction::handleRequest
 ```
 ### pom.xml
 Pom.xml file is your maven project descriptor. First of all you must review properties, groupId, artifactId and version. In properties you select the fdk version for your project. GroupId is the java path to your class. ArtifactId is the name of the artifact to create and version is its version number.
-```maven
+```xml
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <fdk.version>1.0.105</fdk.version>
@@ -254,7 +254,7 @@ Pom.xml file is your maven project descriptor. First of all you must review prop
     <version>1.0.0</version>
 ```
 In repositories section you must describe what repositories will be used in your project. For this serverless function you will use only one repository (fn repository) but you could add more repositories as your needs.
-```maven
+```xml
     <repositories>
         <repository>
             <id>fn-release-repo</id>
@@ -269,7 +269,7 @@ In repositories section you must describe what repositories will be used in your
     </repositories>
  ```
 In the dependencies section you will describe your classes dependencies, for example the cloud-event api, de fn api or classes to parse and write json files.
-```maven
+```xml
     <dependencies>
         <dependency>
             <groupId>com.fnproject.fn</groupId>
@@ -315,7 +315,7 @@ In the dependencies section you will describe your classes dependencies, for exa
     </dependencies>
 ```
 Build section is used to define the maven and other building configurations like jdk version for example.
-```maven
+```xml
     <build>
         <plugins>
             <plugin>
