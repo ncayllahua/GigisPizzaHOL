@@ -117,7 +117,7 @@ After that, click in File -> Save All in your IDE to save all changes.
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain you such changes:
 
 ### DiscountCampaignUploader.java
-Your function name is the same as main class and this class must have a **public handleRequest** method. ObjectStorageURLBase, invokeEndpointURL and functionId vaiables are setted from function environment variables that you created before in OCI.
+Your function java file name **[DiscountCampaignUploader.java]** is the same as main class **[DiscountCampaignUploader]** and this class must have a unique **public** method **[handleRequest]** that is the entrypoint of the serverless function. ObjectStorageURLBase, invokeEndpointURL and functionId vaiables are setted from function environment variables that you created before in OCI.
 ```java
 public class DiscountCampaignUploader {
 
@@ -199,24 +199,46 @@ Next the json file is parsed to get the discount campaings (JSONArray) and then 
 	responseMess += invokeCreateCampaingFunction (invokeEndpointURL,functionId,obj.toString());
     }
 ```
-			 
+This serverless function has a private method [invokeCreateCampaingFunction] used to send the payload (camapaign) data to the next serverless function in the application. The method uses the endpoint and OCID destination function data to send it the campaign (in json format) that it was parsed previously from campaigns.json file. 
+```java
+private String invokeCreateCampaingFunction (String invokeEndpointURL, String functionId, String payload) throws IOException {
+	String response                            = "";
+	AuthenticationDetailsProvider authProvider = new ConfigFileAuthenticationDetailsProvider("/.oci/config","DEFAULT");
 
+	//System.out.println("TENANT:: " + authProvider.getTenantId());
+	//System.out.println("USER::   " + authProvider.getUserId());
+	//System.out.println("FINGER:: " + authProvider.getFingerprint());
+	//System.out.println("PATHPK:: " + IOUtils.toString(authProvider.getPrivateKey(), StandardCharsets.UTF_8));
 
+	try (FunctionsInvokeClient fnInvokeClient = new FunctionsInvokeClient(authProvider)){
+	    fnInvokeClient.setEndpoint(invokeEndpointURL);
+	    InvokeFunctionRequest ifr = InvokeFunctionRequest.builder()
+		    .functionId(functionId)
+		    .invokeFunctionBody(StreamUtils.createByteArrayInputStream(payload.getBytes()))
+		    .build();
+
+	    System.err.println("Invoking function endpoint - " + invokeEndpointURL + " with payload " + payload);
+	    InvokeFunctionResponse resp = fnInvokeClient.invokeFunction(ifr);
+	    response = IOUtils.toString(resp.getInputStream(), StandardCharsets.UTF_8);
+	}
+
+	return response;
+}
+```
 ### func.yaml
-
 ```yaml
 schema_version: 20180708
 name: fn_discount_cloud_events
 version: 0.0.1
 ```
-You must have deleted these 4 lines to create your customized Dockerfile. These lines are commands to setup the default deploy fn docker image for java and the function endpoint call.
+You must have deleted these 4 lines to create your customized Dockerfile. These lines are commands to setup the default deploy fn docker image for java and the function entrypoint call [handleRequest].
 ```
 runtime: java
 build_image: fnproject/fn-java-fdk-build:jdk11-1.0.105
 run_image: fnproject/fn-java-fdk:jre11-1.0.105
 cmd: com.example.fn.HelloFunction::handleRequest
 ```
-Last line is the entry point to execute the function. Represent the path to the funcion name and handleRequest public method and you can find it in the new Dockerfile as CMD command.
+Last line is the entrypoint to execute the function. Represent the path to the funcion name [HelloFunction] and [handleRequest] public method. Also you will find it in the new multi stage Dockerfile as CMD command.
 ```
 cmd: com.example.fn.HelloFunction::handleRequest
 ```
