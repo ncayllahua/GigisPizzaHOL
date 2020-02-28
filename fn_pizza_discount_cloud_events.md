@@ -151,7 +151,8 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 
 ![](./media/faas-create-function22.PNG)
 
-Then review the code of the dockerfile file and comment next lines putting # before the sentences. This lines is for the optional part of the demo that takes the oci **config** and **oci_api_key.pem** files from a pipeline build machine that is in developer cloud service. At this machine the oci config file point to /home/builder/.oci/oci_api_key.pem path for the api private key file, but you will can know about that if you complete the optional part of the HOL.
+Then review the code of the dockerfile file and comment next lines putting # before the sentences. This lines is for the optional part of the demo that takes the oci **config** and **oci_api_key.pem** files from a pipeline build machine that is in developer cloud service. In that machines, the oci config file **key_file** var, point to /home/builder/.oci/oci_api_key.pem path for the api private key file, but you will can know more about that, if you complete the optional part of the HOL.
+Comment:
 ```dockerfile
 RUN mkdir -p /home/builder/.oci
 ```
