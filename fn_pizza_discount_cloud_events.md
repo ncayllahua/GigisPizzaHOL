@@ -150,7 +150,15 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 
 ![](./media/faas-create-function22.PNG)
 
-Then review the code of the dockerfile file and comment next two lines putting # before the sentences. This two lines is for the optional part of the demo that takes the oci **config** and **oci_api_key.pem** files from a pipeline build machine that is in developer cloud service.
+Then review the code of the dockerfile file and comment next lines putting # before the sentences. This lines is for the optional part of the demo that takes the oci **config** and **oci_api_key.pem** files from a pipeline build machine that is in developer cloud service. At this machine the oci config file point to /home/builder/.oci/oci_api_key.pem path for the api private key file, but you will can know about that if you complete the optional part of the HOL.
+```dockerfile
+RUN mkdir -p /home/builder/.oci
+```
+As
+```dockerfile
+#RUN mkdir -p /home/builder/.oci
+```
+Then comment this two lines:
 ```dockerfile
 COPY config /.oci/config
 COPY oci_api_key.pem /home/builder/.oci/oci_api_key.pem
@@ -413,14 +421,14 @@ RUN ["mvn", "package", "-DskipTests=true"]
 Second stage is the final stage and the final docker image. First stage was jdk:11 and that one is jre:11. It takes the output from first stage named build-stage to create the final docker image. At this stage you might create the .oci config dir to include your OCI private api key [oci_api_key.pem] file and your OCI config file.
 ```dockerfile
 FROM fnproject/fn-java-fdk:jre11-1.0.105
-RUN mkdir -p /home/builder/.oci
+#RUN mkdir -p /home/builder/.oci
 RUN mkdir -p /.oci
 
-COPY config /.oci/config
-COPY oci_api_key.pem /home/builder/.oci/oci_api_key.pem
+#COPY config /.oci/config
+#COPY oci_api_key.pem /home/builder/.oci/oci_api_key.pem
 
-#COPY /oci-config/config /.oci/config
-#COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
+COPY /oci-config/config /.oci/config
+COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
 
 WORKDIR /function
 COPY --from=build-stage /function/target/*.jar /function/app/
