@@ -13,8 +13,12 @@ If you had your own development machine, please check that you have installed ne
 
 Make sure you've setup your OCI API signing key and Auth Token (for OCIR access), installed the Fn CLI, completed the CLI configuration steps and have setup the OCI Registry you want to use.
 
-## Docker version error
-If you receive a docker permission error after execute docker version command, please execute this commands:
+## Check your Docker version
+Please execute docker version command before continue with the installation.
+```sh
+docker version
+```
+If you receive a docker permission error after execute ```docker version``` command, please execute this commands:
 ```sh
 sudo usermod -aG docker ${USER}
 ```
