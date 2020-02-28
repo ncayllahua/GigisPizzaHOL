@@ -150,7 +150,7 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 
 ![](./media/faas-create-function22.PNG)
 
-Then review the code of the dockerfile file and comment next two lines putting # before the sentences. This two lines is for the optional part of the demo that takes the oci config and oci_api_key.pem files from a pipeline build machine that is in developer cloud service.
+Then review the code of the dockerfile file and comment next two lines putting # before the sentences. This two lines is for the optional part of the demo that takes the oci **config** and **oci_api_key.pem** files from a pipeline build machine that is in developer cloud service.
 ```dockerfile
 COPY config /.oci/config
 COPY oci_api_key.pem /home/builder/.oci/oci_api_key.pem
