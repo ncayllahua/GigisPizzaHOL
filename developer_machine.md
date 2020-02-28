@@ -13,6 +13,17 @@ If you had your own development machine, please check that you have installed ne
 
 Make sure you've setup your OCI API signing key and Auth Token (for OCIR access), installed the Fn CLI, completed the CLI configuration steps and have setup the OCI Registry you want to use.
 
+## Docker version error
+If you receive a docker permission error after execute docker version command, please execute this commands:
+```sh
+sudo usermod -aG docker ${USER}
+```
+Then you must reboot your development machine.
+```sh
+sudo reboot
+```
+Wait machine reboot and login again with opc user.
+
 ## API signing key and Auth Token
 You had created it before, when you was setting up the Developer Cloud Environment. If you didn't create the Api Key and Auth Token credentials you must follow next steps:
 
