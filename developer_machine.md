@@ -6,7 +6,7 @@ If you had your own development machine, please check that you have installed ne
 
 - IDE software
 - Java jdk 11 & 13 (in your IDE)
-- Docker
+- Docker 18 or 19
 - Fn cli
 - OCI cli
 - OCI user Api Key and Auth Token credentials to access OCIR (Docker Registry)
@@ -14,7 +14,7 @@ If you had your own development machine, please check that you have installed ne
 Make sure you've setup your OCI API signing key and Auth Token (for OCIR access), installed the Fn CLI, completed the CLI configuration steps and have setup the OCI Registry you want to use.
 
 ## Check your Docker version
-Please execute docker version command before continue with the installation.
+Please execute docker version command in a SSH terminal session (not vnc), before continue with the installation.
 ```sh
 docker version
 ```
