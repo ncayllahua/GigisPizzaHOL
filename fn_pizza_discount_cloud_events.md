@@ -114,19 +114,21 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 After that, click in File -> Save All in your IDE to save all changes.
 
 ## Code recap
-You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
+You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain you such changes:
 
 ### DiscountCampaignUploader.java
-Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [UploadDiscountCampaigns] function.
+Your function name is the same as main class and this class must have a **public handleRequest** method. ObjectStorageURLBase, invokeEndpointURL and functionId vaiables are setted from function environment variables that you created before in OCI.
 ```java
-Public class DiscountCampaignUploader {
+public class DiscountCampaignUploader {
 
     public String handleRequest(CloudEvent event) {
-        String responseMess      = "";
-        String invokeEndpointURL = "https://gw7unyffbla.eu-frankfurt-1.functions.oci.oraclecloud.com";
-        String functionId        = "ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaack6vdtmj7n2wy3caoljvjvbcuexmvvhm3tp2k7673cg4jj3ir4a";
+        String responseMess         = "";
+        String objectStorageURLBase = System.getenv().get("OBJECT_STORAGE_URL_BASE");
+        String invokeEndpointURL    = System.getenv().get("INVOKE_ENDPOINT_URL");
+        String functionId           = System.getenv().get("UPLOAD_FUNCTION_ID");
+
 ```
-Next is the code for cloud event trigger catch. After a cloud event trigger firing you'll must receive a cloud event similar to
+Next is the code for cloud event trigger catch. After a cloud event trigger is fired, you'll must receive a cloud event (JSON format) similar to:
 ```yaml
 {
     "eventType" : "com.oraclecloud.objectstorage.createobject",
@@ -155,7 +157,7 @@ Next is the code for cloud event trigger catch. After a cloud event trigger firi
     }
 }
 ```
-this piece of code parse the cloudevent json description and get the important data like compartmentid, object storage name, bucket name or namespace.
+Next piece of code, parse the cloud-event json description and it get the important data like compartmentid, object storage name, bucket name or namespace.
 ```java
 //get upload file properties like namespace or buckername.
             ObjectMapper objectMapper = new ObjectMapper();
