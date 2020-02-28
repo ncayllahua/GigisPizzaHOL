@@ -5,6 +5,7 @@ Summary:
 - [fn discount cloud-events java code](#fn-discount-cloud-events-java-code)
 - [Changing func.yaml file](#changing-funcyaml-file)
 - [Overwriting pom.xml file](#overwriting-pomxml-file)
+- [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
 - [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
 - [Code recap (OPTIONAL)](#code-recap-optional)
 - [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
