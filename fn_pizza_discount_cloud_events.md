@@ -159,7 +159,7 @@ Next is the code for cloud event trigger catch. After a cloud event trigger is f
 ```
 Next piece of code, parse the cloud-event json description and it get the important data like compartmentid, object storage name, bucket name or namespace.
 ```java
-//get upload file properties like namespace or buckername.
+	//get upload file properties like namespace or buckername.
             ObjectMapper objectMapper = new ObjectMapper();
             Map data                  = objectMapper.convertValue(event.getData().get(), Map.class);
             Map additionalDetails     = objectMapper.convertValue(data.get("additionalDetails"), Map.class);
@@ -170,32 +170,34 @@ Next piece of code, parse the cloud-event json description and it get the import
                             .objectName(data.get("resourceName").toString())
                             .build();
 ```
-That relevant data will be use to access (with authProvider) to the object storage and get the campaign.json file.
+That relevant data will be used to access (in authProvider class) to the object storage bucket and get the **campaigns.json** file (resourceName variable from cloud-event JSON file).
 ```java
-AuthenticationDetailsProvider authProvider = new ConfigFileAuthenticationDetailsProvider("/.oci/config","DEFAULT");
-            ObjectStorageClient objStoreClient         = ObjectStorageClient.builder().build(authProvider);
-            GetObjectResponse jsonFile                 = objStoreClient.getObject(jsonFileRequest);
+    AuthenticationDetailsProvider authProvider = new ConfigFileAuthenticationDetailsProvider("/.oci/config","DEFAULT");
+    ObjectStorageClient objStoreClient         = ObjectStorageClient.builder().build(authProvider);
+    GetObjectResponse jsonFile                 = objStoreClient.getObject(jsonFileRequest);
 
-            StringBuilder jsonfileUrl = new StringBuilder("https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/")
-                    .append(additionalDetails.get("namespace"))
-                    .append("/b/")
-                    .append(additionalDetails.get("bucketName"))
-                    .append("/o/")
-                    .append(data.get("resourceName"));
+    StringBuilder jsonfileUrl = new StringBuilder("https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/")
+	    .append(additionalDetails.get("namespace"))
+	    .append("/b/")
+	    .append(additionalDetails.get("bucketName"))
+	    .append("/o/")
+	    .append(data.get("resourceName"));
+```
+Next the json file is parsed to get the discount campaings (JSONArray) and then send these campaigns to the next serverless function.
+```java
+    System.out.println("JSON FILE:: " + jsonfileUrl.toString());
+    //InputStream isJson = new URL(jsonfileUrl.toString()).openStream();
+    InputStream isJson = jsonFile.getInputStream();
 
-            System.out.println("JSON FILE:: " + jsonfileUrl.toString());
-            //InputStream isJson = new URL(jsonfileUrl.toString()).openStream();
-            InputStream isJson = jsonFile.getInputStream();
+    JSONTokener tokener = new JSONTokener(isJson);
+		JSONObject joResult = new JSONObject(tokener);
 
-            JSONTokener tokener = new JSONTokener(isJson);
-			JSONObject joResult = new JSONObject(tokener);
-
-            JSONArray campaigns = joResult.getJSONArray("campaigns");
-            System.out.println("Campaigns:: " + campaigns.length());
-			for (int i = 0; i < campaigns.length(); i++) {
-                JSONObject obj = campaigns.getJSONObject(i);
-                responseMess += invokeCreateCampaingFunction (invokeEndpointURL,functionId,obj.toString());
-            }
+    JSONArray campaigns = joResult.getJSONArray("campaigns");
+    System.out.println("Campaigns:: " + campaigns.length());
+    for (int i = 0; i < campaigns.length(); i++) {
+	JSONObject obj = campaigns.getJSONObject(i);
+	responseMess += invokeCreateCampaingFunction (invokeEndpointURL,functionId,obj.toString());
+    }
 ```
 			 
 
@@ -207,7 +209,7 @@ schema_version: 20180708
 name: fn_discount_cloud_events
 version: 0.0.1
 ```
-You must have deleted this 4 lines to create your customized Dockerfile. This lines are using to setup the default deploy fn docker images for java.
+You must have deleted these 4 lines to create your customized Dockerfile. These lines are commands to setup the default deploy fn docker image for java and the function endpoint call.
 ```
 runtime: java
 build_image: fnproject/fn-java-fdk-build:jdk11-1.0.105
