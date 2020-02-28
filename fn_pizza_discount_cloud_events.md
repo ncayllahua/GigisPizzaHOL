@@ -7,9 +7,9 @@ Summary:
 - [Overwriting pom.xml file](#overwriting-pomxml-file)
 - [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
 - [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
-- [Code recap (OPTIONAL)](#code-recap-optional)
 - [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
 - [New Environment Variables](#new-environment-variables)
+- [Code recap (OPTIONAL)](#code-recap-optional)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
@@ -181,6 +181,28 @@ COPY /oci-config/config /.oci/config
 COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
 ```
 After that, click in File -> Save All in your IDE to save all changes.
+
+## Deploy fn discount cloud-events function
+To deploy your serverless function you must execute next command with ```--verbose``` option to get all the information about the deploy process.
+```sh
+fn --verbose deploy --app gigis-serverless-hol
+```
+
+## New Environment Variables
+after you have created and deployed fn_discount_upload and fn_discount_cloud_events, you have to create 3 additional environment variables in fn_discount_cloud_events that will link both functions.
+
+Go to Solutions and Platform menu -> Developer Services -> Functions.
+
+Click in your serverless app [gigis-serverless-hol]
+
+Click in [fn_discount_cloud_events] function and next Configuration menu.
+
+Create 3 additional variables:
+|| Key | Value | Section |
+| ------------- | ------------- | ------------- | ------------- |
+|01|INVOKE_ENDPOINT_URL|```https://<your_endpoint_id.eu-frankfurt-1.functions.oci.oraclecloud.com```|invoke endpoint fn_discount_upload|
+|02|UPLOAD_FUNCTION_ID|ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaack6vdtmj7n2w...|OCID fn_discount_upload|
+|03|OBJECT_STORAGE_URL_BASE|```https://objectstorage.<YOUR_OCI_REGION>.oraclecloud.com/```|[Regions](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm)|
 
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain you such changes:
@@ -439,24 +461,3 @@ COPY --from=build-stage /function/target/*.jar /function/app/
 
 CMD ["com.example.fn.DiscountCampaignUploader::handleRequest"]
 ```
-## Deploy fn discount cloud-events function
-To deploy your serverless function you must execute next command with ```--verbose``` option to get all the information about the deploy process.
-```sh
-fn --verbose deploy --app gigis-serverless-hol
-```
-
-## New Environment Variables
-after you have created and deployed fn_discount_upload and fn_discount_cloud_events, you have to create 3 additional environment variables in fn_discount_cloud_events that will link both functions.
-
-Go to Solutions and Platform menu -> Developer Services -> Functions.
-
-Click in your serverless app [gigis-serverless-hol]
-
-Click in [fn_discount_cloud_events] function and next Configuration menu.
-
-Create 3 additional variables:
-|| Key | Value | Section |
-| ------------- | ------------- | ------------- | ------------- |
-|01|INVOKE_ENDPOINT_URL|```https://<your_endpoint_id.eu-frankfurt-1.functions.oci.oraclecloud.com```|invoke endpoint fn_discount_upload|
-|02|UPLOAD_FUNCTION_ID|ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaack6vdtmj7n2w...|OCID fn_discount_upload|
-|03|OBJECT_STORAGE_URL_BASE|```https://objectstorage.<YOUR_OCI_REGION>.oraclecloud.com/```|[Regions](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm)|
