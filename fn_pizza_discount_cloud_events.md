@@ -113,7 +113,7 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 
 After that, click in File -> Save All in your IDE to save all changes.
 
-## Code recap
+## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain you such changes:
 
 ### DiscountCampaignUploader.java
