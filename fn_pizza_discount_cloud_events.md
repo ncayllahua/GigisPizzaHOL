@@ -193,7 +193,9 @@ COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
 After that, click in File -> Save All in your IDE to save all changes.
 
 ## Deploy fn discount cloud-events function
-To deploy your serverless function you must execute next command with ```--verbose``` option to get all the information about the deploy process. Open a terminal in your development machine and execute:
+To deploy your serverless function please follow next steps, your function will be created in OCI Functions inside your serverles app [gigis-serverless-hol]. 
+
+Open a terminal in your development machine and execute:
 ```sh
 cd $HOME/holserverless/fn_discount_cloud_events
 ```
@@ -203,6 +205,7 @@ docker login fra.ocir.io
 ```
 ![](./media/faas-create-function24.PNG)
 
+You must execute next command with ```--verbose``` option to get all the information about the deploy process.
 ```sh
 fn --verbose deploy --app gigis-serverless-hol
 ```
@@ -211,7 +214,11 @@ fn --verbose deploy --app gigis-serverless-hol
 
 Wait to maven project download dependencies and build jar, docker image creation and function deploy in OCI serverless app.
 
-![](./media/faas-create-function25.PNG)
+![](./media/faas-create-function26.PNG)
+
+Check that your new function is created in your serverless app [gigis-serverless-hol] at Developer Services -> Functions menu.
+
+![](./media/faas-create-function27.PNG)
 
 ## New Environment Variables
 after you have created and deployed fn_discount_upload and fn_discount_cloud_events, you have to create 3 additional environment variables in fn_discount_cloud_events that will link both functions.
