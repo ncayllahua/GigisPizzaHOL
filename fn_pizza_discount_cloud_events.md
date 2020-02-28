@@ -199,7 +199,7 @@ Open a terminal in your development machine and execute:
 ```sh
 cd $HOME/holserverless/fn_discount_cloud_events
 ```
-Then you must login in OCIR registry with ```docker login``` command. Introduce your OCI user like ```<namespace>/<user>``` when docker login ask you about username and you Authtoken as password.
+Then you must login in OCIR registry with ```docker login``` command. Introduce your OCI user like ```<namespace>/<user>``` when docker login ask you about username and your previously created **OCI Authtoken** as password.
 ```sh
 docker login fra.ocir.io
 ```
@@ -212,7 +212,7 @@ fn --verbose deploy --app gigis-serverless-hol
 
 ![](./media/faas-create-function25.PNG)
 
-Wait to maven project download dependencies and build jar, docker image creation and function deploy in OCI serverless app.
+Wait to maven project download dependencies and build jar, docker image creation and function deploy in OCI serverless app finish.
 
 ![](./media/faas-create-function26.PNG)
 
