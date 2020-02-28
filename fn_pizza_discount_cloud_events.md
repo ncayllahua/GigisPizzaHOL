@@ -3,8 +3,11 @@
 Summary:
 - [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-ide-preparation)
 - [fn discount cloud-events java code](#fn-discount-cloud-events-java-code)
-- [Changing func.yaml file](#changing-func.yaml-file)
-- [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-ide-preparation)
+- [Changing func.yaml file](#changing-funcyaml-file)
+- [Overwriting pom.xml file](#overwriting-pomxml-file)
+- [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
+- [Code recap (OPTIONAL)](#code-recap-(optional))
+- [Overwriting pom.xml file](#overwriting-pomxml-file)
 
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
