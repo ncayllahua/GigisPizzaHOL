@@ -7,8 +7,9 @@ Summary:
 - [Overwriting pom.xml file](#overwriting-pomxml-file)
 - [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
 - [Code recap (OPTIONAL)](#code-recap-(optional))
-- [Overwriting pom.xml file](#overwriting-pomxml-file)
-
+- [Overwriting pom.xml file](#code-recap-optional)
+- [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
+- [New Environment Variables](#new-environment-variables)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
