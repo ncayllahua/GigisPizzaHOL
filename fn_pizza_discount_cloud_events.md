@@ -111,6 +111,34 @@ Next you must overwrite the example maven pom.xml file with the pom.xml content 
 
 ![](./media/faas-create-function20.PNG)
 
+## Creating OCI config and oci_api_key.pem files
+For security reasons this two files haven't been uploaded to github and also depends on your oci tenancy and project information. This two files are easy to generate from a Developer Cloud Service pipeline that is explained in the [optional part of this HOL](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md). You will can review it if you complete the optional part.
+
+You must create a new directory in your IDE project called **[oci-config]**, this directory will contain the OCI cli configuration necessary for your future docker image creation. 
+
+- Select fn_discount_cloud_events directory.
+- Right mouse button and Create Directory.
+- Write **oci-config** as directory name and press enter key.
+
+Next create **config** file:
+- Select in oci-config directory and Click right mouse button New File.
+- Write config name and press enter key.
+- Write your oci config data
+
+```text
+[DEFAULT]
+tenancy=<your_tenancy_ocid_like_ocid1.tenancy.oc1..aaaaaaaacc...>
+region=<your_tenancy_region_like_eu-frankfurt-1>
+user=<your_user_ocid_like_ocid1.user.oc1..aaaaaaaadn622k...>
+fingerprint=<your_api_key_fingerprint_like_15:1b:90:9e:45:7c:b9:bf:73:f5:e2:0f:82:62:82:66>
+key_file=/home/opc/.oci/oci_api_key.pem
+```
+
+Next create **oci_api_key.pem** file:
+- Select in oci-config directory and Click right mouse button New File.
+- Write oci_api_key.pem name and press enter key.
+- Write your private key in oci_api_key.pem
+
 ## Creating Multi Stage Dockerfile
 You must create a new multi stage docker file, to deploy your serverless function as a docker image in your OCIR repository. This file must be created before deploying the function.
 
@@ -122,6 +150,26 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 
 ![](./media/faas-create-function22.PNG)
 
+Then review the code of the dockerfile file and comment next two lines putting # before the sentences. This two lines is for the optional part of the demo that takes the oci config and oci_api_key.pem files from a pipeline build machine that is in developer cloud service.
+```dockerfile
+COPY config /.oci/config
+COPY oci_api_key.pem /home/builder/.oci/oci_api_key.pem
+```
+As
+```dockerfile
+#COPY config /.oci/config
+#COPY oci_api_key.pem /home/builder/.oci/oci_api_key.pem
+```
+Then uncomment next two lines deleting the # at the begining of the sentences.
+```dockerfile
+#COPY /oci-config/config /.oci/config
+#COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
+```
+As
+```dockerfile
+COPY /oci-config/config /.oci/config
+COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
+```
 After that, click in File -> Save All in your IDE to save all changes.
 
 ## Code recap (OPTIONAL)
@@ -350,6 +398,7 @@ Build section is used to define the maven and other building configurations like
     </build>
 ```
 ### Dockerfile
+You created a multi stage Dockerfile to customize the serverless function deploy. You have several stages before to create the final image docker. This intermediate stages are not included in the final image. In this dockerfile first stage is created from a JDK11 of fn project docker image to create the jar function file.
 ```dockerfile
 FROM fnproject/fn-java-fdk-build:jdk11-1.0.105 as build-stage
 WORKDIR /function
@@ -360,7 +409,9 @@ RUN ["mvn", "package", "dependency:copy-dependencies", "-DincludeScope=runtime",
 
 ADD src /function/src
 RUN ["mvn", "package", "-DskipTests=true"]
-
+```
+Second stage is the final stage and the final docker image. First stage was jdk:11 and that one is jre:11. It takes the output from first stage named build-stage to create the final docker image. At this stage you might create the .oci config dir to include your OCI private api key [oci_api_key.pem] file and your OCI config file.
+```dockerfile
 FROM fnproject/fn-java-fdk:jre11-1.0.105
 RUN mkdir -p /home/builder/.oci
 RUN mkdir -p /.oci
