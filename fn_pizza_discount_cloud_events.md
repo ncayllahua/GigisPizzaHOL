@@ -1,7 +1,7 @@
 # Function fn discount cloud-events
 
 Summary:
-- [fn discount cloud-events IDE preparation](https://github.com/oraclespainpresales/GigisPizzaHOL/edit/master/fn_pizza_discount_cloud_events.mdfn-discount-cloud-events-IDE-preparation)
+- [fn discount cloud-events IDE preparation](https://github.com/oraclespainpresales/GigisPizzaHOL/edit/master/fn_pizza_discount_cloud_events.md#fn-discount-cloud-events-IDE-preparation)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
