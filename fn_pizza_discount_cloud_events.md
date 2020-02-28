@@ -132,7 +132,7 @@ tenancy=<your_tenancy_ocid_like_ocid1.tenancy.oc1..aaaaaaaacc...>
 region=<your_tenancy_region_like_eu-frankfurt-1>
 user=<your_user_ocid_like_ocid1.user.oc1..aaaaaaaadn622k...>
 fingerprint=<your_api_key_fingerprint_like_15:1b:90:9e:45:7c:b9:bf:73:f5:e2:0f:82:62:82:66>
-key_file=/home/opc/.oci/oci_api_key.pem
+key_file=<image_path_to_your_pem_file_like_/home/opc/.oci/oci_api_key.pem>
 ```
 
 Next create **oci_api_key.pem** file:
