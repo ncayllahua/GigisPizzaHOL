@@ -729,11 +729,5 @@ Then you must modify each function with the appropiate code (you can ```CTRL + m
 
 * [fn_discount_upload](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_upload.md)
 * [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md)
-
-Once you have created and deployed fn_discount_upload, you have to create 3 additional environment variables in fn_discount_cloud_events before continue modifying and deploying the last serverless function. This 3 env vars will link fn_discount_cloud_events and fn_discount_upload functions.
-
-Go to Solutions and Platform menu -> Developer Services -> Functions.
-
-
 * [fn_discount_campaign](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_campaign.md)
 
