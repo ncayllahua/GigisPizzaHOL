@@ -246,10 +246,24 @@ cmd: com.example.fn.HelloFunction::handleRequest
 
 ### Dockerfile
 
-## New Environmet Variables
-
 ## Deploy fn discount cloud-events function
 To deploy your serverless function you must execute next command with ```--verbose``` option to get all the information about the deploy process.
 ```sh
 fn --verbose deploy --app gigis-serverless-hol
 ```
+
+## New Environment Variables
+after you have created and deployed fn_discount_upload and fn_discount_cloud_events, you have to create 3 additional environment variables in fn_discount_cloud_events that will link both functions.
+
+Go to Solutions and Platform menu -> Developer Services -> Functions.
+
+Click in your serverless app [gigis-serverless-hol]
+
+Click in [fn_discount_cloud_events] function and next Configuration menu.
+
+Create 3 additional variables:
+|| Key | Value | Section |
+| ------------- | ------------- | ------------- | ------------- |
+|01|INVOKE_ENDPOINT_URL|```https://<your_endpoint_id.eu-frankfurt-1.functions.oci.oraclecloud.com```|invoke endpoint fn_discount_upload|
+|02|UPLOAD_FUNCTION_ID|ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaack6vdtmj7n2w...|OCID fn_discount_upload|
+|03|OBJECT_STORAGE_URL_BASE|```https://objectstorage.<YOUR_OCI_REGION>.oraclecloud.com/```|[Regions](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm)|
