@@ -76,10 +76,9 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 	* 4.3.4 [ATP ORDS Configuration](#atp-ords-configuration)
 	* 4.3.5 [ATP Enable ORDS Table](#atp-enable-ords-table)
 - 4.4 [OCI IAM FaaS Policy](#vcn---virtual-cloud-network-creation)
-- 4.5 [Oracle FaaS app creation](#oracle-faas-app-creation)
+- 4.5 [Oracle FaaS Application](#oracle-faas-application)
 5. [Serverless Functions Coding](#serverless-functions-coding)
 - 5.1 [Creating the Serverless Functions](#creating-the-serverless-functions)
-
 
 [<span class="underline">:grey_question: OPTIONAL - Create Development Environment Machine</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md)
 
@@ -526,11 +525,10 @@ Review your new Policy to check the sentence.
 
 ![](./media/faas-configure-policies04.PNG)
 
-## Oracle FaaS Application
+## Oracle FaaS Serverless Application Creation
 In this section you will create the FaaS serverless application (with 3 serverless functions inside) and configure the environment variables to access to the ATP Database. 
 
-### Serverless App Creation
-First you must create the serverless Function in OCI Managed Function Service. Go to Developer Services in the main menu and select Functions.
+First you must create the serverless Application in OCI Managed Function Service. Go to Developer Services in the main menu and select Functions.
 
 ![](./media/oci-faas-create01.PNG)
 
@@ -558,7 +556,7 @@ Click Configuration menu to configure your serverless app environment variables.
 
 ![](./media/oci-faas-create06.PNG)
 
-#### Function Environment Variables
+### Function Environment Variables
 You must create all next environment variables to setup your serverless application, before functions creation. When you create the serverless functions, they will can access your ATP Database with both ORDS or JDBC methods.
 
 || Key | Value | Section |
