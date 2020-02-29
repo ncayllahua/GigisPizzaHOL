@@ -168,89 +168,179 @@ Check that your new function is created in your serverless app [gigis-serverless
 
 Click in the function name **fn_discount_upload**, click in show OCID and show Endpoint and note their ids as you will need them to create the environment variables in **fn_discount_cloud_events** function section in the next function creation.
 
+![](./media/fn-discount-upload/faas-create-function24.PNG)
+
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
 
-### DiscountCampaignUploader.java
-Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [UploadDiscountCampaigns] function.
-```java
-Public class DiscountCampaignUploader {
+### UploadDiscountCampaigns.java
+Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [UploadDiscountCampaigns] function. 
 
-    public String handleRequest(CloudEvent event) {
-        String responseMess      = "";
-        String invokeEndpointURL = "https://gw7unyffbla.eu-frankfurt-1.functions.oci.oraclecloud.com";
-        String functionId        = "ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaack6vdtmj7n2wy3caoljvjvbcuexmvvhm3tp2k7673cg4jj3ir4a";
-```
-Next is the code for cloud event trigger catch. After a cloud event trigger firing you'll must receive a cloud event similar to
-```yaml
-{
-    "eventType" : "com.oraclecloud.objectstorage.createobject",
-    "cloudEventsVersion" : "0.1",
-    "eventTypeVersion" : "2.0",
-    "source" : "ObjectStorage",
-    "eventTime" : "2020-01-21T16:26:30.849Z",
-    "contentType" : "application/json",
-    "data" : {
-      "compartmentId" : "ocid1.compartment.oc1..aaaaaaaatz2chvjiz4d3xdrtzmtxspkul",
-      "compartmentName" : "DevOps",
-      "resourceName" : "campaigns.json",
-      "resourceId" : "/n/wedoinfra/b/bucket-gigis-pizza-discounts/o/campaigns.json",
-      "availabilityDomain" : "FRA-AD-1",
-      "additionalDetails" : {
-        "bucketName" : "bucket-gigis-pizza-discounts",
-        "archivalState" : "Available",
-        "namespace" : "wedoinfra",
-        "bucketId" : "ocid1.bucket.oc1.eu-frankfurt-1.aaaaaaaasndscagkbrqhfcrezkla6cqa2sippfq",
-        "eTag" : "199f8dbf-0b8c-41b6-9596-4d2a6792d7e5"
-      }
-    },
-    "eventID" : "3e47d127-19de-6eb8-eb67-0c1ab961fcbc",
-    "extensions" : {
-      "compartmentId" : "ocid1.compartment.oc1..aaaaaaaatz2chvjiz4d3xdrtzmtxspkul"
+This function class has another Object class named Campaign, used to create campaign objects received from cloud-event function as a json format. With **@JasonAlias** annotation you can parse the json parameter name to class parameter name. 
+
+For example if you have received a json campaign as: ```{"demozone": "MADRID","paymentmethod": "VISA","date_bgn": "2020-02-17T00:00:00Z","date_end": "2020-02-22T00:00:00Z","min_amount": "15","discount": "10"}``` and you pass it to Campaign constructor like 
+```campaign = new ObjectMapper().readValue(response.body(), Campaign.class);```, paymentmethod jason parameter will be assigned to paymentMethod Campaign parameter, same for min_amout to minAmount, date_bgn to dateBgn and date_end to dateEnd.
+
+The variable ```StringBuilder ordsServiceUrl = new StringBuilder(ordsBaseUrl).append(ordsService).append("/");``` get the information from environment variables: ordsBaseUrl, ordsService, ordsServiceOauth to compose the ORDS Service URL.
+
+```java
+public class UploadDiscountCampaigns {
+
+    private final String ordsBaseUrl      = System.getenv().get("DB_ORDS_BASE");
+    private final String ordsService      = System.getenv().get("DB_ORDS_SERVICE");
+    private final String ordsServiceOauth = System.getenv().get("DB_ORDS_SERVICE_OAUTH");
+    private final HttpClient httpClient   = HttpClient.newHttpClient();
+
+    public static class Campaign {
+        public String id            = "";
+        public String demozone      = "";
+        @JsonAlias("paymentmethod")
+        public String paymentMethod = "";
+        @JsonAlias("min_amount")
+        public String minAmount     = "";
+        public String discount      = "";
+        @JsonAlias("date_bgn")
+        public String dateBgn       = "";
+        @JsonAlias("date_end")
+        public String dateEnd       = "";
+        @JsonIgnore
+        public List<String> links;
+
+        public String toString() {
+            StringBuilder stb = new StringBuilder("{");
+            stb.append("'id':'").append(id).append("',");
+            stb.append("'demozone':'").append(demozone).append("',");
+            stb.append("'paymentMethod':'").append(paymentMethod).append("',");
+            stb.append("'min_amount':'").append(minAmount).append("',");
+            stb.append("'discount':'").append(discount).append("',");
+            stb.append("'date_ini':'").append(dateBgn).append("',");
+            stb.append("'date_end':'").append(dateEnd).append("'");
+            stb.append("}");
+            return stb.toString();
+        }
     }
-}
+
+    public String handleRequest(String input) {
+        StringBuilder ordsServiceUrl = new StringBuilder(ordsBaseUrl).append(ordsService).append("/");//.append(input);
+        //Campaign campaign            = null;
+        String responseMess          = "";
+        try {
+            System.err.println("inside Load Discount Campaign Function!");
+            System.err.println("ORDS URL: " + ordsServiceUrl.toString());
+            //campaign = getCampaignDiscount (ordsServiceUrl, input);
+            responseMess = setCampaignDiscount (ordsServiceUrl, input);
+        }
+        catch (URISyntaxException | IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return responseMess;
+    }
 ```
-this piece of code parse the cloudevent json description and get the important data like compartmentid, object storage name, bucket name or namespace.
+As you can see ```campaign = getCampaignDiscount (ordsServiceUrl, input);``` is commented as we created a getCampaignDiscount method also commented, for testing purpouses only. This method retrieve a campaign file from the ATP db and create a Campaign object. But you won't be use it in the demo so we commented it.
 ```java
-//get upload file properties like namespace or buckername.
-            ObjectMapper objectMapper = new ObjectMapper();
-            Map data                  = objectMapper.convertValue(event.getData().get(), Map.class);
-            Map additionalDetails     = objectMapper.convertValue(data.get("additionalDetails"), Map.class);
+/************************getCampaignDiscount ********************************** 
+     * get one row from ATP
+     * input must be an id number or field value in json format
+    */
+    /* private Campaign getCampaignDiscount (StringBuilder ordsServiceUrl, String input) 
+        throws URISyntaxException,IOException,InterruptedException {
+        Campaign campaign = null;
+        
+        HttpRequest request = HttpRequest.newBuilder(new URI(ordsServiceUrl.toString()))
+                    .header("Authorization", "Bearer " + getAuthToken())
+                    .GET()
+                    .build();
 
-            GetObjectRequest jsonFileRequest = GetObjectRequest.builder()
-                            .namespaceName(additionalDetails.get("namespace").toString())
-                            .bucketName(additionalDetails.get("bucketName").toString())
-                            .objectName(data.get("resourceName").toString())
-                            .build();
+        HttpResponse<String> response = this.httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        System.err.println("Response HTTP:::" +response.statusCode());
+        if( response.statusCode() == HttpURLConnection.HTTP_NOT_FOUND ) {
+            System.err.println("Campaign with id " + input + " not found!");
+            campaign = new Campaign();
+            campaign.demozone = "NOT FOUND RECORD " + input;
+        }
+        else {
+            campaign = new ObjectMapper().readValue(response.body(), Campaign.class);
+        }
+        
+        return campaign;
+    } */
 ```
-That relevant data will be use to access (with authProvider) to the object storage and get the campaign.json file.
+The setCamapignDiscount method is used to send a discount campaign to ATP DB via ORDS and create a new File in CAMPAIGN Table. Responses vary depends on the response type: INSERTED if the response is a StatusCode = HTTP_CREATED or ERROR otherwise. 
 ```java
-AuthenticationDetailsProvider authProvider = new ConfigFileAuthenticationDetailsProvider("/.oci/config","DEFAULT");
-            ObjectStorageClient objStoreClient         = ObjectStorageClient.builder().build(authProvider);
-            GetObjectResponse jsonFile                 = objStoreClient.getObject(jsonFileRequest);
+    /************************setCampaignDiscount ********************************** 
+     * insert one row in ATP from a json format data
+    */
+    private String setCampaignDiscount (StringBuilder ordsServiceUrl, String input) 
+        throws URISyntaxException,IOException,InterruptedException {
+        String responseMess = "";
+        
+        HttpRequest request = HttpRequest.newBuilder()
+                    .uri(new URI(ordsServiceUrl.toString()))
+                    .header("Authorization", "Bearer " + getAuthToken())
+                    .header("Content-Type", "application/json")
+                    .POST(BodyPublishers.ofString(input))
+                    .build();
 
-            StringBuilder jsonfileUrl = new StringBuilder("https://objectstorage.eu-frankfurt-1.oraclecloud.com/n/")
-                    .append(additionalDetails.get("namespace"))
-                    .append("/b/")
-                    .append(additionalDetails.get("bucketName"))
-                    .append("/o/")
-                    .append(data.get("resourceName"));
-
-            System.out.println("JSON FILE:: " + jsonfileUrl.toString());
-            //InputStream isJson = new URL(jsonfileUrl.toString()).openStream();
-            InputStream isJson = jsonFile.getInputStream();
-
-            JSONTokener tokener = new JSONTokener(isJson);
-			JSONObject joResult = new JSONObject(tokener);
-
-            JSONArray campaigns = joResult.getJSONArray("campaigns");
-            System.out.println("Campaigns:: " + campaigns.length());
-			for (int i = 0; i < campaigns.length(); i++) {
-                JSONObject obj = campaigns.getJSONObject(i);
-                responseMess += invokeCreateCampaingFunction (invokeEndpointURL,functionId,obj.toString());
-            }
+        HttpResponse<String> response = this.httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+        //System.err.println("Response HTTP:::" +response.statusCode() + " " + response.body());
+        if( response.statusCode() == HttpURLConnection.HTTP_CREATED) {
+            responseMess = new StringBuilder ("[")
+                            .append(input)
+                            .append("] - INSERTED")
+                            .toString();
+        }
+        else {
+            responseMess = new StringBuilder ("[")
+                            .append(input)
+                            .append("] - ERROR insertion!! - ")
+                            .append(response.statusCode())
+                            .toString();
+        }
+        return responseMess;
+    }
 ```
-			 
+Last method use the getAuthToken method to connect to ATP via ORDS with authToken credentials. This method generates a 1h access token to the ATP DB getting the OAuth data from environment variales: DB_ORDS_CLIENT_ID and DB_ORDS_CLIENT_SECRET previously configured in your serverless application in OCI. Remember that this two values where created when you expose the campaign schema in the [ATP ORDS configuration](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md#atp-ords-configuration).
+```java
+    /************************GET TOKEN ********************************** 
+     * get the appropiate token to Oauth access with ORDS to ATP DB
+     * this is an only 1h hour Token
+     * use CLIENT_ID and CLIENT_SECRET to get the token
+    */
+    private String getAuthToken() {
+        String authToken           = "";
+        String clientId            = "";
+        String clientSecret        = "";
+        StringBuilder authTokenURL = new StringBuilder(ordsBaseUrl).append(ordsServiceOauth);
+
+        try {
+            clientId     = System.getenv().get("DB_ORDS_CLIENT_ID");
+            clientSecret = System.getenv().get("DB_ORDS_CLIENT_SECRET");
+
+            StringBuilder authString   = new StringBuilder(clientId).append(":").append(clientSecret);
+            StringBuilder authEncoded  = new StringBuilder("Basic ").append(Base64.getEncoder().encodeToString(authString.toString().getBytes()));
+
+            //System.err.println("ORDS URL token: " + authTokenURL.toString());
+            //System.err.println("ORDS URL 64B  : " + authEncoded.toString());
+
+            HttpRequest request = HttpRequest.newBuilder(new URI(authTokenURL.toString()))
+                    .header("Authorization", authEncoded.toString())
+                    .header("Content-Type", "application/x-www-form-urlencoded")
+                    .POST(HttpRequest.BodyPublishers.ofString("grant_type=client_credentials"))
+                    .build();
+
+            HttpResponse<String> response = this.httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            String responseBody = response.body();
+            ObjectMapper mapper = new ObjectMapper();
+            TypeReference<HashMap<String, String>> typeRef = new TypeReference<HashMap<String, String>>() {};
+            HashMap<String, String> result = mapper.readValue(responseBody, typeRef);
+            authToken = result.get("access_token");
+        }
+        catch (URISyntaxException | IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return authToken;
+    }
+```
 
 
 ### func.yaml
