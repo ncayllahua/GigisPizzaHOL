@@ -1,15 +1,14 @@
 # Function fn discount cloud-events
-
-Summary:
-- [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-ide-preparation)
-- [fn discount cloud-events java code](#fn-discount-cloud-events-java-code)
-- [Changing func.yaml file](#changing-funcyaml-file)
-- [Overwriting pom.xml file](#overwriting-pomxml-file)
-- [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
-- [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
-- [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
-- [New Environment Variables](#new-environment-variables)
-- [Code recap (OPTIONAL)](#code-recap-optional)
+Table of Contents:
+1. [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-ide-preparation)
+2. [fn discount cloud-events java code](#fn-discount-cloud-events-java-code)
+3. [Changing func.yaml file](#changing-funcyaml-file)
+4. [Overwriting pom.xml file](#overwriting-pomxml-file)
+5. [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
+6. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
+7. [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
+8. [New Environment Variables](#new-environment-variables)
+9. [Code recap (OPTIONAL)](#code-recap-optional)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
