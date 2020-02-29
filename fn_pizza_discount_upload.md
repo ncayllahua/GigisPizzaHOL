@@ -361,6 +361,108 @@ Last line is the entry point to execute the function. Represent the path to the 
 ```
 cmd: com.example.fn.HelloFunction::handleRequest
 ```
+Last line is the entrypoint to execute the function. Represent the path to the funcion name [HelloFunction] and [handleRequest] public method. Also you will find it in the new multi stage Dockerfile as CMD command.
+```
+cmd: com.example.fn.HelloFunction::handleRequest
+```
 ### pom.xml
-
+Pom.xml file is your maven project descriptor. First of all you must review properties, groupId, artifactId and version. In properties you select the fdk version for your project. GroupId is the java path to your class. ArtifactId is the name of the artifact to create and version is its version number [1.0.104].
+```xml
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fdk.version>1.0.104</fdk.version>
+    </properties>
+    <groupId>com.example.fn</groupId>
+    <artifactId>discountcampaignuploader</artifactId>
+    <version>1.0.0</version>
+```
+In repositories section you must describe what repositories will be used in your project. For this serverless function you will use only one repository (fn repository) but you could add more repositories as your needs.
+```xml
+    <repositories>
+        <repository>
+            <id>fn-release-repo</id>
+            <url>https://dl.bintray.com/fnproject/fnproject</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+ ```
+In the dependencies section you will describe your classes dependencies, for example the cloud-event api, de fn api or classes to parse and write json files. Check your **com.fasterxml.jackson.core** for [security reasons](https://github.com/oraclespainpresales/fn_pizza_discount_upload/network/alert/pom.xml/com.fasterxml.jackson.core:jackson-databind/open)
+```xml
+    <dependencies>
+        <dependency>
+            <groupId>com.fnproject.fn</groupId>
+            <artifactId>api</artifactId>
+            <version>${fdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fnproject.fn</groupId>
+            <artifactId>runtime</artifactId>
+            <version>${fdk.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.10.1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>    
+```
+Build section is used to define the maven and other building configurations like jdk version [11] for example.
+```xml
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-surefire-plugin</artifactId>
+                 <version>2.22.1</version>
+                 <configuration>
+                     <useSystemClassLoader>false</useSystemClassLoader>
+                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+```
 ### Dockerfile
+You created a multi stage Dockerfile to customize the serverless function deploy. You have several stages before to create the final image docker. This intermediate stages are not included in the final image. In this dockerfile first stage is created from a JDK11 of fn project docker image [1.0.104 version] to create the jar function file.
+```dockerfile
+FROM fnproject/fn-java-fdk-build:jdk11-1.0.104 as build-stage
+WORKDIR /function
+ENV MAVEN_OPTS -Dhttp.proxyHost= -Dhttp.proxyPort= -Dhttps.proxyHost= -Dhttps.proxyPort= -Dhttp.nonProxyHosts= -Dmaven.repo.local=/usr/share/maven/ref/repository
+
+ADD pom.xml /function/pom.xml
+RUN ["mvn", "package", "dependency:copy-dependencies", "-DincludeScope=runtime", "-DskipTests=true", "-Dmdep.prependGroupId=true", "-DoutputDirectory=target", "--fail-never"]
+
+ADD src /function/src
+RUN ["mvn", "package", "-DskipTests=true"]
+```
+Copy the jar function from build stage temporal layer and set the entrypoint to execute the funcion handleRequest method when the docker container will be created.
+```dockerfile
+FROM fnproject/fn-java-fdk:jre11-1.0.104
+WORKDIR /function
+COPY --from=build-stage /function/target/*.jar /function/app/
+
+CMD ["com.example.fn.UploadDiscountCampaigns::handleRequest"]
+```
