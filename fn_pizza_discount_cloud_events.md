@@ -232,7 +232,7 @@ Click in your serverless app [gigis-serverless-hol]
 
 Click in [fn_discount_cloud_events] function and next Configuration menu.
 
-![](./media/oci-faas-create28.PNG)
+![](./media/faas-create-function28.PNG)
 
 Create 3 additional variables:
 || Key | Value | Section |
