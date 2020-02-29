@@ -222,15 +222,7 @@ Check that your new function is created in your serverless app [gigis-serverless
 ## New Environment Variables
 after you have created and deployed fn_discount_upload and fn_discount_cloud_events, you have to create 3 additional environment variables in fn_discount_cloud_events that will link both functions.
 
-Go to Solutions and Platform menu -> Developer Services -> Functions.
-
-![](./media/oci-faas-create01.PNG)
-
-Click in your serverless app [gigis-serverless-hol]
-
-![](./media/oci-faas-create04.PNG)
-
-Click in [fn_discount_cloud_events] function and next Configuration menu.
+Click in [fn_discount_cloud_events] function and next **Configuration** menu.
 
 ![](./media/faas-create-function28.PNG)
 
