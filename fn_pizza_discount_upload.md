@@ -41,15 +41,15 @@ Select **add workspace folder ...** in the Start Menu.
 
 Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_upload]. Then click Add button to create a workspace from this directory in Visual Studio Core.
 
-![](./media/faas-create-function09.PNG)
+![](./media/fn-discount-upload/faas-create-function04.PNG)
 
 A new project will be available as workspace in the IDE
 
-![](./media/faas-create-function10.PNG)
+![](./media/fn-discount-upload/faas-create-function05.PNG)
 
 You can click in **HelloFunction.java** to review your serverless function code. Same for **HelloFunctionTest.java** file.
 
-![](./media/faas-create-function11.PNG)
+![](./media/fn-discount-upload/faas-create-function06.PNG)
 
 ### fn discount upload java code
 The function code is in the next github [repository](https://github.com/oraclespainpresales/fn_pizza_discount_upload). You can open it in other web brower tab (```CRTL + mouse click```, to review the project.
@@ -63,9 +63,9 @@ You can copy the java function code creating a new file with the function name, 
 #### Creating new file
 Create new file in ```/src/main/java/com/example/fn``` directory. Right mouse button and then New File.
 
-![](./media/faas-create-function12.PNG)
+![](./media/fn-discount-upload/faas-create-function07.PNG)
 
-Then set the same name as java class **[DiscountCampaignUploader.java]**
+Then set the same name as java class **[UploadDiscountCampaigns.java]**
 
 ![](./media/faas-create-function13.PNG)
 
@@ -86,7 +86,7 @@ Click right mouse button in the HelloFunction.java file to Rename the file. You 
 
 ![](./media/faas-create-function16.PNG)
 
-Change the name of the java file to **[DiscountCampaignUploader.java]**.
+Change the name of the java file to **[UploadDiscountCampaigns.java]**.
 
 ![](./media/faas-create-function17.PNG)
 
