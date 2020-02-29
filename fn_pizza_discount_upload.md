@@ -28,10 +28,10 @@ A Junit textfile should be created at ```src/test/java/com/example/fn/HelloFunct
 
 ![](./media/fn-discount-upload/faas-create-function03.PNG)
 
-## fn discount cloud-events IDE preparation
+## fn discount upload IDE preparation
 You could deploy this new serverless function in your FaaS environment, but the idea is to change the example code by the real function code. You can use a text editor or you favourite IDE software. In this lab we used Visual Studio Code (from the developer machine imagen in OCI marketplace), so all images was captured with that IDE, but you can use what you want.
 
-Open Visual Studio Core (Applications -> Accessories in the development VM) or your favourite IDE 
+Open Visual Studio Code (Applications -> Accessories in the development VM) or your favourite IDE 
 
 ![](./media/faas-create-function07.PNG)
 
@@ -39,7 +39,7 @@ Select **add workspace folder ...** in the Start Menu.
 
 ![](./media/faas-create-function08.PNG)
 
-Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_cloud_events]. Then click Add button to create a workspace from this directory in Visual Studio Core.
+Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_upload]. Then click Add button to create a workspace from this directory in Visual Studio Core.
 
 ![](./media/faas-create-function09.PNG)
 
@@ -47,16 +47,18 @@ A new project will be available as workspace in the IDE
 
 ![](./media/faas-create-function10.PNG)
 
-You can click n HelloFunction.java to review your serverless function code. Same for HelloFunctionTest.java file.
+You can click in **HelloFunction.java** to review your serverless function code. Same for **HelloFunctionTest.java** file.
 
 ![](./media/faas-create-function11.PNG)
 
-### fn discount cloud-events java code
-The function code is in the next github [repository](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events). You can open it in other web brower tab, to review the project.
+### fn discount upload java code
+The function code is in the next github [repository](https://github.com/oraclespainpresales/fn_pizza_discount_upload). You can open it in other web brower tab (```CRTL + mouse click```, to review the project.
 
-You can access java code to copy and paste it in your develpment machine IDE project. You could clone this github repository if you want, instead of copy and paste the different files. You see this second method (cloning the git repo) in the next functions sections.
+You can access java code to copy and paste it in your develpment machine IDE project. You could clone this github repository if you want, instead of copy and paste the different files. You can learn how to clone the git repo in this [section](clone-git project to IDE).
 
-You can copy the java function code creating a new file with the function name, in the fn directory or overwriting the code inside the HelloFunction.java function and next rename it (F2 or right button Rename). We show you both methods in the next sections, please choose one of them.
+For educational purposes you will change the code created before with ```fn init``` command instead of clone the git repo, but you could use that method to replicate the entire function project.
+
+You can copy the java function code creating a new file with the function name, in the fn directory or overwriting the existing code inside the **[HelloFunction.java]** function and next rename it (F2 key or right mouse button and Rename). We show you both methods in the next sections, please choose one of them.
 
 #### Creating new file
 Create new file in ```/src/main/java/com/example/fn``` directory. Right mouse button and then New File.
