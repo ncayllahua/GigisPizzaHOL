@@ -67,11 +67,11 @@ Create new file in ```/src/main/java/com/example/fn``` directory. Right mouse bu
 
 Then set the same name as java class **[UploadDiscountCampaigns.java]**
 
-![](./media/faas-create-function13.PNG)
+![](./media/fn-discount-upload/faas-create-function08.PNG)
 
-Now copy raw function code and paste it from the [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/src/main/java/com/example/fn/DiscountCampaignUploader.java).
+Now copy raw function code and paste it from the [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_upload/master/src/main/java/com/example/fn/UploadDiscountCampaigns.java).
 
-![](./media/faas-create-function14.PNG)
+![](./media/fn-discount-upload/faas-create-function09.PNG)
 
 Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 
@@ -80,19 +80,23 @@ You can overwrite the HelloFunction.java code with the DiscountCampaignUploader 
 
 Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/src/main/java/com/example/fn/DiscountCampaignUploader.java) from the repository and paste it overwriting the HelloFunction.java Function.
 
-![](./media/faas-create-function15.PNG)
+![](./media/fn-discount-upload/faas-create-function10.PNG)
 
 Click right mouse button in the HelloFunction.java file to Rename the file. You can press F2 key to rename the HelloFunction.java file as a shortcut.
 
-![](./media/faas-create-function16.PNG)
+![](./media/fn-discount-upload/faas-create-function11.PNG)
 
 Change the name of the java file to **[UploadDiscountCampaigns.java]**.
 
-![](./media/faas-create-function17.PNG)
+![](./media/fn-discount-upload/faas-create-function12.PNG)
 
 You can delete the HelloFunctionTest.java file (and the test directory tree) or rename it and change the code to create your JUnit tests. In this lab we won't create JUnit test.
 
-![](./media/faas-create-function18.PNG)
+![](./media/fn-discount-upload/faas-create-function13.PNG)
+
+You should have the java function code, the func.yaml and pom.xml file in your project directory right now.
+
+![](./media/fn-discount-upload/faas-create-function14.PNG)
 
 ## Changing func.yaml file
 You have to delete several files in the func.yaml code to create your custom Docker multi stage file. In you IDE select func.yaml file and delete next lines:
