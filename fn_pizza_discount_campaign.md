@@ -15,7 +15,7 @@ Table of Contents:
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
 ```sh 
-cd fn_discount_upload
+cd fn_discount_campaign
 
 ls -la
 ```
