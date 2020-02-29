@@ -224,9 +224,15 @@ after you have created and deployed fn_discount_upload and fn_discount_cloud_eve
 
 Go to Solutions and Platform menu -> Developer Services -> Functions.
 
+![](./media/oci-faas-create01.PNG)
+
 Click in your serverless app [gigis-serverless-hol]
 
+![](./media/oci-faas-create04.PNG)
+
 Click in [fn_discount_cloud_events] function and next Configuration menu.
+
+![](./media/oci-faas-create28.PNG)
 
 Create 3 additional variables:
 || Key | Value | Section |
