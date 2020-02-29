@@ -61,7 +61,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 
 (OPTIONAL) All the code project could be stored in a project and GIT repos in Developer Cloud Service. if you attended our previous LAB about microservices (gigi's pizza) before, you should have a DevCS instance with the Gigi's project copied on it. You can use that DevCS instance and the same Gigi's project to do this optional part.
 
-## Summary
+## Table of contents
 
 [<span class="underline">1. Setting up an Oracle Cloud Account</span>](#setting-up-an-oracle-cloud-account)
 
@@ -70,6 +70,14 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 [<span class="underline">3. How to get OCI tenancy config data</span>](#how-to-get-oci-tenancy-config-data)
 
 [<span class="underline">4. Create OCI Resources</span>](#create-oci-resources)
+- [<span class="underline">4.1 VCN - Virtual Cloud Network Creation</span>](#vcn---virtual-cloud-network-creation)
+- [<span class="underline">4.2 Object Storage Creation</span>](#vcn---virtual-cloud-network-creation)
+- [<span class="underline">4.3 ATP - Autonomous Database Creation</span>](#vcn---virtual-cloud-network-creation)
+	* [<span class="underline">4.3.1 Get ATP Wallet file</span>](#vcn---virtual-cloud-network-creation)
+	* [<span class="underline">4.3.2 ATP Service Console</span>](#vcn---virtual-cloud-network-creation)
+	* [<span class="underline">4.3.3 ATP Schema and Tables Creation</span>](#vcn---virtual-cloud-network-creation)
+	* [<span class="underline">4.3.4 ATP ORDS Configuration</span>](#vcn---virtual-cloud-network-creation)
+- [<span class="underline">4.4 OCI IAM FaaS Policy</span>](#vcn---virtual-cloud-network-creation)
 
 [<span class="underline">5. Serverless Functions Code</span>](#serverless-functions-code)
 
