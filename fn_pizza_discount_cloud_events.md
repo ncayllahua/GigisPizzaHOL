@@ -11,6 +11,7 @@ Table of Contents:
 7. [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
 8. [New Environment Variables](#new-environment-variables)
 9. [Code recap (OPTIONAL)](#code-recap-optional)
+10. [Continue the HOL](#continue-the-hol)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
@@ -494,3 +495,6 @@ COPY --from=build-stage /function/target/*.jar /function/app/
 
 CMD ["com.example.fn.DiscountCampaignUploader::handleRequest"]
 ```
+# Continue the HOL
+
+* [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md)
