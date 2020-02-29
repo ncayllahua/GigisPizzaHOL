@@ -1,4 +1,6 @@
 # Function fn discount cloud-events
+This serverless function will get **cloud events** in json format then access **campaigns.json** file, parse it and send each campaign inside the camapigns.json file to **fn_discount_upload** serverless function.
+
 Table of Contents:
 1. [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-ide-preparation)
 2. [fn discount cloud-events java code](#fn-discount-cloud-events-java-code)
@@ -229,8 +231,8 @@ Click in [fn_discount_cloud_events] function and next **Configuration** menu.
 Create 3 additional variables:
 || Key | Value | Section |
 | ------------- | ------------- | ------------- | ------------- |
-|01|INVOKE_ENDPOINT_URL|```https://<your_endpoint_id.eu-frankfurt-1.functions.oci.oraclecloud.com```|invoke endpoint fn_discount_upload|
-|02|UPLOAD_FUNCTION_ID|ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaack6vdtmj7n2w...|OCID fn_discount_upload|
+|01|INVOKE_ENDPOINT_URL|```https://<your_endpoint_id.eu-frankfurt-1.functions.oci.oraclecloud.com```|invoke Endpoint of **fn_discount_upload**|
+|02|UPLOAD_FUNCTION_ID|ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaack6vdtmj7n2w...|OCID of **fn_discount_upload**|
 |03|OBJECT_STORAGE_URL_BASE|```https://objectstorage.<YOUR_OCI_REGION>.oraclecloud.com/```|[Regions](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm)|
 
 ## Code recap (OPTIONAL)
