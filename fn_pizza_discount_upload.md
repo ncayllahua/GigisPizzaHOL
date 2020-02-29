@@ -3,12 +3,12 @@ This serverless function will upload discount campaign received in json format t
 
 Table of Contents:
 1. [fn discount upload IDE preparation](#fn-discount-upload-ide-preparation)
-2. [fn discount upload java code](#fn-discount-cloud-events-java-code)
+2. [fn discount upload java code](#fn-discount-upload-java-code)
 3. [Changing func.yaml file](#changing-funcyaml-file)
 4. [Overwriting pom.xml file](#overwriting-pomxml-file)
 5. [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
 6. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
-7. [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
+7. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
 8. [Code recap (OPTIONAL)](#code-recap-optional)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
@@ -140,7 +140,7 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 
 After that, click in File -> Save All in your IDE to save all changes.
 
-## Deploy fn discount cloud-events function
+## Deploy fn discount upload function
 To deploy your serverless function please follow next steps, your function will be created in OCI Functions inside your serverles app [gigis-serverless-hol]. 
 
 Open a terminal in your development machine and execute:
