@@ -737,7 +737,7 @@ fn init --runtime java fn_discount_campaign
 
 Then you must modify each function with the appropiate code (you can ```CTRL + mouse click``` over the links to open new tabs browser):
 
-* [fn_discount_upload](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_upload.md)
-* [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md)
-* [fn_discount_campaign](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_campaign.md)
+1. [fn_discount_upload](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_upload.md)
+2. [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md)
+3. [fn_discount_campaign](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_campaign.md)
 
