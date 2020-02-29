@@ -473,4 +473,4 @@ CMD ["com.example.fn.UploadDiscountCampaigns::handleRequest"]
 ```
 # Continue the HOL
 
-* [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md)
+* [fn_discount_campaign](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_discount_campaign.md)
