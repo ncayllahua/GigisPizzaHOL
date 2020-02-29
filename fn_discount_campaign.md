@@ -1,5 +1,5 @@
 # Function fn discount campaign
-This serverless function access ATP DB with JDBC driver and get information about current and enabled discount campaigns. whether the current pizza order has a discount campaign available, based on the dates, method of payment and pizza price then this function will response with the new order price applying the discount to the original pizza price.
+This serverless function access **ATP DB** with **JDBC driver** and get information about current and enabled discount campaigns. whether the current pizza order has a discount campaign available, based on the dates, method of payment and pizza price then this function will response with the new order price applying the discount to the original pizza price.
 
 Table of Contents:
 1. [fn discount upload IDE preparation](#fn-discount-upload-ide-preparation)
