@@ -169,7 +169,7 @@ Now you can continue with the execution of the serverless application or optiona
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
 
-### UploadDiscountCampaigns.java
+### GetDiscount.java
 Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [GetDiscount] function. 
 
 ```java
