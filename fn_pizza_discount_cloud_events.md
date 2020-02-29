@@ -108,7 +108,7 @@ cmd: com.example.fn.HelloFunction::handleRequest
 ![](./media/faas-create-function19.PNG)
 
 ## Overwriting pom.xml file
-Next you must overwrite the example maven pom.xml file with the pom.xml content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar.
+Next you must overwrite the example maven pom.xml file with the [pom.xml](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/pom.xml) content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar.
 
 ![](./media/faas-create-function20.PNG)
 
