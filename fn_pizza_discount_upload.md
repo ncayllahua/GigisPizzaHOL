@@ -2,7 +2,7 @@
 This serverless function will upload discount campaign received in json format to **CAMPAIGN table** in the **ATP DB** via **ORDS** (*Oracle REST Data Services*). This function will be invoked by **fn_discount_cloud_events** that is the function that catch cloud events, access campaign.json file in a Object Storage bucket and will send each campaign inside that json file, to this **[fn_discount_upload]** serverless function.
 
 Table of Contents:
-1. [fn discount upload IDE preparation](#fn-discount-cloud-events-ide-preparation)
+1. [fn discount upload IDE preparation](#fn-discount-upload-ide-preparation)
 2. [fn discount upload java code](#fn-discount-cloud-events-java-code)
 3. [Changing func.yaml file](#changing-funcyaml-file)
 4. [Overwriting pom.xml file](#overwriting-pomxml-file)
