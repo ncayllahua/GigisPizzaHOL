@@ -7,7 +7,7 @@ cd fn_discount_cloud_events
 ls -la
 ```
 
-![](./media/faas-create-function04.PNG)
+![](./media/fn-discount-upload/faas-create-function01.PNG)
 
 The serverless function should be created at ```src/main/java/com/example/fn/HelloFunction.java``` and you can review the example code with and your IDE or text editor. This file will be change in the next section.
 
