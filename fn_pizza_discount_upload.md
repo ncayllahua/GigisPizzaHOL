@@ -11,11 +11,11 @@ ls -la
 
 The serverless function should be created at ```src/main/java/com/example/fn/HelloFunction.java``` and you can review the example code with and your IDE or text editor. This file will be change in the next section.
 
-![](./media/faas-create-function05.PNG)
+![](./media/fn-discount-upload/faas-create-function02.PNG)
 
 A Junit textfile should be created at ```src/test/java/com/example/fn/HelloFunctionTest.java``` and used to test the serverless function before deploy it in OCI FaaS. We won't use Junit testing in this lab, but you could add some testing Junit file to your serverles function if you want.
 
-![](./media/faas-create-function06.PNG)
+![](./media/fn-discount-upload/faas-create-function03.PNG)
 
 ## fn discount cloud-events IDE preparation
 You could deploy this new serverless function in your FaaS environment, but the idea is to change the example code by the real function code. You can use a text editor or you favourite IDE software. In this lab we used Visual Studio Code (from the developer machine imagen in OCI marketplace), so all images was captured with that IDE, but you can use what you want.
