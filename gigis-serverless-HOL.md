@@ -63,23 +63,20 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 
 ## Table of contents
 
-[<span class="underline">1. Setting up an Oracle Cloud Account</span>](#setting-up-an-oracle-cloud-account)
+1. [Setting up an Oracle Cloud Account](#setting-up-an-oracle-cloud-account)
+2. [Getting key config data from Oracle Cloud Tenancy](#getting-key-config-data-from-oracle-cloud-tenancy)
+3. [How to get OCI tenancy config data](#how-to-get-oci-tenancy-config-data)
+4. [Create OCI Resources](#create-oci-resources)
+- 4.1 [VCN - Virtual Cloud Network Creation](#vcn---virtual-cloud-network-creation)
+- 4.2 [Object Storage Creation](#vcn---virtual-cloud-network-creation)
+- 4.3 [ATP - Autonomous Database Creation](#vcn---virtual-cloud-network-creation)
+	* 4.3.1 [Get ATP Wallet file](#vcn---virtual-cloud-network-creation)
+	* 4.3.2 [ATP Service Console](#vcn---virtual-cloud-network-creation)
+	* 4.3.3 [ATP Schema and Tables Creation](#vcn---virtual-cloud-network-creation)
+	* 4.3.4 [ATP ORDS Configuration](#vcn---virtual-cloud-network-creation)
+- 4.4 [OCI IAM FaaS Policy](#vcn---virtual-cloud-network-creation)
 
-[<span class="underline">2. Getting key config data from Oracle Cloud Tenancy</span>](#getting-key-config-data-from-oracle-cloud-tenancy)
-
-[<span class="underline">3. How to get OCI tenancy config data</span>](#how-to-get-oci-tenancy-config-data)
-
-[<span class="underline">4. Create OCI Resources</span>](#create-oci-resources)
-- [<span class="underline">4.1 VCN - Virtual Cloud Network Creation</span>](#vcn---virtual-cloud-network-creation)
-- [<span class="underline">4.2 Object Storage Creation</span>](#vcn---virtual-cloud-network-creation)
-- [<span class="underline">4.3 ATP - Autonomous Database Creation</span>](#vcn---virtual-cloud-network-creation)
-	* [<span class="underline">4.3.1 Get ATP Wallet file</span>](#vcn---virtual-cloud-network-creation)
-	* [<span class="underline">4.3.2 ATP Service Console</span>](#vcn---virtual-cloud-network-creation)
-	* [<span class="underline">4.3.3 ATP Schema and Tables Creation</span>](#vcn---virtual-cloud-network-creation)
-	* [<span class="underline">4.3.4 ATP ORDS Configuration</span>](#vcn---virtual-cloud-network-creation)
-- [<span class="underline">4.4 OCI IAM FaaS Policy</span>](#vcn---virtual-cloud-network-creation)
-
-[<span class="underline">5. Serverless Functions Code</span>](#serverless-functions-code)
+5. [Serverless Functions Code](#serverless-functions-code)
 
 [<span class="underline">Create Development Environment Machine</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md)
 
