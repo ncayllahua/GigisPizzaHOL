@@ -8,9 +8,10 @@ Table of Contents:
 4. [Overwriting pom.xml file](#overwriting-pomxml-file)
 5. [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
 6. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
-7. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
-8. [Code recap (OPTIONAL)](#code-recap-optional)
-9. [Continue the HOL](#continue-the-hol)
+7. [Copy necessary .libs and .so files](#copy-necessary-libs-and-so-files)
+8. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
+9. [Code recap (OPTIONAL)](#code-recap-optional)
+10. [Continue the HOL](#continue-the-hol)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
