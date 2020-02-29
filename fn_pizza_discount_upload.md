@@ -7,7 +7,6 @@ Summary:
 - [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
 - [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
 - [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
-- [New Environment Variables](#new-environment-variables)
 - [Code recap (OPTIONAL)](#code-recap-optional)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
@@ -131,15 +130,45 @@ You must create a new multi stage docker file, to deploy your serverless functio
 
 Select fn_discount_cloud_events folder in your IDE and create new file with [Dockerfile] name clicking right mouse button
 
-![](./media/faas-create-function21.PNG)
+![](./media/fn-discount-upload/faas-create-function18.PNG)
 
-Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/Dockerfile) to your new local Dockerfile file.
+Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_upload/master/Dockerfile) to your new local Dockerfile file.
 
-![](./media/faas-create-function22.PNG)
+![](./media/fn-discount-upload/faas-create-function19.PNG)
 
 After that, click in File -> Save All in your IDE to save all changes.
 
-## Code recap
+## Deploy fn discount cloud-events function
+To deploy your serverless function please follow next steps, your function will be created in OCI Functions inside your serverles app [gigis-serverless-hol]. 
+
+Open a terminal in your development machine and execute:
+```sh
+cd $HOME/holserverless/fn_discount_upload
+```
+Then you must login in OCIR registry with ```docker login``` command. Introduce your OCI user like ```<namespace>/<user>``` when docker login ask you about username and your previously created **OCI Authtoken** as password.
+```sh
+docker login fra.ocir.io
+```
+![](./media/fn-discount-upload/faas-create-function20.PNG)
+
+You must execute next command with ```--verbose``` option to get all the information about the deploy process.
+```sh
+fn --verbose deploy --app gigis-serverless-hol
+```
+
+![](./media/fn-discount-upload/faas-create-function21.PNG)
+
+Wait to maven project download dependencies and build jar, docker image creation and function deploy in OCI serverless app finish.
+
+![](./media/fn-discount-upload/faas-create-function22.PNG)
+
+Check that your new function is created in your serverless app [gigis-serverless-hol] at Developer Services -> Functions menu.
+
+![](./media/fn-discount-upload/faas-create-function23.PNG)
+
+Click in the function name **fn_discount_upload**, click in show OCID and show Endpoint and note their ids as you will need them to create the environment variables in **fn_discount_cloud_events** function section in the next function creation.
+
+## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
 
 ### DiscountCampaignUploader.java
@@ -245,9 +274,3 @@ cmd: com.example.fn.HelloFunction::handleRequest
 ### pom.xml
 
 ### Dockerfile
-
-## Deploy fn discount cloud-events function
-To deploy your serverless function you must execute next command with ```--verbose``` option to get all the information about the deploy process.
-```sh
-fn --verbose deploy --app gigis-serverless-hol
-```
