@@ -10,6 +10,7 @@ Table of Contents:
 6. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
 7. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
 8. [Code recap (OPTIONAL)](#code-recap-optional)
+9. [Continue the HOL](#continue-the-hol)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
@@ -171,6 +172,8 @@ Check that your new function is created in your serverless app [gigis-serverless
 Click in the function name **fn_discount_upload**, click in show OCID and show Endpoint and note their ids as you will need them to create the environment variables in **fn_discount_cloud_events** function section in the next function creation.
 
 ![](./media/fn-discount-upload/faas-create-function24.PNG)
+
+Now you can continue with the creation of the next [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md) serverless function or optionally review the code to know more about this serverless function.
 
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
@@ -468,3 +471,6 @@ COPY --from=build-stage /function/target/*.jar /function/app/
 
 CMD ["com.example.fn.UploadDiscountCampaigns::handleRequest"]
 ```
+# Continue the HOL
+
+* [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md)
