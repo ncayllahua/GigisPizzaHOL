@@ -78,7 +78,7 @@ Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 #### Overwriting HelloFunction.java
 You can overwrite the HelloFunction.java code with the DiscountCampaignUploader Function code.
 
-Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/src/main/java/com/example/fn/DiscountCampaignUploader.java) from the repository and paste it overwriting the HelloFunction.java Function.
+Select the raw [java function code]https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_upload/master/src/main/java/com/example/fn/UploadDiscountCampaigns.java) from the repository and paste it overwriting the HelloFunction.java Function.
 
 ![](./media/fn-discount-upload/faas-create-function10.PNG)
 
@@ -94,7 +94,7 @@ You can delete the HelloFunctionTest.java file (and the test directory tree) or 
 
 ![](./media/fn-discount-upload/faas-create-function13.PNG)
 
-You should have the java function code, the func.yaml and pom.xml file in your project directory right now.
+You should have the java function code, the func.yaml and pom.xml files in your project directory right now.
 
 ![](./media/fn-discount-upload/faas-create-function14.PNG)
 
@@ -107,13 +107,24 @@ build_image: fnproject/fn-java-fdk-build:jdk11-1.0.105
 run_image: fnproject/fn-java-fdk:jre11-1.0.105
 cmd: com.example.fn.HelloFunction::handleRequest
 ```
-
-![](./media/faas-create-function19.PNG)
+![](./media/fn-discount-upload/faas-create-function15.PNG)
 
 ## Overwriting pom.xml file
-Next you must overwrite the example maven pom.xml file with the pom.xml content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar.
+Next you must overwrite the example maven pom.xml file with the [pom.xml](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_upload/master/pom.xml) content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar. Before click in Save All, review that your dependency **com.fasterxml.jackson.core** version is **2.9.10.1** or higher due a security reasons.
 
-![](./media/faas-create-function20.PNG)
+```xml
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+    <version>2.9.10.1</version>
+    <scope>compile</scope>
+</dependency>
+```
+![](./media/fn-discount-upload/faas-create-function16.PNG)
+
+Then click in File -> Save All in your IDE to save the changes.
+
+![](./media/fn-discount-upload/faas-create-function17.PNG)
 
 ## Creating Multi Stage Dockerfile
 You must create a new multi stage docker file, to deploy your serverless function as a docker image in your OCIR repository. This file must be created before deploying the function.
