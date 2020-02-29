@@ -81,7 +81,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 	  - 4.5.2. [Functions Logging](#functions-logging)
 5. [Serverless Functions Coding](#serverless-functions-coding)
    - 5.1. [Creating the Serverless Functions](#creating-the-serverless-functions)
-          - 5.1.1. [Fn Context](#fn-context)
+   	  - 5.1.1. [Fn Context](#fn-context)
 	  - 5.1.2. [Create Fn Serverless Functions](#create-fn-serverless-functions)
 
 [<span class="underline">:grey_question: OPTIONAL - Create Development Environment Machine</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md)
