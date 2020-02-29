@@ -74,10 +74,12 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 	* 4.3.2 [ATP Service Console](#atp-service-console)
 	* 4.3.3 [ATP Schema and Tables Creation](#atp-schema-and-tables-creation)
 	* 4.3.4 [ATP ORDS Configuration](#atp-ords-configuration)
-	* 4.3.5 [ATP Enable ORDS Table](##atp-enable-ords-table)
+	* 4.3.5 [ATP Enable ORDS Table](#atp-enable-ords-table)
 - 4.4 [OCI IAM FaaS Policy](#vcn---virtual-cloud-network-creation)
-- 4.4 [Oracle FaaS app creation](#oracle-faas-app-creation)
-5. [Serverless Functions Code](#serverless-functions-code)
+- 4.5 [Oracle FaaS app creation](#oracle-faas-app-creation)
+5. [Serverless Functions Coding](#serverless-functions-coding)
+- 5.1 [Creating the Serverless Functions](#creating-the-serverless-functions)
+
 
 [<span class="underline">:grey_question: OPTIONAL - Create Development Environment Machine</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md)
 
@@ -524,10 +526,10 @@ Review your new Policy to check the sentence.
 
 ![](./media/faas-configure-policies04.PNG)
 
-## Oracle FaaS app creation
-In this section you will create the FaaS (serverless Function app) and configure the environment variables to access to the ATP Database. 
+## Oracle FaaS Application
+In this section you will create the FaaS serverless application (with 3 serverless functions inside) and configure the environment variables to access to the ATP Database. 
 
-### Function App Creation
+### Serverless App Creation
 First you must create the serverless Function in OCI Managed Function Service. Go to Developer Services in the main menu and select Functions.
 
 ![](./media/oci-faas-create01.PNG)
