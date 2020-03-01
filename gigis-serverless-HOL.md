@@ -315,7 +315,7 @@ In this menu you can check the connection strings to the ATP. As you can see you
 
 ![](./media/ATP-configure02.PNG)
 
-Click Download Wallet button to download to your computer/laptop the ATP wallet.zip file. You will write a password to download the wallet, please write one [WalletPassw0rd] and note it for future uses. Click Download button to download the wallet zip file.
+Click Download Wallet button to download to your computer/laptop the ATP **dbwallet.zip** file. You will write a password to download the wallet, please write one [WalletPassw0rd] and note it for future uses. Click Download button to download the wallet zip file.
 
 ![](./media/ATP-configure03.PNG)
 
