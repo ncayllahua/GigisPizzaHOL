@@ -115,6 +115,35 @@ cmd: com.example.fn.HelloFunction::handleRequest
 ## Overwriting pom.xml file
 Next you must overwrite the example maven pom.xml file with the [pom.xml](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign/master/pom.xml) content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar. 
 
+Next JDBC and DB access dependencies will be included and configured in the maven project in the dockerfile. These jar libraries will have to be downloaded and stored in a directory in your IDE project, you'll can download and configure them in your project in next sections
+```java
+<dependency>
+    <groupId>com.oracle.jdbc</groupId>
+    <artifactId>ojdbc8</artifactId>
+    <version>18.3.0.0</version>
+</dependency>
+<dependency>
+    <groupId>com.oracle.jdbc</groupId>
+    <artifactId>ucp</artifactId>
+    <version>18.3.0.0</version>
+</dependency>
+<dependency>
+    <groupId>com.oracle.jdbc</groupId>
+    <artifactId>oraclepki</artifactId>
+    <version>18.3.0.0</version>
+</dependency>
+<dependency>
+    <groupId>com.oracle.jdbc</groupId>
+    <artifactId>osdt_core</artifactId>
+    <version>18.3.0.0</version>
+</dependency>
+<dependency>
+    <groupId>com.oracle.jdbc</groupId>
+    <artifactId>osdt_cert</artifactId>
+    <version>18.3.0.0</version>
+</dependency>
+```
+
 ![](./media/fn-discount-campaign/faas-create-function16.PNG)
 
 Then click in File -> Save All in your IDE to save the changes.
