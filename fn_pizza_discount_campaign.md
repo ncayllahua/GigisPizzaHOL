@@ -197,23 +197,23 @@ To download the JDBC 18.3.0.0 drivers follow next steps:
    - You can use now **wget** to download the libraries to libs directory.
 
 ```sh
-wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/ojdbc8.jar
+wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/ojdbc8.jar"
 ```
 ![](./media/fn-discount-campaign/faas-create-function-jdbc-classes04.PNG)
 ```sh
-wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/oraclepki.jar
+wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/oraclepki.jar"
 ```
 ![](./media/fn-discount-campaign/faas-create-function-jdbc-classes05.PNG)
 ```sh
-wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/osdt_cert.jar
+wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/osdt_cert.jar"
 ```
 ![](./media/fn-discount-campaign/faas-create-function-jdbc-classes06.PNG)
 ```sh
-wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/osdt_core.jar
+wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/osdt_core.jar"
 ```
 ![](./media/fn-discount-campaign/faas-create-function-jdbc-classes07.PNG)
 ```sh
-wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/ucp.jar
+wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/ucp.jar"
 ```
 ![](./media/fn-discount-campaign/faas-create-function-jdbc-classes08.PNG)
 
