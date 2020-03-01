@@ -2,14 +2,14 @@
 This serverless function access **ATP DB** with **JDBC driver** and get information about current and enabled discount campaigns. whether the current pizza order has a discount campaign available, based on the dates, method of payment and pizza price then this function will response with the new order price applying the discount to the original pizza price.
 
 Table of Contents:
-1. [fn discount upload IDE preparation](#fn-discount-upload-ide-preparation)
-2. [fn discount upload java code](#fn-discount-upload-java-code)
+1. [fn discount campaign IDE preparation](#fn-discount-campaign-ide-preparation)
+2. [fn discount campaign java code](#fn-discount-campaign-java-code)
 3. [Changing func.yaml file](#changing-funcyaml-file)
 4. [Overwriting pom.xml file](#overwriting-pomxml-file)
 5. [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
 6. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
 7. [Copy necessary .libs and .so files](#copy-necessary-libs-and-so-files)
-8. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
+8. [Deploy fn discount campaign function](#deploy-fn-discount-campaign-function)
 9. [Code recap (OPTIONAL)](#code-recap-optional)
 10. [Continue the HOL](#continue-the-hol)
 
@@ -31,7 +31,7 @@ A Junit textfile should be created at ```src/test/java/com/example/fn/HelloFunct
 
 ![](./media/fn-discount-campaign/faas-create-function03.PNG)
 
-## fn discount upload IDE preparation
+## fn discount campaign IDE preparation
 You could deploy this new serverless function in your FaaS environment, but the idea is to change the example code by the real function code. You can use a text editor or you favourite IDE software. In this lab we used Visual Studio Code (from the developer machine imagen in OCI marketplace), so all images was captured with that IDE, but you can use what you want.
 
 Open Visual Studio Code (Applications -> Accessories in the development VM) or your favourite IDE 
@@ -44,17 +44,17 @@ Select **add workspace folder ...** in the Start Menu.
 
 Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_campaign]. Then click Add button to create a workspace from this directory in Visual Studio Core.
 
-![](./media/fn-discount-upload/faas-create-function04.PNG)
+![](./media/fn-discount-campaign/faas-create-function04.PNG)
 
 A new project will be available as workspace in the IDE
 
-![](./media/fn-discount-upload/faas-create-function05.PNG)
+![](./media/fn-discount-campaign/faas-create-function05.PNG)
 
 You can click in **HelloFunction.java** to review your serverless function code. Same for **HelloFunctionTest.java** file.
 
-![](./media/fn-discount-upload/faas-create-function06.PNG)
+![](./media/fn-discount-campaign/faas-create-function06.PNG)
 
-### fn discount upload java code
+### fn discount campaign java code
 The function code is in the next github [repository](https://github.com/oraclespainpresales/fn_pizza_discount_campaign). You can open it in other web brower tab (```CRTL + mouse click```, to review the project.
 
 You can access java code to copy and paste it in your develpment machine IDE project. You could clone this github repository if you want, instead of copy and paste the different files. You can learn how to clone the git repo in this [section](clone-git project to IDE).
@@ -79,7 +79,7 @@ Now copy raw function code and paste it from the [java function code](https://ra
 Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 
 #### Overwriting HelloFunction.java
-You can overwrite the HelloFunction.java code with the DiscountCampaignUploader Function code.
+You can overwrite the HelloFunction.java code with the GetDiscount Function code.
 
 Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign/master/src/main/java/com/example/fn/GetDiscount.java) from the repository and paste it overwriting the HelloFunction.java Function.
 
@@ -137,7 +137,7 @@ After that, click in File -> Save All in your IDE to save all changes.
 ## Copy necessary .libs and .so files
 
 
-## Deploy fn discount upload function
+## Deploy fn discount campaign function
 To deploy your serverless function please follow next steps, your function will be created in OCI Functions inside your serverles app [gigis-serverless-hol]. 
 
 Open a terminal in your development machine and execute:
@@ -206,7 +206,7 @@ Pom.xml file is your maven project descriptor. First of all you must review prop
         <fdk.version>1.0.105</fdk.version>
     </properties>
     <groupId>com.example.fn</groupId>
-    <artifactId>discountcampaignuploader</artifactId>
+    <artifactId>getdiscount</artifactId>
     <version>1.0.0</version>
 ```
 In repositories section you must describe what repositories will be used in your project. For this serverless function you will use only one repository (fn repository) but you could add more repositories as your needs.
