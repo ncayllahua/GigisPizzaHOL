@@ -173,7 +173,54 @@ RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/osdt_cert.jar"
 After that, click in File -> Save All in your IDE to save all changes.
 
 ## Copy necessary .libs and .so files
+You have to include the JDBC driver jar libraries into your IDE project. Then you can include in your maven project copiying it in your dockerfile temp build stage layer.
 
+To download the JDBC 18.3.0.0 drivers follow next steps:
+
+1. Create a new **[libs]** directory in your IDE project. 
+   - Right click in your project main directory **[fn_discount_campaign]** and click New Folder.
+
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes01.PNG)
+
+   - Write **libs** as directory name and press enter to create it.
+   
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes02.PNG)
+
+2. Download to your development machine next lib files from the github [fn_pizza_discount_campaing repository](https://github.com/oraclespainpresales/fn_pizza_discount_campaign/tree/master/libs).
+   - Open a terminal with the **lib** directory selected. Right mouse click Open in Terminal...the main window of the IDE will split an a terminal will be enabled in your lib directory.
+   
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes03.PNG)
+
+   - You can use now **wget** to download the libraries to libs directory.
+
+```sh
+wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/ojdbc8.jar
+```
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes04.PNG)
+```sh
+wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/oraclepki.jar
+```
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes05.PNG)
+```sh
+wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/osdt_cert.jar
+```
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes06.PNG)
+```sh
+wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/osdt_core.jar
+```
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes07.PNG)
+```sh
+wget https://github.com/oraclespainpresales/fn_pizza_discount_campaign/blob/master/libs/ucp.jar
+```
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes08.PNG)
+
+You could download them from the [oracle database web page](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-183-downloads.html) to your development machine. Then copy them to your **libs** directory.
+
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes09.PNG)
+
+Also you could use [maven repository web](https://mvnrepository.com/artifact/com.oracle.database.jdbc?sort=newest) look for your apropiate maven repo or library and import to your **pom.xml** project copying from the **maven tab**.
+
+![](./media/fn-discount-campaign/faas-create-function-jdbc-classes10.PNG)
 
 ## Deploy fn discount campaign function
 To deploy your serverless function please follow next steps, your function will be created in OCI Functions inside your serverles app [gigis-serverless-hol]. 
