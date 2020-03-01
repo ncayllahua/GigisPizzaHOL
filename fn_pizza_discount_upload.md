@@ -80,7 +80,7 @@ Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 #### Overwriting HelloFunction.java
 You can overwrite the HelloFunction.java code with the DiscountCampaignUploader Function code.
 
-Select the raw [java function code]https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_upload/master/src/main/java/com/example/fn/UploadDiscountCampaigns.java) from the repository and paste it overwriting the HelloFunction.java Function.
+Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_upload/master/src/main/java/com/example/fn/UploadDiscountCampaigns.java) from the repository and paste it overwriting the HelloFunction.java Function.
 
 ![](./media/fn-discount-upload/faas-create-function10.PNG)
 
