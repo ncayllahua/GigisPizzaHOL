@@ -161,6 +161,15 @@ Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclesp
 
 ![](./media/fn-discount-campaign/faas-create-function19.PNG)
 
+As you read in the last **pom.xml** section, you have to include and configure the JDBC driver classes in the maven project in the dockerfile, you could read more about that in the recap section.
+```dockerfile
+RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/ojdbc8.jar",    "-DgroupId=com.oracle.jdbc", "-DartifactId=ojdbc8",    "-Dversion=18.3.0.0", "-Dpackaging=jar"]
+RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/ucp.jar",       "-DgroupId=com.oracle.jdbc", "-DartifactId=ucp",       "-Dversion=18.3.0.0", "-Dpackaging=jar"]
+RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/oraclepki.jar", "-DgroupId=com.oracle.jdbc", "-DartifactId=oraclepki", "-Dversion=18.3.0.0", "-Dpackaging=jar"]
+RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/osdt_core.jar", "-DgroupId=com.oracle.jdbc", "-DartifactId=osdt_core", "-Dversion=18.3.0.0", "-Dpackaging=jar"]
+RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/osdt_cert.jar", "-DgroupId=com.oracle.jdbc", "-DartifactId=osdt_cert", "-Dversion=18.3.0.0", "-Dpackaging=jar"]
+```
+
 After that, click in File -> Save All in your IDE to save all changes.
 
 ## Copy necessary .libs and .so files
