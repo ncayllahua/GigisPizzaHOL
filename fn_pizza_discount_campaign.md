@@ -172,7 +172,10 @@ RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/osdt_cert.jar"
 
 After that, click in File -> Save All in your IDE to save all changes.
 
-## Copy necessary .libs and .so files
+## Copy necessary .libs and other files
+To run the serverless function as a docker container you'll need to download and import to your project several files, like jdbc driver libs or dbwallet.zip file (generated when you created the ATP db).
+
+### JDBC drivers and data access libs.
 You have to include the JDBC driver jar libraries into your IDE project. Then you can include in your maven project copiying it in your dockerfile temp build stage layer.
 
 To download the JDBC 18.3.0.0 drivers follow next steps:
@@ -218,9 +221,35 @@ You could download them from the [oracle database web page](https://www.oracle.c
 
 ![](./media/fn-discount-campaign/faas-create-function-jdbc-classes09.PNG)
 
-Also you could use [maven repository web](https://mvnrepository.com/artifact/com.oracle.database.jdbc?sort=newest) look for your apropiate maven repo or library and import to your **pom.xml** project copying from the **maven tab**.
+Also you could use [maven repository web](https://mvnrepository.com/artifact/com.oracle.database.jdbc?sort=newest) look for your apropiate maven repo or library and import to your **pom.xml** project copying from the **maven tab**. Next you could download the lib file from **Files** clicking in **jar**.
 
 ![](./media/fn-discount-campaign/faas-create-function-jdbc-classes10.PNG)
+
+### dbwallet.zip file
+You have to include dbwallet.zip file in your IDE project. You have several methods to do that.
+
+1. If you downloaded it when you created the ATP db, you can upload or copy to your development manchine root project directory.
+   - You can use a SCP conection to your development machine if your using the markerplace one or if you are using mobxterm create a SSH connection.
+   
+   - Mobaxterm create a **SFTP connection** for you and then you can upload the **dbwallet.zip** file to your **lib** directory.
+   
+   ![](./media/fn-discount-campaign/faas-create-function-dbwallet01.PNG)
+   
+   - Select your dbwallet.zip or drag & drop in your fn_discount_campaign directory to copy dbwallet.zip file.
+   
+   ![](./media/fn-discount-campaign/faas-create-function-dbwallet02.PNG)
+   
+2. If you didn't downloaded before, you can generate it going to ATP OCI menu and download and import it now as is described in [ATP section](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md#get-atp-wallet-file).
+
+3. Or you could run an OCI cli command to download it directly to your root project directory. You'll need your ATP OCID value to run this oci cli command from a linux terminal in your development machine.
+
+```sh
+cd $HOME/holserverless/fn_discount_campaign
+
+oci db autonomous-data-warehouse generate-wallet --autonomous-data-warehouse-id <your_ATP_OCID_value> --password WalletPassw0rd --file dbwallet.zip
+```
+
+![](./media/fn-discount-campaign/faas-create-function-dbwallet03.PNG)
 
 ## Deploy fn discount campaign function
 To deploy your serverless function please follow next steps, your function will be created in OCI Functions inside your serverles app [gigis-serverless-hol]. 
