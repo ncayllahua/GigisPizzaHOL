@@ -70,7 +70,11 @@ Check that your Schema is MICROSERVICE and the tabla CAMPAIGN is showed.
 
 ![](./media/fn-execution/faas-app-execution07.png)
 
-Then execute ```sql SELECT *  FROM CAMPAIGN``` to review the new campaigns inserted from the function and json file automatically.
+Then execute next SQL Query 
+```sql 
+SELECT *  FROM CAMPAIGN
+``` 
+Review the new campaigns inserted from the json file and function automatically.
 
 ![](./media/fn-execution/faas-app-execution08.png)
 
