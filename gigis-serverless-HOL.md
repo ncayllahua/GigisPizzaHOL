@@ -265,19 +265,53 @@ Once you created a VNC, you will need an Object Storage element to upload discou
 
 Go to Core Infrastructure -> Object Storage in the main menu and click in Object Storage.
 
-![](./media/objectstorage-create01.PNG)
+![](./media/objectstorage-create01.png)
 
 Check your campartment name [HandsOnLab] and click Create Bucket button.
 
-![](./media/objectstorage-create02.PNG)
+![](./media/objectstorage-create02.png)
 
 Write a descriptive name for the bucket as GigisDiscountCampaigns-Bucket or something like that. Then check STANDARD selection, check EMIT OBJECT EVENTS to enable CloudEvents in this bucket and check ENCRYPT USING ORACLE MANAGED KEYS. Next click Create Bucket button.
 
-![](./media/objectstorage-create03.PNG)
+![](./media/objectstorage-create03.png)
 
 Review you new bucket.
 
-![](./media/objectstorage-create04.PNG)
+![](./media/objectstorage-create04.png)
+
+## Event Service - Cloud Event Creation
+After Object Storage Bucket configuration, you must create the event  that will be fired when a new file will be uploaded (or rewriting an existing file) to the bucket.
+
+![](./media/Events-creation01.png)
+
+Next Create a new rule clicking Create Rule Button.
+
+![](./media/Events-creation02.png)
+
+Write a rule name like [gigis-discount-cloud-events] and a description. 
+Then Select Service Name [Object Storage]. 
+Next Event Type [Object-Create] and [Object-Update]
+
+![](./media/Events-creation03.png)
+
+You could test  your event clicking in Validate Rule button. Review the cloud event generated json object and click in Check if Example Event Matches Rule button. Click Close to return previous menu.
+
+![](./media/Events-creation04.png)
+
+In Actions, select Action Type [Functions]
+Function Compartment select your compartment [HandsOnLab]
+Function Application select your serverless app [gigis-serverless-hol]
+Function select [fn_discount_cloud_events]
+
+![](./media/Events-creation05.png)
+
+Finally click Create Tule button to create the new rule.
+
+![](./media/Events-creation06.png)
+
+You can review your new rule in main Events Service > Rules menu. You could see Event Matching (2) and Actions (1) and when you upload a campaign.json file to the bucket, you could review the Logs section of the Rule.
+
+![](./media/Events-creation07.png)
 
 ## ATP - Autonomous Database Creation
 This demo includes an ATP as data repository and you will access to this Database with two differents methods [ORDS or REST] and [JDBC]. In this section you will create an ATP DB from your always free tier (always free tier includes 2 ATP testing DBs) and next section you will configure it to access from JDBC and ORDS (REST). Please follow next step to create the ATP DB.
