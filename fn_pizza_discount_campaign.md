@@ -285,11 +285,149 @@ Now you can continue with the execution of the serverless application or optiona
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
 
 ### GetDiscount.java
-Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [GetDiscount] function. 
+Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [GetDiscount] function. As you can see there is an **Input** class that get the pizza input data in JSON format and set the class variables: demozone, paymentMethod and pizzaPrice.
 
 ```java
-```
+public class GetDiscount {
 
+    public static class Input {
+        public String demozone;
+        public String paymentMethod;
+        public String pizzaPrice;
+
+        public String toString() {
+            StringBuilder stb = new StringBuilder("{");
+            stb.append("'demozone':'").append(demozone).append("'");
+            stb.append("'paymentMethod':'").append(paymentMethod).append("'");
+            stb.append("'pizzaPrice':'").append(pizzaPrice).append("'");
+            stb.append("}");
+            return stb.toString();
+        }
+    }
+    
+    public String handleRequest(Input pizzaData) {
+        String exitValues    = "SALIDA::";
+        ResultSet resultSet  = null;
+        Connection con       = null;
+        float discount       = 0;
+```
+This assignment could be ignored and use the pizzaData member variables directly, but we transform them to UpperCase to avoid Upper Lower comparison problems.
+```java
+        try {
+            String paymentMethod = pizzaData.paymentMethod.toUpperCase();
+            String demozone      = pizzaData.demozone.toUpperCase();
+            String pizzaPrice    = pizzaData.pizzaPrice;
+```
+Assing the appropiate environment variables to set the jdbc driver and DB access
+```java
+            //cast string input into a float
+            System.err.println("inside Discount Function gigis fn function!!! ");
+            float totalPaidValue  = Float.parseFloat(pizzaPrice);
+
+            String dbUser         = System.getenv().get("DB_USER");
+            String dbPassword     = System.getenv().get("DB_PASSWORD");
+            String dbUrl          = System.getenv().get("DB_URL") + System.getenv().get("DB_SERVICE_NAME");
+            String clientCredPath = System.getenv().get("CLIENT_CREDENTIALS");
+            String keyStorePasswd = System.getenv().get("KEYSTORE_PASSWORD");
+            String truStorePasswd = System.getenv().get("TRUSTSTORE_PASSWORD");
+```
+Set the jdbc driver properties as ssl version, clientpath, keystore, truststore and passowords from env vars.
+```java           
+            System.setProperty("oracle.jdbc.driver.OracleDriver", "true");
+            System.setProperty("oracle.net.ssl_version", "1.2");
+            System.setProperty("javax.net.ssl.keyStore", "${clientCredPath}/keystore.jks");
+            System.setProperty("javax.net.ssl.keyStorePassword", keyStorePasswd);
+            System.setProperty("javax.net.ssl.trustStore", "${clientCredPath}/truststore.jks");
+            System.setProperty("javax.net.ssl.trustStorePassword", truStorePasswd);
+            System.setProperty("oracle.net.tns_admin", clientCredPath);
+```
+Connection to the ATP DB using dbURL, user and password from environment variables.
+```java
+            try {
+                DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
+                //System.err.println("QUERY:: Driver Registration [" + dbUrl +" "+ dbUser+" "+dbPassword + "]");
+                con = DriverManager.getConnection(dbUrl,dbUser,dbPassword);
+                if (con != null) {
+                    System.err.println("Connected to Oracle ATP DB successfully");                
+                    //System.err.println("QUERY:: Driver getConnection");
+```
+Configure the prepareStatement SQL
+```java
+                    StringBuilder stb = new StringBuilder("SELECT NVL (");
+                    stb.append("(SELECT SUM(DISCOUNT) FROM CAMPAIGN WHERE ");
+                    stb.append("DEMOZONE LIKE ? ");
+                    stb.append("AND PAYMENTMETHOD LIKE ? ");
+                    stb.append("AND CURRENT_DATE BETWEEN DATE_BGN AND DATE_END+1 ");
+                    stb.append("AND MIN_AMOUNT <= ?)");
+                    stb.append(",0) as DISCOUNT FROM DUAL");
+                    PreparedStatement pstmt = con.prepareStatement(stb.toString());
+
+                    pstmt.setString(1,demozone);
+                    pstmt.setString(2,paymentMethod);
+                    pstmt.setFloat(3,Float.parseFloat(pizzaPrice));
+```
+The SQL statement is:
+```sql
+SELECT NVL (
+    SELECT SUM(DISCOUNT) FROM CAMPAIGN 
+        WHERE DEMOZONE LIKE <demozone_value>
+        AND PAYMENTMETHOD LIKE <payment_method_value>
+        AND CURRENT_DATE BETWEEN DATE_BGN AND DATE_END
+        AND MIN_AMOUNT <= <pizza_price_value>
+    ),0 as DISCOUNT FROM DUAL
+);    
+```
+That SQL statement get sum of all discounts (avoiding 'null' value with NVL command as 0) enabled in the current date and payment method (CASH, VISA, AMEX or MASTERCARD) for pizza price value equal or lower than min amount. 
+
+For example if there are two discounts: one of 5% for min amount of 10$ and other one of 5% for min amount of 15$ and the pizza price order is 20$ the discount applied should be of 10% (5% + 5% because min amounts 10 and 15 are lower than 20).
+
+If pizza price is 13$ the discount applied is 5% because min amount 10 is lower than 13, but second 5% is not applied because min amount 15 is higher than 13.
+
+Last part of the function is to calculate the discount as described before, according to the SQL value and then return the new pizza price.
+```java
+                    System.err.println("[" + pizzaData.toString() + "] - Pizza Price before discount: " + totalPaidValue + "$");
+                    resultSet = pstmt.executeQuery();
+                    if (resultSet.next()){                                                
+                        discount = Float.parseFloat(resultSet.getString("DISCOUNT"))/100;                        
+                        if (discount > 0){
+                            //apply calculation to float eg: discount = 10%
+                            totalPaidValue -=  (totalPaidValue*discount);
+                            System.err.println("[" + pizzaData.toString() + "] - discount: " + resultSet.getString("DISCOUNT") + "%");
+                        }
+                        else
+                            System.err.println ("[" + pizzaData.toString() + "] - No Discount campaign for this payment! [0%]");
+                    }
+                    else {
+                        System.err.println ("[" + pizzaData.toString() + "] - No Discount campaign for this payment!");
+                    }
+                    System.err.println("[" + pizzaData.toString() + "] - total Pizza Price after discount: " + totalPaidValue + "$");
+                    exitValues = Float.toString(totalPaidValue);
+                }
+                else {
+                    System.err.println("[" + pizzaData.toString() + "] - Error: DB Connection Problem"); 
+                    throw new NullPointerException("DB Connection Problem : NULL!");
+                }
+            }     
+            catch (Exception ex) {
+                StringWriter errors = new StringWriter();
+                ex.printStackTrace(new PrintWriter(errors));                 
+                exitValues = pizzaData.toString() + " - Error: " + ex.toString() + "\n" + ex.getMessage() + errors.toString();                
+            }  
+            finally {
+                con.close();
+            }
+        }
+        catch (Exception ex){
+            StringWriter errors = new StringWriter();
+            ex.printStackTrace(new PrintWriter(errors));                 
+            exitValues = pizzaData.toString() + " - Error: " + ex.toString() + "\n" + ex.getMessage() + errors.toString();;
+        }
+        finally{
+            return exitValues;
+        }
+    }
+}
+```
 ### func.yaml
 
 ```yaml
