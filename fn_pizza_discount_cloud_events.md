@@ -500,5 +500,6 @@ COPY --from=build-stage /function/target/*.jar /function/app/
 CMD ["com.example.fn.DiscountCampaignUploader::handleRequest"]
 ```
 # Continue the HOL
+Now that you create and configured fn_discount_upload and fn_discount_cloud_events, you must configure the Events Service in your Object Storage Bucked created previously.
 
-* [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_campaign.md)
+* [Events Service](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/event-service.md)
