@@ -238,6 +238,10 @@ Create 3 additional variables:
 
 ![](./media/faas-create-function29.PNG)
 
+You must change your Fucntion time-out. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds. Then Click Save Changes Button.
+
+![](./media/faas-create-function30.PNG)
+
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain you such changes:
 
