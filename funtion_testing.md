@@ -37,6 +37,27 @@ Create a campaign file in your favourite text editor (or [atom](https://atom.io/
 
 ![](./media/fn-execution/faas-app-execution01.png)
 
-Remember that you created a Object Storage bucket in OCI to store this campaigns files and you enabled the cloud event check. Upload the previous created campaigns json file to your bucket.
+Remember that you created a Object Storage bucket in OCI to store this campaigns files and you enabled the cloud event check. 
+
+![](./media/fn-execution/faas-app-execution02.png)
+
+Select your Bucket and check that your are in your right compartment.
+
+![](./media/fn-execution/faas-app-execution03.png)
+
+Upload the previous created campaigns json file to your bucket. click in Upload Objects button.
+
+![](./media/fn-execution/faas-app-execution04.png)
+
+Drag and drop your campaign.json file in Drop Files square and check that the file was uploaded. Then Click **Upload Objects** button
+
+![](./media/fn-execution/faas-app-execution05.png)
+
+A new file should be showed in your bucket.
+
+![](./media/fn-execution/faas-app-execution06.png)
+
+
+
 
 
