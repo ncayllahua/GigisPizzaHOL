@@ -62,9 +62,17 @@ Next go to your ATP DB Service Console and Development -> SQL Developer Console.
 ```html
 https://<your-ATP-instance>.adb.<your_region>.oraclecloudapps.com/ords/atp/_sdw/?nav=worksheet
 ```
+Introduce your user [MICROSERVICE] and your user password [AAZZ__welcomedevops123]
+
 ![](./media/ATP-configure07.PNG)
 
-Introduce your user [MICROSERVICE] and your user password [AAZZ__welcomedevops123]
+Check that your Schema is MICROSERVICE and the tabla CAMPAIGN is showed.
+
+![](./media/fn-execution/faas-app-execution07.png)
+
+Then execute ```sql SELECT *  FROM CAMPAIGN``` to review the new campaigns inserted from the function and json file automatically.
+
+![](./media/fn-execution/faas-app-execution08.png)
 
 
 
