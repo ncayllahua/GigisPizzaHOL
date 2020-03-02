@@ -57,7 +57,7 @@ A new file should be showed in your bucket.
 
 ![](./media/fn-execution/faas-app-execution06.png)
 
-Next go to your ATP DB Service Console and Development -> SQL Developer Console. You could use the SQL Developer URL
+Next go to your ATP DB Service Console and Development -> SQL Developer Console. You could use the SQL Developer URL as you used before.
 
 ```html
 https://<your-ATP-instance>.adb.<your_region>.oraclecloudapps.com/ords/atp/_sdw/?nav=worksheet
@@ -66,7 +66,7 @@ Introduce your user [MICROSERVICE] and your user password [AAZZ__welcomedevops12
 
 ![](./media/ATP-configure07.PNG)
 
-Check that your Schema is MICROSERVICE and the tabla CAMPAIGN is showed.
+Check that your Schema is MICROSERVICE and the table CAMPAIGN is showed.
 
 ![](./media/fn-execution/faas-app-execution07.png)
 
@@ -74,9 +74,22 @@ Then execute next SQL Query
 ```sql 
 SELECT *  FROM CAMPAIGN
 ``` 
-Review the new campaigns inserted from the json file and function automatically.
+Review the new campaigns inserted from the json file and functions (cloud_event and upload) automatically.
 
 ![](./media/fn-execution/faas-app-execution08.png)
+
+Now that you have inserted one Discount Campaign, you have to test fn_discount_campaign Function. Open a terminal in your development machine go to your fn_discount_campaign path [$HOME/holserverless/fn_discount_campaign] and execute next command:
+
+```sh
+echo -n '{"demozone":"madrid","paymentMethod":"visa","pizzaPrice":"21"}' | fn invoke gigis-serverless-hol fn_discount_campaign
+```
+The first time the function executes, it will take a while due to the cold start time. Next executions must take less time.
+
+
+You could review your logging or papertrail service to check the log tracing for discount campaign function.
+
+
+
 
 
 
