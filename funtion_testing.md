@@ -78,15 +78,34 @@ Review the new campaigns inserted from the json file and functions (cloud_event 
 
 ![](./media/fn-execution/faas-app-execution08.png)
 
-Now that you have inserted one Discount Campaign, you have to test fn_discount_campaign Function. Open a terminal in your development machine go to your fn_discount_campaign path [$HOME/holserverless/fn_discount_campaign] and execute next command:
+You could trace your cloud_events and upload functions with OCI Logging service or papertrail as you read in logging configuration sections. 
 
+![](./media/fn-execution/faas-app-execution09.png)
+
+The first time the function executes, it will take a while due to the cold start time. Next executions must take less time.
+
+![](./media/fn-execution/faas-app-execution10.png)
+
+Now that you have inserted one Discount Campaign, you have to test fn_discount_campaign Function. Open a terminal in your development machine go to your fn_discount_campaign path [$HOME/holserverless/fn_discount_campaign] and execute next command:
 ```sh
 echo -n '{"demozone":"madrid","paymentMethod":"visa","pizzaPrice":"21"}' | fn invoke gigis-serverless-hol fn_discount_campaign
 ```
-The first time the function executes, it will take a while due to the cold start time. Next executions must take less time.
+Check that you receive a new value with a discount and then execute again
+```sh
+echo -n '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' | fn invoke gigis-serverless-hol fn_discount_campaign
+```
+Check that you didn't received any discount.
+
+![](./media/fn-execution/faas-app-execution11.png)
+
+Review you papertrail log to see the function logging.
+
+![](./media/fn-execution/faas-app-execution12.png)
 
 
-You could review your logging or papertrail service to check the log tracing for discount campaign function.
+
+
+
 
 
 
