@@ -173,6 +173,10 @@ Click in the function name **fn_discount_upload**, click in show OCID and show E
 
 ![](./media/fn-discount-upload/faas-create-function24.PNG)
 
+You must change your Fucntion time-out. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds. Then Click Save Changes Button.
+
+![](./media/fn-discount-upload/faas-create-function25.PNG)
+
 Now you can continue with the creation of the next [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md) serverless function or optionally review the code to know more about this serverless function.
 
 ## Code recap (OPTIONAL)
