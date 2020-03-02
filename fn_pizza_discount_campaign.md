@@ -279,7 +279,7 @@ Check that your new function is created in your serverless app [gigis-serverless
 
 ![](./media/fn-discount-campaign/faas-create-function23.PNG)
 
-Now you can continue with the execution of the serverless application or optionally review the code to know more about this serverless function.
+Now you can continue with the [execution of the serverless application](#continue-the-hol) or optionally review the code to know more about this serverless function.
 
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
