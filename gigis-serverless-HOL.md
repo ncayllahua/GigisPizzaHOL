@@ -648,7 +648,7 @@ Check Yes, recognize logs from new systems and Accept connections via.. TCP > TL
 
 ![](./media/papertrail-configure05.PNG)
 
-In Log Destinations you should see a new syslog URL like **[log<number>.papertrail.com:<port>]**. Please note this URL to copy it to syslog remote server in OCI Functions menu.
+In Log Destinations you should see a new syslog URL like **[tcp://log<number>.papertrail.com:<port>]**. Please note this URL to copy it to syslog remote server in OCI Functions menu.
 	
 ![](./media/papertrail-configure06.PNG)
 
