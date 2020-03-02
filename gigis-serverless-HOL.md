@@ -648,7 +648,7 @@ Check Yes, recognize logs from new systems and Accept connections via.. TCP > TL
 
 ![](./media/papertrail-configure05.PNG)
 
-In Log Destinations you should see a new syslog URL like **[tcp://log<number>.papertrail.com:<port>]**. Please note this URL to copy it to syslog remote server in OCI Functions menu.
+In Log Destinations you should see a new syslog URL like **[log<number>.papertrail.com:<port>]**. Please note this URL to copy it to syslog remote server in OCI Functions menu.
 	
 ![](./media/papertrail-configure06.PNG)
 
@@ -656,7 +656,7 @@ Go to Functions menu and [gigis-serverless-hol] app. Then Click Edit button.
 
 ![](./media/papertrail-configure07.PNG)
 
-Change Logging Policy from none or Object Storate to SYSLOGURL and copy the papertril syslog server URL. Then click Save Changes.
+Change Logging Policy from none or Object Storate to SYSLOGURL and copy the papertril syslog server URL as **[tcp://<papertrail-log>]**. Then click Save Changes.
 
 ![](./media/papertrail-configure08.PNG)
 
