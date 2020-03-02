@@ -268,19 +268,19 @@ Once you created a VNC, you will need an Object Storage element to upload discou
 
 Go to Core Infrastructure -> Object Storage in the main menu and click in Object Storage.
 
-![](./media/objectstorage-create01.png)
+![](./media/objectstorage-create01.PNG)
 
 Check your campartment name [HandsOnLab] and click Create Bucket button.
 
-![](./media/objectstorage-create02.png)
+![](./media/objectstorage-create02.PNG)
 
 Write a descriptive name for the bucket as GigisDiscountCampaigns-Bucket or something like that. Then check STANDARD selection, check EMIT OBJECT EVENTS to enable CloudEvents in this bucket and check ENCRYPT USING ORACLE MANAGED KEYS. Next click Create Bucket button.
 
-![](./media/objectstorage-create03.png)
+![](./media/objectstorage-create03.PNG)
 
 Review you new bucket.
 
-![](./media/objectstorage-create04.png)
+![](./media/objectstorage-create04.PNG)
 
 ## ATP - Autonomous Database Creation
 This demo includes an ATP as data repository and you will access to this Database with two differents methods [ORDS or REST] and [JDBC]. In this section you will create an ATP DB from your always free tier (always free tier includes 2 ATP testing DBs) and next section you will configure it to access from JDBC and ORDS (REST). Please follow next step to create the ATP DB.
