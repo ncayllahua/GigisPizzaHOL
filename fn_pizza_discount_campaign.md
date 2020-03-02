@@ -279,11 +279,11 @@ Check that your new function is created in your serverless app [gigis-serverless
 
 ![](./media/fn-discount-campaign/faas-create-function23.PNG)
 
-Now you can continue with the [execution of the serverless application](#continue-the-hol) or optionally review the code to know more about this serverless function.
-
 You must change your Fucntion time-out. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds. Then Click Save Changes Button.
 
 ![](./media/fn-discount-campaign/faas-create-function24.PNG)
+
+Now you can continue with the [execution of the serverless application](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md#event-service---cloud-event-creation) or optionally review the code to know more about this serverless function.
 
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
