@@ -620,4 +620,4 @@ CMD ["com.example.fn.GetDiscount::handleRequest"]
 ```
 # Continue the HOL
 
-* [Execute you serverless Application](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_discount_campaign.md)
+* [Execute you serverless Application](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/funtion_testing.md)
