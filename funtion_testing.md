@@ -102,7 +102,9 @@ Review you papertrail log to see the function logging.
 
 ![](./media/fn-execution/faas-app-execution12.png)
 
+Finally you can check the whole serverless app metrics. Click in the serverless app name [gigis-serverless-hol] and **Metrics** menu to review all serverless app function executions and durations.
 
+![](./media/fn-execution/faas-app-execution13.png)
 
 
 
