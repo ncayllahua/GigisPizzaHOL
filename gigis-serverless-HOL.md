@@ -69,7 +69,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 4. [Create OCI Resources](#create-oci-resources)
    - 4.1.[VCN - Virtual Cloud Network Creation](#vcn---virtual-cloud-network-creation)
    - 4.2 [Object Storage Creation](#object-storage-creation)
-   - 4.3 [Event Service - Cloud Event Creation](#event-service---cloud-event-creation)
+   
    - 4.4 [ATP - Autonomous Database Creation](#atp---autonomous-database-creation)
 	 - 4.4.1. [Get ATP Wallet file](#get-atp-wallet-file)
 	 - 4.4.2. [ATP Service Console](#atp-service-console)
@@ -84,6 +84,8 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
    - 5.1. [Creating the Serverless Functions](#creating-the-serverless-functions)
    	  - 5.1.1. [Fn Context](#fn-context)
 	  - 5.1.2. [Create Fn Serverless Functions](#create-fn-serverless-functions)
+6. [Event Service - Cloud Event Creation](#event-service---cloud-event-creation)
+7. Execute Serverless App.
 
 [<span class="underline">:grey_question: OPTIONAL - Create Development Environment Machine</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md)
 
@@ -223,6 +225,7 @@ This concludes the list of OCI tenancy parameters you will require to run next s
 - ATP - Autonomous Transaction Processing
 - IAM FaaS Policy
 - Function App
+- Cloud Events
 
 ## VCN - Virtual Cloud Network Creation
 If you have created previously a VCN in your compartment, you can use it instead of create a new want, but if you don't have any VNC created, please follow next steps:
@@ -279,40 +282,6 @@ Write a descriptive name for the bucket as GigisDiscountCampaigns-Bucket or some
 Review you new bucket.
 
 ![](./media/objectstorage-create04.png)
-
-## Event Service - Cloud Event Creation
-After Object Storage Bucket configuration, you must create the event  that will be fired when a new file will be uploaded (or rewriting an existing file) to the bucket.
-
-![](./media/Events-creation01.png)
-
-Next Create a new rule clicking Create Rule Button.
-
-![](./media/Events-creation02.png)
-
-Write a rule name like [gigis-discount-cloud-events] and a description. 
-Then Select Service Name [Object Storage]. 
-Next Event Type [Object-Create] and [Object-Update]
-
-![](./media/Events-creation03.png)
-
-You could test  your event clicking in Validate Rule button. Review the cloud event generated json object and click in Check if Example Event Matches Rule button. Click Close to return previous menu.
-
-![](./media/Events-creation04.png)
-
-In Actions, select Action Type [Functions]
-Function Compartment select your compartment [HandsOnLab]
-Function Application select your serverless app [gigis-serverless-hol]
-Function select [fn_discount_cloud_events]
-
-![](./media/Events-creation05.png)
-
-Finally click Create Tule button to create the new rule.
-
-![](./media/Events-creation06.png)
-
-You can review your new rule in main Events Service > Rules menu. You could see Event Matching (2) and Actions (1) and when you upload a campaign.json file to the bucket, you could review the Logs section of the Rule.
-
-![](./media/Events-creation07.png)
 
 ## ATP - Autonomous Database Creation
 This demo includes an ATP as data repository and you will access to this Database with two differents methods [ORDS or REST] and [JDBC]. In this section you will create an ATP DB from your always free tier (always free tier includes 2 ATP testing DBs) and next section you will configure it to access from JDBC and ORDS (REST). Please follow next step to create the ATP DB.
@@ -776,3 +745,36 @@ Then you must modify each function with the appropiate code (you can ```CTRL + m
 2. [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md)
 3. [fn_discount_campaign](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_campaign.md)
 
+# Event Service - Cloud Event Creation
+After Object Storage Bucket configuration, you must create the event  that will be fired when a new file will be uploaded (or rewriting an existing file) to the bucket.
+
+![](./media/Events-creation01.png)
+
+Next Create a new rule clicking Create Rule Button.
+
+![](./media/Events-creation02.png)
+
+Write a rule name like [gigis-discount-cloud-events] and a description. 
+Then Select Service Name [Object Storage]. 
+Next Event Type [Object-Create] and [Object-Update]
+
+![](./media/Events-creation03.png)
+
+You could test  your event clicking in Validate Rule button. Review the cloud event generated json object and click in Check if Example Event Matches Rule button. Click Close to return previous menu.
+
+![](./media/Events-creation04.png)
+
+In Actions, select Action Type [Functions]
+Function Compartment select your compartment [HandsOnLab]
+Function Application select your serverless app [gigis-serverless-hol]
+Function select [fn_discount_cloud_events]
+
+![](./media/Events-creation05.png)
+
+Finally click Create Tule button to create the new rule.
+
+![](./media/Events-creation06.png)
+
+You can review your new rule in main Events Service > Rules menu. You could see Event Matching (2) and Actions (1) and when you upload a campaign.json file to the bucket, you could review the Logs section of the Rule.
+
+![](./media/Events-creation07.png)
