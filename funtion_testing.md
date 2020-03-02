@@ -37,7 +37,7 @@ Create a campaign file in your favourite text editor (or [atom](https://atom.io/
 
 ![](./media/fn-execution/faas-app-execution01.png)
 
-Remember that you created a Object Storage bucket in OCI to store this campaigns files and you enabled the cloud event check. 
+Remember that you created an Object Storage bucket in OCI to store campaigns files and you enabled the cloud event check. 
 
 ![](./media/fn-execution/faas-app-execution02.png)
 
@@ -56,6 +56,17 @@ Drag and drop your campaign.json file in Drop Files square and check that the fi
 A new file should be showed in your bucket.
 
 ![](./media/fn-execution/faas-app-execution06.png)
+
+Next go to your ATP DB Service Console and Development -> SQL Developer Console. You could use the SQL Developer URL
+
+```html
+https://<your-ATP-instance>.adb.<your_region>.oraclecloudapps.com/ords/atp/_sdw/?nav=worksheet
+```
+![](./media/ATP-configure07.PNG)
+
+Introduce your user [MICROSERVICE] and your user password [AAZZ__welcomedevops123]
+
+
 
 
 
