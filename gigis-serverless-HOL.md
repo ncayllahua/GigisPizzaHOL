@@ -656,7 +656,7 @@ Go to Functions menu and [gigis-serverless-hol] app. Then Click Edit button.
 
 ![](./media/papertrail-configure07.PNG)
 
-Change Logging Policy from none or Object Storate to SYSLOGURL and copy the papertril syslog server URL as **[tcp://your-papertrail-log-url]**. Then click Save Changes.
+Change Logging Policy from none or Object Storate to SYSLOGURL and copy the papertrail syslog server URL as **[tcp://your-papertrail-log-url]**. Then click Save Changes.
 
 ![](./media/papertrail-configure08.PNG)
 
