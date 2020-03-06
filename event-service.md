@@ -1,5 +1,5 @@
 # Event Service - Cloud Event Creation
-After Object Storage Bucket configuration, you must create the event  that will be fired when a new file will be uploaded (or rewriting an existing file) to the bucket.
+After Object Storage Bucket configuration (and fn_discount_cloud_events function creation), you must create the event  that will be fired when a new file will be uploaded (or rewriting an existing file) to the bucket.
 
 ![](./media/Events-creation01.png)
 
