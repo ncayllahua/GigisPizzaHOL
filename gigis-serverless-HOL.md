@@ -83,8 +83,8 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
    - 5.1. [Creating the Serverless Functions](#creating-the-serverless-functions)
    	  - 5.1.1. [Fn Context](#fn-context)
 	  - 5.1.2. [Create Fn Serverless Functions](#create-fn-serverless-functions)
-6. [Event Service - Cloud Event Creation](#event-service---cloud-event-creation)
-7. Execute Serverless App.
+6. [Event Service - Cloud Event Creation](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/event-service.md)
+7. [Execute Serverless App](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/funtion_testing.md)
 
 [<span class="underline">:grey_question: OPTIONAL - Create Development Environment Machine</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md)
 
