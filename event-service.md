@@ -31,3 +31,8 @@ Finally click Create Tule button to create the new rule.
 You can review your new rule in main Events Service > Rules menu. You could see Event Matching (2) and Actions (1) and when you upload a campaign.json file to the bucket, you could review the Logs section of the Rule.
 
 ![](./media/Events-creation07.png)
+
+# Continue with HOL
+
+* Continue with the last fn serverles function [fn_discount_campaign](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_campaign.md)
+* Or return to the [main HOL manual](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md)
