@@ -90,11 +90,11 @@ Now that you have inserted one Discount Campaign, you have to test fn_discount_c
 ```sh
 echo -n '{"demozone":"madrid","paymentMethod":"visa","pizzaPrice":"21"}' | fn invoke gigis-serverless-hol fn_discount_campaign
 ```
-Check that you receive a new value with a discount and then execute again
+Check that you have received a new value with a discount and then execute again
 ```sh
 echo -n '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' | fn invoke gigis-serverless-hol fn_discount_campaign
 ```
-Check that you didn't received any discount.
+Check that you haven't received any discount.
 
 ![](./media/fn-execution/faas-app-execution11.png)
 
