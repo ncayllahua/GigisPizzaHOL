@@ -24,7 +24,7 @@ Function select [fn_discount_cloud_events]
 
 ![](./media/Events-creation05.png)
 
-Finally click Create Tule button to create the new rule.
+Finally click Create Rule button to create the new rule.
 
 ![](./media/Events-creation06.png)
 
