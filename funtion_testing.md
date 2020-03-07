@@ -106,7 +106,7 @@ Finally you can check the whole serverless app metrics. Click in the serverless 
 
 ![](./media/fn-execution/faas-app-execution13.png)
 
-# Continue with Optional DevCS and pipelines part or finish the HOL.
+## Continue with Optional DevCS and pipelines part or finish the HOL.
 
 * [FaaS and Developer Cloud Service](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md)
 * [Gigi's serverless HOL](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md)
