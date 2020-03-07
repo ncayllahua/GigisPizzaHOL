@@ -111,14 +111,3 @@ Congratulations!! You have finished the main Gigi's Serverless HOL. Now you can 
 
 * [FaaS and Developer Cloud Service](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md)
 * [Gigi's serverless HOL](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md)
-
-
-
-
-
-
-
-
-
-
-
