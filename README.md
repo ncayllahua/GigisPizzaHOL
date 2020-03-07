@@ -3,7 +3,7 @@ Hands on Lab - Gigis pizza microservices/serverless app
 
 - [x] [HOL 5967 - Microservices](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/hol5967_userguide.md)
 - [x] [HOL serverless](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md)
-- [ ] HOL serverless pipelines
+- [ ] HOL serverless pipelines (coming soon)
 
 ## :notebook: Interesting information for the demo.
 
