@@ -107,6 +107,7 @@ Finally you can check the whole serverless app metrics. Click in the serverless 
 ![](./media/fn-execution/faas-app-execution13.png)
 
 ## Continue with Optional DevCS and pipelines part or finish the HOL.
+Congratulations you have finished the main Gigi's Serverless HOL. Now you can return to the main HOL page or you can continue the HOL with the optional part in witch you will can learn how to create a Developer Cloud Service project and a CI/CD pipeline with your serverless functions.
 
 * [FaaS and Developer Cloud Service](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md)
 * [Gigi's serverless HOL](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md)
