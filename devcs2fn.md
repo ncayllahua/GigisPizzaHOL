@@ -255,3 +255,9 @@ Repeat this process to the other two serverless functions. **fn_discount_cloud_e
 And **fn_discount_campaign**
 
 ![](./media/fn-devcs/fn-devcs-gitclone23.png)
+
+## Developer Cloud Service CI/CD for Serverless
+Now you'll create the appropiate job and pipelines to upload your functions to OCI FaaS. You'll use CI/CD pipelines from Developer Cloud Service. Please follow next steps to create your first group of jobs and pipelines and then repeat these steps in each fn serverless function.
+
+Go to Developer Cloud Service Builds menu and Click Create Job button to create your first job.
+
