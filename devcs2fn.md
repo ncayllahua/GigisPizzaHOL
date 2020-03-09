@@ -145,3 +145,23 @@ Repeat again to create 2 new GIT repos:
 Check that you have three GIT repositories in the main project menu.
 
 ![](./media/devcs-project-create-git-repo03.PNG)
+
+
+### GIT Clone Repositories
+Once you have created the GIT repositories in DevCS, now you must apply a GIT clone in your local serverless proyects to sync local sources with DevCS GIT repo. Please follow next steps to clone your first git repo and repeat it with each serverless function.
+
+Open your **fn_discount_upload** workspace in Vs code. File -> Open Workspace... and then select your workspace.
+
+![](./media/fn-devcs/fn-devcs-gitclone00.png)
+
+Check that your entire serverless project was loaded in your IDE (vs code).
+
+![](./media/fn-devcs/fn-devcs-gitclone01.png)
+
+Go to DevCS [ServerlessHOL] project, Repositories and click Clone button in the **fn_discount_upload** repository. Then click copy icon to copy the clone URL to the clipboard.
+
+![](./media/fn-devcs/fn-devcs-gitclone02.png)
+
+Click Gear Icon at the botton of the IDE window and select Command Palette or it shotcut pressing ```CRTL+SHIFT+P```
+
+![](./media/fn-devcs/fn-devcs-gitclone03.png)
