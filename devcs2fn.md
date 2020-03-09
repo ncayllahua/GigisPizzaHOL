@@ -178,6 +178,79 @@ A new windows will showed to you to select the local path to your local git proj
 
 ![](./media/fn-devcs/fn-devcs-gitclone05.png)
 
-Now you could see a small popup window with the message that you will be clone a git repository. But you must put your DevCS user password to finish the operation. Introduce your password in the little popup window at the **TOP** of your IDE and press enter.
+Now you could see a small popup window with the message that you will clone a git repository. But you must put your DevCS user password to finish the operation before. Introduce your password in the little popup window at the **TOP** of your IDE and press enter.
 
 ![](./media/fn-devcs/fn-devcs-gitclone06.png)
+
+After that, a new directory shoulbe created in your [holserverless] directory with the same name as your fn serverless project but finished in 1, like [fn_discount_upload-1].
+
+![](./media/fn-devcs/fn-devcs-gitclone07.png)
+
+Access that new directory and show all hidden files and directories, because **.git** directory is hidden by default. Click in the hamburger icon and check Show Hidden Files.
+
+![](./media/fn-devcs/fn-devcs-gitclone07b.png)
+
+Select **.git** directory and **README.md** file to copy them to your **fn_discount_upload** directory (without -1).
+
+![](./media/fn-devcs/fn-devcs-gitclone08.png)
+
+You can click right mouse button and then copy or ```CTRL+C``` shortcut.
+
+![](./media/fn-devcs/fn-devcs-gitclone09.png)
+
+Then Paste them to you **fn_discount_upload** directory.
+
+![](./media/fn-devcs/fn-devcs-gitclone10.png)
+
+You must have all necessary files now to enable the SCRM (git) modules in your IDE.
+
+![](./media/fn-devcs/fn-devcs-gitclone11.png)
+
+Now you can delete your temp clone directory **fn_discount_upload-1**
+
+![](./media/fn-devcs/fn-devcs-gitclone12.png)
+
+Vs code do this process by default, so if you go to your Vs Code IDE windows, you should see a small icon number over Source Control icon. Click that icon to review your SCRM changes.
+
+![](./media/fn-devcs/fn-devcs-gitclone13.png)
+
+In SCRM window you should have all the files with changes to review them and PUSH to your git repository in DevCS. As this is the first time you access your git repository all files are considered to have changes and will be created in your remote git repository in DevCS.
+
+
+![](./media/fn-devcs/fn-devcs-gitclone14.png)
+
+Next you must click in the **commit** icon at the top of the SCRM menu.
+
+![](./media/fn-devcs/fn-devcs-gitclone15.png)
+
+Next click Yes button to execute the commit.
+
+![](./media/fn-devcs/fn-devcs-gitclone16.png)
+
+A new small popup appear at **TOP** of your IDE to write a dresciption for this commit change. Write a litte description like [fisrt commit] and press enter.
+
+![](./media/fn-devcs/fn-devcs-gitclone17.png)
+
+Next click in the menu icon (tree point icon) and click Push to upload all changes to your remote git repository. 
+
+![](./media/fn-devcs/fn-devcs-gitclone18.png)
+
+As you are using DevCS private git repo, you must introduce your password on each push. Please introduce your password and press enter.
+
+![](./media/fn-devcs/fn-devcs-gitclone19.png)
+
+A new popup should be showed to you at the bottom of your IDE asking you if you want to perform a periodically run of ```git fetch``` command. Click No or Ask me later to continue.
+
+![](./media/fn-devcs/fn-devcs-gitclone20.png)
+
+Now your code is stored in your remote private git repository in DevCS. Please check that all of your serverless function code is in that GIT repo. Go to DevCS project and GIT menu. Then Select your **fn_discount_upload.git** repository and check your code there.
+
+![](./media/fn-devcs/fn-devcs-gitclone21.png)
+
+Repeat this process to the other two serverless functions. **fn_discount_cloud_events**
+
+![](./media/fn-devcs/fn-devcs-gitclone22.png)
+
+And **fn_discount_campaign**
+
+![](./media/fn-devcs/fn-devcs-gitclone23.png)
