@@ -87,21 +87,17 @@ Now we have to create a couple of real VM in OCI based in Virtual Machine templa
 
 ![](./media/image48.png)
 
-Now Select 1 as quantity, select the previously created template, your region and finally select as Shape the option VM.Standard.E2.2:
+Now Select 1 as quantity, select the previously created template, your region and finally select as Shape the option VM.Standard.E2.1 or E2.2 (depends on your tenancy service limits):
 
-![](./media/image49.png)
+![](./media/image52.png)
 
 Now your VM will start creation process
 
 ![](./media/image50.png)
 
-It is important to modify to Sleep Timeout a recommend value of300 minutes (basically longer than lab duration) so that once started, the build server won’t automatically enter into sleep mode.
+It is important to modify to Sleep Timeout a recommend value of 300 minutes (basically longer than lab duration) so that once started, the build server won’t automatically enter into sleep mode.
 
 ![](./media/image51.png)
-
-And now we will create following the same process a second Build Virtual machine using the Fn Function defined template:
-
-![](./media/image52.png)
 
 ![](./media/image53.png)
 
