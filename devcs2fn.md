@@ -55,42 +55,11 @@ Then click on validate button and if compute and storage connections are correct
 
 ### Virtual Machines Template configuration in DevCS
 
-Now we need to configure one or two VM servers to be able to build your project developments. We will create a VM Build Server to be used to compile and Build Microservices components and another to compile and Build Fn Function (Serverless) components that will require a different set of Software components:
+Now we need to configure one server to be able to build your project developments. We will create a VM Build Server to be used to compile and Build Fn Function (Serverless) components that will require a different set of Software components:
 
 ![](./media/image37.png)
 
-To do this, we have to create a first virtual Machine Template to be used with Microservices, so click in Virtual Machines Templates tab:
-
-![](./media/image38.png)
-
-Now click on Create button:
-
-![](./media/image39.png)
-
-Provide a Name(like VM\_basic\_Template) and select Oracle Linux 7 as Platform:
-
-![](./media/image40.png)
-
-Now Click in Configure Software button:
-
-![](./media/image41.png)
-
-Now select the mínimum Software packages will will require later to build our project. If you remember from Introduction section, we will build microservices developed with Node JS v8 and Java . We will also require to access to OCI so OCICli will be required and thus Python will be also needed. Then we will have to build Docker images and also deploy those images in a Kubernetes Cluster thus KUBECtl will be needed too. Finally we also need the Minimum required Build VM components. So mark software components options below:
-
-  - Docker 17.12
-  - Kubectl
-  - Node.js 8
-  - OCIcli
-  - Python 3.3.6
-  - Required Build VM Components
-
-![](./media/image42.png)
-
-Click in Done button and we will have finally our VM template created like below:
-
-![](./media/image43.png)
-
-Now we will create a second Virtual Machine Template for Serverless Components. Click in Create Template again and fill in fields and click on Create button:
+We will create a Virtual Machine Template for Serverless Components. Click in Create Template again and fill in fields and click on Create button:
 
 ![](./media/image44.png)
 
