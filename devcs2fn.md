@@ -3,9 +3,9 @@ This is an optional part for Gigi's pizza serverless LAB, using Developer Cloud 
 
 In this optional part you will create:
 - [Developer Cloud Service instance](#creating-a-developer-cloud-service-instance)
-- [Configure the virtual machine build templates]
-- [Developer Cloud Service project]
-- [GIT repositories for all serverless functions.]
+- [Configure the virtual machine build templates](#build-virtual-machines-configuration-in-devcs)
+- [Developer Cloud Service project](#create-new-project-in-devcs)
+- [Create GIT repositories for each serverless functions](#create-git-repositories)
 - [Jobs (several steps to create docker containers with Functions and deploy them in oracle FaaS)]
 - [Pipelines (CI/CD)]
 
