@@ -148,7 +148,7 @@ Check that you have three GIT repositories in the main project menu.
 
 
 ### GIT Clone Repositories
-Once you have created the GIT repositories in DevCS, now you must apply a GIT clone in your local serverless proyects to sync local sources with DevCS GIT repo. Please follow next steps to clone your first git repo and repeat it with each serverless function.
+Once you have created the GIT repositories in DevCS, now you must apply a GIT clone in your local serverless projects to sync local sources with DevCS GIT repo. Please follow next steps to clone your first git repo and repeat it with each serverless function.
 
 Open your **fn_discount_upload** workspace in Vs code. File -> Open Workspace... and then select your workspace.
 
@@ -165,3 +165,19 @@ Go to DevCS [ServerlessHOL] project, Repositories and click Clone button in the 
 Click Gear Icon at the botton of the IDE window and select Command Palette or it shotcut pressing ```CRTL+SHIFT+P```
 
 ![](./media/fn-devcs/fn-devcs-gitclone03.png)
+
+A new little window will be showed you at the top of the IDE window to run commands. Write ```git clone``` as command and press enter.
+
+![](./media/fn-devcs/fn-devcs-gitclone03b.png)
+
+Paste the **fn_discount_upload** DevCS git URL previously copied to clipboard and press enter.
+
+![](./media/fn-devcs/fn-devcs-gitclone04.png)
+
+A new windows will showed to you to select the local path to your local git project repository. Select [holserverless] directory and click Select Repository Location button.
+
+![](./media/fn-devcs/fn-devcs-gitclone05.png)
+
+Now you could see a small popup window with the message that you will be clone a git repository. But you must put your DevCS user password to finish the operation. Introduce your password in the little popup window at the **TOP** of your IDE and press enter.
+
+![](./media/fn-devcs/fn-devcs-gitclone06.png)
