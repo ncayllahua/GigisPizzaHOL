@@ -3,6 +3,7 @@ This is an optional part for Gigi's pizza serverless LAB, using Developer Cloud 
 
 In this optional part you will create:
 - Developer Cloud Service instance
+- Configure the virtual machine build templates
 - Developer Cloud Service project
 - GIT repositories for all serverless functions.
 - Jobs (several steps to create docker containers with Functions and deploy them in oracle FaaS)
@@ -55,11 +56,15 @@ Then click on validate button and if compute and storage connections are correct
 
 ### Virtual Machines Template configuration in DevCS
 
-Now we need to configure one server to be able to build your project developments. We will create a VM Build Server to be used to compile and Build Fn Function (Serverless) components that will require a different set of Software components:
+Now we need to configure one server to be able to build your project developments. We will create a VM Build Server to be used to compile and Build Fn Function (Serverless) components that will require a different set of Software components.
 
 ![](./media/image37.png)
 
-We will create a Virtual Machine Template for Serverless Components. Click in Create Template again and fill in fields and click on Create button:
+To do this, we have to create a first virtual Machine Template to be used with Microservices, so click in Virtual Machines Templates tab:
+
+![](./media/image38.png)
+
+We will create a Virtual Machine Template for Serverless Components. Click in Create Template fill in fields and click on Create button:
 
 ![](./media/image44.png)
 
