@@ -130,7 +130,7 @@ Wait to project environment creation (about 2 or 3 minutes)
 
 ### Create GIT Repositories
 You have now a new empty project created. Now we are going to create 3 GIT reporsitories, one for each serverless function.
-To create a new GIT repo go to Project Home menu and click on Create Repository button. Next you write **fn_pizza_discount_upoload** as GIT name and optionally a Description. Then click Create button.
+To create a new GIT repo go to Project Home menu and click on Create Repository button. Next you write **fn_discount_upoload** as GIT name and optionally a Description. Then click Create button.
 
 ![](./media/devcs-project-create-git-repo01.PNG)
 
@@ -139,8 +139,8 @@ New GIT repo will be created with a README.md file only.
 ![](./media/devcs-project-create-git-repo02.PNG)
 
 Repeat again to create 2 new GIT repos:
-* **fn_pizza_discount_campaign**
-* **fn_pizza_discount_cloudevents**
+* **fn_discount_campaign**
+* **fn_discount_cloudevents**
 
 Check that you have three GIT repositories in the main project menu.
 
