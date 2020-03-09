@@ -101,11 +101,11 @@ It is important to modify to Sleep Timeout a recommend value of 300 minutes (bas
 
 ![](./media/image53.png)
 
-IMPORTANT NOTE: At this point try to manually start both VM Servers like in screenshot below:
+IMPORTANT NOTE: At this point try to manually start VM Server like in screenshot below (you only have one server if your never use Developer Cloud Service Before):
 
 ![](./media/image54.png)
 
-And check that Status changes to starting in both servers:
+And check that Status changes to starting in your Fn template server:
 
 ![](./media/image55.png)
 
