@@ -2,12 +2,12 @@
 This is an optional part for Gigi's pizza serverless LAB, using Developer Cloud Service as DevOps and CI/CD tooling. 
 
 In this optional part you will create:
-- Developer Cloud Service instance
-- Configure the virtual machine build templates
-- Developer Cloud Service project
-- GIT repositories for all serverless functions.
-- Jobs (several steps to create docker containers with Functions and deploy them in oracle FaaS)
-- Pipelines (CI/CD)
+- [Developer Cloud Service instance](#creating-a-developer-cloud-service-instance)
+- [Configure the virtual machine build templates]
+- [Developer Cloud Service project]
+- [GIT repositories for all serverless functions.]
+- [Jobs (several steps to create docker containers with Functions and deploy them in oracle FaaS)]
+- [Pipelines (CI/CD)]
 
 ## **Creating a Developer Cloud Service Instance**
 Click in the hamburger icon on the top left side and menu will be shown. There select Platform Services (under More Oracle Cloud Services” Area)-\> Developer menu option.
