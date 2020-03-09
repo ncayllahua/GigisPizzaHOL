@@ -6,6 +6,7 @@ In this optional part you will create:
 - [Configure the virtual machine build templates](#build-virtual-machines-configuration-in-devcs)
 - [Developer Cloud Service project](#create-new-project-in-devcs)
 - [Create GIT repositories for each serverless functions](#create-git-repositories)
+- [Clone GIT repositories for each serverless functions](#git-clone-repositories)
 - [Jobs (several steps to create docker containers with Functions and deploy them in oracle FaaS)]
 - [Pipelines (CI/CD)]
 
