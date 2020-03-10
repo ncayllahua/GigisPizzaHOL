@@ -519,9 +519,12 @@ In the dependencies section you will describe your classes dependencies. In this
         <version>18.3.0.0</version>
     </dependency>
 ```
-Build section is used to define the maven and other building configurations like jdk version [13] for example. And we are testing other jdk versions like 11 and 12. All these testing that we are doing is to try the graalvm native image in this kind of serverless projects. The problem with native image is that you need all jar/class dependecies and some manual configuration (like reflection or jni) to create a runnable native image with graalvm compiler. 
+Build section is used to define the maven and other building configurations like jdk version [13] for example. And we are testing other jdk versions like 11 and 12. All these testing that we are doing is to try the graalvm native image in this kind of serverless projects. The problem with native image is that you need all jar/class dependecies and some manual configuration (like reflection or jni) to create a runnable native image with graalvm compiler.
+
+As you can see the final jar name is **[function.jar]** that uses in Dockerfile jlink an jdeps RUN commands.
 ```xml
     <build>
+        <finalName>function</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
