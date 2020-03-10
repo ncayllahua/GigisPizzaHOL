@@ -601,7 +601,9 @@ After maven package and jar creation in this temporal layer target directory. Yo
 #RUN /usr/java/openjdk-13/bin/jdeps --print-module-deps --class-path '/function/target/*' /function/target/function.jar
 RUN /usr/java/openjdk-13/bin/jlink --no-header-files --no-man-pages --strip-java-debug-attributes --output /function/fnjre --add-modules $(/usr/java/openjdk-13/bin/jdeps --ignore-missing-deps --print-module-deps --class-path '/function/target/*' /function/target/function.jar)
 ```
-Final stage layer of this dockerfile get the jars generated in the previous temporal layers, and optimized with jdes and jlink, get the /libfnunixsocket.so lib and the wallet files to be used in the function jar execution. Finally as always the CMD command with the Function **handleRequest** entrypoint path.
+Final stage layer of this dockerfile get the jars generated in the previous temporal layers, and optimized with jdeps and jlink, get the /libfnunixsocket.so lib and the wallet files to be used in the function jar execution. Finally as always the CMD command with the Function **handleRequest** entrypoint path. 
+
+You must include ```COPY --from=cache-stage /libfnunixsocket.so /lib``` to copy the unix lib libfnunixsocket.so to your docker image as without this unix lib the connection will fail.
 ```dockerfile
 FROM oraclelinux:8-slim
 WORKDIR /function
