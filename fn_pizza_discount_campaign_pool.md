@@ -18,7 +18,7 @@ Table of Contents:
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
 ```sh 
-cd fn_discount_campaign
+cd fn_discount_campaign_pool
 
 ls -la
 ```
@@ -44,7 +44,7 @@ Select **add workspace folder ...** in the Start Menu.
 
 ![](./media/faas-create-function08.PNG)
 
-Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_campaign]. Then click Add button to create a workspace from this directory in Visual Studio Core.
+Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_campaign_pool]. Then click Add button to create a workspace from this directory in Visual Studio Core.
 
 ![](./media/fn-discount-campaign/faas-create-function04.PNG)
 
@@ -57,7 +57,7 @@ You can click in **HelloFunction.java** to review your serverless function code.
 ![](./media/fn-discount-campaign/faas-create-function06.PNG)
 
 ### fn discount campaign java code
-The function code is in the next github [repository](https://github.com/oraclespainpresales/fn_pizza_discount_campaign). You can open it in other web brower tab (```CRTL + mouse click```, to review the project.
+The function code is in the next github [repository](https://github.com/oraclespainpresales/fn_pizza_discount_campaign_pool). You can open it in other web brower tab (```CRTL + mouse click```, to review the project.
 
 You can access java code to copy and paste it in your develpment machine IDE project. You could clone this github repository if you want, instead of copy and paste the different files. You can learn how to clone the git repo in this [section](clone-git project to IDE).
 
@@ -70,11 +70,11 @@ Create new file in ```/src/main/java/com/example/fn``` directory. Right mouse bu
 
 ![](./media/fn-discount-campaign/faas-create-function07.PNG)
 
-Then set the same name as java class **[GetDiscount.java]**
+Then set the same name as java class **[GetDiscountPool.java]**
 
 ![](./media/fn-discount-campaign/faas-create-function08.PNG)
 
-Now copy raw function code and paste it from the [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign/master/src/main/java/com/example/fn/GetDiscount.java).
+Now copy raw function code and paste it from the [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign_pool/master/src/main/java/com/example/fn/GetDiscountPool.java).
 
 ![](./media/fn-discount-campaign/faas-create-function09.PNG)
 
@@ -83,7 +83,7 @@ Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 #### Overwriting HelloFunction.java
 You can overwrite the HelloFunction.java code with the GetDiscount Function code.
 
-Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign/master/src/main/java/com/example/fn/GetDiscount.java) from the repository and paste it overwriting the HelloFunction.java Function.
+Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign_pool/master/src/main/java/com/example/fn/GetDiscountPool.java) from the repository and paste it overwriting the HelloFunction.java Function.
 
 ![](./media/fn-discount-campaign/faas-create-function10.PNG)
 
@@ -91,7 +91,7 @@ Click right mouse button in the HelloFunction.java file to Rename the file. You 
 
 ![](./media/fn-discount-campaign/faas-create-function11.PNG)
 
-Change the name of the java file to **[GetDiscount.java]**.
+Change the name of the java file to **[GetDiscountPool.java]**.
 
 ![](./media/fn-discount-campaign/faas-create-function12.PNG)
 
