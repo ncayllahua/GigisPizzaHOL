@@ -105,46 +105,21 @@ You should have the java function code, the func.yaml and pom.xml files in your 
 
 ## Changing func.yaml file
 You have to delete several files in the func.yaml code to create your custom Docker multi stage file. In you IDE select func.yaml file and delete next lines:
-
 ```
 runtime: java
-build_image: fnproject/fn-java-fdk-build:jdk11-1.0.105
-run_image: fnproject/fn-java-fdk:jre11-1.0.105
+build_image: fnproject/fn-java-fdk-build:jdk11-1.0.107
+run_image: fnproject/fn-java-fdk:jre11-1.0.107
 cmd: com.example.fn.HelloFunction::handleRequest
+```
+Next add this two lines to configure your function with 1024 MB of memory and 120 seconds of timeout.
+```yaml
+memory: 1024
+timeout: 120
 ```
 ![](./media/fn-discount-campaign/faas-create-function15.PNG)
 
 ## Overwriting pom.xml file
-Next you must overwrite the example maven pom.xml file with the [pom.xml](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign/master/pom.xml) content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar. 
-
-Next JDBC and DB access dependencies will be included and configured in the maven project in the dockerfile. These jar libraries will have to be downloaded and stored in a directory in your IDE project, you'll can download and configure them in your project in next sections
-```java
-<dependency>
-    <groupId>com.oracle.jdbc</groupId>
-    <artifactId>ojdbc8</artifactId>
-    <version>18.3.0.0</version>
-</dependency>
-<dependency>
-    <groupId>com.oracle.jdbc</groupId>
-    <artifactId>ucp</artifactId>
-    <version>18.3.0.0</version>
-</dependency>
-<dependency>
-    <groupId>com.oracle.jdbc</groupId>
-    <artifactId>oraclepki</artifactId>
-    <version>18.3.0.0</version>
-</dependency>
-<dependency>
-    <groupId>com.oracle.jdbc</groupId>
-    <artifactId>osdt_core</artifactId>
-    <version>18.3.0.0</version>
-</dependency>
-<dependency>
-    <groupId>com.oracle.jdbc</groupId>
-    <artifactId>osdt_cert</artifactId>
-    <version>18.3.0.0</version>
-</dependency>
-```
+Next you must overwrite the example maven pom.xml file with the [pom.xml](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign_pool/master/pom.xml) content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar. 
 
 ![](./media/fn-discount-campaign/faas-create-function16.PNG)
 
@@ -159,73 +134,29 @@ Select fn_discount_cloud_events folder in your IDE and create new file with [Doc
 
 ![](./media/fn-discount-campaign/faas-create-function18.PNG)
 
-Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign/master/Dockerfile) to your new local Dockerfile file.
+Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign_pool/master/Dockerfile) to your new local Dockerfile file.
 
 ![](./media/fn-discount-campaign/faas-create-function19.PNG)
 
-As you read in the last **pom.xml** section, you have to include and configure the JDBC driver classes in the maven project in the dockerfile, you could read more about that in the recap section.
-```dockerfile
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/ojdbc8.jar",    "-DgroupId=com.oracle.jdbc", "-DartifactId=ojdbc8",    "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/ucp.jar",       "-DgroupId=com.oracle.jdbc", "-DartifactId=ucp",       "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/oraclepki.jar", "-DgroupId=com.oracle.jdbc", "-DartifactId=oraclepki", "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/osdt_core.jar", "-DgroupId=com.oracle.jdbc", "-DartifactId=osdt_core", "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/osdt_cert.jar", "-DgroupId=com.oracle.jdbc", "-DartifactId=osdt_cert", "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-```
-
 After that, click in File -> Save All in your IDE to save all changes.
 
-## Copy necessary .libs and other files
-To run the serverless function as a docker container you'll need to download and import to your project several files, like jdbc driver libs or dbwallet.zip file (generated when you created the ATP db).
+## Copy necessary files
+To run the serverless function as a docker container you'll need to download a dbwallet.zip file (generated when you created the ATP db).
 
 ### JDBC drivers and data access libs.
-You have to include the JDBC driver jar libraries into your IDE project. Then you can include in your maven project copiying it in your dockerfile temp build stage layer.
-
-To download the JDBC 18.3.0.0 drivers follow next steps:
-
-1. Create a new **[libs]** directory in your IDE project. 
-   - Right click in your project main directory **[fn_discount_campaign]** and click New Folder.
-
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes01.PNG)
-
-   - Write **libs** as directory name and press enter to create it.
-   
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes02.PNG)
-
-2. Download to your development machine next lib files from the github [fn_pizza_discount_campaing repository](https://github.com/oraclespainpresales/fn_pizza_discount_campaign/tree/master/libs).
-   - Open a terminal with the **lib** directory selected. Right mouse click Open in Terminal...the main window of the IDE will split an a terminal will be enabled in your lib directory.
-   
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes03.PNG)
-
-   - You can use now **wget** to download the libraries to libs directory.
-
-```sh
-wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/ojdbc8.jar"
-```
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes04.PNG)
-```sh
-wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/oraclepki.jar"
-```
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes05.PNG)
-```sh
-wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/osdt_cert.jar"
-```
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes06.PNG)
-```sh
-wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/osdt_core.jar"
-```
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes07.PNG)
-```sh
-wget "https://github.com/oraclespainpresales/fn_pizza_discount_campaign/raw/master/libs/ucp.jar"
-```
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes08.PNG)
-
-You could download them from the [oracle database web page](https://www.oracle.com/database/technologies/appdev/jdbc-ucp-183-downloads.html) to your development machine. Then copy them to your **libs** directory.
-
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes09.PNG)
-
-Also you could use [maven repository web](https://mvnrepository.com/artifact/com.oracle.database.jdbc?sort=newest) look for your apropiate maven repo or library and import to your **pom.xml** project copying from the **maven tab**. Next you could download the lib file from **Files** clicking in **jar**.
+You can use [maven repository web](https://mvnrepository.com/artifact/com.oracle.database.jdbc?sort=newest) look for your apropiate maven repo or library and import to your **pom.xml** project copying from the **maven tab**. Next you could download the lib file from **Files** clicking in **jar**.
 
 ![](./media/fn-discount-campaign/faas-create-function-jdbc-classes10.PNG)
+
+```java
+<dependencies>   
+    <dependency>
+        <groupId>com.oracle.ojdbc</groupId>
+        <artifactId>ojdbc8</artifactId>
+        <version>19.3.0.0</version>
+    </dependency>
+</dependencies>
+```
 
 ### dbwallet.zip file
 You have to include dbwallet.zip file in your IDE project. You have several methods to do that.
@@ -246,7 +177,7 @@ You have to include dbwallet.zip file in your IDE project. You have several meth
 3. Or you could run an OCI cli command to download it directly to your root project directory. You'll need your ATP OCID value to run this oci cli command from a linux terminal in your development machine.
 
 ```sh
-cd $HOME/holserverless/fn_discount_campaign
+cd $HOME/holserverless/fn_discount_campaign_pool
 
 oci db autonomous-data-warehouse generate-wallet --autonomous-data-warehouse-id <your_ATP_OCID_value> --password WalletPassw0rd --file dbwallet.zip
 ```
@@ -258,7 +189,7 @@ To deploy your serverless function please follow next steps, your function will 
 
 Open a terminal in your development machine and execute:
 ```sh
-cd $HOME/holserverless/fn_discount_campaign
+cd $HOME/holserverless/fn_discount_campaign_pool
 ```
 Then you must login in OCIR registry with ```docker login``` command. Introduce your OCI user like ```<namespace>/<user>``` when docker login ask you about username and your previously created **OCI Authtoken** as password.
 ```sh
@@ -281,7 +212,7 @@ Check that your new function is created in your serverless app [gigis-serverless
 
 ![](./media/fn-discount-campaign/faas-create-function23.PNG)
 
-You must change your Fucntion time-out. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds. Then Click Save Changes Button.
+If you want to change your Fucntion time-out or memory amount. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds for example. Then Click Save Changes Button.
 
 ![](./media/fn-discount-campaign/faas-create-function24.PNG)
 
@@ -467,6 +398,11 @@ cmd: com.example.fn.HelloFunction::handleRequest
 Last line is the entrypoint to execute the function. Represent the path to the funcion name [HelloFunction] and [handleRequest] public method. Also you will find it in the new multi stage Dockerfile as CMD command.
 ```
 cmd: com.example.fn.HelloFunction::handleRequest
+```
+Next you could add this two lines to configure your serverless function directly
+```yaml
+memory: 1024
+timeout: 120
 ```
 ### pom.xml
 Pom.xml file is your maven project descriptor. First of all you must review properties, groupId, artifactId and version. In properties you select the fdk version for your project. GroupId is the java path to your class. ArtifactId is the name of the artifact to create and version is its version number [1.0.105].
