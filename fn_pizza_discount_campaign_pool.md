@@ -183,8 +183,7 @@ cd $HOME/holserverless/fn_discount_campaign_pool
 
 oci db autonomous-data-warehouse generate-wallet --autonomous-data-warehouse-id <your_ATP_OCID_value> --password WalletPassw0rd --file dbwallet.zip
 ```
-
-![](./media/fn-discount-campaign/faas-create-function-dbwallet03.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function-dbwallet03.PNG)
 
 ## Deploy fn discount campaign function
 To deploy your serverless function please follow next steps, your function will be created in OCI Functions inside your serverles app [gigis-serverless-hol]. 
@@ -197,18 +196,18 @@ Then you must login in OCIR registry with ```docker login``` command. Introduce 
 ```sh
 docker login fra.ocir.io
 ```
-![](./media/fn-discount-campaign/faas-create-function20.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function20.PNG)
 
 You must execute next command with ```--verbose``` option to get all the information about the deploy process.
 ```sh
 fn --verbose deploy --app gigis-serverless-hol
 ```
 
-![](./media/fn-discount-campaign/faas-create-function21.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function21.PNG)
 
 Wait to maven project download dependencies and build jar, docker image creation and function deploy in OCI serverless app finish.
 
-![](./media/fn-discount-campaign/faas-create-function22.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function22.PNG)
 
 Check that your new function is created in your serverless app [gigis-serverless-hol] at Developer Services -> Functions menu.
 
@@ -216,7 +215,7 @@ Check that your new function is created in your serverless app [gigis-serverless
 
 If you want to change your Fucntion time-out or memory amount. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds for example. Then Click Save Changes Button.
 
-![](./media/fn-discount-campaign/faas-create-function24.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function24.PNG)
 
 Now you can continue with the [execution of the serverless application](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md#event-service---cloud-event-creation) or optionally review the code to know more about this serverless function.
 
