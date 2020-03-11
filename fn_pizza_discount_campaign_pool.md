@@ -1,5 +1,7 @@
-# Function fn discount campaign
-This serverless function access **ATP DB** with **JDBC driver** and get information about current and enabled discount campaigns. whether the current pizza order has a discount campaign available, based on the dates, method of payment and pizza price then this function will response with the new order price applying the discount to the original pizza price.
+# Function fn discount campaign With pooled connections
+This serverless function access **ATP DB** with **JDBC UCP driver** and get information about current and enabled discount campaigns. Whether the current pizza order has a discount campaign available, based on the dates, method of payment and pizza price then this function will response with the new pizza order price, applying the discount to the original pizza price. 
+
+In this function you'll use pooled connections with UCP jdbc driver instead of a DB direct jdbc connection. Db wallet should be downloaded and unzipped in an OCI private Object Storage Bucket (keeping the appropiate policy access to FaaS service to access the private bucket). After that you could create a method to upload these wallet files to your container. If you do the optional Developer Cloud Service part of the lab, you'll create a CI/CD pipeline with the same procedure but without a private object storage bucket and the addional download method (quite similar to the **fn_pizza_discount_cloud_events**) to read the file from the bucket.
 
 Table of Contents:
 1. [fn discount campaign IDE preparation](#fn-discount-campaign-ide-preparation)
