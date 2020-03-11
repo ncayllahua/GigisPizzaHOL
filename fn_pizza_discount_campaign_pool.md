@@ -531,10 +531,10 @@ As you can see the final jar name ([finalName] tag) is **[function.jar]** that i
     </build>
 ```
 ### Dockerfile
-You created a multi stage Dockerfile to customize the serverless function deploy. You have several stages before to create the final image docker. This intermediate stages are not included in the final image. In this dockerfile first stage is created as cache-stage and include the .so lib. Then you can see a second stage [build-stage] from a openjdk-13 to create the maven package.
+You created a multi stage Dockerfile to customize the serverless function deploy. You have several stages before to create the final image docker. This intermediate stages are not included in the final image. In this dockerfile first stage is created as cache-stage and include the .so lib. Then you can see a second stage [build-stage] from a openjdk-12 image with oracle flavor to create the maven package.
 ```dockerfile
 FROM delabassee/fn-cache:latest as cache-stage
-FROM openjdk:13 as build-stage
+FROM openjdk:12-oracle as build-stage
 WORKDIR /function
 RUN curl https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz -o apache-maven-3.6.3-bin.tar.gz 
 RUN tar -zxvf apache-maven-3.6.3-bin.tar.gz
@@ -554,12 +554,6 @@ ADD pom.xml /function/pom.xml
 ADD src /function/src
 ADD libs/* /function/target/libs/
 
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/ojdbc8.jar",    "-DgroupId=com.oracle.jdbc", "-DartifactId=ojdbc8",    "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/ucp.jar",       "-DgroupId=com.oracle.jdbc", "-DartifactId=ucp",       "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/oraclepki.jar", "-DgroupId=com.oracle.jdbc", "-DartifactId=oraclepki", "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/osdt_core.jar", "-DgroupId=com.oracle.jdbc", "-DartifactId=osdt_core", "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-RUN ["mvn", "install:install-file", "-Dfile=/function/target/libs/osdt_cert.jar", "-DgroupId=com.oracle.jdbc", "-DartifactId=osdt_cert", "-Dversion=18.3.0.0", "-Dpackaging=jar"]
-
 #RUN ["mvn", "package"]
 
 RUN ["mvn", "package", \
@@ -568,23 +562,32 @@ RUN ["mvn", "package", \
     "-Dmdep.prependGroupId=true", \
     "-DoutputDirectory=target","-e" ]
 ```
-After maven package and jar creation in this temporal layer target directory. You can see a [jdeps](https://docs.oracle.com/en/java/javase/13/docs/specs/man/jdeps.html) and [jlink](https://docs.oracle.com/en/java/javase/13/docs/specs/man/jlink.html) executions. They are java tools to analize dependencies and optimize them, creating a improve custom docker image. 
+After maven package and jar creation in this temporal layer target directory. You can see a [jdeps](https://docs.oracle.com/en/java/javase/13/docs/specs/man/jdeps.html) and [jlink](https://docs.oracle.com/en/java/javase/13/docs/specs/man/jlink.html) executions. They are java tools to analize dependencies and optimize them, creating a improve and compressed custom docker image. 
 ```dockerfile
-#RUN /usr/java/openjdk-13/bin/jdeps --print-module-deps --class-path '/function/target/*' /function/target/function.jar
-RUN /usr/java/openjdk-13/bin/jlink --no-header-files --no-man-pages --strip-java-debug-attributes --output /function/fnjre --add-modules $(/usr/java/openjdk-13/bin/jdeps --ignore-missing-deps --print-module-deps --class-path '/function/target/*' /function/target/function.jar)
+RUN /usr/java/openjdk-12/bin/jlink --compress=2 --no-header-files --no-man-pages --strip-debug --output /function/fnjre --add-modules $(/usr/java/openjdk-12/bin/jdeps --ignore-missing-deps --print-module-deps --class-path '/function/target/*' /function/target/function.jar)
 ```
 Final stage layer of this dockerfile get the jars generated in the previous temporal layers, and optimized with jdeps and jlink, get the /libfnunixsocket.so lib and the wallet files to be used in the function jar execution. Finally as always the CMD command with the Function **handleRequest** entrypoint path. 
+
+The command ```ENV BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"``` came from besu [troubleshooting](https://besu.hyperledger.org/en/stable/HowTo/Troubleshoot/Troubleshooting/) to avoid next warning when you begin a jdbc connection in openjdk 9 or later.
+
+```
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.bouncycastle.jcajce.provider.drbg.DRBG (file:/Users/madelinemurray/besu/build/distributions/besu-1.1.2-SNAPSHOT/lib/bcprov-jdk15on-1.61.jar) to constructor sun.security.provider.Sun()
+WARNING: Please consider reporting this to the maintainers of org.bouncycastle.jcajce.provider.drbg.DRBG
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+```
 
 You must include ```COPY --from=cache-stage /libfnunixsocket.so /lib``` to copy the unix lib **libfnunixsocket.so** to your docker image as without this unix lib the connection will fail.
 ```dockerfile
 FROM oraclelinux:8-slim
+ENV BESU_OPTS="--add-opens java.base/sun.security.provider=ALL-UNNAMED"
 WORKDIR /function
 
 COPY --from=build-stage /function/target/*.jar /function/
 COPY --from=build-stage /function/fnjre/ /function/fnjre/
 COPY --from=build-stage /function/wallet/ /function/wallet/
 COPY --from=cache-stage /libfnunixsocket.so /lib
-#COPY libfnunixsocket.so /lib
 
 ENTRYPOINT [ "/function/fnjre/bin/java", \
     "--enable-preview", \
@@ -593,7 +596,7 @@ ENTRYPOINT [ "/function/fnjre/bin/java", \
 
 #ENTRYPOINT [ "/usr/bin/java","-XX:+UseSerialGC","--enable-preview","-Xshare:on","-cp", "/function/*","com.fnproject.fn.runtime.EntryPoint" ]
 
-CMD ["com.example.fn.GetDiscount::handleRequest"]
+CMD ["com.example.fn.GetDiscountPool::handleRequest"]
 ```
 # Continue the HOL
 
