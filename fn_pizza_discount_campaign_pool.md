@@ -290,7 +290,7 @@ Now you can continue with the [execution of the serverless application](https://
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
 
-### GetDiscount.java
+### GetDiscountPool.java
 To create the UCP pool data connection you must import several oracle ojdbc driver libraries: [oracle.ucp.jdbc.PoolDataSource] and [oracle.ucp.jdbc.PoolDataSourceFactory]
 
 ```java
