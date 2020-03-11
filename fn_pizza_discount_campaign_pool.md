@@ -211,7 +211,7 @@ Wait to maven project download dependencies and build jar, docker image creation
 
 Check that your new function is created in your serverless app [gigis-serverless-hol] at Developer Services -> Functions menu.
 
-![](./media/fn-discount-campaign/faas-create-function23.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function23.PNG)
 
 If you want to change your Fucntion time-out or memory amount. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds for example. Then Click Save Changes Button.
 
