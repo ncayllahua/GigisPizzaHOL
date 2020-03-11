@@ -279,7 +279,7 @@ Check that your new function is created in your serverless app [gigis-serverless
 
 ![](./media/fn-discount-campaign/faas-create-function23.PNG)
 
-You must change your Fucntion time-out and memory. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds and change **MEMORY** from [128] to [512] or [1024] GB. Then Click Save Changes Button.
+You must change your Fucntion time-out and memory. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds and change **MEMORY** from [128] to [512] or [1024] MB. Then Click Save Changes Button.
 
 ![](./media/fn-discount-campaign/faas-create-function24.PNG)
 
