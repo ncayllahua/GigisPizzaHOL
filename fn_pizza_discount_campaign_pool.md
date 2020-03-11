@@ -482,7 +482,7 @@ In repositories section you must describe what repositories will be used in your
         </repository>
     </repositories>
  ```
-In the dependencies section you will describe your classes dependencies. In this pom.xml you have to put all jdbc dependencies and driver connection to the ATP: ojdbc8 for **version 19.3.0.0**. Take into account than maven repo dependency ```com.oracle.ojdbc``` is **o**jdbc and not jdbc.
+In the dependencies section you will describe your classes dependencies. In this pom.xml you have to put all jdbc dependencies and driver connection to the ATP: ojdbc8 for **version 19.3.0.0**. Take into account that maven repo dependency ```com.oracle.ojdbc``` is **o**jdbc and not jdbc.
 
 ```xml
      <dependencies>
@@ -503,9 +503,9 @@ In the dependencies section you will describe your classes dependencies. In this
         </dependency>
     </dependencies>
 ```
-Build section is used to define the maven and other building configurations like jdk version [13] for example. And we are testing other jdk versions like 11 and 12. All these testing that we are doing is to try the graalvm native image in this kind of serverless projects. The problem with native image is that you need all jar/class dependecies and some manual configuration (like reflection or jni) to create a runnable native image with graalvm compiler.
+Build section is used to define the maven and other building configurations like jdk version [12] for example. And we are testing other jdk versions like 11 and 13. All these testing that we are doing is to try the graalvm native image in this kind of serverless projects. The problem with native image is that you need all jar/class dependecies and some manual configuration (like reflection or jni) to create a runnable native image with graalvm compiler.
 
-As you can see the final jar name is **[function.jar]** that uses in Dockerfile jlink an jdeps RUN commands.
+As you can see the final jar name ([finalName] tag) is **[function.jar]** that it will be use in Dockerfile jlink an jdeps RUN commands.
 ```xml
     <build>
         <finalName>function</finalName>
@@ -513,14 +513,10 @@ As you can see the final jar name is **[function.jar]** that uses in Dockerfile 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.3</version>
                 <configuration>
-                   <!--source>12</source>
-                   <target>12</target-->
-                   <release>13</release>
-                   <compilerArgs>--enable-preview</compilerArgs>
-                    <!--source>12</source>
-                    <target>12</target-->
+                    <source>12</source>
+                    <target>12</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -530,14 +526,6 @@ As you can see the final jar name is **[function.jar]** that uses in Dockerfile 
                  <configuration>
                      <useSystemClassLoader>false</useSystemClassLoader>
                  </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.2</version>
-                <configuration>
-                    <skip>true</skip>
-                </configuration>
             </plugin>
         </plugins>
     </build>
