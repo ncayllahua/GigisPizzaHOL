@@ -106,6 +106,37 @@ Finally you can check the whole serverless app metrics. Click in the serverless 
 
 ![](./media/fn-execution/faas-app-execution13.png)
 
+## Optional JDBC direct vs JDBC pool
+Once you check your serverless app. If you've created the optional pooled jdbc serverles function [fn_discount_campaign_pool], you can test the differences between jdbc direct connection and jdbc (ucp) pooled connection.
+
+Wait about 10 minutes to let the fn_discount_campaign (direct) function to be destroy. Next run this command to execute again with cold start,
+
+```sh
+echo -n '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' | fn invoke gigis-serverless-hol fn_discount_campaign
+```
+Then run next command yo execute the pooled function with cold start too.
+
+```sh
+echo -n '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' | fn invoke gigis-serverless-hol fn_discount_campaign_pool
+```
+
+![](./media/fn-execution/faas-app-execution14.png)
+
+Wait a couple of minutes to review your serverless app metrics. Go to Oracle Cloud menu -> Developer Services -> Functions and click in your serverless app [gigis-serverless-hol]. Then Click in **Metrics** to see the last serverless calls (direct and pooled).
+
+![](./media/fn-execution/faas-app-execution15.png)
+
+![](./media/fn-execution/faas-app-execution16.png)
+
+Then execute again both commands to see the differences without cold start time.
+
+```sh
+echo -n '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' | fn invoke gigis-serverless-hol fn_discount_campaign
+echo -n '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' | fn invoke gigis-serverless-hol fn_discount_campaign_pool
+```
+
+![](./media/fn-execution/faas-app-execution17.png)
+
 ## Continue with Optional DevCS and pipelines part or finish the HOL.
 Congratulations!! You have finished the main Gigi's Serverless HOL. Now you can return to the main HOL page or you can continue the HOL with the optional part in witch you will can learn how to create a Developer Cloud Service project and a CI/CD pipeline with your new serverless functions.
 
