@@ -299,7 +299,7 @@ Next piece of code, parse the cloud-event json description and it get the import
                             .objectName(data.get("resourceName").toString())
                             .build();
 ```
-That relevant data will be used to access (in authProvider class) to the object storage bucket and get the **campaigns.json** file (resourceName variable from cloud-event JSON file).
+That relevant data will be used to access (in authProvider object) to the object storage bucket and get the **campaigns.json** file (resourceName variable from cloud-event JSON file).
 ```java
     AuthenticationDetailsProvider authProvider = new ConfigFileAuthenticationDetailsProvider("/.oci/config","DEFAULT");
     ObjectStorageClient objStoreClient         = ObjectStorageClient.builder().build(authProvider);
