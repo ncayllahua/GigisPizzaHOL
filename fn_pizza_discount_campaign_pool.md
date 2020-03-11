@@ -482,44 +482,26 @@ In repositories section you must describe what repositories will be used in your
         </repository>
     </repositories>
  ```
-In the dependencies section you will describe your classes dependencies. In this pom.xml you have to put all jdbc dependencies and driver connection to the ATP: ojdbc8, ucp, oraclepki, osdt_core, osdt_cert for **version 18.3.0.0**. We are testing version 19.3.0.0 too, and you can see that dependencies for 19.3 are commented in the pom.xml file.
+In the dependencies section you will describe your classes dependencies. In this pom.xml you have to put all jdbc dependencies and driver connection to the ATP: ojdbc8 for **version 19.3.0.0**. Take into account than maven repo dependency ```com.oracle.ojdbc``` is **o**jdbc and not jdbc.
 
 ```xml
-     <dependency>
-        <groupId>com.fnproject.fn</groupId>
-        <artifactId>api</artifactId>
-        <version>${fdk.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.fnproject.fn</groupId>
-        <artifactId>runtime</artifactId>
-        <version>${fdk.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>com.oracle.jdbc</groupId>
-        <artifactId>ojdbc8</artifactId>
-        <version>18.3.0.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.oracle.jdbc</groupId>
-        <artifactId>ucp</artifactId>
-        <version>18.3.0.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.oracle.jdbc</groupId>
-        <artifactId>oraclepki</artifactId>
-        <version>18.3.0.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.oracle.jdbc</groupId>
-        <artifactId>osdt_core</artifactId>
-        <version>18.3.0.0</version>
-    </dependency>
-    <dependency>
-        <groupId>com.oracle.jdbc</groupId>
-        <artifactId>osdt_cert</artifactId>
-        <version>18.3.0.0</version>
-    </dependency>
+     <dependencies>
+        <dependency>
+            <groupId>com.fnproject.fn</groupId>
+            <artifactId>api</artifactId>
+            <version>${fdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fnproject.fn</groupId>
+            <artifactId>runtime</artifactId>
+            <version>${fdk.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.ojdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>19.3.0.0</version>
+        </dependency>
+    </dependencies>
 ```
 Build section is used to define the maven and other building configurations like jdk version [13] for example. And we are testing other jdk versions like 11 and 12. All these testing that we are doing is to try the graalvm native image in this kind of serverless projects. The problem with native image is that you need all jar/class dependecies and some manual configuration (like reflection or jni) to create a runnable native image with graalvm compiler.
 
