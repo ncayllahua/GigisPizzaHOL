@@ -1,7 +1,9 @@
 # Function fn discount campaign With pooled connections
 This serverless function access **ATP DB** with **JDBC UCP driver** and get information about current and enabled discount campaigns. Whether the current pizza order has a discount campaign available, based on the dates, method of payment and pizza price then this function will response with the new pizza order price, applying the discount to the original pizza price. 
 
-In this function you'll use pooled connections with UCP jdbc driver instead of a DB direct jdbc connection. Db wallet should be downloaded and unzipped in an OCI private Object Storage Bucket (keeping the appropiate policy access to FaaS service to access the private bucket). After that you could create a method to upload these wallet files to your container. If you do the optional Developer Cloud Service part of the lab, you'll create a CI/CD pipeline with the same procedure but without a private object storage bucket and the addional download method (quite similar to the **fn_pizza_discount_cloud_events**) to read the file from the bucket.
+In this function you'll use pooled connections with UCP jdbc driver instead of a DB direct jdbc connection. DB wallet should be downloaded locally and unzipped in an OCI private Object Storage Bucket (keeping the appropiate policy access to FaaS service to access the private bucket), after that you could create a method to upload these wallet files to your container. You will do almost the same but unzipping the wallet.zip in the docker image creation (the code is in the Dockerfile).
+
+If you do the optional Developer Cloud Service part of the lab, you'll create a CI/CD pipeline with the same procedure but without download wallet.zip locally or using a private object storage bucket and the addional download method (this method should be quite similar to the **fn_pizza_discount_cloud_events**) to read the file from the bucket.
 
 Table of Contents:
 1. [fn discount campaign IDE preparation](#fn-discount-campaign-ide-preparation)
@@ -23,15 +25,15 @@ cd fn_discount_campaign_pool
 ls -la
 ```
 
-![](./media/fn-discount-campaign/faas-create-function01.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function01.PNG)
 
 The serverless function should be created at ```src/main/java/com/example/fn/HelloFunction.java``` and you can review the example code with and your IDE or text editor. This file will be change in the next section.
 
-![](./media/fn-discount-campaign/faas-create-function02.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function02.PNG)
 
 A Junit textfile should be created at ```src/test/java/com/example/fn/HelloFunctionTest.java``` and used to test the serverless function before deploy it in OCI FaaS. We won't use Junit testing in this lab, but you could add some testing Junit file to your serverles function if you want.
 
-![](./media/fn-discount-campaign/faas-create-function03.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function03.PNG)
 
 ## fn discount campaign IDE preparation
 You could deploy this new serverless function in your FaaS environment, but the idea is to change the example code by the real function code. You can use a text editor or you favourite IDE software. In this lab we used Visual Studio Code (from the developer machine imagen in OCI marketplace), so all images was captured with that IDE, but you can use what you want.
@@ -46,15 +48,15 @@ Select **add workspace folder ...** in the Start Menu.
 
 Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_campaign_pool]. Then click Add button to create a workspace from this directory in Visual Studio Core.
 
-![](./media/fn-discount-campaign/faas-create-function04.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function04.PNG)
 
 A new project will be available as workspace in the IDE
 
-![](./media/fn-discount-campaign/faas-create-function05.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function05.PNG)
 
 You can click in **HelloFunction.java** to review your serverless function code. Same for **HelloFunctionTest.java** file.
 
-![](./media/fn-discount-campaign/faas-create-function06.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function06.PNG)
 
 ### fn discount campaign java code
 The function code is in the next github [repository](https://github.com/oraclespainpresales/fn_pizza_discount_campaign_pool). You can open it in other web brower tab (```CRTL + mouse click```, to review the project.
@@ -68,15 +70,15 @@ You can copy the java function code creating a new file with the function name, 
 #### Creating new file
 Create new file in ```/src/main/java/com/example/fn``` directory. Right mouse button and then New File.
 
-![](./media/fn-discount-campaign/faas-create-function07.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function07.PNG)
 
 Then set the same name as java class **[GetDiscountPool.java]**
 
-![](./media/fn-discount-campaign/faas-create-function08.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function08.PNG)
 
 Now copy raw function code and paste it from the [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign_pool/master/src/main/java/com/example/fn/GetDiscountPool.java).
 
-![](./media/fn-discount-campaign/faas-create-function09.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function09.PNG)
 
 Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 
@@ -85,23 +87,23 @@ You can overwrite the HelloFunction.java code with the GetDiscount Function code
 
 Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign_pool/master/src/main/java/com/example/fn/GetDiscountPool.java) from the repository and paste it overwriting the HelloFunction.java Function.
 
-![](./media/fn-discount-campaign/faas-create-function10.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function10.PNG)
 
 Click right mouse button in the HelloFunction.java file to Rename the file. You can press F2 key to rename the HelloFunction.java file as a shortcut.
 
-![](./media/fn-discount-campaign/faas-create-function11.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function11.PNG)
 
 Change the name of the java file to **[GetDiscountPool.java]**.
 
-![](./media/fn-discount-campaign/faas-create-function12.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function12.PNG)
 
 You can delete the HelloFunctionTest.java file (and the test directory tree) or rename it and change the code to create your JUnit tests. In this lab we won't create JUnit test.
 
-![](./media/fn-discount-campaign/faas-create-function13.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function13.PNG)
 
 You should have the java function code, the func.yaml and pom.xml files in your project directory right now.
 
-![](./media/fn-discount-campaign/faas-create-function14.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function14.PNG)
 
 ## Changing func.yaml file
 You have to delete several files in the func.yaml code to create your custom Docker multi stage file. In you IDE select func.yaml file and delete next lines:
@@ -116,27 +118,27 @@ Next add this two lines to configure your function with 512 or 1024 MB of memory
 memory: 512
 timeout: 120
 ```
-![](./media/fn-discount-campaign/faas-create-function15.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function15.PNG)
 
 ## Overwriting pom.xml file
 Next you must overwrite the example maven pom.xml file with the [pom.xml](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign_pool/master/pom.xml) content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar. 
 
-![](./media/fn-discount-campaign/faas-create-function16.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function16.PNG)
 
 Then click in File -> Save All in your IDE to save the changes.
 
-![](./media/fn-discount-campaign/faas-create-function17.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function17.PNG)
 
 ## Creating Multi Stage Dockerfile
 You must create a new multi stage docker file, to deploy your serverless function as a docker image in your OCIR repository. This file must be created before deploying the function.
 
 Select fn_discount_cloud_events folder in your IDE and create new file with [Dockerfile] name clicking right mouse button
 
-![](./media/fn-discount-campaign/faas-create-function18.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function18.PNG)
 
 Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclespainpresales/fn_pizza_discount_campaign_pool/master/Dockerfile) to your new local Dockerfile file.
 
-![](./media/fn-discount-campaign/faas-create-function19.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function19.PNG)
 
 After that, click in File -> Save All in your IDE to save all changes.
 
@@ -146,7 +148,7 @@ To run the serverless function as a docker container you'll need to download a d
 ### JDBC drivers and data access libs.
 You can use [maven repository web](https://mvnrepository.com/artifact/com.oracle.database.jdbc?sort=newest) look for your apropiate maven repo or library and import to your **pom.xml** project copying from the **maven tab**. Next you could download the lib file from **Files** clicking in **jar**.
 
-![](./media/fn-discount-campaign/faas-create-function-jdbc-classes10.PNG)
+![](./media/fn-discount-campaign-pool/faas-create-function-jdbc-classes01.PNG)
 
 ```java
 <dependencies>   
