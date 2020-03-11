@@ -111,9 +111,9 @@ build_image: fnproject/fn-java-fdk-build:jdk11-1.0.107
 run_image: fnproject/fn-java-fdk:jre11-1.0.107
 cmd: com.example.fn.HelloFunction::handleRequest
 ```
-Next add this two lines to configure your function with 1024 MB of memory and 120 seconds of timeout.
+Next add this two lines to configure your function with 512 or 1024 MB of memory and 120 seconds of timeout.
 ```yaml
-memory: 1024
+memory: 512
 timeout: 120
 ```
 ![](./media/fn-discount-campaign/faas-create-function15.PNG)
@@ -401,7 +401,7 @@ cmd: com.example.fn.HelloFunction::handleRequest
 ```
 Next you could add this two lines to configure your serverless function directly
 ```yaml
-memory: 1024
+memory: 512
 timeout: 120
 ```
 ### pom.xml
