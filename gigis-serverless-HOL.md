@@ -727,6 +727,8 @@ You could clone the serverless functions from a GIT repository if you needed (de
 
 To create a serverless function you must execute **fn init** command. So you will have to execute that command 3 times, one for each function. Fn commands will be executed in your development machine in $HOME directory or other directory that you create for the lab, for example [holserverless].
 
+Optionally you could create a 4th function to get discounts but using a pool DataSource instead of a direct JDCB connection as you can see in the 3rd function [fn_discount_campaign].
+
 ```sh
 mkdir holserverless
 
@@ -736,8 +738,12 @@ fn init --runtime java fn_discount_upload
 fn init --runtime java fn_discount_cloud_events
 fn init --runtime java fn_discount_campaign
 ```
-
 ![](./media/faas-create-function03.PNG)
+
+Optional:
+```
+fn init --runtime java fn_discount_campaign_pool
+```
 
 Then you must modify each function with the appropiate code (you can ```CTRL + mouse click``` over the links to open new tabs browser):
 
@@ -745,5 +751,6 @@ Then you must modify each function with the appropiate code (you can ```CTRL + m
 2. [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md)
 3. [fn_discount_campaign](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_campaign.md)
 
+Optional [fn_discount_campaign_pool](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_campaign_pool.md)
 # Function Testing
 Now that you create and configure the entire project, you [could test the serverless app and serverless functions](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/funtion_testing.md).
