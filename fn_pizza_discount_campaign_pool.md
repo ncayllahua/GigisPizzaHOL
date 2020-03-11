@@ -291,11 +291,50 @@ Now you can continue with the [execution of the serverless application](https://
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain this changes:
 
 ### GetDiscount.java
-Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [GetDiscount] function. As you can see there is an **Input** class that get the pizza input data in JSON format and set the class variables: demozone, paymentMethod and pizzaPrice.
+To create the UCP pool data connection you must import several oracle ojdbc driver libraries: [oracle.ucp.jdbc.PoolDataSource] and [oracle.ucp.jdbc.PoolDataSourceFactory]
 
 ```java
-public class GetDiscount {
+package com.example.fn;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.sql.*;
+import oracle.ucp.jdbc.PoolDataSource;
+import oracle.ucp.jdbc.PoolDataSourceFactory;
+```
+Your function name is the same as main class and this class must have a public handleRequest method. String invokeEndpointURL and String functionId variables must be changed to call your [GetDiscountPool] function. You must declare several private variables for the DataSource pool and the connection credentials. Its important that ```TNS_ADMIN=/function/wallet``` point to the wallet directory in the Dockerfile definition.
+```java
+public class GetDiscountPool {
+    private PoolDataSource poolDataSource;
+    private final String dbUser         = System.getenv().get("DB_USER");
+    private final String dbPassword     = System.getenv().get("DB_PASSWORD");
+    private final String dbUrl          = System.getenv().get("DB_URL") + System.getenv().get("DB_SERVICE_NAME") + "?TNS_ADMIN=/function/wallet";
+```
+The class constructor define the Data Source Pool connection. You need the db credentials (as environment variables) and your ATP wallet files (unzipped in the Dockerfile definition and docker image creation)
+```java
+    public GetDiscountPool(){        
+        System.err.println("Setting up pool data source");
+        //*********** FOR TESTING ONLY *************************************
+        //System.err.println("ENV::" + dbUser);
+        //System.err.println("ENV::" + dbPassword);
+        //System.err.println("ENV::" + dbUrl);
+        poolDataSource = PoolDataSourceFactory.getPoolDataSource();
+        try {
+            poolDataSource.setConnectionFactoryClassName("oracle.jdbc.pool.OracleDataSource");
+            poolDataSource.setURL(dbUrl);
+            poolDataSource.setUser(dbUser);
+            poolDataSource.setPassword(dbPassword);
+            poolDataSource.setConnectionPoolName("UCP_POOL");
+        }
+        catch (SQLException e) {
+            System.out.println("Pool data source error!");
+            e.printStackTrace();
+        }
+        System.err.println("Pool data source setup...");
+    }
+```
+As you can see there is an **Input** class that get the pizza input data in JSON format and set the class variables: demozone, paymentMethod and pizzaPrice.
+```java
     public static class Input {
         public String demozone;
         public String paymentMethod;
@@ -324,38 +363,16 @@ This assignment could be ignored and use the pizzaData member variables directly
             String demozone      = pizzaData.demozone.toUpperCase();
             String pizzaPrice    = pizzaData.pizzaPrice;
 ```
-Assing the appropiate environment variables to set the jdbc driver and DB access
+Connection to the ATP DB using connection pool, ```poolDataSource.getConnection();```.
 ```java
-            //cast string input into a float
-            System.err.println("inside Discount Function gigis fn function!!! ");
+           //cast string input into a float
+            System.out.println("inside Discount Function gigis fn function!!! ");
             float totalPaidValue  = Float.parseFloat(pizzaPrice);
 
-            String dbUser         = System.getenv().get("DB_USER");
-            String dbPassword     = System.getenv().get("DB_PASSWORD");
-            String dbUrl          = System.getenv().get("DB_URL") + System.getenv().get("DB_SERVICE_NAME");
-            String clientCredPath = System.getenv().get("CLIENT_CREDENTIALS");
-            String keyStorePasswd = System.getenv().get("KEYSTORE_PASSWORD");
-            String truStorePasswd = System.getenv().get("TRUSTSTORE_PASSWORD");
-```
-Set the jdbc driver properties as ssl version, clientpath, keystore, truststore and passowords from env vars.
-```java           
-            System.setProperty("oracle.jdbc.driver.OracleDriver", "true");
-            System.setProperty("oracle.net.ssl_version", "1.2");
-            System.setProperty("javax.net.ssl.keyStore", "${clientCredPath}/keystore.jks");
-            System.setProperty("javax.net.ssl.keyStorePassword", keyStorePasswd);
-            System.setProperty("javax.net.ssl.trustStore", "${clientCredPath}/truststore.jks");
-            System.setProperty("javax.net.ssl.trustStorePassword", truStorePasswd);
-            System.setProperty("oracle.net.tns_admin", clientCredPath);
-```
-Connection to the ATP DB using dbURL, user and password from environment variables.
-```java
-            try {
-                DriverManager.registerDriver(new oracle.jdbc.OracleDriver());
-                //System.err.println("QUERY:: Driver Registration [" + dbUrl +" "+ dbUser+" "+dbPassword + "]");
-                con = DriverManager.getConnection(dbUrl,dbUser,dbPassword);
-                if (con != null) {
-                    System.err.println("Connected to Oracle ATP DB successfully");                
-                    //System.err.println("QUERY:: Driver getConnection");
+            System.setProperty("oracle.jdbc.fanEnabled", "false");
+
+            conn = poolDataSource.getConnection();
+            conn.setAutoCommit(false);                 
 ```
 Configure the prepareStatement SQL
 ```java
@@ -391,46 +408,41 @@ If pizza price is 13$ the discount applied is 5% because min amount 10 is lower 
 
 Last part of the function is to calculate the discount as described before, according to the SQL value and then return the new pizza price.
 ```java
-                    System.err.println("[" + pizzaData.toString() + "] - Pizza Price before discount: " + totalPaidValue + "$");
-                    resultSet = pstmt.executeQuery();
-                    if (resultSet.next()){                                                
-                        discount = Float.parseFloat(resultSet.getString("DISCOUNT"))/100;                        
-                        if (discount > 0){
-                            //apply calculation to float eg: discount = 10%
-                            totalPaidValue -=  (totalPaidValue*discount);
-                            System.err.println("[" + pizzaData.toString() + "] - discount: " + resultSet.getString("DISCOUNT") + "%");
-                        }
-                        else
-                            System.err.println ("[" + pizzaData.toString() + "] - No Discount campaign for this payment! [0%]");
+                System.out.println("[" + pizzaData.toString() + "] - Pizza Price before discount: " + totalPaidValue + "$");
+                resultSet = pstmt.executeQuery();
+                if (resultSet.next()){                                                
+                    discount = Float.parseFloat(resultSet.getString("DISCOUNT"))/100;                        
+                    if (discount > 0){
+                        //apply calculation to float eg: discount = 10%
+                        totalPaidValue -=  (totalPaidValue*discount);
+                        System.out.println("[" + pizzaData.toString() + "] - discount: " + resultSet.getString("DISCOUNT") + "%");
                     }
-                    else {
-                        System.err.println ("[" + pizzaData.toString() + "] - No Discount campaign for this payment!");
-                    }
-                    System.err.println("[" + pizzaData.toString() + "] - total Pizza Price after discount: " + totalPaidValue + "$");
-                    exitValues = Float.toString(totalPaidValue);
+                    else
+                        System.out.println ("[" + pizzaData.toString() + "] - No Discount campaign for this payment! [0%]");
                 }
                 else {
-                    System.err.println("[" + pizzaData.toString() + "] - Error: DB Connection Problem"); 
-                    throw new NullPointerException("DB Connection Problem : NULL!");
+                    System.out.println ("[" + pizzaData.toString() + "] - No Discount campaign for this payment!");
                 }
+                System.out.println("[" + pizzaData.toString() + "] - total Pizza Price after discount: " + totalPaidValue + "$");
+                exitValues = Float.toString(totalPaidValue);                               
             }     
             catch (Exception ex) {
                 StringWriter errors = new StringWriter();
                 ex.printStackTrace(new PrintWriter(errors));                 
-                exitValues = pizzaData.toString() + " - Error: " + ex.toString() + "\n" + ex.getMessage() + errors.toString();                
-            }  
+                exitValues = pizzaData.toString() + " - Error: " + ex.toString() + "\n" + ex.getMessage() + errors.toString();                        }  
+```
+Very important to close the pool connection.
+```java
             finally {
                 con.close();
             }
-        }
-        catch (Exception ex){
-            StringWriter errors = new StringWriter();
+        }       
+        catch (final Exception ex){
+            final StringWriter errors = new StringWriter();
             ex.printStackTrace(new PrintWriter(errors));                 
             exitValues = pizzaData.toString() + " - Error: " + ex.toString() + "\n" + ex.getMessage() + errors.toString();;
         }
-        finally{
-            return exitValues;
-        }
+        return exitValues;
     }
 }
 ```
