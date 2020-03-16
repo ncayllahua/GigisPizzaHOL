@@ -142,7 +142,9 @@ New GIT repo will be created with a README.md file only.
 Repeat again to create 2 new GIT repos:
 * **fn_discount_campaign**
 * **fn_discount_cloudevents**
-
+---
+* [OPTIONAL] **fn_discount_campaign_pool**
+---
 Check that you have three GIT repositories in the main project menu.
 
 ![](./media/devcs-project-create-git-repo03.PNG)
@@ -255,6 +257,10 @@ Repeat this process to the other two serverless functions. **fn_discount_cloud_e
 And **fn_discount_campaign**
 
 ![](./media/fn-devcs/fn-devcs-gitclone23.png)
+
+Optionally **fn_discount_campaign_pool**
+
+![](./media/fn-devcs/fn-devcs-gitclone24.png)
 
 ## Developer Cloud Service CI/CD for Serverless
 Now you'll create the appropiate job and pipelines to upload your functions to OCI FaaS. You'll use CI/CD pipelines from Developer Cloud Service. Please follow next steps to create your first group of jobs and pipelines and then repeat these steps in each fn serverless function.
