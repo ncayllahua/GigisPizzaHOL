@@ -372,7 +372,7 @@ Now you should have 2 jobs [fn_clean_workspaces] and [fn_discount_upload]
 
 ![](./media/fn-devcs/fn-devcs-jobs16.png)
 
-##Serverless app Pipelines
+## Serverless app Pipelines
 Let's create your first CI/CD serverless pipeline. Click Pipeline menu and Create Pipeline button. Next write a descriptive name as [gigispizza_FnCDUploadORDS] for example. Write a description and mark Auto start checkbox. Then click Create button to create your new pipeline.
 
 ![](./media/fn-devcs/fn-devcs-jobs17.png)
