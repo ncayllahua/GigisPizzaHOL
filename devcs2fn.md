@@ -7,8 +7,8 @@ In this optional part you will create:
 - [Developer Cloud Service project](#create-new-project-in-devcs)
 - [Create GIT repositories for each serverless functions](#create-git-repositories)
 - [Clone GIT repositories for each serverless functions](#git-clone-repositories)
-- [Function CI/CD - Jobs](#developer-cloud-service-cicd-for-serverless-jobs)
-- [Pipelines (CI/CD)](#serverless-app-pipelines)
+- [CI/CD - Jobs Creation](#developer-cloud-service-cicd-for-serverless-jobs)
+- [CI/CD - Pipelines](#serverless-app-pipelines)
 
 ## **Creating a Developer Cloud Service Instance**
 Click in the hamburger icon on the top left side and menu will be shown. There select Platform Services (under More Oracle Cloud Services” Area)-\> Developer menu option.
