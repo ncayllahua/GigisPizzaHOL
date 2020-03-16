@@ -440,13 +440,7 @@ You should see a popup window with the pipeline parameters and its default value
 
 ![](./media/fn-devcs/fn-devcs-jobs32.png)
 
-Click Build Now Button and review th Build Queue. The pipeline jobs are waiting for Executor (Build) machine availability.
-
-![](./media/fn-devcs/fn-devcs-jobs33.png)
-
-When one Build VM is available first job in the pipeline will be assigned to that build machine to execute its steps.
-
-![](./media/fn-devcs/fn-devcs-jobs34.png)
+Click Build Now Button and review the Build Queue.
 
 ### Lauch pipelines automatically
 You can lauch your CI/CD pipelines automatically, every time you push your changes to your GIT repository. To fire your pipeline automatically you have to enable this process in your pipeline configuration.
@@ -461,9 +455,17 @@ Then click in Configure Button. Next check **Automatically perform build on SCM 
 
 ![](./media/fn-devcs/fn-devcs-jobs41.png)
 
-You can test you pipeline changing you code in your IDE developer app and then you commit the changes and push it to your GIT repository.
+You can test you pipeline changing you code in your IDE developer app and then you commit the changes and push them to your GIT repository. Review the Build Queue in Developer Cloud Services -> Builds.
 
 ### Review your functions after CI/CD
+The pipeline jobs are waiting for Executor (Build) machine availability.
+
+![](./media/fn-devcs/fn-devcs-jobs33.png)
+
+When one Build VM is available first job in the pipeline will be assigned to that build machine to execute its steps.
+
+![](./media/fn-devcs/fn-devcs-jobs34.png)
+
 You can review the pipeline status. Click in the pipeline name to review the jobs status. When a job is finished successfully the job progress will be green, if a faillure ocurred then the job progress will be red. In your pipelines the second job only will be fired when the first job is red.
 
 ![](./media/fn-devcs/fn-devcs-jobs35.png)
