@@ -262,7 +262,7 @@ Optionally **fn_discount_campaign_pool**
 
 ![](./media/fn-devcs/fn-devcs-gitclone24.png)
 
-## Developer Cloud Service CI/CD for Serverless
+## Developer Cloud Service CI/CD for Serverless. JOBS
 Now you'll create the appropiate job and pipelines to upload your functions to OCI FaaS. You'll use CI/CD pipelines from Developer Cloud Service. Please follow next steps to create your first group of jobs and pipelines and then repeat these steps in each fn serverless function.
 
 Go to Developer Cloud Service Builds menu and Click Create Job button to create your first job.
@@ -372,6 +372,7 @@ Now you should have 2 jobs [fn_clean_workspaces] and [fn_discount_upload]
 
 ![](./media/fn-devcs/fn-devcs-jobs16.png)
 
+##Pipelines
 Let's create your first CI/CD serverless pipeline. Click Pipeline menu and Create Pipeline button. Next write a descriptive name as [gigispizza_FnCDUploadORDS] for example. Write a description and mark Auto start checkbox. Then click Create button to create your new pipeline.
 
 ![](./media/fn-devcs/fn-devcs-jobs17.png)
