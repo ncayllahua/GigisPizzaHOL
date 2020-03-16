@@ -393,6 +393,50 @@ Same from fn_discount_upload to fn_clean_workspaces, but after arrow creation yo
 
 ![](./media/fn-devcs/fn-devcs-jobs21.png)
 
-After pipeline configuration click in Save Button.
+After pipeline configuration click in Save Button. You'll see your new pipeline.
 
 ![](./media/fn-devcs/fn-devcs-jobs22.png)
+
+To create the other serverless functions pipelines, you will repeat last steps, but you can create the jobs copying from existing jobs previously created. You have to click in Jobs menu -> Create Job again
+
+![](./media/fn-devcs/fn-devcs-jobs23.png)
+
+Write a descriptive name for the new job like [fn_discount_campaign_cloud_events]. Write a description for the job and then check Copy From Existing and then select the previously created job from witch you want to create a copy [fn_discount_upload]. Select the build machine template for the job like [VMFnTemplate] and click Create button.
+
+![](./media/fn-devcs/fn-devcs-jobs24.png)
+
+A new job, copy from fn_discount_upload might be created and now you could change the appropiate values to configure the new job to the cloud_events function. Click Git menu and select [fn_discount_cloud_events.git] as the job GIT repository. Other values or scripts are the same, so you don't have to change anything else.
+
+![](./media/fn-devcs/fn-devcs-jobs25.png)
+
+Let's create the pipeline. Click Pipeline menu and Create Pipeline button to access to the pipeline drawing area and repeat the same procedure to create the fn_discount_cloud_events pipeline that you use to create the upload pipeline. The fn_clean_workspaces job is shared across all functions, you don't have to create it again, just use it.
+
+![](./media/fn-devcs/fn-devcs-jobs26.png)
+
+Repaet the same steps to create **fn_discout_campaign** jobs and pipeline. Create the job copying it from existing job.
+
+![](./media/fn-devcs/fn-devcs-jobs27.png)
+
+Select the **fn_discount_campaign** GIT repository as GIT repository for you new Job.
+
+![](./media/fn-devcs/fn-devcs-jobs28.png)
+
+Create the pipeline
+
+![](./media/fn-devcs/fn-devcs-jobs29.png)
+
+Optionally you could create the same jobs and pipelines for **[fn_discount_campaign_pool]**.
+
+Now you have 3 serverless function pipelines. 
+
+![](./media/fn-devcs/fn-devcs-jobs30.png)
+
+### Lauch pipelines manually
+When you change your function code you have not to write any fn command in your command line to build and upload the new code. Just **push** your new changes to your GIT repository and then click Play button in your pipeline to lauch the build and deploy process.
+
+![](./media/fn-devcs/fn-devcs-jobs31.png)
+
+You should see a popup window with the pipeline parameters and its default value.
+
+![](./media/fn-devcs/fn-devcs-jobs32.png)
+
