@@ -459,6 +459,18 @@ You can review the the job status. Click in the job name and review the job resu
 You can review the build log. Click in Build Log button to review the job log. For example in your job log you should see the function build process with your function version number and pushing it to your OCIR repository.
 
 ![](./media/fn-devcs/fn-devcs-jobs37.png)
+### Lauch pipelines automatically
+You can lauch your CI/CD pipelines automatically, every time you push your changes to your GIT repository. To fire your pipeline automatically you have to enable this process in your pipeline configuration.
+
+![](./media/fn-devcs/fn-devcs-jobs30.png)
+
+Click in your first pipeline job [fn_discount_campaign] for example.
+
+![](./media/fn-devcs/fn-devcs-jobs40.png)
+
+Then click in Configure Button. Next check **Automatically perform build on SCM commit**. When you anable this check, every time you do a new commit and push into the GIT repository, this job will be fired automatically. The other jobs in the pipeline will be fired or not dependeing on the result of this first job execution.
+
+[](./media/fn-devcs/fn-devcs-jobs41.png)
 
 ### Review your functions after CI/CD
 Next go to your FaaS menu in OCI web (Developer Services -> Functions) and review your functions **Created** and **Last updated** dates.
