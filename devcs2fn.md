@@ -440,3 +440,31 @@ You should see a popup window with the pipeline parameters and its default value
 
 ![](./media/fn-devcs/fn-devcs-jobs32.png)
 
+Click Build Now Button and review th Build Queue. The pipeline jobs are waiting for Executor (Build) machine availability.
+
+![](./media/fn-devcs/fn-devcs-jobs33.png)
+
+When one Build VM is available first job in the pipeline will be assigned to that build machine to execute its steps.
+
+![](./media/fn-devcs/fn-devcs-jobs34.png)
+
+You can review the pipeline status. Click in the pipeline name to review the jobs status. When a job is finished successfully the job progress will be green, if a faillure ocurred then the job progress will be red. In your pipelines the second job only will be fired when the first job is red.
+
+![](./media/fn-devcs/fn-devcs-jobs35.png)
+
+You can review the the job status. Click in the job name and review the job results.
+
+![](./media/fn-devcs/fn-devcs-jobs36.png)
+
+You can review the build log. Click in Build Log button to review the job log. For example in your job log you should see the function build process with your function version number and pushing it to your OCIR repository.
+
+![](./media/fn-devcs/fn-devcs-jobs37.png)
+
+### Review your functions after CI/CD
+Next go to your FaaS menu in OCI web (Developer Services -> Functions) and review your functions **Created** and **Last updated** dates.
+
+![](./media/fn-devcs/fn-devcs-jobs38.png)
+
+You can review too your OCIR repository in OCI (Developer Services -> Registry). You must have a docker image repository with your OCIR path and your serverless function docker images.
+
+![](./media/fn-devcs/fn-devcs-jobs39.png)
