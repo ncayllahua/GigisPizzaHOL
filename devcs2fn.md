@@ -7,8 +7,8 @@ In this optional part you will create:
 - [Developer Cloud Service project](#create-new-project-in-devcs)
 - [Create GIT repositories for each serverless functions](#create-git-repositories)
 - [Clone GIT repositories for each serverless functions](#git-clone-repositories)
-- [Jobs (several steps to create docker containers with Functions and deploy them in oracle FaaS)]
-- [Pipelines (CI/CD)]
+- [Function CI/CD - Jobs](#developer-cloud-service-cicd-for-serverless-jobs)
+- [Pipelines (CI/CD)](#serverless-app-pipelines)
 
 ## **Creating a Developer Cloud Service Instance**
 Click in the hamburger icon on the top left side and menu will be shown. There select Platform Services (under More Oracle Cloud Services” Area)-\> Developer menu option.
@@ -372,7 +372,7 @@ Now you should have 2 jobs [fn_clean_workspaces] and [fn_discount_upload]
 
 ![](./media/fn-devcs/fn-devcs-jobs16.png)
 
-##Pipelines
+##Serverless app Pipelines
 Let's create your first CI/CD serverless pipeline. Click Pipeline menu and Create Pipeline button. Next write a descriptive name as [gigispizza_FnCDUploadORDS] for example. Write a description and mark Auto start checkbox. Then click Create button to create your new pipeline.
 
 ![](./media/fn-devcs/fn-devcs-jobs17.png)
