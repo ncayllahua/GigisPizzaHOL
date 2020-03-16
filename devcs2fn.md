@@ -293,5 +293,105 @@ You should create 3 string parameters:
 
 ![](./media/fn-devcs/fn-devcs-jobs06.png)
 
+Now you will create several steps in your job to build and deploy your function from your GIT repository files.
+Click Steps menu and Add Step -> Docker -> Docker Login
 
+![](./media/fn-devcs/fn-devcs-jobs07.png)
 
+- **Registry Host** is your regional OCI docker registry server, like [fra.oci.io] change [fra] for your [regional server info](https://docs.cloud.oracle.com/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab).
+- **Username** to access your OCIR repository as [your_tenancy_namespace>/<your_username>]
+- **Password** is your OCIR authtoken password created before for your user.
+
+You could create a link to an external Docker Registry too. Click Link External Registry Button and write the appropiate data in the mandatory fields.
+
+- **Registry Name** a descriptive name for your Docker Registry Link
+- **Registry URL** is your regional OCI docker registry server, like [https://fra.oci.io] change [fra] for your [regional server info](https://docs.cloud.oracle.com/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab).
+- **Authentication** slect Basic.
+- **Username** to access your OCIR repository as [your_tenancy_namespace>/<your_username>]
+- **Password** is your OCIR authtoken password created before for your user.
+
+Then Click in Create Button and this registry link will be stored for future uses.
+
+![](./media/fn-devcs/fn-devcs-jobs08.png)
+
+Let's create next job step. Now select Add Step -> OCI Cli. Write your OCI data in each field and select your OCI Region from the list.
+
+![](./media/fn-devcs/fn-devcs-jobs09.png)
+
+Next you will create a new step. Select Add Step -> Fn -> Fn OCI
+
+![](./media/fn-devcs/fn-devcs-jobs10.png)
+
+- **Ocracle Compartment ID** is your OCI ID compartment.
+- **Provider** you must write [oracle]
+- **Passphrase** you must write [''] (two simple quotes without spaces).
+
+![](./media/fn-devcs/fn-devcs-jobs11.png)
+
+Now you could create a new job steps as Fn -> Fn Build and then Fn -> Fn Deploy but you will create a simple unix shell step using oci cli and fn cli.
+
+Next Step to create -> **Unix Shell** changing the api-url (frankfurt) for your regions api-url (https://functions.**eu-frankfurt-1**.oraclecloud.com) and docker logout **fra**.ocir.io for your ocir region.
+
+![](./media/fn-devcs/fn-devcs-jobs12.png)
+
+Then copy next code in your shell script text area:
+```sh
+fn list context
+fn use context fncontext
+
+fn update context oracle.compartment-id $COMPARTMENTID
+fn update context api-url https://functions.eu-frankfurt-1.oraclecloud.com
+
+fn update context registry $OCIR
+fn --verbose deploy --app $SERVERLESSAPPNAME
+
+fn use context default
+fn list context
+
+docker logout fra.ocir.io
+```
+![](./media/fn-devcs/fn-devcs-jobs13.png)
+
+Next you should create a new job that will be part of your function deployment pipeline. This job will clean your workspace if your main job is a faillure as result of a workspace or context errors. Click in Jobs -> New Job button. Write a descriptive name like [fn_clean_workspaces]. Write a job description and select your build machine template like [VMFnTemplate]
+
+![](./media/fn-devcs/fn-devcs-jobs14.png)
+
+Create OCICli and Fn OCI steps as you create before (in the last job), but in the unix shell script copy next code:
+
+```sh
+fn use context default
+fn list context
+docker logout fra.ocir.io
+```
+
+![](./media/fn-devcs/fn-devcs-jobs15.png)
+
+These commands will put the context as default and will do a docker logout if your previous job fails before the docker logout completes.
+
+Now you should have 2 jobs [fn_clean_workspaces] and [fn_discount_upload]
+
+![](./media/fn-devcs/fn-devcs-jobs16.png)
+
+Let's create your first CI/CD serverless pipeline. Click Pipeline menu and Create Pipeline button. Next write a descriptive name as [gigispizza_FnCDUploadORDS] for example. Write a description and mark Auto start checkbox. Then click Create button to create your new pipeline.
+
+![](./media/fn-devcs/fn-devcs-jobs17.png)
+
+Now you can see your pipeline draw area. In the right menu name Jobs you must have all your created jobs. Start process mark the first step in your pipeline.
+
+![](./media/fn-devcs/fn-devcs-jobs18.png)
+
+Drag and drop your jobs to the drawing area.
+
+![](./media/fn-devcs/fn-devcs-jobs19.png)
+
+Connect Start with fn_discount_upload job, clicking in the start small circle and point the fn_discount_upload right small circle.
+
+![](./media/fn-devcs/fn-devcs-jobs20.png)
+
+Same from fn_discount_upload to fn_clean_workspaces, but after arrow creation you have to right mouse button click over the new arrow and select Failed in the combobox Result Condition. This step in your pipeline only will be fired if your fn_discount_upload job result in a faillure.
+
+![](./media/fn-devcs/fn-devcs-jobs21.png)
+
+After pipeline configuration click in Save Button.
+
+![](./media/fn-devcs/fn-devcs-jobs22.png)
