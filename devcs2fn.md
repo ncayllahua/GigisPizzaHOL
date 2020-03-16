@@ -73,7 +73,7 @@ Now we will select specific Software components required for Fn Function build p
 
 ![](./media/image45.png)
 
-Now configure software components. Fn 0 will have to be selected together with Docker, OCIcli, Kubectl, Python and required build VM
+Now configure software components. Fn 0 will have to be selected together with Docker, OCIcli, Python and required build VM
 components. No Node JS and Java components this time required:
 
 ![](./media/image46.png)
@@ -272,4 +272,26 @@ Go to Developer Cloud Service Builds menu and Click Create Job button to create 
 Write a descriptive job name like [fn_discount_uoload] a job description and a Template (build machine template) VMFnTemplate.
 
 ![](./media/fn-devcs/fn-devcs-jobs02.png)
+
+Next Add Git configuration clicking in Add Git dropdown menu and then select Git.
+
+![](./media/fn-devcs/fn-devcs-jobs03.png)
+
+In configure GIT menu, select your serverless function GIT repository [fn_discount_campaign_upload].
+
+![](./media/fn-devcs/fn-devcs-jobs04.png)
+
+Next click in Paramters and Add Parameter. Then select String Parameter to create a new IN String parameter to your job script.
+
+![](./media/fn-devcs/fn-devcs-jobs05.png)
+
+You should create 3 string parameters:
+
+- **OCIR** with your ocir region URL and path, like [fra.ocir.io/<your_tenancy>/<your_ocir_repository>]
+- **COMPARTMENTID** with your compartment oci id
+- **SERVERLESSAPPNAME** with your FaaS OCI serverless app name like [gigis-serverless-hol]
+
+![](./media/fn-devcs/fn-devcs-jobs06.png)
+
+
 
