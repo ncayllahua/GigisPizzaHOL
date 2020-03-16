@@ -267,3 +267,9 @@ Now you'll create the appropiate job and pipelines to upload your functions to O
 
 Go to Developer Cloud Service Builds menu and Click Create Job button to create your first job.
 
+![](./media/fn-devcs/fn-devcs-jobs01.png)
+
+Write a descriptive job name like [fn_discount_uoload] a job description and a Template (build machine template) VMFnTemplate.
+
+![](./media/fn-devcs/fn-devcs-jobs02.png)
+
