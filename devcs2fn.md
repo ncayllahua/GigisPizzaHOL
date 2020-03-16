@@ -470,7 +470,7 @@ Click in your first pipeline job [fn_discount_campaign] for example.
 
 Then click in Configure Button. Next check **Automatically perform build on SCM commit**. When you anable this check, every time you do a new commit and push into the GIT repository, this job will be fired automatically. The other jobs in the pipeline will be fired or not dependeing on the result of this first job execution.
 
-[](./media/fn-devcs/fn-devcs-jobs41.png)
+![](./media/fn-devcs/fn-devcs-jobs41.png)
 
 ### Review your functions after CI/CD
 Next go to your FaaS menu in OCI web (Developer Services -> Functions) and review your functions **Created** and **Last updated** dates.
