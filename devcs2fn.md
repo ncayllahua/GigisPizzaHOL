@@ -1,4 +1,4 @@
-# FaaS and Developer Cloud Service [WORK IN PROGRESS - Cooming SOON]
+# FaaS and Developer Cloud Service.
 This is an optional part for Gigi's pizza serverless LAB, using Developer Cloud Service as DevOps and CI/CD tooling. 
 
 In this optional part you will create:
