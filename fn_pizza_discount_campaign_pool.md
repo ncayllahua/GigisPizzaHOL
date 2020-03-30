@@ -496,6 +496,10 @@ RUN yum install -y unzip
 COPY dbwallet.zip /function
 RUN unzip /function/dbwallet.zip -d /function/wallet/ && rm /function/dbwallet.zip
 ```
+Database Resident Connection Pool (DRCP) in Autonomous Database supports easier and more efficient management of open connections. You should include (SERVER=POOLED) in your tnsnames.ora connection string. In this case you'll change tnsnames.ora file once it would be unzipped and sed command will change the ```high.atp.oraclecloud.com)``` connection string to ```high.atp.oraclecloud.com)(SERVER=POOLED)```.
+```dockerfile
+RUN sed -i 's/high.atp.oraclecloud.com)/high.atp.oraclecloud.com)(SERVER=POOLED)/g' /function/wallet/tnsnames.ora
+```
 In this part of the dockerfile you will create the package, so you have to use the **pom.xml** file and insert all the jar dependecies from jdbc jar and other jar libraries.
 ```dockerfile
 ENV MAVEN_OPTS -Dhttp.proxyHost= -Dhttp.proxyPort= -Dhttps.proxyHost= -Dhttps.proxyPort= -Dhttp.nonProxyHosts= -Dmaven.repo.local=/usr/share/maven/ref/repository
