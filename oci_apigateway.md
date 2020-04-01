@@ -116,7 +116,7 @@ Now that you have created and tested your serverless function with your new api 
 To modify your microservice orchestrator, you should use an IDE software like it's installed in your development machine (visual studio core for example). You could get the code from your GIT repository in Developer Cloud Service (git clone command).
 
 ### Git Clone microservice orchestrator project
-You can use the same develpment machine as you used in serverless HOL. This machine should have intalled an IDE software like visual studio core, jdeveloper, eclipse... for example. The recomendation is to use a linux based machine but you can use windows too. This HOL was made with a linux based machine.
+You can use the same develpment machine as you used in serverless HOL. This machine should have installed an IDE software like visual studio core, jdeveloper, eclipse... for example. The recomendation is to use a linux OS based machine but you can use MS Windows OS too. This HOL was created with a linux OS based machine.
 
 Create a new directory to store your git project. [vscode-projects-oci] then [nodejs] for example.
 
@@ -126,13 +126,13 @@ Open Developer Cloud Service microservices project and select microservice_orche
 
 ![](./media/api-gateway/api-gateway-microservice04.png)
 
-Next open your IDE software and create a git clone of the microservice orchestrator from Developer Cloud Service GIT repository that you imported in the microservices HOL. This HOL was made with visual studio core included in the [development image in OCI](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace.md) as you could see in ther serverless HOL.
+Next open your IDE software and create a git clone of the microservice orchestrator from Developer Cloud Service GIT repository that you imported in the microservices HOL. This HOL was created using visual studio core that it's included in the [development image in OCI marketplace](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace.md) as you could see in the serverless HOL.
 
 Then ```CTRL+SHIFT+p``` to open the commands menu and select ```git clone```
 
 ![](./media/api-gateway/api-gateway-microservice05.png)
 
-Copy the https URL cloned from DevCS and press Enter.
+Copy the https GIT clone URL from DevCS and press Enter.
 
 ![](./media/api-gateway/api-gateway-microservice06.png)
 
@@ -149,7 +149,7 @@ A new [microservice_orchetrator] directory will be created with the entire proje
 ![](./media/api-gateway/api-gateway-microservice09.png)
 
 ### Changing your microservice orchestrator code.
-You must change your microservice orchestrator code in order to make an api call to the discount serverless function. First you must introduce a new gateway config in the config.js file, so open your oci api gateway at OCI main menu -> Developer Services -> API gateway, then select your gateway and copy the **[Hostname]** value.
+You must change your microservice orchestrator code in order to send an api call to the discount serverless function. First you must introduce the new gateway config in the config.js file. Open your oci api gateway at OCI main menu -> Developer Services -> API gateway, then select your gateway and copy the **[Hostname]** value.
 
 ![](./media/api-gateway/api-gateway-microservice10.png)
 
@@ -176,13 +176,13 @@ je2d6ypgypxxafqh2bsev3vzsm.apigateway.eu-frankfurt-1.oci.customer-oci.com```) an
 ![](./media/api-gateway/api-gateway-microservice11.png)
 
 #### adapters.js
-Now you must change the adapters.js file. This file contain the use method that is the code to send http request to other microservices. As the api gateway use https instead of http, you must include https requests in the use function. Copy the next [code](https://raw.githubusercontent.com/oraclespainpresales/wedo_gigispizza_ms_orchestrator/master/adapters.js) to change the original one.
+Now you must change the adapters.js file. This file contain the javascript **use** method that is the code to send http request to other microservices. As the api gateway use https instead of http, you must include https requests in the javascript use function. Copy the next [code](https://raw.githubusercontent.com/oraclespainpresales/wedo_gigispizza_ms_orchestrator/master/adapters.js) to change the original one.
 
 ```javascript
 "use strict";
 const http = require('http');
 ```
-import the https request functionality for nodejs express.
+Import the https request functionality for nodejs express.
 ```javascript
 const https = require('https');
 ```
@@ -282,7 +282,7 @@ module.exports.use = use;
 #### index.js
 This is the main file in the microservice orchestrator. In this file you can see the invoke code to a serverless function, but you will change that code to use the api gateway call instead of create a direct invoke to the serverless function.
 
-The invoke code is in the ```/createOrder``` post call. You must change the entire function with the new code.
+The invoke code is in the ```/createOrder``` post call javascript function. You must change the entire function with the new code.
 
 ```javascript
 app.post('/createOrder', async (req, res) => {
@@ -359,9 +359,9 @@ Push your code to the Git repository and introduce your DevCS password.
 
 ![](./media/api-gateway/api-gateway-microservice18.png)
 
-After push completion, DevCS starts the microservice orchestrator pipeline to upgrade your code in your OKE cluster. Wait several minutes to complete that deployment to test the new functionality.
+After push completion, DevCS will start the microservice orchestrator pipeline to upgrade your code in your OKE cluster. Wait several minutes to complete that deployment to test the new functionality.
 
-You can review the functions telemetry and papertrail or loggin service functions logs, after a pizza order execution in the chatbot for example.
+You can review the serverless app telemetry and papertrail or loggin service functions logs, after a pizza order execution in the chatbot for example.
 
 ![](./media/fn-execution/faas-app-execution13.png)
 
