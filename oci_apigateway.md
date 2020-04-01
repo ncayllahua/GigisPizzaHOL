@@ -93,7 +93,7 @@ If you click on your new Deployment you could see the Deployment data including 
 ## Test your API Route.
 To test your new API Gateway deployment and route, you can use your development machine to execute a cURL command like:
 ```sh
-curl -i -k --data '{"demozone":"madri","paymentMethod":"amex","pizzaPrice":"21"}' https://<your_endpoint_id>.apigateway.eu-frankfurt-1.oci.customer-oci.com/discount-fn/discount
+curl -i -k --data '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' https://<your_endpoint_id>.apigateway.eu-frankfurt-1.oci.customer-oci.com/discount-fn/discount
 ```
 You must receive a response like
 ```html
