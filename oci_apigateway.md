@@ -27,7 +27,6 @@ Then select your root compartment and then Create Policy.
 
 Write a descriptive name for the new Policy like [gigis-apigateway-policy]. Then a Description for the policy. Keep Policy Current, and in Statement 1 write:
 ```sh
-Edit Policy Statements
 Allow any-user to use functions-family in compartment wedo:devops where ALL {request.principal.type = 'ApiGateway', request.resource.compartment.id = 'ocid1.compartment.oc1.your_hands_on_lab_compartment_id'}
 ```
 
