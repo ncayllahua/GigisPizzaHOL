@@ -154,13 +154,14 @@ You must change your microservice orchestrator code in order to make an api call
 
 ![](./media/api-gateway/api-gateway-microservice10.png)
 
+#### config.js
 Next, open config.js file in your IDE and write this code after ```HOST: process.env.ORCH_HOST || 'localhost',``` line:
 
 ```javascript
     //############### JSON API GW CONFIG ####################
     jsonfncl: {
         getDiscount: {
-            host: '<your_apigateway_hostname_id>',
+            host: 'je2d6ypgypxxafqh2bsev3vzsm.apigateway.eu-frankfurt-1.oci.customer-oci.com',
             port: 443,
             method: 'POST',
             path: '/discount-fn/discount',
@@ -171,5 +172,108 @@ Next, open config.js file in your IDE and write this code after ```HOST: process
     },
  ```
 The host value is the copied hostname value (something like ``` 
-je2d6ypgypxxafqh2bsev3vzsm.apigateway.eu-frankfurt-1.oci.customer-oci.com```) and path value is the deployment path + route path ```/discount-fn/discount```.
+je2d6ypgypxxafqh2bsev3vzsm.apigateway.eu-frankfurt-1.oci.customer-oci.com```) and the path value is the deployment path + route path ```/discount-fn/discount```.
 
+![](./media/api-gateway/api-gateway-microservice11.png)
+
+#### adapters.js
+Now you must change the adapters.js file. This file contain the use method that is the code to send http request to other microservices. As the api gateway use https instead of http, you must include https requests in the use function. Copy the next [code](https://raw.githubusercontent.com/oraclespainpresales/wedo_gigispizza_ms_orchestrator/master/adapters.js) to change the original one.
+
+```javascript
+"use strict";
+const http = require('http');
+```
+import the https request functionality for nodejs express.
+```javascript
+const https = require('https');
+```
+The config data is the information that you write in the config.js file. As you wrote in that file, the service port is 443 (https), so you can use this information to change the call type from http to https.
+```javascript
+function use(config, data) {
+    var type = "http"
+ 
+    console.log("USE#config ", config);
+    console.log("USE#port ", config.port);
+    if (config.port == "443"){
+        type = "https"
+    }
+    console.log("USE#type ", type);
+ ```
+ Then you could replicate the http code but instead of use **http.request** you must use **https.request**.
+ ```javascript
+    let result = new Promise(function (resolve, reject) {
+        let body = data
+        // request option
+        let options = config
+        // http or https request object
+        if (type == "http"){
+            let req = http.request(options, function (res) {
+                let result = '';
+ 
+                res.on('data', function (chunk) {
+                    result += chunk;
+                });
+ 
+                res.on('end', function () {
+                    var response = JSON.parse(result);
+                    resolve(response)
+                });
+ 
+                res.on('error', function (err) {
+                    console.log("Error calling: " + config.path);
+                    reject(err)
+                })
+            });
+ 
+            req.on('error', function (err) {
+                console.log("Error calling: " + config.path);
+                reject(err)
+            });
+ 
+            //send request
+            console.log("USE#INFO http Method: ", options.method);
+            if (options.method != "GET"){
+                console.log("INFO body: ", JSON.stringify(body));
+                req.write(JSON.stringify(body));
+            }
+            req.end();
+        }
+        else{
+            let req = https.request(options, function (res) {
+                let result = '';
+ 
+                res.on('data', function (chunk) {
+                    result += chunk;
+                });
+ 
+                res.on('end', function () {
+                    var response = JSON.parse(result);
+                    resolve(response)
+                });
+ 
+                res.on('error', function (err) {
+                    console.log("Error calling: " + config.path);
+                    reject(err)
+                })
+            });
+ 
+            req.on('error', function (err) {
+                console.log("Error calling: " + config.path);
+                reject(err)
+            });
+ 
+            //send request
+            console.log("USE#INFO https Method: ", options.method);
+            if (options.method != "GET"){
+                console.log("INFO body: ", body);
+                req.write(body);
+            }
+            req.end();
+        }
+    });
+ 
+    return result
+}
+ 
+module.exports.use = use;
+```
