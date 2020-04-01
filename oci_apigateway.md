@@ -2,7 +2,7 @@ Coming Soon!
 # Conecting Microservices to Severless Function with API Gateway
 Once you have finished the microservices HOL and the serverless HOL, you might have a architecure quite similar to next figure.
 
-![](./media/fn-discount-campaign/gigis-architect-HOL1-2.png)
+![](./media/gigis-architect-HOL1-2.png)
 
 As you can see there isn't any connection or call from microservice orchestrator to the new discount campaign serverless app or serverless function. You might have connected the old serverless function to your microservice orchestrator, but the idea is that you could use the new serverless app.
 
@@ -12,7 +12,7 @@ If you review the orchestrator nodejs code you can see that a direct serverless 
 
 The Api Gateway let you more configuration options and more management improves. The idea is at the end of this HOL you have an architecture similar to that:
 
-![](./media/fn-discount-campaign/gigis-architect-HOL1-2-API.png)
+![](./media/gigis-architect-HOL1-2-API.png)
 
 Lets create an OCI Api Gateway!
 
