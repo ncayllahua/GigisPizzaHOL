@@ -113,7 +113,7 @@ opc-request-id: /56B744A399CAB72AE35DD23ABD7294D8/E72C6994D4E16D8C3F5DDD0742375F
 ## Modifiying your Microservice Orchestrator
 Now that you have created and tested your serverless function with your new api gateway, let's change your microservice orchestrator to send an API call to your serverless function.
 
-To modify your microservice orchestrator, you should use an IDE program like installed in your development machine (visual studio core for example). You could get the code from your GIT repository in Developer Cloud Service (git clone command).
+To modify your microservice orchestrator, you should use an IDE software like it's installed in your development machine (visual studio core for example). You could get the code from your GIT repository in Developer Cloud Service (git clone command).
 
 ### Git Clone microservice orchestrator project
 You can use the same develpment machine as you used in serverless HOL. This machine should have intalled an IDE software like visual studio core, jdeveloper, eclipse... for example. The recomendation is to use a linux based machine but you can use windows too. This HOL was made with a linux based machine.
