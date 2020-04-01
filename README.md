@@ -1,5 +1,5 @@
 # :pizza: GigisPizzaHOL :pizza:
-Hands on Lab - Gigis pizza microservices/serverless app
+Hands on Lab - Gigis pizza microservices/serverless app (Oracle Cloud Infraestructure OCI)
 
 - [x] [HOL 5967 - Microservices](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/hol5967_userguide.md)
 - [x] [HOL serverless](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md)
