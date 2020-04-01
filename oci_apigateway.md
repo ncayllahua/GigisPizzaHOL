@@ -16,7 +16,7 @@ The Api Gateway let you more configuration options and more management improves.
 
 Lets create an OCI Api Gateway!
 
-##OCI Policies to use API Gateway.
+## OCI Policies to use API Gateway.
 To use API Gateway you must create a new Security Policy in your **root compartment**. Go to OCI main menu -> Identity -> Policies
 
 ![](./media/api-gateway/api-gateway-policies01.png)
