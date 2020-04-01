@@ -43,7 +43,7 @@ Select your compartment (you can use the last HOL-serverless compartment for exa
 
 ![](./media/api-gateway/api-gateway-creation02.png)
 
-Write a descriptive name like [gigis-api-gateway] or something like that. You could create this apigateway as Private as you have the microservices and serverless functions in the same cloud provider and in the same compartment (even the same virtual network). For academical purpose you will create the apigateway as PUBLIC (to invoke the function from internet or other tenants for example). Next select a VCN and a Public Subnet (we recomend that you have created a Regional Public Subnet or add one to your VCN). Click on Create button to create your API Gateway.
+Write a descriptive name like [gigis-api-gateway] or something like that. You could create this apigateway as Private as you have the microservices and serverless functions in the same cloud provider and in the same compartment (even the same virtual network). For academical purpose you will create the apigateway as **PUBLIC** (to invoke the function from internet or other tenants for example). Next select a VCN and a Public Subnet (we recomend that you create a Regional Public Subnet or add one to your VCN). Click on Create button to create your API Gateway.
 
 ![](./media/api-gateway/api-gateway-creation03.png)
 
