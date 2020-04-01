@@ -111,3 +111,40 @@ opc-request-id: /56B744A399CAB72AE35DD23ABD7294D8/E72C6994D4E16D8C3F5DDD0742375F
 
 21.0
 ```
+## Modifiying your Microservice Orchestrator
+Now that you have created and tested your serverless function with your new api gateway, let's change your microservice orchestrator to send an API call to your serverless function.
+
+To modify your microservice orchestrator, you should use an IDE program like installed in your development machine (visual studio core for example). You could get the code from your GIT repository in Developer Cloud Service (git clone command).
+
+### Git Clone microservice orchestrator project
+You can use the same develpment machine as you used in serverless HOL. This machine should have intalled an IDE software like visual studio core, jdeveloper, eclipse... for example. The recomendation is to use a linux based machine but you can use windows too. This HOL was made with a linux based machine.
+
+Create a new directory to store your git project. [vscode-projects-oci] then [nodejs] for example.
+
+![](./media/api-gateway/api-gateway-microservice01.png)
+
+Open Developer Cloud Service microservices project and select microservice_orchestrator in the GIT menu. Then select Clone dropdrownbox and copy https url.
+
+![](./media/api-gateway/api-gateway-microservice04.png)
+
+Next open your IDE software and create a git clone of the microservice orchestrator from Developer Cloud Service GIT repository that you imported in the microservices HOL. This HOL was made with visual studio core included in the [development image in OCI](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace.md) as you could see in ther serverless HOL.
+
+Then ```CTRL+SHIFT+p``` to open the commands menu and select ```git clone```
+
+![](./media/api-gateway/api-gateway-microservice05.png)
+
+Copy the https URL cloned from DevCS and press Enter.
+
+![](./media/api-gateway/api-gateway-microservice06.png)
+
+Select your recently created directory [vscode-projects-oci/nodejs] to put your local git repository and click Select Repository Location button.
+
+![](./media/api-gateway/api-gateway-microservice07.png)
+
+Next write your DevCS user password to access your GIT repository and press Enter. Visual Studio will create a new [.git] repository in your local directory.
+
+![](./media/api-gateway/api-gateway-microservice08.png)
+
+A new [microservice_orchetrator] directory will be created with the entire project inside it.
+
+![](./media/api-gateway/api-gateway-microservice09.png)
