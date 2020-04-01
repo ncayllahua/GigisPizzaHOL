@@ -1,6 +1,6 @@
 Coming Soon!
 # Conecting Microservices to Severless Function with API Gateway
-Once you have finished the microservices HOL and the serverless HOL, you might have a architecure quite similar to next figure.
+Once you have finished the microservices HOL and the serverless HOL, you might have an architecure quite similar to next figure.
 
 ![](./media/gigis-architect-HOL1-2.png)
 
