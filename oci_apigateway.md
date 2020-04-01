@@ -150,19 +150,26 @@ A new [microservice_orchetrator] directory will be created with the entire proje
 ![](./media/api-gateway/api-gateway-microservice09.png)
 
 ### Changing your microservice orchestrator code.
-You must change your microservice orchestrator code in order to make an api call to the discount serverless function. First you must introduce a new gateway config in the config.js file. Open this file and write this code after ```HOST: process.env.ORCH_HOST || 'localhost',``` line:
+You must change your microservice orchestrator code in order to make an api call to the discount serverless function. First you must introduce a new gateway config in the config.js file, so open your oci api gateway at OCI main menu -> Developer Services -> API gateway, then select your gateway and copy the **[Hostname]** value.
+
+![](./media/api-gateway/api-gateway-microservice10.png)
+
+Next, open config.js file in your IDE and write this code after ```HOST: process.env.ORCH_HOST || 'localhost',``` line:
 
 ```javascript
     //############### JSON API GW CONFIG ####################
     jsonfncl: {
         getDiscount: {
-            host: "fzskntbkilzlpa4dgbyiqbktpm.apigateway.eu-frankfurt-1.oci.customer-oci.com",
+            host: '<your_apigateway_hostname_id>',
             port: 443,
             method: 'POST',
-            path: '/discount-fn/getdiscount',
+            path: '/discount-fn/discount',
             headers: {
                 'Content-Type': 'application/json'
             }
         }
     },
  ```
+The host value is the copied hostname value (something like ``` 
+je2d6ypgypxxafqh2bsev3vzsm.apigateway.eu-frankfurt-1.oci.customer-oci.com```) and path value is the deployment path + route path ```/discount-fn/discount```.
+
