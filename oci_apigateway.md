@@ -339,3 +339,31 @@ adapters.use(config.jsonfncl.getDiscount, totalpaidInput).then((response) => {
 
 ![](./media/api-gateway/api-gateway-microservice13.png)
 
+### Test the microservice orchestrator
+Once you have finished the change of the new code, you must update your DevCS Git repository. Click File Save All in your IDE. 
+
+![](./media/api-gateway/api-gateway-microservice14.png)
+
+Then push the new changes to your Git repository. Click in the SCM icon.
+
+![](./media/api-gateway/api-gateway-microservice15.png)
+
+Next click in the commit icon at the top of the IDE Source Control frame.
+
+![](./media/api-gateway/api-gateway-microservice16.png)
+
+Write a comment for this commit and press Enter.
+
+![](./media/api-gateway/api-gateway-microservice17.png)
+
+Push your code to the Git repository and introduce your DevCS password.
+
+![](./media/api-gateway/api-gateway-microservice18.png)
+
+After push completion, DevCS starts the microservice orchestrator pipeline to upgrade your code in your OKE cluster. Wait several minutes to complete that deployment to test the new functionality.
+
+You can review the functions telemetry and papertrail or loggin service functions logs, after a pizza order execution in the chatbot for example.
+
+![](./media/fn-execution/faas-app-execution13.png)
+
+![](./media/fn-execution/faas-app-execution12.png)
