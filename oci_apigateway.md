@@ -16,6 +16,25 @@ The Api Gateway let you more configuration options and more management improves.
 
 Lets create an OCI Api Gateway!
 
+##OCI Policies to use API Gateway.
+To use API Gateway you must create a new Security Policy in your **root compartment**. Go to OCI main menu -> Identity -> Policies
+
+![](./media/api-gateway/api-gateway-policies01.png)
+
+Then select your root compartment and then Create Policy.
+
+![](./media/api-gateway/api-gateway-policies02.png)
+
+Write a descriptive name for the new Policy like [gigis-apigateway-policy]. Then a Description for the policy. Keep Policy Current, and in Statement 1 write:
+```sh
+Edit Policy Statements
+Allow any-user to use functions-family in compartment wedo:devops where ALL {request.principal.type = 'ApiGateway', request.resource.compartment.id = 'ocid1.compartment.oc1.your_hands_on_lab_compartment_id'}
+```
+
+Then Click Create Button to create the new api gateway policy.
+
+![](./media/api-gateway/api-gateway-policies03.png)
+
 ## OCI Api Gateway Creation.
 Go to OCI main menu -> Developer Services -> API Gateway.
 
