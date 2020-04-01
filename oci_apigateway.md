@@ -67,8 +67,28 @@ Now you must have created and Active an API Gateway Deployment.
 
 ![](./media/api-gateway/api-gateway-creation09.png)
 
-If you click on your new Deployment you could see the Deployment data including the Endpoint [```
-https://je2d6ypgypxxafqh2bsev3vzsm.apigateway.eu-frankfurt-1.oci.customer-oci.com/discount-fn```] to do the api calls. Click in Show to review the Endpoint and Copy it to use in the next steps. You can view also the Telemetry use graphs.
+If you click on your new Deployment you could see the Deployment data including the Endpoint to do the api calls. Click in Show to review the Endpoint and Copy it to use in the next steps. You can view also the Telemetry use graphs.
 
 ![](./media/api-gateway/api-gateway-creation10.png)
 
+## Test your API Route.
+To test your new API Gateway deployment and route, you can use your development machine to execute a cURL command like:
+```sh
+curl -i -k --data '{"demozone":"madri","paymentMethod":"amex","pizzaPrice":"21"}' https://<your_endpoint_id>.apigateway.eu-frankfurt-1.oci.customer-oci.com/discount-fn/discount
+```
+You must receive a response like
+```html
+HTTP/1.1 200 OK
+Date: Wed, 01 Apr 2020 12:23:41 GMT
+Content-Type: text/plain
+Connection: keep-alive
+Content-Length: 4
+Server: Oracle API Gateway
+Strict-Transport-Security: max-age=31536000
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: sameorigin
+X-Content-Type-Options: nosniff
+opc-request-id: /56B744A399CAB72AE35DD23ABD7294D8/E72C6994D4E16D8C3F5DDD0742375F2A
+
+21.0
+```
