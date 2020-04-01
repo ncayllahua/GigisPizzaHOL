@@ -77,7 +77,7 @@ Then click Next to Review the Route.
 
 ![](./media/api-gateway/api-gateway-creation07.png)
 
-Review your Route and then Click Create button. Wait until creationg will be completed.
+Review your Route and then Click Create button. Wait until creation would be completed.
 
 ![](./media/api-gateway/api-gateway-creation08.png)
 
