@@ -4,7 +4,8 @@ Hands on Lab - Gigis pizza microservices/serverless app
 - [x] [HOL 5967 - Microservices](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/hol5967_userguide.md)
 - [x] [HOL serverless](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md)
 - [x] [HOL serverless pipelines](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md)
-To connect serverless HOL to microservices HOL you'll can follow the Api Gateeway HOL.
+
+* To connect serverless HOL to microservices HOL you'll can follow the Api Gateeway HOL.
 - [ ] [HOL Api Gateway]
 
 ## :notebook: Interesting information for the demo.
