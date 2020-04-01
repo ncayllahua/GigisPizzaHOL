@@ -55,7 +55,7 @@ Once you have the API Gateway created you need to create Deployments. Click on D
 
 ![](./media/api-gateway/api-gateway-creation05.png)
 
-Select From Scratch to create a new API Gateway from the OCI UI. But you could create a configuration JSON file to import it and create the API Gateway from a file. Then
+Select From Scratch to create a new API Gateway from the OCI UI. But you could create a configuration JSON file to import it and create the API Gateway Deployment from a file. Then
 
 - Write a descriptive name like **[gigis-functions-discount-campaign]**
 - Write a path to access to the new API call, like **[/discount-fn]**
