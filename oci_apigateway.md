@@ -150,3 +150,19 @@ A new [microservice_orchetrator] directory will be created with the entire proje
 ![](./media/api-gateway/api-gateway-microservice09.png)
 
 ### Changing your microservice orchestrator code.
+You must change your microservice orchestrator code in order to make an api call to the discount serverless function. First you must introduce a new gateway config in the config.js file. Open this file and write this code after ```HOST: process.env.ORCH_HOST || 'localhost',``` line:
+
+```javascript
+    //############### JSON API GW CONFIG ####################
+    jsonfncl: {
+        getDiscount: {
+            host: "fzskntbkilzlpa4dgbyiqbktpm.apigateway.eu-frankfurt-1.oci.customer-oci.com",
+            port: 443,
+            method: 'POST',
+            path: '/discount-fn/getdiscount',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    },
+ ```
