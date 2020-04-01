@@ -277,3 +277,65 @@ function use(config, data) {
  
 module.exports.use = use;
 ```
+
+![](./media/api-gateway/api-gateway-microservice12.png)
+
+#### index.js
+This is the main file in the microservice orchestrator. In this file you can see the invoke code to a serverless function, but you will change that code to use the api gateway call instead of create a direct invoke to the serverless function.
+
+The invoke code is in the ```/createOrder``` post call. You must change the entire function with the new code.
+
+```javascript
+app.post('/createOrder', async (req, res) => {
+    try {
+        //Payload to call at "config.jsondb.insert"
+        let order   = req.body.order
+        let payment = req.body.payment
+                
+        //console.log(req.body);
+        console.log("ORDER-BODY",order);
+        console.log("PAYMENT-BODY",payment);
+
+        let paymentMethod = req.body.payment.paymentMethod;
+        let totalPaid     = req.body.payment.totalPaid;
+
+        //Applying a discount calculated with a serverless function
+        //if (paymentMethod == "AMEX") {  
+        console.log("Searching for a discount");      
+            
+        console.log("Total to pay before discount applied (1***):" + totalPaid + "$");
+        var totalpaidInput = '{"demozone":"' + demozone + '","paymentMethod":"' + paymentMethod + '","pizzaPrice":"' + totalPaid + '"}'
+        console.log("Input Object:: " + totalpaidInput);    
+        adapters.use(config.jsonfncl.getDiscount, totalpaidInput).then((response) => {
+            console.log("functionResponse :" + response)
+            // Change the valueof payment.totalPaid
+            payment.totalPaid = response.toString();
+            console.log("Total to pay after discount applied (1***):" + payment.totalPaid + "$");
+            insertData(order,payment,res); 
+        }).catch((err) => {
+            console.error("Error: createOrder-> ", err);
+            res.send({"error":err.toString()});
+        })        
+    }
+    catch (err){
+        console.error("Error: createOrder-> ", err);
+        res.send({"error":err.toString()});
+    }
+});
+```
+The new app.post creteOrder function includes next piece of code. You can see the use method (from adapters.js) to invoke the api gateway call that is configured in the config.js (from JSON **config.jsonfncl.getDiscount**)
+ ```javascript
+adapters.use(config.jsonfncl.getDiscount, totalpaidInput).then((response) => {
+    console.log("functionResponse :" + response)
+    // Change the valueof payment.totalPaid
+    payment.totalPaid = response.toString();
+    console.log("Total to pay after discount applied (1***):" + payment.totalPaid + "$");
+    insertData(order,payment,res); 
+}).catch((err) => {
+    console.error("Error: createOrder-> ", err);
+    res.send({"error":err.toString()});
+})  
+```
+
+![](./media/api-gateway/api-gateway-microservice13.png)
+
