@@ -220,7 +220,7 @@ In Users area, click on copy button for your email address user(remember this us
 
 Now we will create an Auth token for the user by using a public and private key. We will provide you with two already created .pem keys to download in:
 
-[<span class="underline">https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/Credentials</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/Credentials)
+[<span class="underline">https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/microservices/Credentials</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/microservices/Credentials)
 
 First thing you need to do is viewing content of Private Key and copying private key, making a note in a txt file. Then do the same with public key and copy content into clipboard.
 
@@ -649,7 +649,7 @@ In Template Section, select Import Project Option:
 
 For Properties section, we will provide you with details to connect to a preconfigured DevCS instance from which you an import the project in this url:
 
-https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/Credentials
+https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/microservices/Credentials
 
 Click on Next:
 
