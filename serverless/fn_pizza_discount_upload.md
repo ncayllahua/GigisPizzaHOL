@@ -35,11 +35,11 @@ You could deploy this new serverless function in your FaaS environment, but the 
 
 Open Visual Studio Code (Applications -> Accessories in the development VM) or your favourite IDE 
 
-![](./images/faas-create-function07.PNG)
+![](./images/fn-discount-upload/faas-create-function07.PNG)
 
 Select **add workspace folder ...** in the Start Menu.
 
-![](./images/faas-create-function08.PNG)
+![](./images/fn-discount-upload/faas-create-function08.PNG)
 
 Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_upload]. Then click Add button to create a workspace from this directory in Visual Studio Core.
 
@@ -477,4 +477,4 @@ CMD ["com.example.fn.UploadDiscountCampaigns::handleRequest"]
 ```
 # Continue the HOL
 
-* [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/fn_pizza_discount_cloud_events.md)
+* [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_cloud_events.md)
