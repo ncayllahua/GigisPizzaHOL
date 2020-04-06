@@ -1,12 +1,12 @@
 # :pizza: GigisPizzaHOL :pizza:
 Hands on Lab - Gigis pizza microservices/serverless app (Oracle Cloud Infraestructure OCI)
 
-- [x] [HOL 5967 - Microservices](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/hol5967_userguide.md)
-- [x] [HOL serverless](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md)
-- [x] [HOL serverless pipelines](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md)
+- [x] [HOL 5967 - Microservices](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/microservices/hol5967_userguide.md)
+- [x] [HOL serverless](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md)
+- [x] [HOL serverless pipelines](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/devcs2fn.md)
 
 * To connect serverless HOL to microservices HOL you can follow the Api Gateeway HOL.
-- [X] [HOL Api Gateway](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/oci_apigateway.md)
+- [X] [HOL Api Gateway](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/api-gateway/oci_apigateway.md)
 
 ## :notebook: Interesting information for the demo.
 
@@ -15,7 +15,7 @@ Hands on Lab - Gigis pizza microservices/serverless app (Oracle Cloud Infraestru
 - kubectl version 1.17.0
 - fn cli 0.5.92
 
-:computer: marketplace developer VM machine [link](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace.md)
+:computer: marketplace developer VM machine [link](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md)
 
 ### Python upgrade to python 3
 ```sh
