@@ -365,3 +365,6 @@ You can review the serverless app telemetry and papertrail or loggin service fun
 ![](../serverless/images/fn-execution/faas-app-execution13.png)
 
 ![](../serverless/images/fn-execution/faas-app-execution12.png)
+
+### Return main Gigis Hands on Labs page.
+* [Gigi's HOL](https://github.com/oraclespainpresales/GigisPizzaHOL)
