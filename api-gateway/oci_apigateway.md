@@ -362,6 +362,6 @@ After push completion, DevCS will start the microservice orchestrator pipeline t
 
 You can review the serverless app telemetry and papertrail or loggin service functions logs, after a pizza order execution in the chatbot for example.
 
-![](./serverless/images/fn-execution/faas-app-execution13.png)
+![](../serverless/images/fn-execution/faas-app-execution13.png)
 
-![](./serverless/images/fn-execution/faas-app-execution12.png)
+![](../serverless/images/fn-execution/faas-app-execution12.png)
