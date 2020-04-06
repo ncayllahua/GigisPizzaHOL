@@ -34,11 +34,11 @@ To create your new development machine from OCI marketplace follow next steps:
 
 Go to OCI main menu Solutions & Platform. Then click Marketplace
 
-![](./devmachine-marketplace/images/oci-marketplace-dev-machine-configuration01.PNG)
+![](./images/oci-marketplace-dev-machine-configuration01.PNG)
 
 Select ORacle Cloud Developer image from the image list. You can use ```CRTL + F``` in your browser to search developer text.
 
-![](./devmachine-marketplace/images/oci-marketplace-dev-machine-configuration02.PNG)
+![](./images/oci-marketplace-dev-machine-configuration02.PNG)
 
 To create the new dev machine from developer image follow next steps:
 * Select your Version (currently only one version is available).
@@ -48,7 +48,7 @@ To create the new dev machine from developer image follow next steps:
 
 -- Notice that the Software Price is **$0.00/hr** but the machine has an IaaS (hardware) cost depends on your shape selection in the next steps.
 
-![](./devmachine-marketplace/images/oci-marketplace-dev-machine-configuration03.PNG)
+![](./images/oci-marketplace-dev-machine-configuration03.PNG)
 
 Configure your virtual machine as:
 * Write a descriptive name [dev-machine].
@@ -56,29 +56,29 @@ Configure your virtual machine as:
 * Instance Type as [Virtual Machine]
 * Configure your compute as your needs. We recomend to create the developer machine with **VM.StandardE2.1** shape (1 OCPU and 8GB vRAM) but the image create by default **2.1 (without E)** machine (1 OCPU and 15GB vRAM). You'll can change the VM shape after you create it, so you could start with StandardE2.1 and if you need more vRAM or OCPUs you'll can change to a higher specs shape in the future.
 
-![](./devmachine-marketplace/images/oci-marketplace-dev-machine-configuration04.PNG)
+![](./images/oci-marketplace-dev-machine-configuration04.PNG)
 
 Next, check Assign a public IP address is selected to access this VM from your internet connection in your laptop or desktop.
 
-![](./devmachine-marketplace/images/oci-marketplace-dev-machine-configuration05.PNG)
+![](./images/oci-marketplace-dev-machine-configuration05.PNG)
 
 For security reasons choose a SSH key file or paste a SSH key, to access the new VM (never use username and password to access a cloud machine as a best practice). If you don't have any private/pub keypair, then you must create them. You can use puttygen (recomended for windows) or openSSH to generate new keypair. Go to [Oracle Generating an SSH Key pair](https://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/compute-iaas/generating_ssh_key/generate_ssh_key.html) tutorial to create them in linux or Windows OS.
 
 Review your configuration and then click Create button to create the new developer VM instance in your compartment.
 
-![](./devmachine-marketplace/images/oci-marketplace-dev-machine-configuration06.PNG)
+![](./images/oci-marketplace-dev-machine-configuration06.PNG)
 
 Your new VM will be created in a few minutes. Provisioning orange!
 
-![](./devmachine-marketplace/images/oci-marketplace-dev-machine-configuration07.PNG)
+![](./images/oci-marketplace-dev-machine-configuration07.PNG)
 
 When you machine goes Green (Running) you can see a new **Public IP Address** to access it. please note it to future sections.
 
-![](./devmachine-marketplace/images/oci-marketplace-dev-machine-configuration08.PNG)
+![](./images/oci-marketplace-dev-machine-configuration08.PNG)
 
 If you click in View Usage Instructions button, you will be redirected to the marketplace Image Usage Instructions. Read them to get SSH access to this VM. 
 
-![](./devmachine-marketplace/images/oci-marketplace-dev-machine-configuration09.PNG)
+![](./images/oci-marketplace-dev-machine-configuration09.PNG)
 
 ### Accessing a Graphical User Interface (GUI) via VNC
 To access a GUI via VNC, do the following:
@@ -104,11 +104,11 @@ Follow steps in the previous section (2 - 8) to connect via SSH (not GUI) and cr
 
 Download [mobaxterm](https://mobaxterm.mobatek.net/) from its web page and install it. Then open mobaxterm in your computer (laptop or desktop). Next Select Tunneling.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling01.png)
+![](./images/mobaxterm-configure-tunneling01.png)
 
 A new window setup will be opened to configure the SSH tunneling. Click New SSH tunnel button.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling02.png)
+![](./images/mobaxterm-configure-tunneling02.png)
 
 A new window setup will be opened with the SSH tunnel configuration. 
 * Select Local port forwarding check.
@@ -118,35 +118,35 @@ A new window setup will be opened with the SSH tunnel configuration.
 
 Click Save button to create the SSH tunnel.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling03.png)
+![](./images/mobaxterm-configure-tunneling03.png)
 
 Click the Key icon in the new tunnel to attach the machine private key file that you create before (public/private key pair). Then click on play button to start the SSH tunnel.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling04.png)
+![](./images/mobaxterm-configure-tunneling04.png)
 
 You receive a message to introduce the passphrase if you create a public/private key pair with passphrase. Write it and continue to start the tunnel.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling05.png)
+![](./images/mobaxterm-configure-tunneling05.png)
 
 Select new Session Button and then Select VNC to create a VNC conection with the SSH tunnel.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling06.png)
+![](./images/mobaxterm-configure-tunneling06.png)
 
 Write **[localhost]** as Remote hostname or IP Address and **[5901]** as port. Then Click OK button to create the VNC connection.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling07.png)
+![](./images/mobaxterm-configure-tunneling07.png)
 
 Double click in the VNC connection to start it. Write your password for the vncserver connection that you create previously.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling08.png)
+![](./images/mobaxterm-configure-tunneling08.png)
 
 Mobaxterm question you about save this password internally. Click Yes or No according to your needs.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling09.png)
+![](./images/mobaxterm-configure-tunneling09.png)
 
 After that you can use the dev-machine GUI to create your programs, scripts or whatever you need.
 
-![](./devmachine-marketplace/images/mobaxterm-configure-tunneling10.png)
+![](./images/mobaxterm-configure-tunneling10.png)
 
 ## Development Machine Configuration
 When you have created your developer market-place machine, you must configure it to use in your OCI tenant. Please follow next config tutorial
