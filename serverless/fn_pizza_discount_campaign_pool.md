@@ -553,4 +553,4 @@ CMD ["com.example.fn.GetDiscountPool::handleRequest"]
 ```
 # Continue the HOL
 
-* [Execute you serverless Application](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/funtion_testing.md)
+* [Execute you serverless Application](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/funtion_testing.md)
