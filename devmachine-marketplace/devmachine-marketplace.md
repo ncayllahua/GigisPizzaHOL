@@ -151,7 +151,7 @@ After that you can use the dev-machine GUI to create your programs, scripts or w
 ## Development Machine Configuration
 When you have created your developer market-place machine, you must configure it to use in your OCI tenant. Please follow next config tutorial
 
-* [Developer Machine Config](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer_machine.md)
+* [Developer Machine Config](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md)
 
 ## VNC Commands
 To kill a VNC session vncserver --kill :<terminal_num>
