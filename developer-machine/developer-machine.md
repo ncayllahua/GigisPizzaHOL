@@ -71,16 +71,16 @@ If you are upgrading the OCI cli you don't have to configure it again, but if th
 ```sh
 oci setup config
 ```
-![](./developer-machine/images/image77.png)
+![](./images/image77.png)
 
 Keep your txt file with your OCI Tenancy parameters close as you will be asked for those parameters. Before starting, please copy into the VM the private key previously provided:
 
-![](./developer-machine/images/image78.png)
+![](./images/image78.png)
 
-![](./developer-machine/images/image79.png)
+![](./images/image79.png)
 
 Decline to generate a new RSA key pair, copy your private key previously provided into you environmet machine. We recommend you to paste it into this path:
 ```sh
 /home/holouser/.oci
 ```
-![](./developer-machine/images/image80.png)
+![](./images/image80.png)
