@@ -140,5 +140,5 @@ echo -n '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' | fn in
 ## Continue with Optional DevCS and pipelines part or finish the HOL.
 Congratulations!! You have finished the main Gigi's Serverless HOL. Now you can return to the main HOL page or you can continue the HOL with the optional part in witch you will can learn how to create a Developer Cloud Service project and a CI/CD pipeline with your new serverless functions.
 
-* [FaaS and Developer Cloud Service](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md)
-* [Gigi's serverless HOL](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md)
+* [FaaS and Developer Cloud Service](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/devcs2fn.md)
+* [Gigi's serverless HOL](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md)
