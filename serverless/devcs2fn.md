@@ -485,3 +485,6 @@ Next go to your FaaS menu in OCI web (Developer Services -> Functions) and revie
 You can review too your OCIR repository in OCI (Developer Services -> Registry). You must have a docker image repository with your OCIR path and your serverless function docker images.
 
 ![](./images/fn-devcs/fn-devcs-jobs39.png)
+
+### Return main Gigis serverless HOL.
+* [Gigi's serverless HOL](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md)
