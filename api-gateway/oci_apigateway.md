@@ -2,7 +2,7 @@ Coming Soon!
 # Conecting Microservices to Severless with API Gateway
 Once you have finished the microservices HOL and the serverless HOL, you might have an architecure quite similar to next figure.
 
-![](./api-gateway/images/gigis-architect-HOL1-2.png)
+![](./images/gigis-architect-HOL1-2.png)
 
 As you can see there isn't any connection or call from microservice orchestrator to the new discount campaign serverless app or serverless function. You might have connected the old serverless function to your microservice orchestrator, but the idea is that you could use the new serverless app.
 
