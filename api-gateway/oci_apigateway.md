@@ -1,4 +1,3 @@
-Coming Soon!
 # Conecting Microservices to Severless with API Gateway
 Once you have finished the microservices HOL and the serverless HOL, you might have an architecure quite similar to next figure.
 
