@@ -1,4 +1,4 @@
-[![](./microservices/images/image1.png)](https://www.oracle.com/code-one/)
+[![](./images/image1.png)](https://www.oracle.com/code-one/)
 
 <span class="underline">**Introduction**</span> - 3 -
 
@@ -105,7 +105,7 @@ We have coded the front-end part of Gigi's pizza app with Visual Builder Cloud S
 
 Finally we have tied a chatbot(Skill) with the microservice-order as a front-end to order the pizzas. And a mobile application for the delivery employees. This mobile app gets the PIZZA OUT FOR DELIVERY status orders and calculates the best route from the Gigi's pizza store to the customer address using Oracle Spatial PDB as location gps points/nodes database.
 
-![](./microservices/images/image2.png)
+![](./images/image2.png)
 
 ## **HOL to be done in 2 hours**
 
@@ -127,61 +127,61 @@ As an attendee to OOW/CodeOne 19 you have been provided with access to a free tr
 
 Go to [<span class="underline">http://cloud.oracle.com</span>](http://cloud.oracle.com) and click in the “Try for Free” button in the top right:
 
-![](./microservices/images/image3.png)
+![](./images/image3.png)
 
 Then enter your email address and select your Country/Territory:
 
-![](./microservices/images/image4.png)
+![](./images/image4.png)
 
 The system will detect that your email address has been whitelisted as Oracle attendee and you will be offered a free trial with no need to use a credit card or sms. Trial offered is for 500$ for 30 days.
 
-![](./microservices/images/image5.png)
+![](./images/image5.png)
 
 Fill in required fields. For account type, select “Personal Use”. Select a name for your trial tenancy, a region and the rest of details:
 
-![](./microservices/images/image6.png)
+![](./images/image6.png)
 
-![](./microservices/images/image7.png)
+![](./images/image7.png)
 
 Then enter a password required to authenticate in your tenancy when provisioned. Remember password has to be longer than 12 character and including at least an upper character and a special character:
 
-![](./microservices/images/image8.png)
+![](./images/image8.png)
 
 Accept the Terms and Conditions:
 
-![](./microservices/images/image9.png)
+![](./images/image9.png)
 
 And you will be redirected to the initial page or Oracle Cloud Infrastructure to authenticate for the first time in your tenancy:
 
-![](./microservices/images/image10.png)
+![](./images/image10.png)
 
 Enter your user and password just created:
 
-![](./microservices/images/image11.png)
+![](./images/image11.png)
 
 And you will be directed to initial Oracle Cloud Infrastructure Dashboard (referred from now on as OCI Dashboard):
 
-![](./microservices/images/image12.png)
+![](./images/image12.png)
 
 Click in the hamburger icon on the top left side and menu will be shown. There select Platform Services (under More Oracle Cloud Services” Area)-\> Developer menu option.
 
-![](./microservices/images/image13.png)
+![](./images/image13.png)
 
 There you will be taken to Developer Cloud Service Welcome Page. Let’s start creating a DevCS instance. Click in Create Instance.
 
-![](./microservices/images/image14.png)
+![](./images/image14.png)
 
 In next screen provide an Instance Name and fill in also Region you want to create your instance, then click in Next Button:
 
-![](./microservices/images/image15.png)
+![](./images/image15.png)
 
 Check the selections in previous screen an click in Create button:
 
-![](./microservices/images/image16.png)
+![](./images/image16.png)
 
 Instance creation starts creating service as you can see in Status screen:
 
-![](./microservices/images/image17.png)
+![](./images/image17.png)
 
 This process will take some time so let’s take advantage of time while this process ends, and we can then configure the Developer Cloud Service Instance.
 
@@ -202,21 +202,21 @@ Now before we are able to configure a Developer Cloud Service Instance, let’s 
 
 In Oracle Cloud Infrastructure interface menu, go to Administration-\>Tenancy Details:
 
-![](./microservices/images/image18.png)
+![](./images/image18.png)
 
 In Tenancy information area, select copy button so that you copy the OCID for tenancy and don’t forget to make a note in a txt file.
 
 Also copy the Object Storage Namespace under the Object Storage Setting area and don’t forget to make a note in a text file.
 
-![](./microservices/images/image19.png)
+![](./images/image19.png)
 
 Now go to Menu option Identity-\>Users:
 
-![](./microservices/images/image20.png)
+![](./images/image20.png)
 
 In Users area, click on copy button for your email address user(remember this user has admin role in OCI tenancy) so that you can copy the user’s OCID. Don’t forget to make a note in a txt file.
 
-![](./microservices/images/image21.png)
+![](./images/image21.png)
 
 Now we will create an Auth token for the user by using a public and private key. We will provide you with two already created .pem keys to download in:
 
@@ -224,50 +224,50 @@ Now we will create an Auth token for the user by using a public and private key.
 
 First thing you need to do is viewing content of Private Key and copying private key, making a note in a txt file. Then do the same with public key and copy content into clipboard.
 
-![](./microservices/images/image22.png)
+![](./images/image22.png)
 
 Now click in your email user and you will be directed to a details screen, where you must click in Api Keys area in “Add Public Key”
 button.
 
-![](./microservices/images/image23.png)
+![](./images/image23.png)
 
 Now paste in popup window the Public Key previously copied in clipboard. Make sure you have copied public.pem content and not private.pem content. Click in Add button.
 
-![](./microservices/images/image24.png)
+![](./images/image24.png)
 
 Now copy Fingerprint generated as it will be used later. Don’t forget to make a note in a txt file.
 
-![](./microservices/images/image25.png)
+![](./images/image25.png)
 
 Now create parameter required (AuthToken) by clicking in Auth Tokens under Resources area, clicking in Generate Token button and then
 providing a description:
 
 IMPORTANT REMINDER: AFTER YOU CLICK IN Generate Token Button, COPY THIS AUTHTOKEN AND KEEP SAFE AS IT CANNOT BE FOUND LATER
 
-![](./microservices/images/image26.png)
+![](./images/image26.png)
 
 IMPORTANT: Copy the Generated Token in a txt file and keep safe as we will require it later:
 
-![](./microservices/images/image27.png)
+![](./images/image27.png)
 
 Now we have to create a new Compartment as currently we only have the root one in tenancy by default. In OCI Dashboard Menu go to
 Identity-\>Compartments 
 
-![](./microservices/images/image28.png)
+![](./images/image28.png)
 
 Click on “Create Compartment” button and fill in Name(we have called it
 HandsOnLab), Description and Parent Compartment(it must be root referred
 with Tenancy name) and click in “Create Compartment” button:
 
-![](./microservices/images/image29.png)
+![](./images/image29.png)
 
 Now click in Compartment name you have just created (HandOnLab for me):
 
-![](./microservices/images/image30.png)
+![](./images/image30.png)
 
 And click on copy link to copy the Compartment OCID. Don’t forget to make a note in a txt file.
 
-![](./microservices/images/image31.png)
+![](./images/image31.png)
 
 This concludes the list of OCI tenancy parameters you will require to run next section.
 
@@ -275,45 +275,45 @@ This concludes the list of OCI tenancy parameters you will require to run next s
 
 Now let’s check that Developer Cloud Service has been created so that we can configure it.
 
-Check updated status by clicking in ![](./microservices/images/image32.png) icon:
+Check updated status by clicking in ![](./images/image32.png) icon:
 
-![](./microservices/images/image33.png)
+![](./images/image33.png)
 
 Once the Developer Cloud Service instance has been provisioned, click on the right side menu and select: “Access Service Instance”:
 
-![](./microservices/images/image34.png)
+![](./images/image34.png)
 
 You will see next screen where you are requested to run some extra configurations related with Compute & Storage. Click in OCI Credentials link in Message and have close to you the txt file with OCI information previously gathered:
 
-![](./microservices/images/image35.png)
+![](./images/image35.png)
 
 Select OCI for Account type and fill in the rest of the fields. Leave passphrase blank and also check the box below.
 
 Then click on validate button and if compute and storage connections are correct, then click on Save button.
 
-![](./microservices/images/image36.png)
+![](./images/image36.png)
 
 ## Virtual Machines Template configuration in DevCS
 
 Now we need to configure one or two VM servers to be able to build your project developments. We will create a VM Build Server to be used to compile and Build Microservices components and another to compile and Build Fn Function (Serverless) components that will require a different set of Software components:
 
-![](./microservices/images/image37.png)
+![](./images/image37.png)
 
 To do this, we have to create a first virtual Machine Template to be used with Microservices, so click in Virtual Machines Templates tab:
 
-![](./microservices/images/image38.png)
+![](./images/image38.png)
 
 Now click on Create button:
 
-![](./microservices/images/image39.png)
+![](./images/image39.png)
 
 Provide a Name(like VM\_basic\_Template) and select Oracle Linux 7 as Platform:
 
-![](./microservices/images/image40.png)
+![](./images/image40.png)
 
 Now Click in Configure Software button:
 
-![](./microservices/images/image41.png)
+![](./images/image41.png)
 
 Now select the mínimum Software packages will will require later to build our project. If you remember from Introduction section, we will build microservices developed with Node JS v8 and Java . We will also require to access to OCI so OCICli will be required and thus Python will be also needed. Then we will have to build Docker images and also deploy those images in a Kubernetes Cluster thus KUBECtl will be needed too. Finally we also need the Minimum required Build VM components. So mark software components options below:
 
@@ -324,60 +324,60 @@ Now select the mínimum Software packages will will require later to build our p
   - Python 3.3.6
   - Required Build VM Components
 
-![](./microservices/images/image42.png)
+![](./images/image42.png)
 
 Click in Done button and we will have finally our VM template created like below:
 
-![](./microservices/images/image43.png)
+![](./images/image43.png)
 
 Now we will create a second Virtual Machine Template for Serverless Components. Click in Create Template again and fill in fields and click on Create button:
 
-![](./microservices/images/image44.png)
+![](./images/image44.png)
 
 Now we will select specific Software components required for Fn Function build process. Click in Configure Software button:
 
-![](./microservices/images/image45.png)
+![](./images/image45.png)
 
 Now configure software components. Fn 0 will have to be selected together with Docker, OCIcli, Kubectl, Python and required build VM
 components. No Node JS and Java components this time required:
 
-![](./microservices/images/image46.png)
+![](./images/image46.png)
 
 Click on Done and these are the software components in VM template:
 
-![](./microservices/images/image47.png)
+![](./images/image47.png)
 
 ## Build Virtual Machines configuration in DevCS
 
 Now we have to create a couple of real VM in OCI based in Virtual Machine template just created. So, we will select Build Virtual Machines Tab and will click on Create button:
 
-![](./microservices/images/image48.png)
+![](./images/image48.png)
 
 Now Select 1 as quantity, select the previously created template, your region and finally select as Shape the option VM.Standard.E2.2:
 
-![](./microservices/images/image49.png)
+![](./images/image49.png)
 
 Now your VM will start creation process
 
-![](./microservices/images/image50.png)
+![](./images/image50.png)
 
 It is important to modify to Sleep Timeout a recommend value of300 minutes (basically longer than lab duration) so that once started, the build server won’t automatically enter into sleep mode.
 
-![](./microservices/images/image51.png)
+![](./images/image51.png)
 
 And now we will create following the same process a second Build Virtual machine using the Fn Function defined template:
 
-![](./microservices/images/image52.png)
+![](./images/image52.png)
 
-![](./microservices/images/image53.png)
+![](./images/image53.png)
 
 IMPORTANT NOTE: At this point try to manually start both VM Servers like in screenshot below:
 
-![](./microservices/images/image54.png)
+![](./images/image54.png)
 
 And check that Status changes to starting in both servers:
 
-![](./microservices/images/image55.png)
+![](./images/image55.png)
 
 # **Creating a Kubernetes Cluster**
 
@@ -385,7 +385,7 @@ Now it is time to create a Kubernetes Cluster to deploy the microservices we wil
 
 Start by creating a policy that allows Service OKE to be created to manage all resources in this tenancy. To do this in OCI Dashboard Menu go to Identity-\>Policies.
 
-![](./microservices/images/image56.png)
+![](./images/image56.png)
 
 Check that root compartment is selected. Then click in Button Create Policy and fill in fields taking special care of filling in Statement field in Policy Statements area with this value:
 ```
@@ -393,60 +393,60 @@ Allow service OKE to manage all-resources in tenancy
 ```
 And then click in Create button:
 
-![](./microservices/images/image57.png)
+![](./images/image57.png)
 
 Then check that the policy has been created:
 
-![](./microservices/images/image58.png)
+![](./images/image58.png)
 
 Then in OCI Dashboard Menu go to: Developer Services-\> Container Clusters (OKE)
 
-![](./microservices/images/image59.png)
+![](./images/image59.png)
 
 Select the compartment you have previously created under List Scope and click in Create Cluster button:
 
-![](./microservices/images/image60.png)
+![](./images/image60.png)
 
 Provide a name for the cluster, then select QUICK CREATE option and Launch Workflow button:
 
-![](./microservices/images/image300.PNG)
+![](./images/image300.PNG)
 
 Select Shape VM.Standard1.1 and 3 (or less if you don't want to create a 3 workernodes nodepool) in the NUMBER OF NODES (this number is the VMs that will be created into the node pool). Then click in NEXT button setting the default options for the rest of parameters for a cluster review:
 
-![](./microservices/images/image301.PNG)
+![](./images/image301.PNG)
 
 Review the cluster information before to create it, and click on Create Cluster Button or back to modify cluster options:
 
-![](./microservices/images/image302.PNG)
+![](./images/image302.PNG)
 
 The previous QUICK CREATE Option will setup a 3 nodes Kubernetes Cluster with predefined Virtual Cloud Network, 3 Subnets, Security Lists, Route tables. When you are done with checks, please click on the Requesting Cluster area in your Cluster name.
 
 Note: Cluster creation process can take several minutes.
 
-![](./microservices/images/image303.PNG)
+![](./images/image303.PNG)
 
-![](./microservices/images/image64.png)
+![](./images/image64.png)
 
 Then you are taken to the Cluster Information page. Please copy Cluster id and don’t forget to make a note in a txt file as you will need this data later:
 
-![](./microservices/images/image65.png)
+![](./images/image65.png)
 
 It will take several minutes for the cluster to be created. Once created, if you scroll down in previous screen and select Node Pools
 under Resources area,you can check that a Node Pool with three Node Clusters have been created:
 
-![](./microservices/images/image66.png)
+![](./images/image66.png)
 
 Note: you may find that Compute nodes have not been created yet as. This process can take several minutes as compute instances have to be created and then started:
 
-![](./microservices/images/image67.png)
+![](./images/image67.png)
 
 Now your Kubernetes Cluster is created. But we need to run some extra steps to get started with managing the Kubernetes Cluster.
 
 If you click under Resources section in Getting Started. This section explains steps to access to you Cluster dashboard by using Kubectl. In this section it is explained in detail how to install ocicli and kubectl to access to Kubernetes management tool:
 
-![](./microservices/images/image310.PNG)
+![](./images/image310.PNG)
 
-![](./microservices/images/image311.PNG)
+![](./images/image311.PNG)
 
 So that we avoid installing in your laptops these components that also require Python and other prereqs, we will provide you in next section with **two preinstalled options(YOU ONLY NEED TO DO ONE OF THE NEXT TWO SECTIONS)** for which **you should have either Virtual Box or Docker installed in advance in your laptop**:
 
@@ -464,55 +464,55 @@ This tooling will help you for instance to copy/paste between the VM and the hos
 
 Once Image is downloaded or copied, please import the image in Oracle VM VirtualBox. Select Menu File and Import Appliance…:
 
-![](./microservices/images/image70.png)
+![](./images/image70.png)
 
 Then choose the path to the .OVA copied or downloaded before and click in Continue button:
 
-![](./microservices/images/image71.png)
+![](./images/image71.png)
 
 Leave default options and click on Import button:
 
-![](./microservices/images/image72.png)
+![](./images/image72.png)
 
 The process will take several minutes:
 
-![](./microservices/images/image73.png)
+![](./images/image73.png)
 
 Once imported, you will have a VM named DOC-1017486. Start the VM by clicking in start button:
 
-![](./microservices/images/image74.png)
+![](./images/image74.png)
 
 It should take some time to start the VM. Click on enter and you should see the login screen.
 
 **NOTE:** If you face any issue, please check that Graphic Controller selected is VBoxSVGA as there are some issues in VirtualBox 6 if you use a different one.
 
-![](./microservices/images/image75.png)
+![](./images/image75.png)
 
 Click on Hand-On Lab User. Password for user is oracle.
 
-![](./microservices/images/image76.png)
+![](./images/image76.png)
 
 Once logged in, open a terminal window and execute next command to configure ocicli:
 
 oci setup config
 
-![](./microservices/images/image77.png)
+![](./images/image77.png)
 
 Keep your txt file with your OCI Tenancy parameters close as you will be asked for those parameters. Before starting, please copy into the VM the private key previously provided:
 
-![](./microservices/images/image78.png)
+![](./images/image78.png)
 
-![](./microservices/images/image79.png)
+![](./images/image79.png)
 
 Decline to generate a new RSA key pair, copy your private key previously provided into the VM. We recommend you to paste it into this path:
 
 /home/holouser/.oci
 
-![](./microservices/images/image80.png)
+![](./images/image80.png)
 
 Now let’s configure kubectl. Inside your cluster information page, click the “Access Kubeconfig” button:
 
-![](./microservices/images/image81.png)
+![](./images/image81.png)
 
 A popup window will appear providing you with the commands you have to run to configure kubectl to connect to the Kubernetes cluster just created(change value below with your own cluster id and region):
 ```
@@ -522,20 +522,20 @@ A popup window will appear providing you with the commands you have to run to co
     --token-version 2.0.0
 3)  export KUBECONFIG=$HOME/.kube/config
 ```
-![](./microservices/images/image311.PNG)
+![](./images/image311.PNG)
 
 When you execute commands below, you can face an issue and you must run an extra command to configure private key permissions:
 oci setup-repair-file-permissions –file /home/holouser/.oci/private.pem
 
-![](./microservices/images/image83.png)
+![](./images/image83.png)
 
 You will follow steps mentioned in Access Kubernetes Dashboard section, so that we can launch the Kubernetes Dashboard:
 
-![](./microservices/images/image312.PNG)
+![](./images/image312.PNG)
 
 Click on SIGN IN button and finally you are logged in Kube Dashboard:
 
-![](./microservices/images/image90.png)
+![](./images/image90.png)
 
 To enable Kubernetes to pull an image from Oracle Cloud Infrastructure Registry when deploying an application, you need to create a Kubernetes secret. The secret includes all the login details you would provide if you were manually logging in to Oracle Cloud Infrastructure Registry using the docker login command, including your auth token.
 
@@ -548,11 +548,11 @@ kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --d
 
 NOTE: To make sure that you don’t copy hidden characters, please copy this command template from: [<span class="underline">https://github.com/oraclespainpresales/GigisPizzaHOL</span>](https://github.com/oraclespainpresales/GigisPizzaHOL)
 
-![](./microservices/images/image91.png)
+![](./images/image91.png)
 
 If you go then to Kubernetes Dashboard in browser inside the VM and navigate to Secrets menu under Config and Storage Area, you will see the Secret you have just created:
 
-![](./microservices/images/image92.png)
+![](./images/image92.png)
 
 **IMPORTANT NOTE:** Once you finish this section, skip section below and move to next section Titled [**<span class="underline">Importing a Developer Cloud Service Project</span>**](#_Toc18932109)
 
@@ -562,7 +562,7 @@ If you have docker already installed in your laptop (ideally on Mac or Linux as 
 ```
 docker pull colivares1974/ociimage:hol5967
 ```
-![](./microservices/images/image93.png)
+![](./images/image93.png)
 
 Now create a folder in your local drive:
 Linux/MacOS:
@@ -573,13 +573,13 @@ or Windows:
 ```Windows: 
 c:\> md ociimage/tmp
 ```
-![](./microservices/images/image94.png)
+![](./images/image94.png)
 
 Launch Container while mounting the ociimage file:
 ```
 docker run -it -p 8001:8001 -v ~/ociimage/tmp:/root/tmp colivares1974/ociimage:hol5967
 ```
-![](./microservices/images/image95.png)
+![](./images/image95.png)
 
 Now let’s configure access to oci tenancy via ocicli with our tenancy details. info will be used by kubectl to configure a config file to access to Kubernetes cluster previously created. Then, to enable Kubernetes to pull an image from Oracle Cloud Infrastructure Registry when deploying our application, you need to create a Kubernetes secret. The secret includes all the login details you would provide if you were manually logging in to Oracle Cloud Infrastructure Registry using the docker login command, including your auth token. Finally we will launch Kubernetes proxy so that we can have access to Kubernetes Dashboard from a web browser.
 
@@ -588,14 +588,14 @@ All these steps are explained in detail:
 ```
 nano .oci/config
 ```
-![](./microservices/images/image96.png)
+![](./images/image96.png)
 ```
 > Modify config file with your tenancy details(User OCID, Fingerprint,
 > Tenancy OCID and Region). Keep path to private key in key\_file as it
 > has already been loaded to that default path. When done press CTRL+o
 > to save changes and CTRL+x to close nano editor:
 ```
-![](./microservices/images/image97.png)
+![](./images/image97.png)
 
 2)  Launch command to create a kubeconfig file modifying cluster-id and region with your tenancy details:
 ```
@@ -605,13 +605,13 @@ For example I used this command for my tenancy:
 ```
 oci ce cluster create-kubeconfig --cluster-id ocid1.cluster.oc1.iad.aaaaaaaaafqtomjsmq3tszddmuyggyrtmqzdenzrmyygmzjzhc2dkoldgvst --file $HOME/.kube/config --region us-ashburn-1
 ```
-![](./microservices/images/image98.png)
+![](./images/image98.png)
 
 You can check details for config file created:
 ```
 cat .kube/config
 ```
-![](./microservices/images/image99.png)
+![](./images/image99.png)
 
 To setup KUBECONFIG env variable, run next command: 
 ```
@@ -625,7 +625,7 @@ kubectl create secret docker-registry ocirsecret --docker-server=<region>.ocir.i
 ```
 kubectl create secret docker-registry ocirsecret --docker-server=iad.ocir.io --docker-username='idkmbiwb03s9/colivares1974@gmail.com' --docker-password='vm{wRs\>0d9DR4HedsAIY' --docker-email='colivares1974@gmail.com'
 ```
-![](./microservices/images/image100.png)
+![](./images/image100.png)
 
 If successful, this line should appear as in previous screen:
 ```
@@ -637,15 +637,15 @@ Once that we have a Kubernetes Cluster, let’s move on to next step which is im
 
 Go to your DevCS instance and in Organization Menu option, under Projects tab, click in Create:
 
-![](./microservices/images/image101.png)
+![](./images/image101.png)
 
 Enter a Name for your Project, for Security select Private and your Preferred Language. Then Click in Next:
 
-![](./microservices/images/image102.png)
+![](./images/image102.png)
 
 In Template Section, select Import Project Option:
 
-![](./microservices/images/image103.png)
+![](./images/image103.png)
 
 For Properties section, we will provide you with details to connect to a preconfigured DevCS instance from which you an import the project in this url:
 
@@ -653,37 +653,37 @@ https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/Credentials
 
 Click on Next:
 
-![](./microservices/images/image104.png)
+![](./images/image104.png)
 
 In next section, select the Container named: “DevCS\_Clone\_Wedodevops” and the zip File available with the Project export to be imported. Then Click in Finish:
 
-![](./microservices/images/image105.png)
+![](./images/image105.png)
 
 Then project start importing process:
 
-![](./microservices/images/image106.png)
+![](./images/image106.png)
 
 Importing project goes on:
 
-![](./microservices/images/image107.png)
+![](./images/image107.png)
 
 Finally you will have project imported:
 
-![](./microservices/images/image108.png)
+![](./images/image108.png)
 
 Review different projects source code in Git menu:
 
 Note: We will work in next sections with all git but db\_management.git and PizzaDeliveryMobileApp.git
 
-![](./microservices/images/image109.png)
+![](./images/image109.png)
 
 Now go to Builds Menu option and check different Jobs
 
-![](./microservices/images/image110.png)
+![](./images/image110.png)
 
 And click in Pipelines tab to check different Pipelines
 
-![](./microservices/images/image111.png)
+![](./images/image111.png)
 
 # **Configuring the Project to match our Kubernetes Cluster**
 
@@ -694,11 +694,11 @@ But before we have to create DNS Zones in OCI. A zone is a portion of the DNS na
 So let’s create a couple of DNS Zones. These will be used later to modify DNSZONE parameter in project. In OCI Dashboard Menu go to:
 Networking-\>DNS Zone Management
 
-![](./microservices/images/image112.png)
+![](./images/image112.png)
 
 If not selected yet, select Compartment we created in List Scope Area. Then, click in Create Zone Button:
 
-![](./microservices/images/image113.png)
+![](./images/image113.png)
 
 And create a Manual Zone of type Primary named for example hol5967 and your username.com:
 ```
@@ -706,9 +706,9 @@ hol5967-carlos.j.olivares.com
 ```
 Then click in Submit button:
 
-![](./microservices/images/image114.png)
+![](./images/image114.png)
 
-![](./microservices/images/image115.png)
+![](./images/image115.png)
 
 You have to create a second DNS zone with same parameters but named like previous one prefixed with front-:
 ```
@@ -716,7 +716,7 @@ front-hol5967-carlos.j.olivares.com
 ```
 You should have a DNS Zone Management like this:
 
-![](./microservices/images/image116.png)
+![](./images/image116.png)
 
 Now let’s go back to DevCS instance and let’s configure Build Jobs and Git:
 
@@ -729,20 +729,20 @@ others for OKE build jobs that will deploy previously generated docker images in
 
 In DevCs interface, Click in Build Menu option, then select the Job named fn\_discount\_to\_FaaS\_CK. Then click in Configure button(right side of screen):
 
-![](./microservices/images/image117.png)
+![](./images/image117.png)
 
 The screen will appear and will take you to Software tab where you have to select a Software template. Make sure you select
 Vm\_basic\_Template\_FN so that Fn function build process will work:
 
-![](./microservices/images/image118.png)
+![](./images/image118.png)
 
-Now click in ![](./microservices/images/image119.png), then in Git tab and make sure that discount-func.git is selected as Repository
+Now click in ![](./images/image119.png), then in Git tab and make sure that discount-func.git is selected as Repository
 
-![](./microservices/images/image120.png)
+![](./images/image120.png)
 
 Then Select Parameter and add your tenancy parameters:
 
-![](./microservices/images/image121.png)
+![](./images/image121.png)
 
 Finally select Steps tab and enter details with my tenancy details:
 
@@ -760,9 +760,9 @@ Also for Fn OCI section our Passphrase is empty. This has to be reflected as two
 ```
 Finally check Unix Shell and modify it accordingly with your tenancy details:
 
-![](./microservices/images/image122.png)
+![](./images/image122.png)
 
-![](./microservices/images/image123.png)
+![](./images/image123.png)
 
 Please don’t forget to click Save button.
 
@@ -774,20 +774,20 @@ front\_order\_docker\_create
 
 Then click in Configure Button:
 
-![](./microservices/images/image124.png)
+![](./images/image124.png)
 
 The screen will appear and will take you to Software tab where you have to select a Software template. Make sure you select Vm\_basic\_Template so that microservices and docker build process will work:
 
-![](./microservices/images/image125.png)
+![](./images/image125.png)
 
-Now click in ![](./microservices/images/image119.png), then in Git tab and make sure that gigis-order-front.git is selected as Repository
+Now click in ![](./images/image119.png), then in Git tab and make sure that gigis-order-front.git is selected as Repository
 
-![](./microservices/images/image126.png)
+![](./images/image126.png)
 
 Then select Steps tab and enter details with my tenancy details: 
 From:
 
-![](./microservices/images/image127.png)
+![](./images/image127.png)
 
 To your tenancy details: 
 To check the name of your region identifier go to the table in this url:
@@ -802,9 +802,9 @@ And password is:
 ```
 Authtoken for OCI Tenancy user
 ```
-![](./microservices/images/image128.png)
+![](./images/image128.png)
 
-![](./microservices/images/image129.png)
+![](./images/image129.png)
 
 And Click Save Button
 Important Note: change the three other docker Jobs in the same way:
@@ -821,19 +821,19 @@ Front_order_to_OKE
 ```
 Then click in Configure Button:
 
-![](./microservices/images/image130.png)
+![](./images/image130.png)
 
 The screen will appear and will take you to Software tab where you have to select a Software template. Make sure you select Vm\_basic\_Template so that microservices and docker build process will work:
 
-![](./microservices/images/image131.png)
+![](./images/image131.png)
 
-Now click in ![](./microservices/images/image119.png), then in Git tab and make sure that gigis\_order\_front.git is selected as Repository:
+Now click in ![](./images/image119.png), then in Git tab and make sure that gigis\_order\_front.git is selected as Repository:
 
-![](./microservices/images/image132.png)
+![](./images/image132.png)
 
 Click in Parameters tab and change Parameters from:
 
-![](./microservices/images/image133.png)
+![](./images/image133.png)
 
 Changed to(your tenancy details):
 
@@ -841,15 +841,15 @@ Leave demozone as it is (default)
 
 Important Note: for DNSZONE in this service select value with DNS Zone previously created with front- as prefix. For the three other OKE Jobs to modify later, select the DNS Zone name created without -front prefix.
 
-![](./microservices/images/image134.png)
+![](./images/image134.png)
 
 Click in Steps tab and Change steps from:
 
-![](./microservices/images/image135.png)
+![](./images/image135.png)
 
 Changed to (your tenancy details):
 
-![](./microservices/images/image136.png)
+![](./images/image136.png)
 
 And Click Save
 
@@ -874,23 +874,23 @@ Now let’s change the yaml in different GIT repositories to fit with your Tenan
 
 Let’s get started by selecting microservice\_orchestrator.git:
 
-![](./microservices/images/image137.png)
+![](./images/image137.png)
 
 Select only microservice-orchestrator.yaml (the two other .yaml don’t require to be modified):
 
-![](./microservices/images/image138.png)
+![](./images/image138.png)
 
 Now change references in yaml from:
 
-![](./microservices/images/image139.png)
+![](./images/image139.png)
 
 To your tenancy details in line 34 by clicking in edit button . Don’t forget to commit changes:
 
-![](./microservices/images/image140.png)
+![](./images/image140.png)
 
 Important Note: modify the three other .yaml files in the same way in each git:
 
-![](./microservices/images/image141.png)
+![](./images/image141.png)
 
 Now it is time to manually launch the build process….but before we have to do a couple of things:
 
@@ -899,80 +899,80 @@ Now it is time to manually launch the build process….but before we have to do 
 
 Let’s start creating the application for the Fn function in OCI. Go back to OCI Dashboard console and go to: Developer Services -\> Functions:
 
-![](./microservices/images/image142.png)
+![](./images/image142.png)
 
 There select your compartment:
 
-![](./microservices/images/image143.png)
+![](./images/image143.png)
 
 Click in Create Application button:
 
-![](./microservices/images/image144.png)
+![](./images/image144.png)
 
 Important Note: So that we don’t have to modify source code, the application name must be: gigis-fn. Also remember to add the three subnets.
 
-![](./microservices/images/image145.png)
+![](./images/image145.png)
 
 And click in create
 
 Now let’s create the policy above mentioned. In OCI Console Menu go to: Identity -\>Policies:
 
-![](./microservices/images/image146.png)
+![](./images/image146.png)
 
 If not selected yet, select root Compartment in List Scope Area and click in Create Policy Button:
 
-![](./microservices/images/image147.png)
+![](./images/image147.png)
 
 Fill in Name: Fn\_Tenancy\_Policy\_Resources add a Description and finally add next Statement:
 
 allow service FaaS to manage all-resources in tenancy
 
-![](./microservices/images/image148.png)
+![](./images/image148.png)
 
 Then click in Create Button.
 
-![](./microservices/images/image149.png)
+![](./images/image149.png)
 
 A new policy is created.
 
 Now let’s run the build process to check if all the changes have been done correctly. Go back to DevCS Dashboard and select Builds menu. There select Pipelines tab:
 
-![](./microservices/images/image150.png)
+![](./images/image150.png)
 
-Then in gigispizza\_CD pipeline click in Build button so that build process starts: ![](./microservices/images/image151.png)
+Then in gigispizza\_CD pipeline click in Build button so that build process starts: ![](./images/image151.png)
 
-![](./microservices/images/image152.png)
+![](./images/image152.png)
 
 Check parameters are correct and click in Build Now button. Shortly afterwards The build process will start and you will have to wait for executor to start(an executor is one of the VM build servers that you previously configured):
 
-![](./microservices/images/image153.png)
+![](./images/image153.png)
 
 Once an executor is assigned, you will have to check progress:
 
-![](./microservices/images/image154.png)
+![](./images/image154.png)
 
 If job ends successfully you will see an screen like this:
 
-![](./microservices/images/image155.png)
+![](./images/image155.png)
 
 Note: If not successful, Click in View Recent Build History and check what Job failed.
 
 Now let’s launch the second pipeline named gigispizza\_front in the same way, check parameters in popup window and click in Build now button:
 
-![](./microservices/images/image156.png)
+![](./images/image156.png)
 
 If everything goes fine you should see an screen like this:
 
-![](./microservices/images/image157.png)
+![](./images/image157.png)
 
 Finally go back to jobs tab, select the one named fn\_discount\_to\_FaaS\_CK and manually launch the build process for the
 Fn Function service by clicking in Build Now button:
 
-![](./microservices/images/image158.png)
+![](./images/image158.png)
 
 Check that deployment is successful:
 
-![](./microservices/images/image159.png)
+![](./images/image159.png)
 
 # **Testing my implementation**
 
@@ -982,13 +982,13 @@ First, come back to VM and if not launch yet, run the Kubernetes proxy program t
 
 Once logged in, navigate to services section and make a note of the two public ip addresses created, one for microservice orchestrator and the other for the front end:
 
-![](./microservices/images/image160.png)
+![](./images/image160.png)
 
 If you open a browser and navigate to front-end url, you should see a page with orders already created:
 
 Note: you may need to install a CORS plugin to avoid issues. We have used Firefox as browser and have installed the “CORS Everywhere” Extension:
 
-![](./microservices/images/image161.png)
+![](./images/image161.png)
 
 If you now navigate to:
 ```
@@ -996,7 +996,7 @@ If you now navigate to:
 ```
 you should see all the orders created:
 
-![](./microservices/images/image162.png)
+![](./images/image162.png)
 
 # **Modify the Project to match new feature**
 
@@ -1004,11 +1004,11 @@ So that we can create a new upgrade feature to be used in Pizza orders, we will 
 
 To do this we have first to modify the. Frontend index.html feature so that we can see for each order if user has chosed upgrade or not. In next session we will modify a Digital Assistant(Skill in a chatbot) to ask for this upgrade before finish the pizza order. In DevCS go to gigis-order-front.git and open index.html:
 
-![](./microservices/images/image163.png)
+![](./images/image163.png)
 
 Click edit button to modify it:
 
-![](./microservices/images/image164.png)
+![](./images/image164.png)
 
 Add after toppings info in **line 206**.
 ```
@@ -1016,27 +1016,27 @@ Add after toppings info in **line 206**.
 ```
 Then commit your changes:
 
-![](./microservices/images/image165.png)
+![](./images/image165.png)
 
 Go back to Builds section and then to pipelines tab and execute the gigispizza front pipeline:
 
-![](./microservices/images/image166.png)
+![](./images/image166.png)
 
 Select Build Now button:
 
-![](./microservices/images/image167.png)
+![](./images/image167.png)
 
 Check that build is successfully executed:
 
-![](./microservices/images/image168.png)
+![](./images/image168.png)
 
 Now go back to gigis-frontend page opened in previous session, you still will see:
 
-![](./microservices/images/image161.png)
+![](./images/image161.png)
 
 Reload the page and now you should see a new field Upgrade Selected appear:
 
-![](./microservices/images/image169.png)
+![](./images/image169.png)
 
 Now I can create a new order using postman.
 
@@ -1088,11 +1088,11 @@ And body of type raw(JSON):
  }
 }
 ```
-![](./microservices/images/image170.png)
+![](./images/image170.png)
 
 After that check in Orders list that this request with orderId is correctly created and appears in Microservice URL:
 
-![](./microservices/images/image171.png)
+![](./images/image171.png)
 
 You can also use postman to check for instance by searching by your user email (in my case [<span class="underline">carlos.j.olivares@oracle.com</span>](mailto:carlos.j.olivares@oracle.com)) that the order has been correctly created:
 
@@ -1108,7 +1108,7 @@ And body of type raw(JSON):
 ```json
 {"orderId":"","where":[{"cond":{"field":"customer.customerId.email","operator":"LIKE","value":"'carlos.j.olivares@oracle.com'"},"relation":""}]}
 ```
-![](./microservices/images/image172.png)
+![](./images/image172.png)
 
 # **The Cherry on the Cake: Digital Assistant User Interface**
 
@@ -1142,16 +1142,16 @@ process, you will:
 
 In this lab, we're starting from an existing one. So, the first thing you'll do is clone an existing skill.
 
-1. With the Oracle Digital Assistant UI open in your browser, click ![main menu icon](./microservices/images/image173.png) to open the side menu.
+1. With the Oracle Digital Assistant UI open in your browser, click ![main menu icon](./images/image173.png) to open the side menu.
 2. Click Development and select Skills.
-3. Click ![main menu icon](./microservices/images/image173.png) again to collapse the side menu.
+3. Click ![main menu icon](./images/image173.png) again to collapse the side menu.
 4. Search “HOL\_Microservices”
 
-![](./microservices/images/image174.png)
+![](./images/image174.png)
 
 5. click on the menu
 
-![](./microservices/images/image175.png)
+![](./images/image175.png)
 
 6. Click Clone to open Create clone form.
 7. Introduce these values:    
@@ -1174,17 +1174,17 @@ On this case, we are going to modify the existing dialog flow to ask the user to
 
 1. After cloning the skill on step one, you can test that all it’s ok. So, click Train button on the upper right corner.
 
-![](./microservices/images/image176.png)
+![](./images/image176.png)
 
 2. *We provide two models that learn from your corpus: Trainer Ht and Trainer Tm. Each uses a different algorithm to reconcile the user  input against your intents. Trainer Ht uses pattern matching while Trainer Tm a machine learning algorithm which uses word vectors.*
 In this case, we are going to use Ht 
 Now click on Submit button
  
-![](./microservices/images/image177.png)
+![](./images/image177.png)
 
 3. After a few seconds of training, you should receive a message that all it’s ok.
 
-![](./microservices/images/image178.png)
+![](./images/image178.png)
 
 4. *The dialog flow definition is the model for the conversation itself, one that lets you choreograph the interaction between a skill and its users. Oracle Digital Assistant provide a graphical editor (conversation designer) and code editor.*
 
@@ -1194,11 +1194,11 @@ Now click on Submit button
  
 Now, click on flows button on the left side.
  
-![](./microservices/images/image179.png)
+![](./images/image179.png)
 
 5. Now we are going to include a new state to ask the customer if they want an upgrade and a free towel. Go to line 12 and declare a new “upgrade” variable to collect the customer’s answer. Keep in mind that editor provide the autosaving feature, don’t look for a Save button ;-)
 
-![](./microservices/images/image180.png)
+![](./images/image180.png)
 
 6. Include a new state to ask about the upgrade to the customer. *Components give your skill its actual functionality. The state nodes in your dialog flow definition are built around them. These reusable units of work perform all manner of tasks and functions, from the basic management of the dialog flow to case-specific actions*
 
@@ -1208,16 +1208,16 @@ Now, click on flows button on the left side.
 
 Now, click on Components button.
  
-![](./microservices/images/image181.png)
+![](./images/image181.png)
 
 7. On the components window, choose “User interface”
 
-![](./microservices/images/image182.png)
+![](./images/image182.png)
 
 8.Now choose “Text”, after that on the value list select “confirmation” to insert the System.Text component after
     > “confirmation” status and click on Apply 
     
-![](./microservices/images/image183.png)
+![](./images/image183.png)
  
 *The System.Text component enables your bot to set a context or user variable by asking the user to enter some text.*
 
@@ -1225,7 +1225,7 @@ Now, click on Components button.
 
 9. So, you can check that the new state has been included in the flow.
 
-![](./microservices/images/image184.png)
+![](./images/image184.png)
 
 10. Rename “text” to “askUpgrade” as the state name. Fill in the blanks:
     
@@ -1236,30 +1236,30 @@ Now, click on Components button.
     5.  translate: false    
     6.  Update transition actions so that it looks like the following:
 
-![](./microservices/images/image185.png)
+![](./images/image185.png)
 
 11. Move to the prior state named “confirmation” and change transition “next” value from “saveOrder” to “askUpgrade” to make the flow execute our new state. Result:
 
-![](./microservices/images/image186.png)![](./microservices/images/image187.png)
+![](./images/image186.png)![](./images/image187.png)
 
 12. To check that your new code it’s okay, click on Validate button.
 
-![](./microservices/images/image188.png)
+![](./images/image188.png)
 
 13. If all it’s okay, you will see this message:
 
-![](./microservices/images/image189.png)
+![](./images/image189.png)
 
 14. If you have received this alert, review all the steps again and keep in mind that all indentations are very important
 
-![](./microservices/images/image190.png)
+![](./images/image190.png)
 
 ### Troubleshooting Errors in the Dialog Flow
 
 If you don't see a success message, then most likely you misspelled a property name or did not follow the required two-space indenting
-increments. In this case, scroll through the dialog flow until you see an ![error icon](./microservices/images/image191.png) icon in the left margin. Mouse over the icon to display the tooltip with a description of the problem.
+increments. In this case, scroll through the dialog flow until you see an ![error icon](./images/image191.png) icon in the left margin. Mouse over the icon to display the tooltip with a description of the problem.
 
-Besides, you can click the debug icon (![debug icon](./microservices/images/image192.png)), which appears to the left of the dialog flow editor. It often provides additional information about the reason. You close the debug window by clicking the debug icon again.
+Besides, you can click the debug icon (![debug icon](./images/image192.png)), which appears to the left of the dialog flow editor. It often provides additional information about the reason. You close the debug window by clicking the debug icon again.
 
 If you have gotten into a jam and can’t get anything to work, open the [<span class="underline">flow.txt</span>](https://docs.oracle.com/en/cloud/paas/digital-assistant/tutorial-skill/files/your-first-dialog-flow.txt), and replace the content in your dialog flow with the content from the file.
 
@@ -1271,7 +1271,7 @@ Currently, our orders are being stored on a shared database. Now, we will modify
 
 Look for state “saveOrder”
 
-![](./microservices/images/image193.png)
+![](./images/image193.png)
 
   - Change component name from devops.saveOrder to devops.saveOrderUpgrade
   - Change demozone value to yours. This value must be configured to the IP address of the microservice previously used and path to Creation order endpoint named: /createOrder. For example:
@@ -1284,61 +1284,61 @@ email: "carlos.j.olivares@oracle.com"
 
 The final result looks like this:
 
-![](./microservices/images/image194.png)
+![](./images/image194.png)
 
 **Test Your Skill**
 
 Now that all of the skill's pieces are in place let's test its behavior.
 
-1. Open the skill tester by clicking ![the Skill Tester icon](./microservices/images/image195.png) on the bottom of the skill's left navigation bar.
+1. Open the skill tester by clicking ![the Skill Tester icon](./images/image195.png) on the bottom of the skill's left navigation bar.
 2. Click Reset.
 3. In the Message field, type I want to order a pizza and then press Enter.
 
 All kind of pizza will be shown (choose one)
  
-![](./microservices/images/image196.png)
+![](./images/image196.png)
  
 You should see a menu of pizza sizes:
  
-![](./microservices/images/image197.png)
+![](./images/image197.png)
 
 4. In the pizza size menu, select an option, e.g. Small.
 5. Select a topping e.g. 1 2 4 (Mushrooms, BBQ Sauce, Tuna)
 
-![](./microservices/images/image198.png)
+![](./images/image198.png)
 
 6. Enter a delivery location
 
 You should receive an order confirmation similar to the one shown in the image below. Please click on Send Location 
 
-![](./microservices/images/image199.png)
+![](./images/image199.png)
 
 7. Immediately you will be asked about payment method
 
-![](./microservices/images/image200.png)
+![](./images/image200.png)
 
 8. To end, our digital assistant will make a summary and ask about our upgrade.
 
-![](./microservices/images/image201.png)
+![](./images/image201.png)
 
 9. Due to we have defined a YES\_NO variable, it only accepts "YES" or "NO" values. Other "YES" or "NO" synonyms are also recognized, such as "YEAH", "NOPE".
 
-![](./microservices/images/image202.png)
+![](./images/image202.png)
 
 10. > Now, we type Yes to finish the order.
 
-![](./microservices/images/image203.png)
+![](./images/image203.png)
 
 11. Click **Reset**. To clean conversation screen an reset all the variables.
 12. Now try entering I want a large cheese basic pizza with mushrooms, tuna, and tomatoes paying with cash and pressing Enter.
 
 This time, you should be immediately presented with the results of the order after asking about the location.
 
-![](./microservices/images/image204.png)
+![](./images/image204.png)
 
-![](./microservices/images/image205.png)
+![](./images/image205.png)
 
-![](./microservices/images/image203.png)
+![](./images/image203.png)
 
 **Want to Learn More?**
 - [<span class="underline">Using Oracle Digital Assistant</span>](http://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/digital-assistant&id=DACUA-GUID-386AB33B-C131-4A0A-9138-6732AE841BD8)
