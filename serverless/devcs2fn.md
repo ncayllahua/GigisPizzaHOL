@@ -486,5 +486,5 @@ You can review too your OCIR repository in OCI (Developer Services -> Registry).
 
 ![](./images/fn-devcs/fn-devcs-jobs39.png)
 
-### Return main Gigis serverless HOL.
-* [Gigi's serverless HOL](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md)
+### Return main Gigis Hands on Labs page.
+* [Gigi's HOL](https://github.com/oraclespainpresales/GigisPizzaHOL)
