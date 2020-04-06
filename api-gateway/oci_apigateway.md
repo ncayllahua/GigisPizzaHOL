@@ -18,7 +18,7 @@ Lets create an OCI Api Gateway!
 ## OCI Policies to use API Gateway.
 To use API Gateway you must create a new Security Policy in your **root compartment**. Go to OCI main menu -> Identity -> Policies
 
-![](./api-gateway/images/api-gateway/api-gateway-policies01.png)
+![](./images/api-gateway/api-gateway-policies01.png)
 
 Then select your root compartment and then Create Policy.
 
