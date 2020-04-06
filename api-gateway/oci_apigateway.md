@@ -11,18 +11,18 @@ If you review the orchestrator nodejs code, you can see that a direct serverless
 
 The Api Gateway let you more configuration options and more management improves. The idea is at the end of this HOL you have an architecture similar to that:
 
-![](./api-gateway/images/gigis-architect-HOL1-2-API.png)
+![](./images/gigis-architect-HOL1-2-API.png)
 
 Lets create an OCI Api Gateway!
 
 ## OCI Policies to use API Gateway.
 To use API Gateway you must create a new Security Policy in your **root compartment**. Go to OCI main menu -> Identity -> Policies
 
-![](./images/api-gateway/api-gateway-policies01.png)
+![](./images/api-gateway-policies01.png)
 
 Then select your root compartment and then Create Policy.
 
-![](./api-gateway/images/api-gateway/api-gateway-policies02.png)
+![](./images/api-gateway-policies02.png)
 
 Write a descriptive name for the new Policy like [gigis-apigateway-policy]. Then a Description for the policy. Keep Policy Current, and in Statement 1 write:
 ```sh
@@ -31,28 +31,28 @@ Allow any-user to use functions-family in compartment <your_cmpartment_name> whe
 
 Then Click Create Button to create the new api gateway policy.
 
-![](./api-gateway/images/api-gateway/api-gateway-policies03.png)
+![](./images/api-gateway-policies03.png)
 
 ## OCI Api Gateway Creation.
 Go to OCI main menu -> Developer Services -> API Gateway.
 
-![](./api-gateway/images/api-gateway/api-gateway-creation01.png)
+![](./images/api-gateway-creation01.png)
 
 Select your compartment (you can use the last HOL-serverless compartment for example) [HandsOnLab] and Click Create Gateway Button.
 
-![](./api-gateway/images/api-gateway/api-gateway-creation02.png)
+![](./images/api-gateway-creation02.png)
 
 Write a descriptive name like [gigis-api-gateway] or something like that. You could create this apigateway as Private as you have the microservices and serverless functions in the same cloud provider and in the same compartment (even the same virtual network). For academical purpose you will create the apigateway as **PUBLIC** (to invoke the function from internet or other tenants for example). Next select a VCN and a Public Subnet (we recomend you that you create a Regional Public Subnet or add one to your VCN). Click on Create button to create your API Gateway.
 
-![](./api-gateway/images/api-gateway/api-gateway-creation03.png)
+![](./images/api-gateway-creation03.png)
 
 Wait several seconds to API Gateway creation (wait green Active).
 
-![](./api-gateway/images/api-gateway/api-gateway-creation04.png)
+![](./images/api-gateway-creation04.png)
 
 Once you have the API Gateway created you need to create Deployments. Click on Deployments link and click Create Deployment.
 
-![](./api-gateway/images/api-gateway/api-gateway-creation05.png)
+![](./images/api-gateway-creation05.png)
 
 Select From Scratch to create a new API Gateway from the OCI UI. But you could create a configuration JSON file to import it and create the API Gateway Deployment from a file. Then
 
@@ -62,7 +62,7 @@ Select From Scratch to create a new API Gateway from the OCI UI. But you could c
 
 You could create an API Request Policies like Authentification policies, CORS or Rate Limiting. Also you could enable Access Loggin and Execution Loggin, but all these policies aren't necessary for this HOL. You could add or modify these policies later if you need to. Then Click Next to continue with the API gateway creation.
 
-![](./api-gateway/images/api-gateway/api-gateway-creation06.png)
+![](./images/api-gateway-creation06.png)
 
 Next step is to create a Route to access to the serverless function. 
 
@@ -74,19 +74,19 @@ Next step is to create a Route to access to the serverless function.
 
 Then click Next to Review the Route.
 
-![](./api-gateway/images/api-gateway/api-gateway-creation07.png)
+![](./images/api-gateway-creation07.png)
 
 Review your Route and then Click Create button. Wait until creation would be completed.
 
-![](./api-gateway/images/api-gateway/api-gateway-creation08.png)
+![](./images/api-gateway-creation08.png)
 
 Now you must have created and Active an API Gateway Deployment.
 
-![](./api-gateway/images/api-gateway/api-gateway-creation09.png)
+![](./images/api-gateway-creation09.png)
 
 If you click on your new Deployment you could see the Deployment data including the Endpoint to do the api calls. Click in Show to review the Endpoint and Copy it to use in the next steps. You can view also the Telemetry use graphs.
 
-![](./api-gateway/images/api-gateway/api-gateway-creation10.png)
+![](./images/api-gateway-creation10.png)
 
 ## Test your API Route.
 To test your new API Gateway deployment and route, you can use your development machine to execute a cURL command like:
@@ -119,38 +119,38 @@ You can use the same develpment machine as you used in serverless HOL. This mach
 
 Create a new directory to store your git project. [vscode-projects-oci] then [nodejs] for example.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice01.png)
+![](./images/api-gateway-microservice01.png)
 
 Open Developer Cloud Service microservices project and select microservice_orchestrator in the GIT menu. Then select Clone dropdrownbox and copy https url.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice04.png)
+![](./images/api-gateway-microservice04.png)
 
 Next open your IDE software and create a git clone of the microservice orchestrator from Developer Cloud Service GIT repository that you imported in the microservices HOL. This HOL was created using visual studio core that it's included in the [development image in OCI marketplace](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace.md) as you could see in the serverless HOL.
 
 Then ```CTRL+SHIFT+p``` to open the commands menu and select ```git clone```
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice05.png)
+![](./images/api-gateway-microservice05.png)
 
 Copy the https GIT clone URL from DevCS and press Enter.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice06.png)
+![](./images/api-gateway-microservice06.png)
 
 Select your recently created directory [vscode-projects-oci/nodejs] to put your local git repository and click Select Repository Location button.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice07.png)
+![](./images/api-gateway-microservice07.png)
 
 Next write your DevCS user password to access your GIT repository and press Enter. Visual Studio will create a new [.git] repository in your local directory.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice08.png)
+![](./images/api-gateway-microservice08.png)
 
 A new [microservice_orchetrator] directory will be created with the entire project inside it.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice09.png)
+![](./images/api-gateway-microservice09.png)
 
 ### Changing your microservice orchestrator code.
 You must change your microservice orchestrator code in order to send an api call to the discount serverless function. First you must introduce the new gateway config in the config.js file. Open your oci api gateway at OCI main menu -> Developer Services -> API gateway, then select your gateway and copy the **[Hostname]** value.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice10.png)
+![](./images/api-gateway-microservice10.png)
 
 #### config.js
 Next, open config.js file in your IDE and write this code after ```HOST: process.env.ORCH_HOST || 'localhost',``` line:
@@ -172,7 +172,7 @@ Next, open config.js file in your IDE and write this code after ```HOST: process
 The host value is the copied hostname value (something like ``` 
 je2d6ypgypxxafqh2bsev3vzsm.apigateway.eu-frankfurt-1.oci.customer-oci.com```) and the path value is the deployment path + route path ```/discount-fn/discount```.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice11.png)
+![](./images/api-gateway-microservice11.png)
 
 #### adapters.js
 Now you must change the adapters.js file. This file contain the javascript **use** method that is the code to send http request to other microservices. As the api gateway use https instead of http, you must include https requests in the javascript use function. Copy the next [code](https://raw.githubusercontent.com/oraclespainpresales/wedo_gigispizza_ms_orchestrator/master/adapters.js) to change the original one.
@@ -276,7 +276,7 @@ function use(config, data) {
 module.exports.use = use;
 ```
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice12.png)
+![](./images/api-gateway-microservice12.png)
 
 #### index.js
 This is the main file in the microservice orchestrator. In this file you can see the invoke code to a serverless function, but you will change that code to use the api gateway call instead of create a direct invoke to the serverless function.
@@ -335,33 +335,33 @@ adapters.use(config.jsonfncl.getDiscount, totalpaidInput).then((response) => {
 })  
 ```
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice13.png)
+![](./images/api-gateway-microservice13.png)
 
 ### Test the microservice orchestrator
 Once you have finished the change of the new code, you must update your DevCS Git repository. Click File Save All in your IDE. 
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice14.png)
+![](./images/api-gateway-microservice14.png)
 
 Then push the new changes to your Git repository. Click in the SCM icon.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice15.png)
+![](./images/api-gateway-microservice15.png)
 
 Next click in the commit icon at the top of the IDE Source Control frame.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice16.png)
+![](./images/api-gateway-microservice16.png)
 
 Write a comment for this commit and press Enter.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice17.png)
+![](./images/api-gateway-microservice17.png)
 
 Push your code to the Git repository and introduce your DevCS password.
 
-![](./api-gateway/images/api-gateway/api-gateway-microservice18.png)
+![](./images/api-gateway-microservice18.png)
 
 After push completion, DevCS will start the microservice orchestrator pipeline to upgrade your code in your OKE cluster. Wait several minutes to complete that deployment to test the new functionality.
 
 You can review the serverless app telemetry and papertrail or loggin service functions logs, after a pizza order execution in the chatbot for example.
 
-![](./api-gateway/images/fn-execution/faas-app-execution13.png)
+![](./images/fn-execution/faas-app-execution13.png)
 
-![](./api-gateway/images/fn-execution/faas-app-execution12.png)
+![](./images/fn-execution/faas-app-execution12.png)
