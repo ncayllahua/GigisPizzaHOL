@@ -33,6 +33,14 @@ Click here to request your trial account: [https://www.oracle.com/cloud/free](ht
 - [Oracle Cloud Native - Functions](https://www.oracle.com/cloud/cloud-native/functions)
 - [Oracle Cloud Native - API-Gateway](https://www.oracle.com/cloud/cloud-native/api-gateway/)
 
+## Documentation
+- [Database Product Management YouTube Channel](https://www.youtube.com/channel/UCr6mzwq_gcdsefQWBI72wIQ)
+- [Oracle Database ATP](https://docs.oracle.com/en/cloud/paas/atp-cloud/index.html)
+- [Oracle Cloud Native - OKE](https://docs.cloud.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengoverview.htm)
+- [Oracle Cloud Native - Registry](https://docs.cloud.oracle.com/en-us/iaas/Content/Registry/Concepts/registryoverview.htm)
+- [Oracle Cloud Native - Functions](https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Concepts/functionsoverview.htm)
+- [Oracle Cloud Native - API-Gateway](https://docs.cloud.oracle.com/en-us/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm)
+
 ## :notebook: Interesting information for the HOLs.
 
 :computer: OVA VM machine [link](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/smpE_ekRW19rd4H31B4fPspIqXxRm-iSuaQ9kOc8_K8/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/HOL5967-OOW2019%20OVAHOL5967-OOW2019.ova "ova hol")
