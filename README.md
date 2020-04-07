@@ -12,8 +12,8 @@ Hands on Labs - Gigis pizza microservices/serverless app (Oracle Cloud Infraestr
 * To connect serverless HOL to microservices HOL you can follow the Api Gateeway HOL.
 - [X] [HOL Api Gateway](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/api-gateway/oci_apigateway.md)
 
-- [I have a Freetier or Oracle Cloud account](https://oracle.github.io/learning-library/data-management-library/database/in-memory/freetier/index.html)
-- [I have an account from SSWorkshop](https://oracle.github.io/learning-library/data-management-library/database/in-memory/ssworkshop/index.html)
+- [I have a Freetier or Oracle Cloud account](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/freetier/index.html)
+- [I have an account from SSWorkshop](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/ssworkshop/index.html)
 
 
 ## Get an Oracle Cloud Trial Account for Free!
