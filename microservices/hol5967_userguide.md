@@ -1,3 +1,5 @@
+# Gigi's Pizza Microservices HOL #
+
 [![](./images/image1.png)](https://www.oracle.com/code-one/)
 
 <span class="underline">**Introduction**</span> - 3 -
@@ -85,7 +87,7 @@ User Interface</span>** - 92
 [<span class="underline">Troubleshooting Errors in the Dialog
 Flow</span> - 98 -](#troubleshooting-errors-in-the-dialog-flow)
 
-# **Introduction**
+## **Introduction**
 
 This HOL is based in a Demo developed by WeDo Team as part of an innovation initiative to approach Oracle Cloud Solutions by providing
 practical examples that could be “touched” and easily understood.
