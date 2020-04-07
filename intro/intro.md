@@ -1,5 +1,7 @@
-# Gigi's Pizza Hands on Labs Overview
-## Gigi's Pizza Hands on Labs Introduction
+# Gigi's Pizza Hands on Labs Overview #
+
+## Gigi's Pizza Microservices Hands on Labs Introduction ##
+
 Gigi's pizza Hands On Labs are a serie of labs based on a Demo developed by WeDo Team as part of an innovation initiative to approach Oracle Cloud Solutions by providing practical examples that could be “touched” and easily understood.
 
 Demo is known as Gigi’s Pizza. The Use Case is focused in microservices/serverless (fn) and Multitenant DataBase. We have three microservices coded in different languages like nodejs and of course Java (Helidon framework). This three microservices are part of a delivery pizza app, one microservice controls the orders, other one controls the pizza delivery and the last one controls the accounting. We coded a serverless function to calculate discounts, according to several bussiness rules like credit card type or pizza order total prize.
@@ -18,6 +20,8 @@ Finally we have tied a chatbot(Skill) with the microservice-order as a front-end
 
 ![](./images/gigis-architect01.png)
 
+## Gigi's Pizza Serverless Hands on Labs Introduction ##
+
 At you can see in the architecture, there is a little serverless function to calculate discounts. It is based in a simple bussiness rule and it was coded in java with fn project, that is an open source serverless project from Oracle (Oracle FaaS is based in fn project).
 
 To improve this serverless function, we created a more complex serverless app to create dicount campaigns. This is the new serverless architecture that improves the first version.
@@ -27,6 +31,8 @@ To improve this serverless function, we created a more complex serverless app to
 In that architecture we introduced an Autonomous Database (ATP) to store the discount campaigns, we used an Object Storage to store discount campaings in json format and we used cloud events to upload the discount campaigns in json format to the ATP database.
 
 Once we improve the serverless part of Gigi's pizza, we created an API-Gateway to connect the serverless part with the microservices part. In the first version we did that in a direct "mode" connecting the microservice orchestrator directly to the serverless discount function. After creating the discount campaign app, we had to connect the microservice orchestrator in a better way to the serverless app.
+
+## Gigi's Pizza API-Gateway Hands on Labs Introduction ##
 
 We created an API-Gateway that exposes the serverless function https calls to the world and we use that api call to connect microservice orchestrator to the discount campaing serverless function.
 
