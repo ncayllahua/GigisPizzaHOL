@@ -30,3 +30,12 @@ Feel free to investigate the terraform scripts executed and also the other scrip
 To execute the job, go to Builds and click on the TF_CreateCDB_Demozone job. Then click on build now. A prompt screen will appear asking the Demo Zone. This name will be used to create the DBCS that will contain the new PDBs. 
 
 **Try to put a name shorter that 8 Characters to avoid errors in the name’s length of the DB.**
+
+![]()
+
+After this, the new Demo Zone will be created, you can check the status of the execution by clicking on the log of the execution
+
+![]()
+
+At the end of the execution, you should see the job executed SUCCESSFULLY.  It will also show the IP of the new CDB host so you can connect to it.
+The Services for the new PDBs created have the same name, only the new IP changes from the original.
