@@ -28,7 +28,7 @@
             "title": "Lab 3: Gigi's Pizza Microservices",
             "description": "Setup your gigi's pizza app based on microservices and multitenant & multimodal Oracle database",
             "publisheddate": "04/07/2020",
-            "filename": "../microservices/hol5967_userguide.md"
+            "filename": "https://raw.githubusercontent.com/oraclespainpresales/GigisPizzaHOL/master/microservices/hol5967_userguide.md"
         },
         {            
             "title": "Lab 4: Gigi's Pizza Serverless",
