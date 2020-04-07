@@ -17,7 +17,7 @@ The Api Gateway let you more configuration options and more management improves.
 
 Lets create an OCI Api Gateway!
 
-## OCI Policies to use API Gateway. ##
+## Step1: OCI Policies to use API Gateway. ##
 To use API Gateway you must create a new Security Policy in your **root compartment**. Go to OCI main menu -> Identity -> Policies
 
 ![](./images/api-gateway-policies01.png)
@@ -35,7 +35,7 @@ Then Click Create Button to create the new api gateway policy.
 
 ![](./images/api-gateway-policies03.png)
 
-## OCI Api Gateway Creation. ##
+## Step2: OCI Api Gateway Creation. ##
 Go to OCI main menu -> Developer Services -> API Gateway.
 
 ![](./images/api-gateway-creation01.png)
@@ -90,7 +90,7 @@ If you click on your new Deployment you could see the Deployment data including 
 
 ![](./images/api-gateway-creation10.png)
 
-## Test your API Route. ##
+## Step3: Test your API Route. ##
 To test your new API Gateway deployment and route, you can use your development machine to execute a cURL command like:
 ```sh
 curl -i -k --data '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' https://<your_endpoint_id>.apigateway.eu-frankfurt-1.oci.customer-oci.com/discount-fn/discount
@@ -111,7 +111,7 @@ opc-request-id: /56B744A399CAB72AE35DD23ABD7294D8/E72C6994D4E16D8C3F5DDD0742375F
 
 21.0
 ```
-## Modifiying your Microservice Orchestrator ###
+## Step4: Modifiying your Microservice Orchestrator ###
 Now that you have created and tested your serverless function with your new api gateway, let's change your microservice orchestrator to send an API call to your serverless function.
 
 To modify your microservice orchestrator, you should use an IDE software like it's installed in your development machine (visual studio core for example). You could get the code from your GIT repository in Developer Cloud Service (git clone command).
@@ -339,7 +339,7 @@ adapters.use(config.jsonfncl.getDiscount, totalpaidInput).then((response) => {
 
 ![](./images/api-gateway-microservice13.png)
 
-### Test the microservice orchestrator ###
+## Step5: Test the microservice orchestrator ##
 Once you have finished the change of the new code, you must update your DevCS Git repository. Click File Save All in your IDE. 
 
 ![](./images/api-gateway-microservice14.png)
@@ -368,5 +368,5 @@ You can review the serverless app telemetry and papertrail or loggin service fun
 
 ![](../serverless/images/fn-execution/faas-app-execution12.png)
 
-### Return main Gigis Hands on Labs page. ###
+## Return main Gigis Hands on Labs page. ##
 * [Gigi's HOL](https://github.com/oraclespainpresales/GigisPizzaHOL)
