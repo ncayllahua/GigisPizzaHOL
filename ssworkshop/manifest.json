@@ -1,12 +1,13 @@
 {
     "tutorials": [
         {           
-            "title": "Gigi's Pizza Hands on Labs",
+            "title": "Gigi's Pizza Hands on Labs A",
             "description": "About the Gigi's pizza HOLs",
             "partnumber": "Ennnnn_01",
             "publisheddate": "04/07/2020",
             "contentid": "12nnnn",
-            "filename": "../intro/intro.md"
+            "filename": "../api-gateway/oci_apigateway.md
+"
         },
         {         
             "title": "Lab 1: Login to Oracle Cloud",
