@@ -1,10 +1,12 @@
-# Conecting Microservices to Severless with API Gateway
+# Conecting Microservices to Severless with API Gateway #
+## Introduction ##
 Once you have finished the microservices HOL and the serverless HOL, you might have an architecure quite similar to next figure.
 
 ![](./images/gigis-architect-HOL1-2.png)
 
 As you can see there isn't any connection or call from microservice orchestrator to the new discount campaign serverless app or serverless function. You might have connected the old serverless function to your microservice orchestrator, but the idea is that you could use the new serverless app.
 
+### Objetives ###
 To connect your microservice orchestrator to the new serverless app, you'll use [OCI api gateway service](https://docs.cloud.oracle.com/es-ww/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm). Following next HOL you'll can create an API Gateway in OCI to invoke your discount serverless function from microservice orchestrator in a simple way.
 
 If you review the orchestrator nodejs code, you can see that a direct serverless function invoke is a little tricky, because you must create an access file with your credentials, OCI tenancy, OCI comparment and so. You must read this file, create a context and invoke the serverless function with this context. All this task are simplified using an API Gateway and you can improve security, because you don't have to create text plain config files and include them in your docker image.
@@ -15,7 +17,7 @@ The Api Gateway let you more configuration options and more management improves.
 
 Lets create an OCI Api Gateway!
 
-## OCI Policies to use API Gateway.
+## OCI Policies to use API Gateway. ##
 To use API Gateway you must create a new Security Policy in your **root compartment**. Go to OCI main menu -> Identity -> Policies
 
 ![](./images/api-gateway-policies01.png)
@@ -33,7 +35,7 @@ Then Click Create Button to create the new api gateway policy.
 
 ![](./images/api-gateway-policies03.png)
 
-## OCI Api Gateway Creation.
+## OCI Api Gateway Creation. ##
 Go to OCI main menu -> Developer Services -> API Gateway.
 
 ![](./images/api-gateway-creation01.png)
@@ -88,7 +90,7 @@ If you click on your new Deployment you could see the Deployment data including 
 
 ![](./images/api-gateway-creation10.png)
 
-## Test your API Route.
+## Test your API Route. ##
 To test your new API Gateway deployment and route, you can use your development machine to execute a cURL command like:
 ```sh
 curl -i -k --data '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' https://<your_endpoint_id>.apigateway.eu-frankfurt-1.oci.customer-oci.com/discount-fn/discount
@@ -109,12 +111,12 @@ opc-request-id: /56B744A399CAB72AE35DD23ABD7294D8/E72C6994D4E16D8C3F5DDD0742375F
 
 21.0
 ```
-## Modifiying your Microservice Orchestrator
+## Modifiying your Microservice Orchestrator ###
 Now that you have created and tested your serverless function with your new api gateway, let's change your microservice orchestrator to send an API call to your serverless function.
 
 To modify your microservice orchestrator, you should use an IDE software like it's installed in your development machine (visual studio core for example). You could get the code from your GIT repository in Developer Cloud Service (git clone command).
 
-### Git Clone microservice orchestrator project
+### Git Clone microservice orchestrator project ###
 You can use the same develpment machine as you used in serverless HOL. This machine should have installed an IDE software like visual studio core, jdeveloper, eclipse... for example. The recomendation is to use a linux OS based machine but you can use MS Windows OS too. This HOL was created with a linux OS based machine.
 
 Create a new directory to store your git project. [vscode-projects-oci] then [nodejs] for example.
@@ -147,12 +149,12 @@ A new [microservice_orchetrator] directory will be created with the entire proje
 
 ![](./images/api-gateway-microservice09.png)
 
-### Changing your microservice orchestrator code.
+### Changing your microservice orchestrator code. ###
 You must change your microservice orchestrator code in order to send an api call to the discount serverless function. First you must introduce the new gateway config in the config.js file. Open your oci api gateway at OCI main menu -> Developer Services -> API gateway, then select your gateway and copy the **[Hostname]** value.
 
 ![](./images/api-gateway-microservice10.png)
 
-#### config.js
+#### config.js ####
 Next, open config.js file in your IDE and write this code after ```HOST: process.env.ORCH_HOST || 'localhost',``` line:
 
 ```javascript
@@ -174,7 +176,7 @@ je2d6ypgypxxafqh2bsev3vzsm.apigateway.eu-frankfurt-1.oci.customer-oci.com```) an
 
 ![](./images/api-gateway-microservice11.png)
 
-#### adapters.js
+#### adapters.js ####
 Now you must change the adapters.js file. This file contain the javascript **use** method that is the code to send http request to other microservices. As the api gateway use https instead of http, you must include https requests in the javascript use function. Copy the next [code](https://raw.githubusercontent.com/oraclespainpresales/wedo_gigispizza_ms_orchestrator/master/adapters.js) to change the original one.
 
 ```javascript
@@ -278,7 +280,7 @@ module.exports.use = use;
 
 ![](./images/api-gateway-microservice12.png)
 
-#### index.js
+#### index.js ####
 This is the main file in the microservice orchestrator. In this file you can see the invoke code to a serverless function, but you will change that code to use the api gateway call instead of create a direct invoke to the serverless function.
 
 The invoke code is in the ```/createOrder``` post call javascript function. You must change the entire function with the new code.
@@ -337,7 +339,7 @@ adapters.use(config.jsonfncl.getDiscount, totalpaidInput).then((response) => {
 
 ![](./images/api-gateway-microservice13.png)
 
-### Test the microservice orchestrator
+### Test the microservice orchestrator ###
 Once you have finished the change of the new code, you must update your DevCS Git repository. Click File Save All in your IDE. 
 
 ![](./images/api-gateway-microservice14.png)
@@ -366,5 +368,5 @@ You can review the serverless app telemetry and papertrail or loggin service fun
 
 ![](../serverless/images/fn-execution/faas-app-execution12.png)
 
-### Return main Gigis Hands on Labs page.
+### Return main Gigis Hands on Labs page. ###
 * [Gigi's HOL](https://github.com/oraclespainpresales/GigisPizzaHOL)
