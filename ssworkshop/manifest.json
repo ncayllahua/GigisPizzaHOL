@@ -6,6 +6,14 @@
             "partnumber": "Ennnnn_01",
             "publisheddate": "04/07/2020",
             "contentid": "12nnnn",
+            "filename": "../intro/intro.md"
+        },
+        {           
+            "title": "Test: Gigi's Pizza Hands on Labs A",
+            "description": "About the Gigi's pizza HOLs",
+            "partnumber": "Ennnnn_01",
+            "publisheddate": "04/07/2020",
+            "contentid": "12nnnn",
             "filename": "../api-gateway/oci_apigateway.md"
         },
         {         
