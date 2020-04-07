@@ -17,7 +17,10 @@ The Api Gateway let you more configuration options and more management improves.
 
 Lets create an OCI Api Gateway!
 
-## Step1: OCI Policies to use API Gateway. ##
+### Lab Prerequisites ###
+You must have finished the microservices HOL and the serverless HOL.
+
+## Step 1: OCI Policies to use API Gateway. ##
 To use API Gateway you must create a new Security Policy in your **root compartment**. Go to OCI main menu -> Identity -> Policies
 
 ![](./images/api-gateway-policies01.png)
@@ -35,7 +38,7 @@ Then Click Create Button to create the new api gateway policy.
 
 ![](./images/api-gateway-policies03.png)
 
-## Step2: OCI Api Gateway Creation. ##
+## Step 2: OCI Api Gateway Creation. ##
 Go to OCI main menu -> Developer Services -> API Gateway.
 
 ![](./images/api-gateway-creation01.png)
@@ -90,7 +93,7 @@ If you click on your new Deployment you could see the Deployment data including 
 
 ![](./images/api-gateway-creation10.png)
 
-## Step3: Test your API Route. ##
+## Step 3: Test your API Route. ##
 To test your new API Gateway deployment and route, you can use your development machine to execute a cURL command like:
 ```sh
 curl -i -k --data '{"demozone":"madrid","paymentMethod":"amex","pizzaPrice":"21"}' https://<your_endpoint_id>.apigateway.eu-frankfurt-1.oci.customer-oci.com/discount-fn/discount
@@ -111,7 +114,7 @@ opc-request-id: /56B744A399CAB72AE35DD23ABD7294D8/E72C6994D4E16D8C3F5DDD0742375F
 
 21.0
 ```
-## Step4: Modifiying your Microservice Orchestrator ###
+## Step 4: Modifiying your Microservice Orchestrator ###
 Now that you have created and tested your serverless function with your new api gateway, let's change your microservice orchestrator to send an API call to your serverless function.
 
 To modify your microservice orchestrator, you should use an IDE software like it's installed in your development machine (visual studio core for example). You could get the code from your GIT repository in Developer Cloud Service (git clone command).
@@ -339,7 +342,7 @@ adapters.use(config.jsonfncl.getDiscount, totalpaidInput).then((response) => {
 
 ![](./images/api-gateway-microservice13.png)
 
-## Step5: Test the microservice orchestrator ##
+## Step 5: Test the microservice orchestrator ##
 Once you have finished the change of the new code, you must update your DevCS Git repository. Click File Save All in your IDE. 
 
 ![](./images/api-gateway-microservice14.png)
