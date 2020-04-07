@@ -4,11 +4,11 @@
             "title": "Gigi's Pizza Hands on Labs",
             "description": "About the Gigi's pizza HOLs",
             "partnumber": "Ennnnn_01",
-            "publisheddate": "2/24/2020",
+            "publisheddate": "04/07/2020",
             "contentid": "12nnnn",
             "filename": "../intro/intro.md"
-          },
-          {         
+        },
+        {         
             "title": "Lab 1: Login to Oracle Cloud",
             "description": "Login to Oracle Cloud",
             "partnumber": "Ennnnn_01",
