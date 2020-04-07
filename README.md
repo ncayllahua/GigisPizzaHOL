@@ -26,10 +26,10 @@ Click here to request your trial account: [https://www.oracle.com/cloud/free](ht
 
 
 ## Product Pages
-Database:
+* Database:
 - [Oracle Database 19c](https://www.oracle.com/database/)
 - [Oracle ATP Database](https://www.oracle.com/database/atp-cloud.html)
-Cloud Native dev tools:
+* Cloud Native dev tools:
 - [Oracle Cloud Native - OKE](https://www.oracle.com/cloud/compute/container-engine-kubernetes.html)
 - [Oracle Cloud Native - Registry](https://www.oracle.com/cloud/compute/container-registry.html)
 - [Oracle Cloud Native - Functions](https://www.oracle.com/cloud/cloud-native/functions)
