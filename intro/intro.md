@@ -16,3 +16,18 @@ Finally we have tied a chatbot(Skill) with the microservice-order as a front-end
 
 ![](./images/gigis-architect01.png)
 
+At you can see in the architecture, there is a little serverless function to calculate discounts. It is based in a simple bussiness rule and it was coded in java with fn project, that is an open source serverless project from Oracle (Oracle FaaS is based in fn project).
+
+To improve this serverless function, we created a more complex serverless app to create dicount campaigns. This is the new serverless architecture that improves the first version.
+
+![](./images/gigis-architect02.png)
+
+In that architecture we introduced an Autonomous Database (ATP) to store the discount campaigns, we used an Object Storage to store discount campaings in json format and we used cloud events to upload the discount campaigns in json format to the ATP database.
+
+Once we improve the serverless part of Gigi's pizza, we created an API-Gateway to connect the serverless part with the microservices part. In the first version we did that in a direct "mode" connecting the microservice orchestrator directly to the serverless discount function. After creating the discount campaign app, we had to connect the microservice orchestrator in a better way to the serverless app.
+
+We created an API-Gateway that exposes the serverless function https calls to the world and we use that api call to connect microservice orchestrator to the discount campaing serverless function.
+
+![](./images/gigis-architect-HOL1-2-API.png)
+
+You'll can create your own Gigi's pizza project following the three Hand On Labs that we have created in this github repository.
