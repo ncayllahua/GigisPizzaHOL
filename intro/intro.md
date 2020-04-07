@@ -39,3 +39,9 @@ We created an API-Gateway that exposes the serverless function https calls to th
 ![](./images/gigis-architect-HOL1-2-API.png)
 
 You'll can create your own Gigi's pizza project following the three Hand On Labs that we have created in this github repository.
+
+## Acknowledgements
+
+- **Authors/Contributors** - Iván Sampedro Cloud Architect - Presales Tech, Carlos Olivares - Senior Manager Cloud Native
+- **Last Updated By/Date** - Iván Sampedro, March 2020
+- **Workshop Expiration Date** - 
