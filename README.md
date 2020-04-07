@@ -12,6 +12,29 @@ Hands on Labs - Gigis pizza microservices/serverless app (Oracle Cloud Infraestr
 * To connect serverless HOL to microservices HOL you can follow the Api Gateeway HOL.
 - [X] [HOL Api Gateway](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/api-gateway/oci_apigateway.md)
 
+- [I have a Freetier or Oracle Cloud account](https://oracle.github.io/learning-library/data-management-library/database/in-memory/freetier/index.html)
+- [I have an account from SSWorkshop](https://oracle.github.io/learning-library/data-management-library/database/in-memory/ssworkshop/index.html)
+
+
+## Get an Oracle Cloud Trial Account for Free!
+If you don't have an Oracle Cloud account then you can quickly and easily sign up for a free trial account that provides:
+- $300 of free credits good for up to 3500 hours of Oracle Cloud usage
+- Credits can be used on all eligible Cloud Platform and Infrastructure services for the next 30 days
+- Your credit card will only be used for verification purposes and will not be charged unless you 'Upgrade to Paid' in My Services
+
+Click here to request your trial account: [https://www.oracle.com/cloud/free](https://www.oracle.com/cloud/free)
+
+
+## Product Pages
+Database:
+- [Oracle Database 19c](https://www.oracle.com/database/)
+- [Oracle ATP Database](https://www.oracle.com/database/atp-cloud.html)
+Cloud Native dev tools:
+- [Oracle Cloud Native - OKE](https://www.oracle.com/cloud/compute/container-engine-kubernetes.html)
+- [Oracle Cloud Native - Registry](https://www.oracle.com/cloud/compute/container-registry.html)
+- [Oracle Cloud Native - Functions](https://www.oracle.com/cloud/cloud-native/functions)
+- [Oracle Cloud Native - API-Gateway](https://www.oracle.com/cloud/cloud-native/api-gateway/)
+
 ## :notebook: Interesting information for the HOLs.
 
 :computer: OVA VM machine [link](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/smpE_ekRW19rd4H31B4fPspIqXxRm-iSuaQ9kOc8_K8/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/HOL5967-OOW2019%20OVAHOL5967-OOW2019.ova "ova hol")
