@@ -9,12 +9,12 @@
             "filename": "../intro/intro.md"
         },
         {           
-            "title": "Test: Gigi's Pizza Hands on Labs B",
+            "title": "Test: Gigi's Pizza Hands on Labs A",
             "description": "About the Gigi's pizza HOLs",
             "partnumber": "Ennnnn_01",
             "publisheddate": "04/07/2020",
             "contentid": "12nnnn",
-            "filename": "https://raw.githubusercontent.com/oraclespainpresales/GigisPizzaHOL/master/api-gateway/oci_apigateway.md"
+            "filename": "../api-gateway/oci_apigateway.md"
         },
         {         
             "title": "Lab 1: Login to Oracle Cloud",
