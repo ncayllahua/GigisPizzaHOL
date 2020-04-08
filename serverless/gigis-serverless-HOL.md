@@ -749,7 +749,7 @@ Optional:
 fn init --runtime java fn_discount_campaign_pool
 ```
 
-Then you must modify each function with the appropiate code (you can ```CTRL + mouse click``` over the links to open new tabs browser):
+Then you must modify each function with the appropiate code (you can ```CTRL + mouse click``` over the links to open new browser tabs):
 
 1. [fn_discount_upload](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_upload.md)
 2. [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_cloud_events.md)
