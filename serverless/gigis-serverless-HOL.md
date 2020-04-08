@@ -68,7 +68,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 3. [How to get OCI tenancy config data](#how-to-get-oci-tenancy-config-data)
 4. [Create OCI Resources](#create-oci-resources)
    - 4.1.[VCN - Virtual Cloud Network Creation](#vcn---virtual-cloud-network-creation)
-   	- 4.1.1 [Create Developer Machine](#virtual-developer-cloud-machine)
+	 - 4.1.1 [Create Developer Machine](#virtual-developer-cloud-machine)
    - 4.2 [Object Storage Creation](#object-storage-creation)
    - 4.3 [ATP - Autonomous Database Creation](#atp---autonomous-database-creation)
 	 - 4.3.1. [Get ATP Wallet file](#get-atp-wallet-file)
