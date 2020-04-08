@@ -68,6 +68,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 3. [How to get OCI tenancy config data](#how-to-get-oci-tenancy-config-data)
 4. [Create OCI Resources](#create-oci-resources)
    - 4.1.[VCN - Virtual Cloud Network Creation](#vcn---virtual-cloud-network-creation)
+   	- 4.1.1 [<span class="underline">:grey_question: OPTIONAL - Create Development Environment Machine</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md)
    - 4.2 [Object Storage Creation](#object-storage-creation)
    - 4.3 [ATP - Autonomous Database Creation](#atp---autonomous-database-creation)
 	 - 4.3.1. [Get ATP Wallet file](#get-atp-wallet-file)
@@ -85,8 +86,6 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 	  - 5.1.2. [Create Fn Serverless Functions](#create-fn-serverless-functions)
 6. [Event Service - Cloud Event Creation](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/event-service.md)
 7. [Execute Serverless App](#function-testing)
-
-[<span class="underline">:grey_question: OPTIONAL - Create Development Environment Machine</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md)
 
 [<span class="underline">:grey_question: OPTIONAL - FaaS and Developer Cloud Service</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/devcs2fn.md) 
 
@@ -262,6 +261,9 @@ You should see a creation process window. It takes a few second to create the ne
 You new vnc should be created. You can check vnc subnets (2 networks: public and private), route tablets, internet gateway and so. You can click on Security List to check available open ports for example.
 
 ![](./images/vnc-create07.PNG)
+
+### Virtual Developer cloud Machine
+After VNC creation would be a good time to create you [developer cloud machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md) if don't have a developer machine with the appropiate [requisites](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md).
 
 ## Object Storage Creation
 Once you created a VNC, you will need an Object Storage element to upload discount campaign json files. Let's create an Object Storage Bucket following next steps:
