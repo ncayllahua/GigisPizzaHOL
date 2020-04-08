@@ -26,6 +26,14 @@ Then you must reboot your development machine.
 ```sh
 sudo reboot
 ```
+If the docker permission problem continues then run the next command:
+```sh
+sudo chmod 666 /var/run/docker.sock
+```
+Then reboot your development machine again.
+```sh
+sudo reboot
+```
 Wait machine reboot and login again with opc user.
 
 ## API signing key and Auth Token
