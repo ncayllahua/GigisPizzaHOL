@@ -78,7 +78,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 	 - 4.3.3. [ATP Schema and Tables Creation](#atp-schema-and-tables-creation)
 	 - 4.3.4. [ATP ORDS Configuration](#atp-ords-configuration)
 	 - 4.3.5. [ATP Enable ORDS Table](#atp-enable-ords-table)
-   - 4.4. [OCI IAM FaaS Policy](#vcn---virtual-cloud-network-creation)
+   - 4.4. [OCI IAM FaaS Policy](#oci-iam-faas-policy)
    - 4.5. [Oracle FaaS Serverless Application Creation](#oracle-faas-serverless-application-creation)
 	  - 4.5.1. [Function Environment Variables](#function-environment-variables)
 	  - 4.5.2. [Functions Logging](#functions-logging)
