@@ -356,7 +356,7 @@ Now you can write and execute SQL commands in Worksheet tab. Click on Green Play
 ### ATP Schema and Tables Creation
 Now you can create schemas and tables in the ATP. First you have to create a new schema and next you will can create the discount campaign table.
 
-To create the new schema called MICROSERVICE (or other descriptive name) you must copy this SQL sentences in the Worksheet of SQL Developer webapp.
+To create the new schema called **MICROSERVICE** (or other descriptive name) you must copy this SQL sentences in the Worksheet of SQL Developer webapp.
 
 ```sql
 -- USER SQL
@@ -421,7 +421,7 @@ BEGIN
     COMMIT;
 END;
 ```
-Sign out SQL Developer web as ADMIN user and Sign in again as MICROSERVICE user. To do that you must change the HTML  SQL Developer web URL from admin to <schema_name> [**atp**]:
+Sign out SQL Developer web as ADMIN user and Sign in again as MICROSERVICE user. To do that you must change the HTML  SQL Developer web URL from **admin** to <schema_name> <span style="color: green">atp</span>:
 From
 ```html
 https://<your-ATP-Instance>.adb.<your_region>.oraclecloudapps.com/ords/admin/_sdw/?nav=worksheet 
