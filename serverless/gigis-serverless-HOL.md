@@ -395,7 +395,7 @@ CREATE TABLE "MICROSERVICE"."CAMPAIGN" (
 );
 ```
 
-After table created, select MICROSERVICE, Tables and Click on Campaign Table to review the table records.
+After table created, select MICROSERVICE, Tables and Click on Campaign Table to review the table records. If you don't see MICROSERVICE please refresh your browser.
 
 ![](./images/ATP-configure-schema03.PNG)
 
@@ -486,7 +486,7 @@ FROM user_ords_clients;
 
 Note client_id and client_secrect fields, because you will use them later in the LAB. They are necessary to configure the serverless Functions ATP ORDS access.
 
-Change the timestamp and date formats.
+Change the timestamp and date formats. Please run this two sentences clicking in the second play icon (the icon with a page and play icon)
 ```sql
 alter session set nls_timestamp_tz_format='DD/MM/YYYY HH24:MI:SS.FF6 TZR';
 alter session set nls_date_format='DD/MM/YYYY';
