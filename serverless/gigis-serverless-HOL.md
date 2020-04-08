@@ -710,7 +710,7 @@ fn use context <YOUR-COMPARTMENT>
 fn update context [YOUR-COMPARTMENT-OCID]
 fn update context api-url https://functions.[your-region].oraclecloud.com
 ```
-* Update the context with the location of the OCI Registry you want to use
+* Update the context with the location of the OCI Registry you want to use. The [OCIR-REPO] name could be what ever you want and the fn deploy will create the repo if the repo doesn't exists.
 ```sh
 fn update context registry [YOUR-OCIR-REGION].ocir.io/[YOUR-TENANCY-NAMESPACE]/[YOUR-OCIR-REPO]
 ```
