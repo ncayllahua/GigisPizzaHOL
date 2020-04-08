@@ -226,7 +226,7 @@ This concludes the list of OCI tenancy parameters you will require to run next s
 - Cloud Events
 
 ## VCN - Virtual Cloud Network Creation
-If you have created previously a VCN in your compartment, you can use it instead of create a new want, but if you don't have any VNC created, please follow next steps:
+If you have created previously a VCN in your compartment, you can use it instead of create a new one, but if you don't have any VNC created, please follow next steps:
 
 Go to Core Infrastructure -> Networking in the main menu and click in Virtual Cloud Networks.
 
