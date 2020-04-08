@@ -48,7 +48,7 @@ kubectl create secret docker-registry ocirsecret --docker-server=fra.ocir.io --d
 https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm
 
 ## Oracle OCIR Regions: ##
-https://docs.cloud.oracle.com/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab
+https://docs.cloud.oracle.com/en-us/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab
 
 ## OKE in Rancher UI ##
 
