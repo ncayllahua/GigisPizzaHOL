@@ -90,4 +90,9 @@ You can check you oci config running the next command.
 ```sh
 oci os ns get
 ```
-This command will return your tenant objectstorage namespace.
+This command will return your tenant objectstorage namespace in json format as:
+```json
+{
+  "data": "wedoinfra"
+}
+```
