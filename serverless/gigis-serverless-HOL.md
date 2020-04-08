@@ -22,6 +22,8 @@ This serverless Hands On Lab includes:
 
 # In this Hands on Lab
 
+All HOL was written in English and all the screenshots are in English Language. We recomend you that select English as your default language in Oracle Cloud. Select the Earth Icon at the top right (near your profile icon) and change the language to English.
+
 In this HOL you will create a serverless app for discount campaigns. 
 You will:
 
