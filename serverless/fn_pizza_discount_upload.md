@@ -148,9 +148,9 @@ Open a terminal in your development machine and execute:
 ```sh
 cd $HOME/holserverless/fn_discount_upload
 ```
-Then you must login in OCIR registry (remember use your OCIR [region](https://docs.cloud.oracle.com/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab)) with ```docker login``` command. Introduce your OCI user like ```<Object Storage namespace>/<user>``` when docker login ask you about username and your previously created **OCI Authtoken** as password.
+Then you must login in OCIR registry (remember use your OCIR [region](https://docs.cloud.oracle.com/en-us/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab)) with ```docker login``` command. Introduce your OCI user like ```<Object Storage namespace>/<user>``` when docker login ask you about username and your previously created **OCI Authtoken** as password.
 ```sh
-docker login fra.ocir.io
+docker login <your_region>.ocir.io
 ```
 ![](./images/fn-discount-upload/faas-create-function20.PNG)
 
