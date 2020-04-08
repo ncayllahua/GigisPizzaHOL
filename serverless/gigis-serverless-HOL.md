@@ -421,7 +421,7 @@ BEGIN
     COMMIT;
 END;
 ```
-Sign out SQL Developer web as ADMIN user and Sign in again as MICROSERVICE user. To do that you must change the HTML  SQL Developer web URL from **admin** to <schema_name> <span style="color: green">atp</span>:
+Sign out SQL Developer web as ADMIN user and Sign in again as MICROSERVICE user. To do that you must change the HTML  SQL Developer web URL from **admin** to <schema_name> **atp**:
 From
 ```html
 https://<your-ATP-Instance>.adb.<your_region>.oraclecloudapps.com/ords/admin/_sdw/?nav=worksheet 
@@ -573,18 +573,18 @@ You must create all next environment variables to setup your serverless applicat
 
 || Key | Value | Section |
 | ------------- | ------------- | ------------- | ------------- |
-|01| CLIENT_CREDENTIALS|/function/wallet|N/A|
-|02| DB_ORDS_BASE|https://[ixcsyvrmtjm8ebr-ggdiscountatp].adb.eu-frankfurt-1.oraclecloudapps.com/ords/|[<span class="underline">from ORDS URL Section</span>](#atp-ords-url)|
-|03| DB_ORDS_CLIENT_ID|[DWxb8cNpjGJaJ415GN8Lqg..]|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|04| DB_ORDS_CLIENT_SECRET|[5VHamjpqAcTncEyIVOTdTA..]|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|05| DB_ORDS_SERVICE|atp/campaign|[<span class="underline">from ORDS Section</span>](#atp-enable-ords-table)|
-|06| DB_ORDS_SERVICE_OAUTH|atp/oauth/token|[from ATP ORDS documentation](https://oracle-base.com/articles/misc/oracle-rest-data-services-ords-authentication)|
+|01| CLIENT_CREDENTIALS|**/function/wallet**|N/A|
+|02| DB_ORDS_BASE|https://ixcsyvrmtjm8ebr-ggdiscountatp.adb.eu-frankfurt-1.oraclecloudapps.com/ords/|[<span class="underline">from ORDS URL Section</span>](#atp-ords-url)|
+|03| DB_ORDS_CLIENT_ID|DWxb8cNpjGJaJ415GN8Lqg..|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
+|04| DB_ORDS_CLIENT_SECRET|5VHamjpqAcTncEyIVOTdTA..|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
+|05| DB_ORDS_SERVICE|**atp/campaign**|[<span class="underline">from ORDS Section</span>](#atp-enable-ords-table)|
+|06| DB_ORDS_SERVICE_OAUTH|**atp/oauth/token**|[from ATP ORDS documentation](https://oracle-base.com/articles/misc/oracle-rest-data-services-ords-authentication)|
 |07| DB_USER|MICROSERVICE|[from SQL USER creation](#atp-schema-and-tables-creation)|
 |08| DB_PASSWORD|AAZZ__welcomedevops123|[from SQL USER creation](#atp-schema-and-tables-creation)|
-|09| DB_URL|jdbc:oracle:thin:@|[from Java and JDBC documentation](https://docs.oracle.com/cd/B28359_01/java.111/b31224/jdbcthin.htm)|
+|09| DB_URL|**jdbc:oracle:thin:@**|[from Java and JDBC documentation](https://docs.oracle.com/cd/B28359_01/java.111/b31224/jdbcthin.htm)|
 |10| DB_SERVICE_NAME|ggdiscountatp_MEDIUM|[<span class="underline">from Get ATP Wallet file Section</span>](#get-atp-wallet-file)|
-|11| KEYSTORE_PASSWORD |[WalletPassw0rd]|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
-|12| TRUSTSTORE_PASSWORD |[WalletPassw0rd]|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
+|11| KEYSTORE_PASSWORD |WalletPassw0rd|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
+|12| TRUSTSTORE_PASSWORD |WalletPassw0rd|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
 
 ### Functions Logging
 If you want to create a function logging to trace your code, you have several methods: create log in an OCI object storage bucket, use a remote syslog server or use the OCI logging service.
