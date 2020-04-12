@@ -11,3 +11,5 @@ As well as Java, Function Development Kits (FDKs) are available for:
 - .Net Core
 
 (please feel free to contribute a new FDK to the Fn Project ;-) )
+
+Polyglot alternatives to some of the Java functions in the HOL may be found here.
