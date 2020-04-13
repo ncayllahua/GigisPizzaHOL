@@ -36,11 +36,11 @@ You could deploy this new serverless function in your FaaS environment, but the 
 
 Open Visual Studio Code (Applications -> Accessories in the development VM) or your favourite IDE 
 
-![](./images/fn-discount-campaign/faas-create-function07.PNG)
+![](./images/fn-discount-campaign/faas-create-function07b.PNG)
 
 Select **add workspace folder ...** in the Start Menu.
 
-![](./images/fn-discount-campaign/faas-create-function08.PNG)
+![](./images/fn-discount-campaign/faas-create-function08b.PNG)
 
 Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_campaign]. Then click Add button to create a workspace from this directory in Visual Studio Core.
 
