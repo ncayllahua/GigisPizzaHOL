@@ -476,7 +476,8 @@ COPY --from=build-stage /function/target/*.jar /function/app/
 
 CMD ["com.example.fn.UploadDiscountCampaigns::handleRequest"]
 ```
-## OPTIONAL - Function upload Python code
+## Function upload Python code
+This is an optional part of the HOL to review the polyglot features of fn functions.
 
 Now that you have created your upload function in java code, you could follow almost the same steps to create a **python function** with the same result, upload pizza discount to the ATP DB with ORDS. You can get the **[pyton code](https://github.com/oraclespainpresales/GigisPizzaHOL/tree/44076b6156b0c0fe450906186441c0e12e5ab975/serverless/polyglot)** in this HOL too and test the polyglot feature of fn functions.
 
