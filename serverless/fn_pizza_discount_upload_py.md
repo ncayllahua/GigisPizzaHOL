@@ -1,4 +1,4 @@
-# Function fn discount upload
+# Function fn discount upload in Python
 This serverless function will upload discount campaign received in json format to **CAMPAIGN table** in the **ATP DB** via **ORDS** (*Oracle REST Data Services*). This function will be invoked by **fn_discount_cloud_events** that is the function that catch cloud events, access campaign.json file in a Object Storage bucket and will send each campaign inside that json file, to this **[fn_discount_upload_py]** serverless function.
 
 Table of Contents:
