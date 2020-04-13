@@ -3,15 +3,11 @@ This serverless function will upload discount campaign received in json format t
 
 Table of Contents:
 1. [fn discount upload IDE preparation](#fn-discount-upload-ide-preparation)
-2. [fn discount upload java code](#fn-discount-upload-java-code)
+2. [fn discount upload python code](#fn-discount-upload-python-code)
 3. [Changing func.yaml file](#changing-funcyaml-file)
-4. [Overwriting pom.xml file](#overwriting-pomxml-file)
-5. [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
-6. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
-7. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
-8. [Code recap (OPTIONAL)](#code-recap-optional)
-9. [Function Upload in Python (OPTIONAL)](#function-upload-python-code)
-10. [Continue the HOL](#continue-the-hol)
+4. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
+5. [Code recap (OPTIONAL)](#code-recap-optional)
+6. [Continue the HOL](#continue-the-hol)
 
 To create your optional serverless python function you must write next command line:
 
@@ -57,7 +53,7 @@ You can click in **func.py** to review your serverless function code. Same for *
 
 ![](./images/fn-discount-upload-py/faas-create-function06.PNG)
 
-### fn discount upload java code
+### fn discount upload python code
 The function code is in the next github [repository](https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/serverless/polyglot/python/pizza_discount_upload). You can open it in other web brower tab (```CRTL + mouse click```, to review the project.
 
 You can access java code to copy and paste it in your develpment machine IDE project. You could clone this github repository if you want, instead of copy and paste the different files. You can learn how to clone the git repo in this [section](clone-git project to IDE).
