@@ -4,10 +4,9 @@ This serverless function will upload discount campaign received in json format t
 Table of Contents:
 1. [fn discount upload IDE preparation](#fn-discount-upload-ide-preparation)
 2. [fn discount upload python code](#fn-discount-upload-python-code)
-3. [Changing func.yaml file](#changing-funcyaml-file)
-4. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
-5. [Code recap (OPTIONAL)](#code-recap-optional)
-6. [Continue the HOL](#continue-the-hol)
+3. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
+4. [Code recap (OPTIONAL)](#code-recap-optional)
+5. [Continue the HOL](#continue-the-hol)
 
 To create your optional serverless python function you must write next command line:
 
