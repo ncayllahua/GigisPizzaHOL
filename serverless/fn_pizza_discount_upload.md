@@ -479,16 +479,7 @@ CMD ["com.example.fn.UploadDiscountCampaigns::handleRequest"]
 ## Function upload Python code
 This is an optional part of the HOL to review the polyglot features of fn functions.
 
-Now that you have created your upload function in java code, you could follow almost the same steps to create a **python function** with the same result, upload pizza discount to the ATP DB with ORDS. You can get the **[pyton code](https://github.com/oraclespainpresales/GigisPizzaHOL/tree/44076b6156b0c0fe450906186441c0e12e5ab975/serverless/polyglot)** in this HOL too and test the polyglot feature of fn functions.
-
-You have to initialize your python function with next command and then follow almost the same steps that you did before with the java code.
-
-```sh
-fn init --runtime python fn_discount_upload_py
-```
-Then you can continue changing the HelloFunction in python to upload function python code and the other files like func.yaml. You don't have to create a custom Dockerfile for example.
-
-Once you have changed the code you can deploy it as a function in your serverless application and test the new python function.
+Now that you have created your upload function in java code, you could follow almost the same steps to create a **python function** with the same result, upload pizza discount to the ATP DB with ORDS. You can get the **[pyton code](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_upload_py.md)** in this HOL too and test the polyglot feature of fn functions.
 
 # Continue the HOL
 
