@@ -10,7 +10,7 @@ Table of Contents:
 6. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
 7. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
 8. [Code recap (OPTIONAL)](#code-recap-optional)
-9. [Function Upload in Python (OPTIONAL)](optional---function-upload-python-code)
+9. [Function Upload in Python (OPTIONAL)](#function-upload-python-code)
 10. [Continue the HOL](#continue-the-hol)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
