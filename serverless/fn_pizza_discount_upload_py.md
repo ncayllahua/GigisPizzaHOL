@@ -1,5 +1,5 @@
 # Function fn discount upload
-This serverless function will upload discount campaign received in json format to **CAMPAIGN table** in the **ATP DB** via **ORDS** (*Oracle REST Data Services*). This function will be invoked by **fn_discount_cloud_events** that is the function that catch cloud events, access campaign.json file in a Object Storage bucket and will send each campaign inside that json file, to this **[fn_discount_upload]** serverless function.
+This serverless function will upload discount campaign received in json format to **CAMPAIGN table** in the **ATP DB** via **ORDS** (*Oracle REST Data Services*). This function will be invoked by **fn_discount_cloud_events** that is the function that catch cloud events, access campaign.json file in a Object Storage bucket and will send each campaign inside that json file, to this **[fn_discount_upload_py]** serverless function.
 
 Table of Contents:
 1. [fn discount upload IDE preparation](#fn-discount-upload-ide-preparation)
@@ -17,10 +17,9 @@ To create your optional serverless python function you must write next command l
 
 ```sh
 fn init --runtime python fn_discount_upload_py
-
+```
 ![](./images/fn-discount-upload-py/faas-create-function01.PNG)
 
-```
 Verify that your new function has 2 files (func.yaml and func.yaml).
 
 ```sh 
