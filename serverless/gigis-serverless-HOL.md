@@ -422,6 +422,7 @@ BEGIN
 END;
 ```
 Sign out SQL Developer web as ADMIN user and Sign in again as MICROSERVICE user. To do that you must change the HTML  SQL Developer web URL from **admin** to <schema_name> **atp**:
+
 From
 ```html
 https://<your-ATP-Instance>.adb.<your_region>.oraclecloudapps.com/ords/admin/_sdw/?nav=worksheet 
