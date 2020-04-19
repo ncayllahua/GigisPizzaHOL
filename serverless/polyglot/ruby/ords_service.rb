@@ -27,14 +27,10 @@ class OrdsService
   end
 
   def service_client
-    @service_client ||= begin
-      conn = Faraday::Connection.new(
-        service_url,
-        headers: { 'Content-Type' => 'application/json' }
-      )
-      conn.authorization(:Bearer, token)
-      conn
-    end
+    @service_client ||= Faraday::Connection.new(
+      service_url,
+      headers: { 'Content-Type' => 'application/json' }
+    ).tap { |conn| conn.authorization(:Bearer, token) }
   end
 
   def read
