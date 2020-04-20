@@ -13,6 +13,10 @@ Next Event Type [Object-Create] and [Object-Update]
 
 ![](./images/event-service/Events-creation03.png)
 
+Next click in +Another Condition and select [Attribute], then [bucketName] write your bucket name [GigisDiscountCampaigns-Bucket] created before and press enter to add to attribute values field.
+
+![](./images/event-service/Events-creation03b.png)
+
 You could test  your event clicking in Validate Rule button. Review the cloud event generated json object and click in Check if Example Event Matches Rule button. Click Close to return previous menu.
 
 ![](./images/event-service/Events-creation04.png)
