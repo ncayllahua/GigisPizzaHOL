@@ -161,7 +161,7 @@ Now go to Menu option Identity-\>Users:
 
 ![](./images/image20.png)
 
-In Users area, select you user and then click on copy button for your email address user(remember this user has admin role in OCI tenancy) so that you can copy the user’s OCID. Don’t forget to make a note in a txt file.
+In Users area, find your user and click in three dot icon to show you a litle option menu with **Copy OCID** option. Select it and note your OCID in a text file.
 
 ![](./images/image21.png)
 
