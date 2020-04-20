@@ -140,7 +140,7 @@ And you will be directed to initial Oracle Cloud Infrastructure Dashboard (refer
 
 # **Getting key config data from Oracle Cloud Tenancy**
 
-Let’s gather some key info about our OCI tenancy that will be required throughout the whole lab. So we recommend you to create a txt file where you store this basic info you will be required to use several times during this lab:
+Let’s gather some key info about our OCI tenancy. We recommend you to create a txt file where you store this basic info you will be required to use during this lab:
 
   - Tenancy OCID
   - User OCID
@@ -148,7 +148,6 @@ Let’s gather some key info about our OCI tenancy that will be required through
   - Public Key
   - Fingerprint
   - Auth Token
-  - Compartment OCID
   - Object Storage Namespace
 
 ## How to get OCI tenancy config data
@@ -159,7 +158,7 @@ In Oracle Cloud Infrastructure interface menu, go to Administration-\>Tenancy De
 
 In Tenancy information area, select copy button so that you copy the OCID for tenancy and don’t forget to make a note in a txt file.
 
-Also copy the Object Storage Namespace under the Object Storage Setting area and don’t forget to make a note in a text file.
+Also copy the **Object Storage Namespace** under the Object Storage Setting area and don’t forget to make a note in a text file.
 
 ![](./images/image19.png)
 
@@ -173,7 +172,8 @@ In Users area, click on copy button for your email address user(remember this us
 
 Now we will create an Auth token for the user by using a public and private key. We will provide you with two already created .pem keys to download in:
 
-[<span class="underline">https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/microservices/Credentials</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/tree/master/microservices/Credentials)
+* [Private key in pem format](https://raw.githubusercontent.com/oraclespainpresales/GigisPizzaHOL/master/microservices/Credentials/private.pem)
+* [Public key in pem format](https://raw.githubusercontent.com/oraclespainpresales/GigisPizzaHOL/master/microservices/Credentials/public.pem)
 
 First thing you need to do is viewing content of Private Key and copying private key, making a note in a txt file. Then do the same with public key and copy content into clipboard.
 
@@ -203,26 +203,7 @@ IMPORTANT: Copy the Generated Token in a txt file and keep safe as we will requi
 
 ![](./images/image27.png)
 
-Now we have to create a new Compartment as currently we only have the root one in tenancy by default. In OCI Dashboard Menu go to
-Identity-\>Compartments 
-
-![](./images/image28.png)
-
-Click on “Create Compartment” button and fill in Name(we have called it
-HandsOnLab), Description and Parent Compartment(it must be root referred
-with Tenancy name) and click in “Create Compartment” button:
-
-![](./images/image29.png)
-
-Now click in Compartment name you have just created (HandOnLab for me):
-
-![](./images/image30.png)
-
-And click on copy link to copy the Compartment OCID. Don’t forget to make a note in a txt file.
-
-![](./images/image31.png)
-
-This concludes the list of OCI tenancy parameters you will require to run next section.
+This concludes the list of OCI tenancy parameters you will require to run next sections.
 
 # Create OCI Resources
 - VCN - Virtual Cloud Network
