@@ -140,16 +140,11 @@ And you will be directed to initial Oracle Cloud Infrastructure Dashboard (refer
 
 # **Getting key config data from Oracle Cloud Tenancy**
 
-Let’s gather some key info about our OCI tenancy. We recommend you to create a txt file where you store this basic info you will be required to use during this lab:
+Let’s gather some key info about your OCI tenancy before launch the Terraform deployment. We recommend you to create a txt file where you store this basic info you will be required to use during this lab:
 
   - Tenancy OCID
   - User OCID
-  - Private Key
-  - Public Key
-  - Fingerprint
-  - Auth Token
-  - Object Storage Namespace
-
+  
 ## How to get OCI tenancy config data
 
 In Oracle Cloud Infrastructure interface menu, go to Administration-\>Tenancy Details:
@@ -158,7 +153,7 @@ In Oracle Cloud Infrastructure interface menu, go to Administration-\>Tenancy De
 
 In Tenancy information area, select copy button so that you copy the OCID for tenancy and don’t forget to make a note in a txt file.
 
-Also copy the **Object Storage Namespace** under the Object Storage Setting area and don’t forget to make a note in a text file.
+Also you can copy the **Object Storage Namespace** under the Object Storage Setting area and don’t forget to make a note in a text file. You can get this information too, at the end of the Terraform deployment apply (as terraform output).
 
 ![](./images/image19.png)
 
@@ -166,44 +161,16 @@ Now go to Menu option Identity-\>Users:
 
 ![](./images/image20.png)
 
-In Users area, click on copy button for your email address user(remember this user has admin role in OCI tenancy) so that you can copy the user’s OCID. Don’t forget to make a note in a txt file.
+In Users area, select you user and then click on copy button for your email address user(remember this user has admin role in OCI tenancy) so that you can copy the user’s OCID. Don’t forget to make a note in a txt file.
 
 ![](./images/image21.png)
 
-Now we will create an Auth token for the user by using a public and private key. We will provide you with two already created .pem keys to download in:
+This concludes the list of OCI tenancy parameters you will require to run next sections.
 
-* [Private key in pem format](https://raw.githubusercontent.com/oraclespainpresales/GigisPizzaHOL/master/microservices/Credentials/private.pem)
-* [Public key in pem format](https://raw.githubusercontent.com/oraclespainpresales/GigisPizzaHOL/master/microservices/Credentials/public.pem)
-
-First thing you need to do is viewing content of Private Key and copying private key, making a note in a txt file. Then do the same with public key and copy content into clipboard.
-
-![](./images/image22.png)
-
-Now click in your email user and you will be directed to a details screen, where you must click in Api Keys area in “Add Public Key”
-button.
-
-![](./images/image23.png)
-
-Now paste in popup window the Public Key previously copied in clipboard. Make sure you have copied public.pem content and not private.pem content. Click in Add button.
-
-![](./images/image24.png)
-
-Now copy Fingerprint generated as it will be used later. Don’t forget to make a note in a txt file.
-
-![](./images/image25.png)
-
-Now create parameter required (AuthToken) by clicking in Auth Tokens under Resources area, clicking in Generate Token button and then
-providing a description:
+# Launch Terraform deployment from Oracle Cloud Shell.
 
 IMPORTANT REMINDER :grey_exclamation::grey_exclamation:: AFTER YOU CLICK IN Generate Token Button, COPY THIS AUTHTOKEN AND KEEP SAFE AS IT CANNOT BE FOUND LATER
 
-![](./images/image26.png)
-
-IMPORTANT: Copy the Generated Token in a txt file and keep safe as we will require it later:
-
-![](./images/image27.png)
-
-This concludes the list of OCI tenancy parameters you will require to run next sections.
 
 # Create OCI Resources
 - VCN - Virtual Cloud Network
