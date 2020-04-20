@@ -161,13 +161,14 @@ Now go to Menu option Identity-\>Users:
 
 ![](./images/image20.png)
 
-In Users area, find your user and click in three dot icon to show you a litle option menu with **Copy OCID** option. Select it and note your OCID in a text file.
+In Users area, find your user and click in three dot icon to show you a litle option menu with **Copy OCID** option. Select it and note your OCID in a text file. Also you could clik in your user and you could copy your OCID from your user data menu.
 
 ![](./images/image21.png)
 
 This concludes the list of OCI tenancy parameters you will require to run next sections.
 
 # Launch Terraform deployment from Oracle Cloud Shell.
+Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal accessible from the Oracle Cloud Console. Cloud Shell is free to use (within monthly tenancy limits), and provides access to a Linux shell. For more information please refer to the [cloud shell documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm).
 
 IMPORTANT REMINDER :grey_exclamation::grey_exclamation:: AFTER YOU CLICK IN Generate Token Button, COPY THIS AUTHTOKEN AND KEEP SAFE AS IT CANNOT BE FOUND LATER
 
