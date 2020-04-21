@@ -347,19 +347,19 @@ Click Configuration menu to review your serverless app environment variables.
 You must have all next environment variables to setup your serverless application, before functions creation. When you create the serverless functions, they will can access your ATP Database with both ORDS or JDBC methods. **Bold** values would be changed by your own values.
 
 || Key | Value | Section |
-| ------------- | ------------- | ------------- | ------------- |
+| ------------- | ------------- | ------------- |
 |01| CLIENT_CREDENTIALS|/function/wallet|N/A|
-|02| DB_ORDS_BASE|example: https://**ixcsyvrmtjm8ebr-ggdiscountatp**.adb.**eu-frankfurt-1**.oraclecloudapps.com/ords/|[<span class="underline">from ORDS URL Section</span>](#atp-ords-url)|
-|03| DB_ORDS_CLIENT_ID|example: **DWxb8cNpjGJaJ415GN8Lqg..**|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|04| DB_ORDS_CLIENT_SECRET|example: **5VHamjpqAcTncEyIVOTdTA..**|[<span class="underline">from ORDS Section</span>](#atp-ords-configuration)|
-|05| DB_ORDS_SERVICE|atp/campaign|[<span class="underline">from ORDS Section</span>](#atp-enable-ords-table)|
-|06| DB_ORDS_SERVICE_OAUTH|atp/oauth/token|[from ATP ORDS documentation](https://oracle-base.com/articles/misc/oracle-rest-data-services-ords-authentication)|
-|07| DB_USER|**MICROSERVICE**|[from SQL USER creation](#atp-schema-and-tables-creation)|
-|08| DB_PASSWORD|**AAZZ__welcomedevops123**|[from SQL USER creation](#atp-schema-and-tables-creation)|
-|09| DB_URL|jdbc:oracle:thin:@|[from Java and JDBC documentation](https://docs.oracle.com/cd/B28359_01/java.111/b31224/jdbcthin.htm)|
-|10| DB_SERVICE_NAME|**ggdiscountatp_MEDIUM**|[<span class="underline">from Get ATP Wallet file Section</span>](#get-atp-wallet-file)|
-|11| KEYSTORE_PASSWORD |**WalletPassw0rd**|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
-|12| TRUSTSTORE_PASSWORD |**WalletPassw0rd**|[<span class="underline">from Wallet Section</span>](#get-atp-wallet-file)|
+|02| DB_ORDS_BASE|example: https://**ixcsyvrmtjm8ebr-ggdiscountatp**.adb.**eu-frankfurt-1**.oraclecloudapps.com/ords/|
+|03| DB_ORDS_CLIENT_ID|example: **DWxb8cNpjGJaJ415GN8Lqg..**|
+|04| DB_ORDS_CLIENT_SECRET|example: **5VHamjpqAcTncEyIVOTdTA..**|
+|05| DB_ORDS_SERVICE|atp/campaign|
+|06| DB_ORDS_SERVICE_OAUTH|atp/oauth/token|
+|07| DB_USER|**MICROSERVICE**|
+|08| DB_PASSWORD|**AAZZ__welcomedevops123**|
+|09| DB_URL|jdbc:oracle:thin:@|
+|10| DB_SERVICE_NAME|**ggdiscountatp_MEDIUM**|
+|11| KEYSTORE_PASSWORD |**WalletPassw0rd**|
+|12| TRUSTSTORE_PASSWORD |**WalletPassw0rd**|
 
 ### Functions Logging
 If you want to create a function logging to trace your code, you have several methods: create log in an OCI object storage bucket, use a remote syslog server or use the OCI logging service.
