@@ -225,6 +225,7 @@ Next two parameters should be included in your serverless app, but review them (
 * **ATP_client_id** necessary in the serverless functions to access via ORDS to the ATP DB
 * **ATP_client_secret** necessary in the serverless functions to access via ORDS to the ATP DB
 
+And next two parameters are important to connect to your OCIR (Oracle Cloud Docker Registry) and push function docker images:
 * **Object_Storage_Namespace** that should be the same that you saw (and note maybe) in the Tenancy Details UI.
 * **User_OAuth_Token** is your OAUth_token and you will use in the next steps of the Lab
 
