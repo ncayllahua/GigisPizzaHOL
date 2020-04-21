@@ -168,99 +168,109 @@ In Users area, find your user and click in three dot icon to show you a litle op
 This concludes the list of OCI tenancy parameters you will require to run next sections.
 
 # Launch Terraform deployment from Oracle Cloud Shell.
-Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal accessible from the Oracle Cloud Console. Cloud Shell is free to use (within monthly tenancy limits), and provides access to a Linux shell. For more information please refer to the [cloud shell documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm).
+To execute the terraform deployment and other scripts you will use OCI Cloud Shell. Even you could test your serverless functions with Cloud shell, but what is Cloud Shell? Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal accessible from the Oracle Cloud Console. Cloud Shell is free to use (within monthly tenancy limits), and provides access to a Linux shell. For more information please refer to the [cloud shell documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm).
 
+To open cloud shell please click in the **Cloud Shell icon** at the top right of OCI web UI. Cloud Shell depends on you OCI region as you could read in the cloud shell documentation.
 
+![](./images/cloud-shell01.png)
 
-IMPORTANT REMINDER :grey_exclamation::grey_exclamation:: AFTER YOU CLICK IN Generate Token Button, COPY THIS AUTHTOKEN AND KEEP SAFE AS IT CANNOT BE FOUND LATER
+Trial accounts only have 1 region, but if you are using your own paid oracle cloud tenancy be aware of your region before launch cloud shell.
 
+![](./images/cloud-shell02.png)
 
-# Create OCI Resources
+Once your cloud shell is launched, you must create a new working directory, please write a descriptive name like **[terraform-scripts]** or something like that.
+
+```sh
+mkdir terraform-scripts
+cd terraform-scripts
+```
+
+![](./images/cloud-shell03.png)
+
+Now you must import the terraform deployment with **wget** in your cloud shell session. The imported file is a zip file, so after downloading it, you must decompress it with **unzip**. 
+
+**Note:**_For clipboard operations, Windows users can use Ctrl-C or Ctrl-Insert to copy, and Shift-Insert or Ctrl-V to paste. For Mac OS users, use Cmd-C to copy and Cmd-V to paste.
+
+```sh
+wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/AHdczq0U7fhAWiJvUu2Tsk2L0Yp_i9PBilkbnNt2Nh8/n/wedoinfra/b/bucket-serverless-hol/o/serverless-hol.zip
+
+unzip serverless-hol.zip
+```
+
+![](./images/cloud-shell04.png)
+
+Once unzipped the zip file, you should have a sh file **[launch-HOL.sh]** to lauch the Terraform project and the **[Terraform]** directory with all the terraform files to deploy the OCI infra elements and the ATP (Autonomous Data Base) Configuration. You can review the terraform files and scripts, if your are interested in this kind of deployments.
+
+Terraform will deploy:
 - VCN - Virtual Cloud Network
 - Object Storage
 - ATP - Autonomous Transaction Processing
 - IAM FaaS Policy
-- Function App
-- Cloud Events
+- Function App (only the project definition).
 
-## VCN - Virtual Cloud Network Creation
-If you have created previously a VCN in your compartment, you can use it instead of create a new one, but if you don't have any VCN created, please follow next steps:
+To launch the project execute next command and you will be answered for your **[OCI region identifier](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm)**, your **tenancy OCID** and your **user OCID** (you will be answered two times one for the terraform plan and other for the terraform apply):
 
+```sh
+./lauch-HOL.sh
+```
+
+![](./images/cloud-shell05.png)
+
+![](./images/cloud-shell06.png)
+
+The Terraform deployment will take a few minutes
+
+![](./images/cloud-shell07.png)
+
+Finally you will receive some output parameters:
+Next two parameters should be included in your serverless app, but review them (in next section) to avoid future connection problems.
+* ATP_client_id (necessary in the serverless functions to access via ORDS to the ATP DB)
+* ATP_client_secret (necessary in the serverless functions to access via ORDS to the ATP DB)
+
+* Object_Storage_Namespace that should be the same that you saw (and note maybe) in the Tenancy Details UI.
+* User_OAuth_Token is your OAUth_token and you will use in the next steps of the Lab
+
+IMPORTANT REMINDER :grey_exclamation::grey_exclamation:: AFTER YOUR Terraform script ends, COPY AUTHTOKEN AND KEEP SAFE you can't get it from OCI again.
+
+
+![](./images/cloud-shell08.png)
+
+## Review OCI
+Review your OCI components created with Terraform.
+
+### VCN - Virtual Cloud Network Review
 Go to Core Infrastructure -> Networking in the main menu and click in Virtual Cloud Networks.
 
 ![](./images/vnc-create01.PNG)
 
-Check that you are in you HandsOnLab compartment. If the compartment doesn't appear in the dropdown list, please refresh your browser (F5). After refreshing, select the HandsOnLab compartment. Then click Networking Quickstart button.
+Check that you are in you HandsOnLab compartment. If the compartment doesn't appear in the dropdown list, please refresh your browser (F5). After refreshing, select the HandsOnLab compartment. You must have a **[functions-vnc]** VCN.
 
-![](./images/vnc-create02.PNG)
-
-Select VCN with Internet Connectivity if it's not selected and click Start Workflow button
-
-![](./images/vnc-create03.PNG)
-
-Write a descriptive name for the new VCN like functions-vcn or something like that. Check the compartment name [HandsOnLab]. Then write the CIDRs for public and private networks. You can copy them from the Example text.
-
-* VCN CIDR BLOCK: **10.0.0.0/16**
-* PUBLIC SUBNET CIDR BLOCK: **10.0.0.0/24**
-* PRIVATE SUBNET CIDR BLOCK: **10.0.1.0/24**
-
-Click Next button to continue the creation process
-
-![](./images/vnc-create04.PNG)
-
-Review and check data for the new vnc and click Create button
-
-![](./images/vnc-create05.PNG)
-
-You should see a creation process window. It takes a few second to create the new vnc.
-
-![](./images/vnc-create06.PNG)
+![](./images/vnc-ff-create07.PNG)
 
 You new vnc should be created. You can check vnc subnets (2 networks: public and private), route tablets, internet gateway and so. You can click on Security List to check available open ports for example.
 
 ![](./images/vnc-create07.PNG)
 
-### Virtual Developer cloud Machine
+#### Virtual Developer cloud Machine
 After VNC creation would be a good time to create your [developer cloud machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md) if don't have one  with the appropiate software [requisites](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md).
 
-## Object Storage Creation
-Once you created a VNC, you will need an Object Storage element to upload discount campaign json files. Let's create an Object Storage Bucket following next steps:
-
+### Object Storage Review
 Go to Core Infrastructure -> Object Storage in the main menu and click in Object Storage.
 
 ![](./images/objectstorage-create01.PNG)
 
-Check your campartment name [HandsOnLab] and click Create Bucket button.
+Check your campartment name [HandsOnLab] and review your new bucket.
 
 ![](./images/objectstorage-create02.PNG)
 
-Write a descriptive name for the bucket as GigisDiscountCampaigns-Bucket or something like that. Then check STANDARD selection, check EMIT OBJECT EVENTS to enable CloudEvents in this bucket and check ENCRYPT USING ORACLE MANAGED KEYS. Next click Create Bucket button.
-
-![](./images/objectstorage-create03.PNG)
-
-Review you new bucket.
-
-![](./images/objectstorage-create04.PNG)
-
-## ATP - Autonomous Database Creation
-This demo includes an ATP as data repository and you will access to this Database with two differents methods [ORDS or REST] and [JDBC]. In this section you will create an ATP DB from your always free tier (always free tier includes 2 ATP testing DBs) and next section you will configure it to access from JDBC and ORDS (REST). Please follow next step to create the ATP DB.
-
-Click over Oracle Cloud logo and then click Create an ATP Database from Quick Actions menu. You can go to Database main menu and click Autonomous Transaction Processing and then click Create Autonomous Database, but first option is quicker.
-
-![](./images/ATP-create01.png)
-
-Check your compartment [HandsOnLab]. Write a display name (can contain spaces) for the ATP and a Database name (not spaces and only 14 chars). Check Transacion Processing is selected and Shared Infrastructure. Then Check Always Free to enable always free instance.
-
-Warning NOTE :grey_exclamation::grey_exclamation:: If your Always Free Autonomous Database has **no activity for 7 consecutive days**, the database will be automatically stopped. Your data will be preserved, and you can restart the database to continue using it. If the database **remains stopped for 3 months, it will be reclaimed**.
-
-Always free instance use 18c database version only, check it. Then write an ADMIN password for the DB.
-Next Click Create Autonomous Database button.
+### ATP - Autonomous Database Creation
+Go to main menu -> Autonomous Transaction Processing.
 
 ![](./images/ATP-create02.png)
 
-After several seconds you should see the ATP provisioning in Orange. When the ATP logo changes from orange to green the ATP will be ready for service.
+Check your compartment [HandsOnLab]. A new **[DB gigis dicounts]** ATP DB must be created.
 
-![](./images/ATP-create03.png)
+Warning NOTE :grey_exclamation::grey_exclamation:: If your Always Free Autonomous Database has **no activity for 7 consecutive days**, the database will be automatically stopped. Your data will be preserved, and you can restart the database to continue using it. If the database **remains stopped for 3 months, it will be reclaimed**.
 
 ## ATP - Autonomous Database Configuration
 When your always free ATP goes green (available) you can configure it to access from JDBC (wallet) and ORDS. Of course you will have to create a new schema to store the discount campaigns. So let's configure your ATP DB following next steps:
