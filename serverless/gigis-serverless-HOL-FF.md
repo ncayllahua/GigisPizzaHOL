@@ -346,7 +346,7 @@ Click Configuration menu to review your serverless app environment variables.
 #### Function Environment Variables
 You must have all next environment variables to setup your serverless application, before functions creation. When you create the serverless functions, they will can access your ATP Database with both ORDS or JDBC methods. **Bold** values would be changed by your own values.
 
-|| Key | Value | Section |
+|| Key | Value |
 | ------------- | ------------- | ------------- |
 |01| CLIENT_CREDENTIALS|/function/wallet|N/A|
 |02| DB_ORDS_BASE|example: https://**ixcsyvrmtjm8ebr-ggdiscountatp**.adb.**eu-frankfurt-1**.oraclecloudapps.com/ords/|
