@@ -73,7 +73,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 1. [Setting up an Oracle Cloud Account](#setting-up-an-oracle-cloud-account)
 2. [Getting key config data from Oracle Cloud Tenancy](#getting-key-config-data-from-oracle-cloud-tenancy)
 3. [How to get OCI tenancy config data](#how-to-get-oci-tenancy-config-data)
-4. [Create OCI Resources](#create-oci-resources)
+4. [Launch Terraform deployment from Oracle Cloud Shell](#launch-terraform-deployment-from-oracle-cloud-shell)
    - 4.1.[VCN - Virtual Cloud Network Creation](#vcn---virtual-cloud-network-creation)
 	 - 4.1.1 [Create Developer Machine](#virtual-developer-cloud-machine)
    - 4.2 [Object Storage Creation](#object-storage-creation)
@@ -234,7 +234,7 @@ IMPORTANT REMINDER :grey_exclamation::grey_exclamation:: AFTER YOUR Terraform sc
 
 ![](./images/cloud-shell/cloud-shell08.png)
 
-## Review OCI
+## Review OCI Components
 Review your OCI components created with Terraform.
 
 ### VCN - Virtual Cloud Network Review
