@@ -74,21 +74,10 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 2. [Getting key config data from Oracle Cloud Tenancy](#getting-key-config-data-from-oracle-cloud-tenancy)
 3. [How to get OCI tenancy config data](#how-to-get-oci-tenancy-config-data)
 4. [Launch Terraform deployment from Oracle Cloud Shell](#launch-terraform-deployment-from-oracle-cloud-shell)
-   - 4.1.[VCN - Virtual Cloud Network Creation](#vcn---virtual-cloud-network-creation)
-	 - 4.1.1 [Create Developer Machine](#virtual-developer-cloud-machine)
-   - 4.2 [Object Storage Creation](#object-storage-creation)
-   - 4.3 [ATP - Autonomous Database Creation](#atp---autonomous-database-creation)
-	 - 4.3.1. [Get ATP Wallet file](#get-atp-wallet-file)
-	 - 4.3.2. [ATP Service Console](#atp-service-console)
-	 - 4.3.3. [ATP Schema and Tables Creation](#atp-schema-and-tables-creation)
-	 - 4.3.4. [ATP ORDS Configuration](#atp-ords-configuration)
-	 - 4.3.5. [ATP Enable ORDS Table](#atp-enable-ords-table)
-   - 4.4. [OCI IAM FaaS Policy](#oci-iam-faas-policy)
-   - 4.5. [Oracle FaaS Serverless Application Creation](#oracle-faas-serverless-application-creation)
-	  - 4.5.1. [Function Environment Variables](#function-environment-variables)
-	  - 4.5.2. [Functions Logging](#functions-logging)
-5. [Serverless Functions Coding](#serverless-functions-coding)
-   - 5.1. [Creating the Serverless Functions](#creating-the-serverless-functions)
+5. [Review OCI Components](#review-oci-components)  
+   - 5.1. [VCN - Virtual Cloud Network Review](#vcn---virtual-cloud-network-review)
+   - 5.2. [Virtual Developer cloud Machine](#virtual-developer-cloud-machine)
+   - 5.3. [Object Storage Review](#object-storage-review)
    	  - 5.1.1. [Fn Context](#fn-context)
 	  - 5.1.2. [Create Fn Serverless Functions](#create-fn-serverless-functions)
 6. [Event Service - Cloud Event Creation](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/event-service.md)
@@ -250,7 +239,7 @@ You can check vnc subnets (2 networks: public and private), route tablets, inter
 
 ![](./images/serverless-ff-review/vnc-create07.PNG)
 
-#### Virtual Developer cloud Machine
+### Virtual Developer cloud Machine
 After VNC creation would be a good time to create your [developer cloud machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md) if don't have one  with the appropiate software [requisites](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md).
 
 ### Object Storage Review
@@ -262,7 +251,7 @@ Check your campartment name [HandsOnLab] and review your new bucket.
 
 ![](./images/serverless-ff-review/objectstorage-create02.PNG)
 
-### ATP - Autonomous Database Creation
+### ATP - Autonomous Database Review
 Go to main menu -> Autonomous Transaction Processing.
 
 ![](./images/serverless-ff-review/ATP-create01.PNG)
