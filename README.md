@@ -7,6 +7,7 @@ Hands on Labs - Gigis pizza microservices/serverless app (Oracle Cloud Infraestr
 
 - [x] [HOL 5967 - Microservices](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/microservices/hol5967_userguide.md)
 - [x] [HOL serverless](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md)
+- [X] [HOL serverless Fast with Terraform](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL-FF.md)
 - [x] [HOL serverless with pipelines](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/devcs2fn.md)
 
 * To connect serverless HOL to microservices HOL you can follow the Api Gateeway HOL.
