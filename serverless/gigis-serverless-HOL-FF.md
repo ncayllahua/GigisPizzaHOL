@@ -271,7 +271,8 @@ Check your compartment [HandsOnLab]. A new **[DB gigis dicounts]** Always free A
 
 ![](./images/serverless-ff-review/atp-create02.PNG)
 
-Warning NOTE :grey_exclamation::grey_exclamation:: If your Always Free Autonomous Database has **no activity for 7 consecutive days**, the database will be automatically stopped. Your data will be preserved, and you can restart the database to continue using it. If the database **remains stopped for 3 months, it will be reclaimed**.
+> #### Warning NOTE :grey_exclamation::grey_exclamation:: 
+> If your Always Free Autonomous Database has **no activity for 7 consecutive days**, the database will be automatically stopped. Your data will be preserved, and you can restart the database to continue using it. If the database **remains stopped for 3 months, it will be reclaimed**.
 
 #### Get ATP Wallet file
 To secure the access to an ATPDB from JDBC you will need a wallet file. This file contains the conection strings, profile access and credentials to access to the ATP. Next diagram describe the connection to the ATP from JDBC driver.
@@ -365,9 +366,9 @@ You must have all next environment variables to setup your serverless applicatio
 |11| KEYSTORE_PASSWORD |**WalletPassw0rd**|
 |12| TRUSTSTORE_PASSWORD |**WalletPassw0rd**|
 
-Please review that **[DB_ORDS_CLIENT_ID]** and **[DB_ORDS_CLIENT_SECRET]** are created and have the same values that you receive from Terraform deployment.
+Please review that **[DB_ORDS_CLIENT_ID]** and **[DB_ORDS_CLIENT_SECRET]** are created and have the same values that you received from Terraform deployment.
 
-Once you have review all OCI components you can continue with the next steps of the lab.
+Once you have reviewed all OCI components you can continue with the next steps of the lab.
 
 ## Functions Logging
 If you want to create a function logging to trace your code, you have several methods: create log in an OCI object storage bucket, use a remote syslog server or use the OCI logging service.
