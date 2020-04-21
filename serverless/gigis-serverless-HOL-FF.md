@@ -326,7 +326,7 @@ Allow service FaaS to manage all-resources in tenancy
 ```
 ![](./images/faas-configure-policies04.PNG)
 
-## Oracle FaaS Serverless Application
+## Oracle FaaS Serverless Application Review
 Go to Developer Services in the main menu and select Functions.
 
 ![](./images/oci-faas-create01.PNG)
