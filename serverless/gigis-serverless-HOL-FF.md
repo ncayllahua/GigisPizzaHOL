@@ -168,11 +168,11 @@ To execute the terraform deployment and other scripts you will use OCI Cloud She
 
 To open cloud shell please click in the **Cloud Shell icon** at the top right of OCI web UI. Cloud Shell depends on you OCI region as you could read in the cloud shell documentation.
 
-![](./images/cloud-shell01.png)
+![](./images/cloud-shell/cloud-shell01.png)
 
 Trial accounts only have 1 region, but if you are using your own paid oracle cloud tenancy be aware of your region before launch cloud shell.
 
-![](./images/cloud-shell02.png)
+![](./images/cloud-shell/cloud-shell02.png)
 
 Once your cloud shell is launched, you must create a new working directory, please write a descriptive name like **[terraform-scripts]** or something like that.
 
@@ -181,7 +181,7 @@ mkdir terraform-scripts
 cd terraform-scripts
 ```
 
-![](./images/cloud-shell03.png)
+![](./images/cloud-shell/cloud-shell03.png)
 
 Now you must import the terraform deployment with **wget** in your cloud shell session. The imported file is a zip file, so after downloading it, you must decompress it with **unzip**. 
 
