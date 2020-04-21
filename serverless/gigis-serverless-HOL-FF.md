@@ -204,7 +204,7 @@ Terraform will deploy:
 - IAM FaaS Policy
 - Function App (only the project definition).
 
-To launch the project execute next command and you will be answered for your **[OCI region identifier](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm)**, your **tenancy OCID** and your **user OCID** (you will be answered two times one for the terraform plan and other for the terraform apply):
+To launch the project execute next command and you will be asked by your **[OCI region identifier](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm)**, your **tenancy OCID** and your **user OCID** (you will be asked two times one for the *terraform plan* and other for the *terraform apply*):
 
 ```sh
 ./lauch-HOL.sh
