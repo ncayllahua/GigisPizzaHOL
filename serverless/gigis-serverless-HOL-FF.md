@@ -94,7 +94,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 
 ## **Setting up an Oracle Cloud Account**
 
-As an attendee to OOW/CodeOne 19 you have been provided with access to a free trial account part of Free Oracle Cloud Program with 500$ / 30 days trial. This trial is associated with the email address you used to register to event.
+As an attendee of this lab you have been provided with access to a free trial account part of Free Oracle Cloud Program with 500$ / 30 days trial. This trial is associated with the email address you used to register to the event.
 
 Go to [<span class="underline">http://cloud.oracle.com</span>](http://cloud.oracle.com) and click in the “Try for Free” button in the top right:
 
@@ -364,6 +364,8 @@ You must have all next environment variables to setup your serverless applicatio
 |10| DB_SERVICE_NAME|**ggdiscountatp_MEDIUM**|
 |11| KEYSTORE_PASSWORD |**WalletPassw0rd**|
 |12| TRUSTSTORE_PASSWORD |**WalletPassw0rd**|
+
+Please review that **[DB_ORDS_CLIENT_ID]** and **[DB_ORDS_CLIENT_SECRET]** are created and have the same values that you receive from Terraform deployment.
 
 Once you have review all OCI components you can continue with the next steps of the lab.
 
