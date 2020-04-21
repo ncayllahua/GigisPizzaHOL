@@ -185,7 +185,7 @@ cd terraform-scripts
 
 Now you must import the terraform deployment with **wget** in your cloud shell session. The imported file is a zip file, so after downloading it, you must decompress it with **unzip**. 
 
-> ### Note: 
+> #### Note: 
 > *For clipboard operations, Windows users can use Ctrl-C or Ctrl-Insert to copy, and Shift-Insert or Ctrl-V to paste. For Mac OS users, use Cmd-C to copy and Cmd-V to paste*.
 
 ```sh
@@ -229,7 +229,7 @@ And next two parameters are important to connect to your OCIR (Oracle Cloud Dock
 * **Object_Storage_Namespace** that should be the same that you saw (and note maybe) in the Tenancy Details UI.
 * **User_OAuth_Token** is your OAUth_token and you will use in the next steps of the Lab
 
-> ### IMPORTANT REMINDER:grey_exclamation::grey_exclamation:: 
+> #### IMPORTANT REMINDER:grey_exclamation::grey_exclamation:: 
 > AFTER YOUR Terraform script ends, COPY AUTHTOKEN AND KEEP SAFE you can't get it from OCI again.
 
 ![](./images/cloud-shell/cloud-shell08.png)
