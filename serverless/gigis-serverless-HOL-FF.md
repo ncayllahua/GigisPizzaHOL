@@ -227,7 +227,8 @@ Next two parameters should be included in your serverless app, but review them (
 * Object_Storage_Namespace that should be the same that you saw (and note maybe) in the Tenancy Details UI.
 * User_OAuth_Token is your OAUth_token and you will use in the next steps of the Lab
 
-IMPORTANT REMINDER :grey_exclamation::grey_exclamation:: AFTER YOUR Terraform script ends, COPY AUTHTOKEN AND KEEP SAFE you can't get it from OCI again.
+> ### IMPORTANT REMINDER:grey_exclamation::grey_exclamation:: 
+> AFTER YOUR Terraform script ends, COPY AUTHTOKEN AND KEEP SAFE you can't get it from OCI again.
 
 ![](./images/cloud-shell/cloud-shell08.png)
 
