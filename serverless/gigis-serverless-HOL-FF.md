@@ -135,14 +135,12 @@ And you will be directed to initial Oracle Cloud Infrastructure Dashboard (refer
 ![](./images/image12.png)
 
 ## **Getting key config data from Oracle Cloud Tenancy**
-
 Let’s gather some key info about your OCI tenancy before launch the Terraform deployment. We recommend you to create a txt file where you store this basic info you will be required to use during this lab:
 
   - Tenancy OCID
   - User OCID
   
 ## How to get OCI tenancy config data
-
 In Oracle Cloud Infrastructure interface menu, go to Administration-\>Tenancy Details:
 
 ![](./images/image18.png)
@@ -164,6 +162,8 @@ In Users area, find your user and click in three dot icon to show you a litle op
 This concludes the list of OCI tenancy parameters you will require to run next sections.
 
 ## Launch Terraform deployment from Oracle Cloud Shell.
+This Hands on Labs will use a Terraform Deployment project to accelerate the IaaS creation process. But you can [follow the same lab creating by hand all the OCI components](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md).
+
 To execute the terraform deployment and other scripts you will use OCI Cloud Shell. Even you could test your serverless functions with Cloud shell, but what is Cloud Shell? Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal accessible from the Oracle Cloud Console. Cloud Shell is free to use (within monthly tenancy limits), and provides access to a Linux shell. For more information please refer to the [cloud shell documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm).
 
 To open cloud shell please click in the **Cloud Shell icon** at the top right of OCI web UI. Cloud Shell depends on you OCI region as you could read in the cloud shell documentation.
