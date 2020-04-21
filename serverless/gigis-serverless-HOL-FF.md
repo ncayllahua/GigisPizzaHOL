@@ -220,12 +220,13 @@ The Terraform deployment will take a few minutes
 ![](./images/cloud-shell/cloud-shell07.png)
 
 Finally you will receive some output parameters:
-Next two parameters should be included in your serverless app, but review them (in next section) to avoid future connection problems.
-* ATP_client_id (necessary in the serverless functions to access via ORDS to the ATP DB)
-* ATP_client_secret (necessary in the serverless functions to access via ORDS to the ATP DB)
 
-* Object_Storage_Namespace that should be the same that you saw (and note maybe) in the Tenancy Details UI.
-* User_OAuth_Token is your OAUth_token and you will use in the next steps of the Lab
+Next two parameters should be included in your serverless app, but review them (in next section) to avoid future connection problems.
+* **ATP_client_id** necessary in the serverless functions to access via ORDS to the ATP DB
+* **ATP_client_secret** necessary in the serverless functions to access via ORDS to the ATP DB
+
+* **Object_Storage_Namespace** that should be the same that you saw (and note maybe) in the Tenancy Details UI.
+* **User_OAuth_Token** is your OAUth_token and you will use in the next steps of the Lab
 
 > ### IMPORTANT REMINDER:grey_exclamation::grey_exclamation:: 
 > AFTER YOUR Terraform script ends, COPY AUTHTOKEN AND KEEP SAFE you can't get it from OCI again.
