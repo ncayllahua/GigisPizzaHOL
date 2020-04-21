@@ -534,5 +534,5 @@ Then you must modify each function with the appropiate code (you can ```CTRL + m
 **[Optional]** [fn_discount_campaign_pool](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_campaign_pool.md)
 
 **[Optional]** Alternative python code for upload function at [fn_discount_upload_py](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_upload_py.md)
-# Function Testing
+## Function Testing
 Now that you create and configure the entire project, you [could test the serverless app and serverless functions](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/funtion_testing.md).
