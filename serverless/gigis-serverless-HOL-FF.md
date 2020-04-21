@@ -313,7 +313,7 @@ Now you can write and execute SQL commands in Worksheet tab. Click on Green Play
 
 ![](./images/ATP-configure-websql01.PNG)
 
-## OCI IAM FaaS Policy
+### OCI IAM FaaS Policy
 Go to main menu Governance & Administration (at the bottom of main menu) and select Identity -> Policies.
 
 ![](./images/faas-configure-policies01.PNG)
@@ -326,7 +326,7 @@ Allow service FaaS to manage all-resources in tenancy
 ```
 ![](./images/faas-configure-policies04.PNG)
 
-## Oracle FaaS Serverless Application Review
+### Oracle FaaS Serverless Application Review
 Go to Developer Services in the main menu and select Functions.
 
 ![](./images/oci-faas-create01.PNG)
@@ -343,7 +343,7 @@ Click Configuration menu to review your serverless app environment variables.
 
 ![](./images/oci-faas-create06.PNG)
 
-### Function Environment Variables
+#### Function Environment Variables
 You must have all next environment variables to setup your serverless application, before functions creation. When you create the serverless functions, they will can access your ATP Database with both ORDS or JDBC methods. **Bold** values would be changed by your own values.
 
 || Key | Value | Section |
