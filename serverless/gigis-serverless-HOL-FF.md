@@ -78,11 +78,18 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
    - 5.1. [VCN - Virtual Cloud Network Review](#vcn---virtual-cloud-network-review)
    - 5.2. [Virtual Developer cloud Machine](#virtual-developer-cloud-machine)
    - 5.3. [Object Storage Review](#object-storage-review)
-   	  - 5.1.1. [Fn Context](#fn-context)
-	  - 5.1.2. [Create Fn Serverless Functions](#create-fn-serverless-functions)
-6. [Event Service - Cloud Event Creation](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/event-service.md)
-7. [Execute Serverless App](#function-testing)
-
+   - 5.4. [ATP - Autonomous Database Review](#atp---autonomous-database-review)
+   	  - 5.4.1. [Get ATP Wallet File](#get-atp-wallet-file)
+	  - 5.4.2. [ATP-Service Console](#atp-service-console)
+   - 5.5. [Oracle FaaS Serverless Application Creation](#oracle-faas-serverless-application-creation)
+	  - 5.5.1. [Function Environment Variables](#function-environment-variables)
+	  - 5.5.2. [Functions Logging](#functions-logging)
+6. [Serverless Functions Coding](#serverless-functions-coding)
+   - 6.1. [Creating the Serverless Functions](#creating-the-serverless-functions)
+   	  - 6.1.1. [Fn Context](#fn-context)
+	  - 6.1.2. [Create Fn Serverless Functions](#create-fn-serverless-functions)
+7. [Event Service - Cloud Event Creation](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/event-service.md)
+8. [Execute Serverless App](#function-testing)
 [<span class="underline">:grey_question: OPTIONAL - FaaS and Developer Cloud Service</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/devcs2fn.md) 
 
 # **Setting up an Oracle Cloud Account**
