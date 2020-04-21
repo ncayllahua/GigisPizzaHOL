@@ -242,13 +242,13 @@ Go to Core Infrastructure -> Networking in the main menu and click in Virtual Cl
 
 ![](./images/serverless-ff-review/vnc-create01.PNG)
 
-Check that you are in you HandsOnLab compartment. If the compartment doesn't appear in the dropdown list, please refresh your browser (F5). After refreshing, select the HandsOnLab compartment. You must have a **[functions-vnc]** VCN.
+Check that you are in you HandsOnLab compartment. If the compartment doesn't appear in the dropdown list, please refresh your browser (F5). After refreshing, select the HandsOnLab compartment. You must have a **[functions-vcn]** VCN.
 
-![](./images/serverless-ff-review/vnc-ff-create07.PNG)
+![](./images/serverless-ff-review/vnc-ff-create01.PNG)
 
 You can check vnc subnets (2 networks: public and private), route tablets, internet gateway and so. You can click on Security List to check available open ports for example.
 
-![](./images/vnc-create07.PNG)
+![](./images/serverless-ff-review/vnc-create07.PNG)
 
 ### Virtual Developer cloud Machine
 After VNC creation would be a good time to create your [developer cloud machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md) if don't have one  with the appropiate software [requisites](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md).
