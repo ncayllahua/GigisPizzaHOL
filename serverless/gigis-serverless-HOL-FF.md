@@ -185,7 +185,7 @@ cd terraform-scripts
 
 Now you must import the terraform deployment with **wget** in your cloud shell session. The imported file is a zip file, so after downloading it, you must decompress it with **unzip**. 
 
-**Note:** _For clipboard operations, Windows users can use Ctrl-C or Ctrl-Insert to copy, and Shift-Insert or Ctrl-V to paste. For Mac OS users, use Cmd-C to copy and Cmd-V to paste.
+**Note:** *For clipboard operations, Windows users can use Ctrl-C or Ctrl-Insert to copy, and Shift-Insert or Ctrl-V to paste. For Mac OS users, use Cmd-C to copy and Cmd-V to paste*.
 
 ```sh
 wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/AHdczq0U7fhAWiJvUu2Tsk2L0Yp_i9PBilkbnNt2Nh8/n/wedoinfra/b/bucket-serverless-hol/o/serverless-hol.zip
