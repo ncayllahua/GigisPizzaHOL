@@ -322,51 +322,33 @@ Go to main menu Governance & Administration (at the bottom of main menu) and sel
 
 ![](./images/faas-configure-policies01.PNG)
 
-Check that your selected compartment is the root compartment. All policies created in parent compartments are inherited to theirs "sons"
-and as security best practice, you must create important policies always at root compartment level, because only the tenant administrators can change the policies at this compartment level.
+Check that your selected compartment is the **root compartment**. All policies created in parent compartments are inherited to theirs "sons" and as security best practice, you must create important policies always at root compartment level, because only the tenant administrators can change the policies at this compartment level.
 
 Review your new Policy to check the sentence.
-
-![](./images/faas-configure-policies04.PNG)
-
 ```
 Allow service FaaS to manage all-resources in tenancy
 ```
+![](./images/faas-configure-policies04.PNG)
 
-
-## Oracle FaaS Serverless Application Creation
-In this section you will create the FaaS serverless application (with 3 serverless functions inside) and configure the environment variables to access to the ATP Database. 
-
-First you must create the serverless Application in OCI Managed Function Service. Go to Developer Services in the main menu and select Functions.
+## Oracle FaaS Serverless Application
+Go to Developer Services in the main menu and select Functions.
 
 ![](./images/oci-faas-create01.PNG)
 
-Check that your compartment is [HandsOnLab] and click Create Application.
-
-![](./images/oci-faas-create02.PNG)
-
-Write a Name for your serverless application, something descriptive like gigis-serverless-hol. Then select the VCN that you created in the previous section [functions-vcn] and select Public Subnet-functions-vcn (Regional) as Subnets.
-
-The Logging Policy is none at this point, but in next sections you could change it to generate log tracing.
-
-Click Create button to create your new serverless app.
-
-![](./images/oci-faas-create03.PNG)
-
-Now you have a new serverless application but without configuration, so let's configure your new serverless application. Click on the application name [gigis-serverless-hol].
+Check that your compartment is [HandsOnLab] a new serverless application [gigis-serverless-hol] should be there.
 
 ![](./images/oci-faas-create04.PNG)
 
-As you can see Functions are empty because you haven't created a serverless function yet. But the serverless application will be composed of 3 serverless functions, that you will create in next sections after application configuration.
+As you can see Functions are empty because you haven't created a serverless function yet. But the serverless application will be composed of 3 serverless functions, that you will create in next sections.
 
 ![](./images/oci-faas-create05.PNG)
 
-Click Configuration menu to configure your serverless app environment variables.
+Click Configuration menu to review your serverless app environment variables.
 
 ![](./images/oci-faas-create06.PNG)
 
 ### Function Environment Variables
-You must create all next environment variables to setup your serverless application, before functions creation. When you create the serverless functions, they will can access your ATP Database with both ORDS or JDBC methods. **Bold** values would be changed by your own values.
+You must have all next environment variables to setup your serverless application, before functions creation. When you create the serverless functions, they will can access your ATP Database with both ORDS or JDBC methods. **Bold** values would be changed by your own values.
 
 || Key | Value | Section |
 | ------------- | ------------- | ------------- | ------------- |
