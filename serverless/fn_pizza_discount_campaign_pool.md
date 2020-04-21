@@ -1,9 +1,9 @@
 # Function fn discount campaign With pooled connections
 This serverless function access **ATP DB** with **JDBC UCP driver** and get information about current and enabled discount campaigns. Whether the current pizza order has a discount campaign available, based on the dates, method of payment and pizza price then this function will response with the new pizza order price, applying the discount to the original pizza price. 
 
-In this function you'll use pooled connections with UCP jdbc driver instead of a DB direct jdbc connection. DB wallet should be downloaded locally and unzipped in an OCI private Object Storage Bucket (keeping the appropiate policy access to FaaS service to access the private bucket), after that you could create a method to upload these wallet files to your container. You will do almost the same but unzipping the wallet.zip in the docker image creation (the code is in the Dockerfile).
+In this function you'll use pooled connections with UCP jdbc driver instead of a DB direct jdbc connection. DB wallet should be downloaded locally and unzipped in an OCI private Object Storage Bucket (keeping the appropiate policy access to FaaS service to access the private bucket), after that you could create a method to upload these wallet files to your container, but you will do almost the same but unzipping the wallet.zip during the docker image creation (the code is in the Dockerfile section).
 
-If you do the optional Developer Cloud Service part of the lab, you'll create a CI/CD pipeline with the same procedure but without download wallet.zip locally or using a private object storage bucket and the addional download method (this method should be quite similar to the **fn_pizza_discount_cloud_events**) to read the file from the bucket.
+If you do the optional Developer Cloud Service part of the lab, you'll create a CI/CD pipeline with the same procedure but without download wallet.zip locally or using a private object storage bucket and the addional download method (this method should be quite similar to the **fn_pizza_discount_cloud_events**) to read a file from a bucket.
 
 Table of Contents:
 1. [fn discount campaign IDE preparation](#fn-discount-campaign-ide-preparation)
@@ -174,7 +174,7 @@ You have to include dbwallet.zip file in your IDE project. You have several meth
    
    ![](./images/fn-discount-campaign/faas-create-function-dbwallet02.PNG)
    
-2. If you didn't downloaded before, you can generate it going to ATP OCI menu and download and import it now as is described in [ATP section](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/gigis-serverless-HOL.md#get-atp-wallet-file).
+2. If you didn't downloaded before, you can generate it going to ATP OCI menu and download and import it now as is described in [ATP section](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md#get-atp-wallet-file).
 
 3. Or you could run an OCI cli command to download it directly to your root project directory. You'll need your ATP OCID value to run this oci cli command from a linux terminal in your development machine.
 
