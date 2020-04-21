@@ -265,11 +265,11 @@ Check your campartment name [HandsOnLab] and review your new bucket.
 ### ATP - Autonomous Database Review
 Go to main menu -> Autonomous Transaction Processing.
 
-![](./images/serverless-ff-review/ATP-create01.PNG)
+![](./images/serverless-ff-review/atp-create01.PNG)
 
 Check your compartment [HandsOnLab]. A new **[DB gigis dicounts]** Always free ATP DB must be created.
 
-![](./images/serverless-ff-review/ATP-create02.PNG)
+![](./images/serverless-ff-review/atp-create02.PNG)
 
 Warning NOTE :grey_exclamation::grey_exclamation:: If your Always Free Autonomous Database has **no activity for 7 consecutive days**, the database will be automatically stopped. Your data will be preserved, and you can restart the database to continue using it. If the database **remains stopped for 3 months, it will be reclaimed**.
 
@@ -280,11 +280,11 @@ To secure the access to an ATPDB from JDBC you will need a wallet file. This fil
 
 Click DB Connection button to access wallet download and connection Strings menu.
 
-![](./images/serverless-ff-review/ATP-configure01.PNG)
+![](./images/ATP-configure01.PNG)
 
 In this menu you can check the connection strings to the ATP. As you can see you could connect with differents service names like TP, TPURGENT, LOW, MEDIUM or HIGH. You can visit the ["Exadata Infrastructure web"](https://docs.oracle.com/en/cloud/paas/atp-cloud/atpug/connect-predefined.html#GUID-9747539B-FD46-44F1-8FF8-F5AC650F15BE) to know about the Service Names meaning. You will use MEDIUM TNS in this demo.
 
-![](./images/serverless-ff-review/ATP-configure02.PNG)
+![](./images/ATP-configure02.PNG)
 
 Click Download Wallet button to download to your computer/laptop the ATP **dbwallet.zip** file. You will write a password to download the wallet, please write one [WalletPassw0rd] and note it for future uses. Click Download button to download the wallet zip file.
 
