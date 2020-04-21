@@ -39,4 +39,4 @@ You can review your new rule in main Events Service > Rules menu. You could see 
 # Continue with HOL
 
 * Continue with the last fn serverles function [fn_discount_campaign](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_campaign.md)
-* Or return to the [main HOL manual](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md)
+* Or return to the [main Gigi's HOL](https://github.com/oraclespainpresales/GigisPizzaHOL)
