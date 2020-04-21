@@ -83,7 +83,6 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 	  - 5.4.2. [ATP-Service Console](#atp-service-console)
    - 5.5. [Oracle FaaS Serverless Application Review](#oracle-faas-serverless-application-review)
 	  - 5.5.1. [Function Environment Variables](#function-environment-variables-review)
-	  - 5.5.2. [Functions Logging](#functions-logging)
 6. [Functions Logging](#functions-logging)  
 7. [Serverless Functions Coding](#serverless-functions-coding)
    - 7.1. [Creating the Serverless Functions](#creating-the-serverless-functions)
