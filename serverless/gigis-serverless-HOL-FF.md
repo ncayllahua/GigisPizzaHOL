@@ -81,7 +81,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
    - 5.4. [ATP - Autonomous Database Review](#atp---autonomous-database-review)
    	  - 5.4.1. [Get ATP Wallet File](#get-atp-wallet-file)
 	  - 5.4.2. [ATP-Service Console](#atp-service-console)
-   - 5.5. [Oracle FaaS Serverless Application Creation](#oracle-faas-serverless-application-creation)
+   - 5.5. [Oracle FaaS Serverless Application Review](#oracle-faas-serverless-application-review)
 	  - 5.5.1. [Function Environment Variables](#function-environment-variables)
 	  - 5.5.2. [Functions Logging](#functions-logging)
 6. [Serverless Functions Coding](#serverless-functions-coding)
