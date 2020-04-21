@@ -22,7 +22,7 @@ This serverless Hands On Lab includes:
 * Oracle ORDS (REST services) access to ATP using serverless Functions.
 * Oracle JDBC access to ATP using serverless Functions.
 
-# In this Hands on Lab
+## In this Hands on Lab
 
 All HOL was written in English and all the screenshots are in English Language. We recomend you that select English as your default language in Oracle Cloud. Select the Earth Icon at the top right (near your profile icon) and change the language to English.
 
@@ -92,7 +92,7 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 8. [Execute Serverless App](#function-testing)
 [<span class="underline">:grey_question: OPTIONAL - FaaS and Developer Cloud Service</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/devcs2fn.md) 
 
-# **Setting up an Oracle Cloud Account**
+## **Setting up an Oracle Cloud Account**
 
 As an attendee to OOW/CodeOne 19 you have been provided with access to a free trial account part of Free Oracle Cloud Program with 500$ / 30 days trial. This trial is associated with the email address you used to register to event.
 
@@ -134,7 +134,7 @@ And you will be directed to initial Oracle Cloud Infrastructure Dashboard (refer
 
 ![](./images/image12.png)
 
-# **Getting key config data from Oracle Cloud Tenancy**
+## **Getting key config data from Oracle Cloud Tenancy**
 
 Let’s gather some key info about your OCI tenancy before launch the Terraform deployment. We recommend you to create a txt file where you store this basic info you will be required to use during this lab:
 
@@ -163,7 +163,7 @@ In Users area, find your user and click in three dot icon to show you a litle op
 
 This concludes the list of OCI tenancy parameters you will require to run next sections.
 
-# Launch Terraform deployment from Oracle Cloud Shell.
+## Launch Terraform deployment from Oracle Cloud Shell.
 To execute the terraform deployment and other scripts you will use OCI Cloud Shell. Even you could test your serverless functions with Cloud shell, but what is Cloud Shell? Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal accessible from the Oracle Cloud Console. Cloud Shell is free to use (within monthly tenancy limits), and provides access to a Linux shell. For more information please refer to the [cloud shell documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm).
 
 To open cloud shell please click in the **Cloud Shell icon** at the top right of OCI web UI. Cloud Shell depends on you OCI region as you could read in the cloud shell documentation.
@@ -313,7 +313,7 @@ Now you can write and execute SQL commands in Worksheet tab. Click on Green Play
 
 ![](./images/ATP-configure-websql01.PNG)
 
-### OCI IAM FaaS Policy
+### OCI IAM FaaS Policy Review
 Go to main menu Governance & Administration (at the bottom of main menu) and select Identity -> Policies.
 
 ![](./images/faas-configure-policies01.PNG)
@@ -343,10 +343,10 @@ Click Configuration menu to review your serverless app environment variables.
 
 ![](./images/oci-faas-create06.PNG)
 
-#### Function Environment Variables
+#### Function Environment Variables Review
 You must have all next environment variables to setup your serverless application, before functions creation. When you create the serverless functions, they will can access your ATP Database with both ORDS or JDBC methods. **Bold** values would be changed by your own values.
 
-|| Key | Value |
+|| Key | Example Value |
 | ------------- | ------------- | ------------- |
 |01| CLIENT_CREDENTIALS|/function/wallet|N/A|
 |02| DB_ORDS_BASE|example: https://**ixcsyvrmtjm8ebr-ggdiscountatp**.adb.**eu-frankfurt-1**.oraclecloudapps.com/ords/|
@@ -361,7 +361,9 @@ You must have all next environment variables to setup your serverless applicatio
 |11| KEYSTORE_PASSWORD |**WalletPassw0rd**|
 |12| TRUSTSTORE_PASSWORD |**WalletPassw0rd**|
 
-### Functions Logging
+Once you have review all OCI components you can continue with the next steps of the lab.
+
+## Functions Logging
 If you want to create a function logging to trace your code, you have several methods: create log in an OCI object storage bucket, use a remote syslog server or use the OCI logging service.
 
 If your tenancy has OCI logging service enabled, you can send log traces to OCI logging system and see them after functions execution. To check if your tenancy has the OCI logging service enabled, go to main menu -> Solutions and Platform and Logging.
@@ -372,7 +374,7 @@ Optionally and if your tenancy logging service is not enabled yet, you could cre
 
 Next sections will guide you to create an OCI logging service or a remote syslog server with papertrail, choose one of both methods as your needs.
 
-#### OCI Logging Service Configuration
+### OCI Logging Service Configuration
 Go to Logging service clicking in the main menu Solutions & Platform -> Logging -> Log Management
 
 ![](./images/oci-logging-create01.PNG)
@@ -405,7 +407,7 @@ Check that your serverless app change Logs field from none to ObjectStorage. Go 
 
 Now you have configured the functions logging and you should see log traces in the logging service when a serverless Function will be invoked.
 
-#### Papertrail syslog Configuration
+### Papertrail syslog Configuration
 If your tenancy logging service is not enabled yet or you want to use a syslog instead the logging service, you should follow next steps to configure a syslog server for logging serverless functions.
 
 Open a new browser tab and surf the web to www.papertrail.com to create a new account. click Sign Up green button to create your new papertrail account.
@@ -442,7 +444,7 @@ Change Logging Policy from none or Object Storate to SYSLOGURL and copy the pape
 
 Now you have configured your remote syslog server in papertrail. When a Function is invoked you should see a new logging trace line in papertrail [Events] dashboard. You can open papertrail in a separate tab or window web browser to see your functions logging in almost real-time.
 
-# Serverless Functions Coding
+## Serverless Functions Coding
 In this section you'll review the discount campaign functions code and you'll copy them to your [development computer](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md) to create the functions in OCI and launch the application. If you don't have a laptop or desktop with the appropiate tools, we recomend you create a [development machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md) in your compartment.
 
 Check that you have installed and configured next development resources and applications:
@@ -455,7 +457,7 @@ Check that you have installed and configured next development resources and appl
 
 Please check that your development computer has internet connection without any limitation like proxies, firewalls and ports blocked to avoid connection problems when you upload or send fn commands to the serverless functions in OCI FaaS.
 
-## Creating the Serverless Functions.
+### Creating the Serverless Functions.
 To create your three serverless functions you must configure a fn context in your development machine. We have created the HOL with a recomended linux machine. Please follow the **Getting Started** instructions in your OCI serverless app. 
 
 Go to your serverless app in main menu Developer Services -> Functions.
@@ -470,7 +472,7 @@ Select Getting Started TAB.
 
 ![](./images/fn-discount-cloud-events/faas-create-function01.PNG)
 
-### Fn context
+#### Fn context
 Before you create the new 3 functions you must follow steps **from 3 to 5** of Geeting Started guide to create your serverless fn context as the steps are unique for your tenancy (they are set with your appropiate information).
 
 ![](./images/fn-discount-cloud-events/faas-create-function01b.PNG)
