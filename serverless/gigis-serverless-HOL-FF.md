@@ -155,7 +155,7 @@ Now go to Menu option Identity-\>Users:
 
 ![](./images/image20.png)
 
-In Users area, find your user and click in three dot icon to show you a litle option menu with **Copy OCID** option. Select it and note your OCID in a text file. Also you could clik in your user and you could copy your OCID from your user data menu.
+In Users area, find your user and click in three dot icon to show you a litle option menu with **Copy OCID** option. Select it and note your OCID in a text file. Also you could click in your user and you could copy your OCID from your user data menu.
 
 ![](./images/image21.png)
 
