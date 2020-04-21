@@ -197,7 +197,7 @@ wget https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/AHdczq0U7fhAWiJvUu2T
 unzip serverless-hol.zip
 ```
 
-![](./images/cloud-shell04.png)
+![](./images/cloud-shell/cloud-shell04.png)
 
 Once unzipped the zip file, you should have a sh file **[launch-HOL.sh]** to lauch the Terraform project and the **[Terraform]** directory with all the terraform files to deploy the OCI infra elements and the ATP (Autonomous Data Base) Configuration. You can review the terraform files and scripts, if your are interested in this kind of deployments.
 
@@ -214,13 +214,13 @@ To launch the project execute next command and you will be answered for your **[
 ./lauch-HOL.sh
 ```
 
-![](./images/cloud-shell05.png)
+![](./images/cloud-shell/cloud-shell05.png)
 
-![](./images/cloud-shell06.png)
+![](./images/cloud-shell/cloud-shell06.png)
 
 The Terraform deployment will take a few minutes
 
-![](./images/cloud-shell07.png)
+![](./images/cloud-shell/cloud-shell07.png)
 
 Finally you will receive some output parameters:
 Next two parameters should be included in your serverless app, but review them (in next section) to avoid future connection problems.
@@ -232,7 +232,7 @@ Next two parameters should be included in your serverless app, but review them (
 
 IMPORTANT REMINDER :grey_exclamation::grey_exclamation:: AFTER YOUR Terraform script ends, COPY AUTHTOKEN AND KEEP SAFE you can't get it from OCI again.
 
-![](./images/cloud-shell08.png)
+![](./images/cloud-shell/cloud-shell08.png)
 
 ## Review OCI
 Review your OCI components created with Terraform.
@@ -240,15 +240,15 @@ Review your OCI components created with Terraform.
 ### VCN - Virtual Cloud Network Review
 Go to Core Infrastructure -> Networking in the main menu and click in Virtual Cloud Networks.
 
-![](./images/vnc-create01.PNG)
+![](./images/serverless-ff-review/vnc-create01.PNG)
 
 Check that you are in you HandsOnLab compartment. If the compartment doesn't appear in the dropdown list, please refresh your browser (F5). After refreshing, select the HandsOnLab compartment. You must have a **[functions-vnc]** VCN.
 
-![](./images/vnc-ff-create07.PNG)
+![](./images/serverless-ff-review/vnc-ff-create07.PNG)
 
 You can check vnc subnets (2 networks: public and private), route tablets, internet gateway and so. You can click on Security List to check available open ports for example.
 
-![](./images/vnc-create07.PNG)
+![](./images/serverless-ff-review/vnc-create07.PNG)
 
 #### Virtual Developer cloud Machine
 After VNC creation would be a good time to create your [developer cloud machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md) if don't have one  with the appropiate software [requisites](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md).
@@ -256,20 +256,20 @@ After VNC creation would be a good time to create your [developer cloud machine]
 ### Object Storage Review
 Go to Core Infrastructure -> Object Storage in the main menu and click in Object Storage.
 
-![](./images/objectstorage-create01.PNG)
+![](./images/serverless-ff-review/objectstorage-create01.PNG)
 
 Check your campartment name [HandsOnLab] and review your new bucket.
 
-![](./images/objectstorage-create02.PNG)
+![](./images/serverless-ff-review/objectstorage-create02.PNG)
 
 ### ATP - Autonomous Database Creation
 Go to main menu -> Autonomous Transaction Processing.
 
-![](./images/ATP-create01.PNG)
+![](./images/serverless-ff-review/ATP-create01.PNG)
 
 Check your compartment [HandsOnLab]. A new **[DB gigis dicounts]** Always free ATP DB must be created.
 
-![](./images/ATP-create02.PNG)
+![](./images/serverless-ff-review/ATP-create02.PNG)
 
 Warning NOTE :grey_exclamation::grey_exclamation:: If your Always Free Autonomous Database has **no activity for 7 consecutive days**, the database will be automatically stopped. Your data will be preserved, and you can restart the database to continue using it. If the database **remains stopped for 3 months, it will be reclaimed**.
 
@@ -280,11 +280,11 @@ To secure the access to an ATPDB from JDBC you will need a wallet file. This fil
 
 Click DB Connection button to access wallet download and connection Strings menu.
 
-![](./images/ATP-configure01.PNG)
+![](./images/serverless-ff-review/ATP-configure01.PNG)
 
 In this menu you can check the connection strings to the ATP. As you can see you could connect with differents service names like TP, TPURGENT, LOW, MEDIUM or HIGH. You can visit the ["Exadata Infrastructure web"](https://docs.oracle.com/en/cloud/paas/atp-cloud/atpug/connect-predefined.html#GUID-9747539B-FD46-44F1-8FF8-F5AC650F15BE) to know about the Service Names meaning. You will use MEDIUM TNS in this demo.
 
-![](./images/ATP-configure02.PNG)
+![](./images/serverless-ff-review/ATP-configure02.PNG)
 
 Click Download Wallet button to download to your computer/laptop the ATP **dbwallet.zip** file. You will write a password to download the wallet, please write one [WalletPassw0rd] and note it for future uses. Click Download button to download the wallet zip file.
 
