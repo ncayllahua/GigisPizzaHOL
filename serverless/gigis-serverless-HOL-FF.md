@@ -205,32 +205,31 @@ And next two parameters are important to connect to your OCIR (Oracle Cloud Dock
 ![](./images/cloud-shell/cloud-shell08.png)
 
 ## Review OCI Components
-Review your OCI components created with Terraform.
+Review your OCI components created with Terraform. To review them go to main manu -> Governance -> Compartment Explorer
 
-### VCN - Virtual Cloud Network Review
-Go to Core Infrastructure -> Networking in the main menu and click in Virtual Cloud Networks.
+![](./images/review-configuration01.PNG)
 
-![](./images/serverless-ff-review/vnc-create01.PNG)
+Then select your new compartment HandOnLab in the left part of the window. If your new compartment is not in the Select Compartment menu, please refresh your browser with F5 or the browser refresh button and try again. Check that you have in Available/Active status next components:
 
-Check that you are in you HandsOnLab compartment. If the compartment doesn't appear in the dropdown list, please refresh your browser (F5). After refreshing, select the HandsOnLab compartment. You must have a **[functions-vcn]** Virtual Cloud Network.
+||Name|Resource Type|
+| ------------- | ------------- | ------------- |
+||DB gigis discounts|AutonomousDatabase|
+||Default Route Table for functions-vcn|RouteTable|
+||Default Security List for functions-vcn|SecurityList|
+||functions-vcn|Vcn|
+||gigis-serverless-hol|FunctionsApplication|
+||GigisDiscountCampaigns-Bucket|Bucket|
+||NAT Gateway-functions-vcn|NatGateway|
+||Private Subnet-functions-vcn|Subnet|
+||Public Subnet-functions-vcn|Subnet|
+||Route Table for Private Subnet-functions-vcn|RouteTable|
+||Security List for Private Subnet-functions-vcn|SecurityList|
+||Service Gateway-functions-vcn|ServiceGateway|
 
-![](./images/serverless-ff-review/vnc-ff-create01.PNG)
-
-You can check vnc subnets (2 networks: public and private), route tablets, internet gateway and so. You can click on Security List to check available open ports for example.
-
-![](./images/serverless-ff-review/vnc-create07.PNG)
+![](./images/review-configuration02.PNG)
 
 ### Virtual Developer cloud Machine
-After VCN creation, it would be a good time to create your [developer cloud machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md) if don't have one  with the appropiate software [requisites](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md).
-
-### Object Storage Review
-Go to Core Infrastructure -> Object Storage in the main menu and click in Object Storage.
-
-![](./images/serverless-ff-review/objectstorage-create01.PNG)
-
-Check your campartment name [HandsOnLab] and review your new bucket.
-
-![](./images/serverless-ff-review/objectstorage-create02.PNG)
+After Terraform creation and review, it would be a good time to create your [developer cloud machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md) if don't have one  with the appropiate software [requisites](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md).
 
 ### ATP - Autonomous Database Review
 Go to main menu -> Autonomous Transaction Processing.
