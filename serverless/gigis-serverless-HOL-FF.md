@@ -209,7 +209,11 @@ Review your OCI components created with Terraform. To review them go to main man
 
 ![](./images/review-configuration01.PNG)
 
-Then select your new compartment HandOnLab in the left part of the window. If your new compartment is not in the Select Compartment menu, please refresh your browser with F5 or the browser refresh button and try again. Check that you have in Available/Active status next components:
+Then select your new compartment HandOnLab in the left part of the window. If your new compartment is not in the Select Compartment menu, please refresh your browser with F5 or the browser refresh button and try again. 
+
+![](./images/review-configuration02.PNG)
+
+Check that you have in Available/Active status next components:
 
 ||Name|Resource Type|
 | ------------- | ------------- | ------------- |
@@ -225,8 +229,6 @@ Then select your new compartment HandOnLab in the left part of the window. If yo
 ||Route Table for Private Subnet-functions-vcn|RouteTable|
 ||Security List for Private Subnet-functions-vcn|SecurityList|
 ||Service Gateway-functions-vcn|ServiceGateway|
-
-![](./images/review-configuration02.PNG)
 
 ### Virtual Developer cloud Machine
 After Terraform creation and review, it would be a good time to create your [developer cloud machine](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devmachine-marketplace/devmachine-marketplace.md) if don't have one  with the appropiate software [requisites](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/developer-machine/developer-machine.md).
