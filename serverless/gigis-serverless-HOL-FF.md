@@ -71,25 +71,23 @@ If you attend our previous HOL about Gigi's pizza, you had created a Cloud Accou
 ## Table of contents
 
 1. [Setting up an Oracle Cloud Account](#setting-up-an-oracle-cloud-account)
-2. [Getting key config data from Oracle Cloud Tenancy](#getting-key-config-data-from-oracle-cloud-tenancy)
-3. [How to get OCI tenancy config data](#how-to-get-oci-tenancy-config-data)
-4. [Launch Terraform deployment from Oracle Cloud Shell](#launch-terraform-deployment-from-oracle-cloud-shell)
-5. [Review OCI Components](#review-oci-components)  
-   - 5.1. [VCN - Virtual Cloud Network Review](#vcn---virtual-cloud-network-review)
-   - 5.2. [Virtual Developer cloud Machine](#virtual-developer-cloud-machine)
-   - 5.3. [Object Storage Review](#object-storage-review)
-   - 5.4. [ATP - Autonomous Database Review](#atp---autonomous-database-review)
-   	  - 5.4.1. [Get ATP Wallet File](#get-atp-wallet-file)
-	  - 5.4.2. [ATP-Service Console](#atp-service-console)
-   - 5.5. [Oracle FaaS Serverless Application Review](#oracle-faas-serverless-application-review)
+2. [Launch Terraform deployment from Oracle Cloud Shell](#launch-terraform-deployment-from-oracle-cloud-shell)
+3. [Review OCI Components](#review-oci-components)  
+   - 3.1. [VCN - Virtual Cloud Network Review](#vcn---virtual-cloud-network-review)
+   - 3.2. [Virtual Developer cloud Machine](#virtual-developer-cloud-machine)
+   - 3.3. [Object Storage Review](#object-storage-review)
+   - 3.4. [ATP - Autonomous Database Review](#atp---autonomous-database-review)
+   	  - 3.4.1. [Get ATP Wallet File](#get-atp-wallet-file)
+	  - 3.4.2. [ATP-Service Console](#atp-service-console)
+   - 3.5. [Oracle FaaS Serverless Application Review](#oracle-faas-serverless-application-review)
 	  - 5.5.1. [Function Environment Variables](#function-environment-variables-review)
-6. [Functions Logging](#functions-logging)  
-7. [Serverless Functions Coding](#serverless-functions-coding)
-   - 7.1. [Creating the Serverless Functions](#creating-the-serverless-functions)
-   	  - 7.1.1. [Fn Context](#fn-context)
-	  - 7.1.2. [Create Fn Serverless Functions](#create-fn-serverless-functions)
-8. [Event Service - Cloud Event Creation](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/event-service.md)
-9. [Execute Serverless App](#function-testing)
+4. [Functions Logging](#functions-logging)  
+5. [Serverless Functions Coding](#serverless-functions-coding)
+   - 5.1. [Creating the Serverless Functions](#creating-the-serverless-functions)
+   	  - 5.1.1. [Fn Context](#fn-context)
+	  - 5.1.2. [Create Fn Serverless Functions](#create-fn-serverless-functions)
+6. [Event Service - Cloud Event Creation](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/event-service.md)
+7. [Execute Serverless App](#function-testing)
 [<span class="underline">:grey_question: OPTIONAL - FaaS and Developer Cloud Service</span>](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/devcs2fn.md) 
 
 ## **Setting up an Oracle Cloud Account**
@@ -134,33 +132,6 @@ And you will be directed to initial Oracle Cloud Infrastructure Dashboard (refer
 
 ![](./images/image12.png)
 
-## **Getting key config data from Oracle Cloud Tenancy**
-Let’s gather some key info about your OCI tenancy before launch the Terraform deployment. We recommend you to create a txt file where you store this basic info you will be required to use during this lab:
-
-  - Tenancy OCID
-  - User OCID
-  
-## How to get OCI tenancy config data
-In Oracle Cloud Infrastructure interface menu, go to Administration-\>Tenancy Details:
-
-![](./images/image18.png)
-
-In Tenancy information area, select copy button so that you copy the OCID for tenancy and don’t forget to make a note in a txt file.
-
-Also you can copy the **Object Storage Namespace** under the Object Storage Setting area and don’t forget to make a note in a text file. You can get this information too, at the end of the Terraform deployment apply (as terraform output).
-
-![](./images/image19.png)
-
-Now go to Menu option Identity-\>Users:
-
-![](./images/image20.png)
-
-In Users area, find your user and click in three dot icon to show you a litle option menu with **Copy OCID** option. Select it and note your OCID in a text file. Also you could click in your user and you could copy your OCID from your user data menu.
-
-![](./images/image21.png)
-
-This concludes the list of OCI tenancy parameters you will require to run next sections.
-
 ## Launch Terraform deployment from Oracle Cloud Shell.
 This Hands on Labs will use a Terraform Deployment project to accelerate the IaaS creation process. But you can [follow the same lab creating by hand all the OCI components](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md).
 
@@ -199,21 +170,20 @@ unzip serverless-hol.zip
 Once unzipped the zip file, you should have a sh file **[launch-HOL.sh]** to lauch the Terraform project and the **[Terraform]** directory with all the terraform files to deploy the OCI infra elements and the ATP (Autonomous Data Base) Configuration. You can review the terraform files and scripts, if your are interested in this kind of deployments.
 
 Terraform will deploy:
+- A new HandsOnLab compartment (if exits it, terraform will reuse it).
 - VCN - Virtual Cloud Network
 - Object Storage
 - ATP - Autonomous Transaction Processing
 - IAM FaaS Policy
 - Function App (only the project definition).
 
-To launch the project execute next command and you will be asked by your **[OCI region identifier](https://docs.cloud.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm)**, your **tenancy OCID** and your **user OCID** (you will be asked two times one for the *terraform plan* and other for the *terraform apply*):
+To launch the project execute next command and the script will create a special **[input-vars.tfvars]** file  with your **tenancy_ocid**, your **user_ocid** and your **region** to create use with terraform and create cloud components in your tenantcy.
 
 ```sh
 ./lauch-HOL.sh
 ```
 
 ![](./images/cloud-shell/cloud-shell05.png)
-
-![](./images/cloud-shell/cloud-shell06.png)
 
 The Terraform deployment will take a few minutes
 
@@ -230,7 +200,7 @@ And next two parameters are important to connect to your OCIR (Oracle Cloud Dock
 * **User_OAuth_Token** is your OAUth_token and you will use in the next steps of the Lab
 
 > #### IMPORTANT REMINDER:grey_exclamation::grey_exclamation:: 
-> AFTER YOUR Terraform script ends, COPY AUTHTOKEN AND KEEP SAFE you can't get it from OCI again.
+> AFTER YOUR Terraform script ends, you could access your outputs again with: ```terraform output```.
 
 ![](./images/cloud-shell/cloud-shell08.png)
 
