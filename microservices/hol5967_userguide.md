@@ -791,8 +791,9 @@ From:
 
 ![](./images/image127.png)
 
-To your tenancy details: 
-Important note: be aware that in the project that you downloaded before, appears the name **wedoinfra** as object_storage_namespace, because that was the onbject_storage_namespace of the tenancy used to create the HOL, please change that name for your **object_storage_namespace** in all the jobs.
+**Important note!!:** be aware that in the project that you downloaded before, appears the name **wedoinfra** as object_storage_namespace, because that was the onbject_storage_namespace of the tenancy used to create the HOL, please change that name for your **object_storage_namespace** in all the jobs.
+
+To your tenancy details:
 
 To check the name of your region identifier go to the table in this url:
 
