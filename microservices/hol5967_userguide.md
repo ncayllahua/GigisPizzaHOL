@@ -448,16 +448,20 @@ Next click under Resources section in **Quick Start**. This section will explain
 
 ![](./images/image310.PNG)
 
-Click Access Cluster to learn how to access to your OKE cluster with Clodu Shell or Local Access (a laptop, a virtual machine or a docker container are necessary to this type of access), we will provide you more information about local access in the next steps, but an easy way to access to kubectl command is Cloud Shell that it is included in your OCI tenancy. You can get more information about cloud shell in the [Cloud Shell Documentation website](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm)
+Click **Access Cluster** button to learn how to access to your OKE cluster with _Cloud Shell_ or _Local Access_ (for local access you will need a laptop, a virtual machine or a docker container), we will provide you more information about how to do a local access in the next steps, but an easy way to access to kubectl command is **Cloud Shell** option. It is included in your OCI tenancy. You can get more information about cloud shell in the [Cloud Shell Documentation website](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm)
+
+![](./images/image311b.PNG)
+
+For Local Access click in Local Access option to get the appropiate instructions to get a local access. We recomend you to read next sections about how to install or use our preconfigured virtual machine or docker container.
 
 ![](./images/image311.PNG)
 
-So that we avoid installing in your laptops these components that also require Python and other prereqs, we will provide you in next section with **two preinstalled options(YOU ONLY NEED TO DO ONE OF THE NEXT TWO SECTIONS)** for which **you should have either Virtual Box or Docker installed in advance in your laptop**:
+So that we avoid installing in your laptops these components that also require Python and other prereqs, we will provide you in next section **two preinstalled options(YOU ONLY NEED TO DO ONE OF THE NEXT TWO SECTIONS)** for which **you should have either Virtual Box or Docker installed in advance in your laptop**:
 
 1)  An OVA VM image if you already have VirtualBox installed
 2)  A Docker Image if you already have Docker installed
 
-## Using Virtualbox and a preconfigured VM image
+## Using Virtualbox and a preconfigured VM image for OKE local access
 
 You can start downloading OVA image from <span class="underline">[here](https://objectstorage.eu-frankfurt-1.oraclecloud.com/p/smpE_ekRW19rd4H31B4fPspIqXxRm-iSuaQ9kOc8_K8/n/wedoinfra/b/DevCS_Clone_WedoDevops/o/HOL5967-OOW2019%20OVAHOL5967-OOW2019.ova "ova hol").</span>Alternative we will provide USB memory sticks with OVA image to be copied.
 
