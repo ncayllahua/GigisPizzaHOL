@@ -518,23 +518,24 @@ Decline to generate a new RSA key pair, copy your private key previously provide
 
 ![](./images/image80.png)
 
-Now let’s configure kubectl. Inside your cluster information page, click the “Access Kubeconfig” button:
+Now let’s configure kubectl. Inside your cluster information page, in the **Resources** left menu, click the **Access Kubernetes Dashboard** link:
 
 ![](./images/image81.png)
 
-A popup window will appear providing you with the commands you have to run to configure kubectl to connect to the Kubernetes cluster just created(change value below with your own cluster id and region):
+A new window will appear providing you the steps to get the Kubernetes Dashboard. Click in Access Cluster and the Local Access option to get the commands you have to run to configure kubectl to connect to the Kubernetes cluster just created (change value below with your own cluster id and region):
 ```
-1)  mkdir -p $HOME/.kube
+1)  oci -v
 2)  mkdir -p $HOME/.kube
-    oci ce cluster create-kubeconfig --cluster-id <your_cluster_id> --file $HOME/.kube/config --region eu-frankfurt-1 
+3)  oci ce cluster create-kubeconfig --cluster-id <your_cluster_id> --file $HOME/.kube/config --region eu-frankfurt-1 
     --token-version 2.0.0
-3)  export KUBECONFIG=$HOME/.kube/config
+4)  export KUBECONFIG=$HOME/.kube/config
 ```
 ![](./images/image311.PNG)
 
-When you execute commands below, you can face an issue and you must run an extra command to configure private key permissions:
+When you execute theese commands, you can face an issue (maybe) and you must run an extra command (if required) to configure private key permissions:
+```
 oci setup-repair-file-permissions –file /home/holouser/.oci/private.pem
-
+```
 ![](./images/image83.png)
 
 You will follow steps mentioned in Access Kubernetes Dashboard section, so that we can launch the Kubernetes Dashboard:
