@@ -444,9 +444,11 @@ Note: you may find that Compute nodes have not been created yet as. This process
 
 Now your Kubernetes Cluster is created. But we need to run some extra steps to get started with managing the Kubernetes Cluster.
 
-If you click under Resources section in Getting Started. This section explains steps to access to you Cluster dashboard by using Kubectl. In this section it is explained in detail how to install ocicli and kubectl to access to Kubernetes management tool:
+Next click under Resources section in **Quick Start**. This section will explain the steps to access to your OKE Cluster with kubectl and the K8s dashboard.
 
 ![](./images/image310.PNG)
+
+Click Access Cluster to learn how to access to your OKE cluster with Clodu Shell or Local Access (a laptop, a virtual machine or a docker container are necessary to this type of access), we will provide you more information about local access in the next steps, but an easy way to access to kubectl command is Cloud Shell that it is included in your OCI tenancy. You can get more information about cloud shell in the [Cloud Shell Documentation website](https://docs.cloud.oracle.com/en-us/iaas/Content/API/Concepts/cloudshellintro.htm)
 
 ![](./images/image311.PNG)
 
