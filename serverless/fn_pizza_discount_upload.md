@@ -246,7 +246,7 @@ public class UploadDiscountCampaigns {
         return responseMess;
     }
 ```
-As you can see ```campaign = getCampaignDiscount (ordsServiceUrl, input);``` is commented as we created a getCampaignDiscount method also commented, for testing purpouses only. This method retrieve a campaign file from the ATP db and create a Campaign object. But you won't be use it in the demo so we commented it.
+As you can see ```campaign = getCampaignDiscount (ordsServiceUrl, input);``` is commented as we created a getCampaignDiscount method also commented, for testing purpouses only. This method retrieve a campaign row from the ATP db and create a Campaign object. But you won't be use it in the demo so we commented it.
 ```java
 /************************getCampaignDiscount ********************************** 
      * get one row from ATP
@@ -275,7 +275,7 @@ As you can see ```campaign = getCampaignDiscount (ordsServiceUrl, input);``` is 
         return campaign;
     } */
 ```
-The setCamapignDiscount method is used to send a discount campaign to ATP DB via ORDS and create a new File in CAMPAIGN Table. Responses vary depends on the response type: INSERTED if the response is a StatusCode = HTTP_CREATED or ERROR otherwise. 
+The setCamapignDiscount method is used to send a discount campaign to ATP DB via ORDS and create a new row in CAMPAIGN Table. Responses vary depends on the response type: INSERTED if the response is a StatusCode = HTTP_CREATED or ERROR otherwise. 
 ```java
     /************************setCampaignDiscount ********************************** 
      * insert one row in ATP from a json format data
