@@ -6,12 +6,11 @@ Table of Contents:
 2. [fn discount upload java code](#fn-discount-upload-java-code)
 3. [Changing func.yaml file](#changing-funcyaml-file)
 4. [Overwriting pom.xml file](#overwriting-pomxml-file)
-5. [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
-6. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
-7. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
-8. [Code recap (OPTIONAL)](#code-recap-optional)
-9. [Function Upload in Python (OPTIONAL)](#function-upload-python-code)
-10. [Continue the HOL](#continue-the-hol)
+5. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
+6. [Deploy fn discount upload function](#deploy-fn-discount-upload-function)
+7. [Code recap (OPTIONAL)](#code-recap-optional)
+8. [Function Upload in Python (OPTIONAL)](#function-upload-python-code)
+9. [Continue the HOL](#continue-the-hol)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
