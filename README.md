@@ -13,6 +13,10 @@ Hands on Labs - Gigis pizza microservices/serverless app (Oracle Cloud Infraestr
 * To connect serverless HOL to microservices HOL you can follow the Api Gateway HOL.
 - [X] [HOL Api Gateway](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/api-gateway/oci_apigateway.md)
 
+* Using Serverless Functions with Resource Principals to improve security.
+- [X] [HOL Serverless Resource Principals - Coming Soon!!!]()
+
+
 ## Other interesting information for the HOL
 - [HOL additional information](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/microservices/notes.md)
 
