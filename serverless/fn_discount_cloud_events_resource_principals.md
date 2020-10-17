@@ -51,7 +51,7 @@ Select **add workspace folder ...** in the Start Menu.
 
 ![](./images/fn-discount-cloud-events/faas-create-function08.PNG)
 
-Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_cloud_events]. Then click Add button to create a workspace from this directory in Visual Studio Core.
+Click in HOME directory and next select the appropiate path to your function project directory [opc/holserverless/fn_discount_cloud_events_principals]. Then click Add button to create a workspace from this directory in Visual Studio Core.
 
 ![](./images/fn-discount-cloud-events/faas-create-function09.PNG)
 
@@ -81,7 +81,7 @@ Then set the same name as java class **[DiscountCampaignUploader.java]**
 
 ![](./images/fn-discount-cloud-events/faas-create-function13.PNG)
 
-Now copy raw function code and paste it from the [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/src/main/java/com/example/fn/DiscountCampaignUploader.java).
+Now copy raw function code and paste it from the [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events-principals/master/src/main/java/com/example/fn/DiscountCampaignUploader.java).
 
 ![](./images/fn-discount-cloud-events/faas-create-function14.PNG)
 
@@ -90,7 +90,7 @@ Delete HelloFunction.java and HelloFunctionTest.java from your IDE project.
 ### Overwriting HelloFunction.java
 You can overwrite the HelloFunction.java code with the DiscountCampaignUploader Function code.
 
-Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/src/main/java/com/example/fn/DiscountCampaignUploader.java) from the repository and paste it overwriting the HelloFunction.java Function.
+Select the raw [java function code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events-principals/master/src/main/java/com/example/fn/DiscountCampaignUploader.java) from the repository and paste it overwriting the HelloFunction.java Function.
 
 ![](./images/fn-discount-cloud-events/faas-create-function15.PNG)
 
@@ -111,53 +111,17 @@ You have to delete several files in the func.yaml code to create your custom Doc
 
 ```
 runtime: java
-build_image: fnproject/fn-java-fdk-build:jdk11-1.0.105
-run_image: fnproject/fn-java-fdk:jre11-1.0.105
+build_image: fnproject/fn-java-fdk-build:jdk11-1.0.xxx
+run_image: fnproject/fn-java-fdk:jre11-1.0.xxx
 cmd: com.example.fn.HelloFunction::handleRequest
 ```
 
 ![](./images/fn-discount-cloud-events/faas-create-function19.PNG)
 
 ## Overwriting pom.xml file
-Next you must overwrite the example maven pom.xml file with the [pom.xml](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/pom.xml) content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar.
+Next you must overwrite the example maven pom.xml file with the [pom.xml](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events-principals/master/pom.xml) content of the github function project. Maven is used to import all the dependencies and java classes needed to create your serverless function jar.
 
 ![](./images/fn-discount-cloud-events/faas-create-function20.PNG)
-
-## Creating OCI config and oci_api_key.pem files
-For security reasons this two files haven't been uploaded to github and also depends on your oci tenancy and project information. This two files are easy to generate from a Developer Cloud Service pipeline that is explained in the [optional part of this HOL](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/devcs2fn.md). You will can review it if you complete the optional part.
-
-You must create a new directory in your IDE project called **[oci-config]**, this directory will contain the OCI cli configuration necessary for your future docker image creation. 
-
-- Select fn_discount_cloud_events directory.
-- Right mouse button and New Folder.
-- Write **oci-config** as directory name and press enter key.
-
-![](./images/fn-discount-cloud-events/faas-create-function20a.PNG)
-
-Next create **config** file:
-- Select in oci-config directory and Click right mouse button New File.
-- Write config name and press enter key.
-- Write your oci config data
-
-```text
-[DEFAULT]
-tenancy=<your_tenancy_ocid_like_ocid1.tenancy.oc1..aaaaaaaacc...>
-region=<your_tenancy_region_like_eu-frankfurt-1>
-user=<your_user_ocid_like_ocid1.user.oc1..aaaaaaaadn622k...>
-fingerprint=<your_api_key_fingerprint_like_15:1b:90:9e:45:7c:b9:bf:73:f5:e2:0f:82:62:82:66>
-key_file=<image_path_to_your_pem_file_like_/.oci/oci_api_key.pem>
-```
-
-![](./images/fn-discount-cloud-events/faas-create-function20b.PNG)
-
-Next create **oci_api_key.pem** file:
-- Select in oci-config directory and Click right mouse button New File.
-- Write oci_api_key.pem name and press enter key.
-- Write your private key in oci_api_key.pem
-
-![](./images/fn-discount-cloud-events/faas-create-function20c.PNG)
-
-To finish this section, please Select File -> Save All in your IDE to save all the changes.
 
 ## Creating Multi Stage Dockerfile
 You must create a new multi stage docker file, to deploy your serverless function as a docker image in your OCIR repository. This file must be created before deploying the function.
@@ -166,38 +130,24 @@ Select fn_discount_cloud_events folder in your IDE and create new file with [Doc
 
 ![](./images/fn-discount-cloud-events/faas-create-function21.PNG)
 
-Next copy from raw [Docker file code](https://raw.githubusercontent.com/oraclespainpresales/fn-pizza-discount-cloud-events/master/Dockerfile) to your new local Dockerfile file.
+Next copy next Dockerfile code into the file:
 
-![](./images/fn-discount-cloud-events/faas-create-function22.PNG)
+```Dockerfile
+FROM fnproject/fn-java-fdk-build:jdk11-1.0.109 as build-stage
+WORKDIR /function
+ENV MAVEN_OPTS -Dhttp.proxyHost= -Dhttp.proxyPort= -Dhttps.proxyHost= -Dhttps.proxyPort= -Dhttp.nonProxyHosts= -Dmaven.repo.local=/usr/share/maven/ref/repository -Dhttps.protocols=TLSv1.2
 
-Then review the code of the dockerfile file and comment next lines putting # before the sentences. This lines is for the optional part of the demo that takes the oci **config** and **oci_api_key.pem** files from a pipeline build machine that is in developer cloud service. In that machines, the oci config file **key_file** var, point to /home/builder/.oci/oci_api_key.pem path for the api private key file, but you will can know more about that, if you complete the optional part of the HOL.
-Comment:
-```dockerfile
-RUN mkdir -p /home/builder/.oci
-```
-As
-```dockerfile
-#RUN mkdir -p /home/builder/.oci
-```
-Then comment this two lines:
-```dockerfile
-COPY config /.oci/config
-COPY oci_api_key.pem /home/builder/.oci/oci_api_key.pem
-```
-As
-```dockerfile
-#COPY config /.oci/config
-#COPY oci_api_key.pem /home/builder/.oci/oci_api_key.pem
-```
-Then uncomment next two lines deleting the # at the begining of the sentences.
-```dockerfile
-#COPY /oci-config/config /.oci/config
-#COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
-```
-As
-```dockerfile
-COPY /oci-config/config /.oci/config
-COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
+ADD pom.xml /function/pom.xml
+RUN ["mvn", "package", "dependency:copy-dependencies", "-DincludeScope=runtime", "-DskipTests=true", "-Dmdep.prependGroupId=true", "-DoutputDirectory=target", "--fail-never"]
+
+ADD src /function/src
+RUN ["mvn", "package", "-DskipTests=true"]
+
+FROM fnproject/fn-java-fdk:jre11-1.0.109
+WORKDIR /function
+COPY --from=build-stage /function/target/*.jar /function/app/
+
+CMD ["com.example.fn.DiscountCampaignUploader::handleRequest"]
 ```
 ![](./images/fn-discount-cloud-events/faas-create-function23.PNG)
 
