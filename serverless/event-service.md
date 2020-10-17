@@ -23,11 +23,9 @@ You could test  your event clicking in Validate Rule button. Review the cloud ev
 
 In Actions, select Action Type [Functions].
 
-Function Compartment select your compartment [HandsOnLab]
-
-Function Application select your serverless app [gigis-serverless-hol]
-
-Function select [fn_discount_cloud_events] or [fn_discount_cloud_events_principals]
+- Function Compartment select your compartment **[HandsOnLab]**
+- Function Application select your serverless app **[gigis-serverless-hol]**
+- Function select **[fn_discount_cloud_events]** (or [fn_discount_cloud_events_principals] if you create the resource principal function)
 
 ![](./images/event-service/Events-creation05.png)
 
