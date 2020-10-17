@@ -508,8 +508,12 @@ Then you must modify each function with the appropiate code (you can ```CTRL + m
 2. [fn_discount_cloud_events](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_cloud_events.md)
 3. [fn_discount_campaign](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_campaign.md)
 
-**[Optional]** [fn_discount_campaign_pool](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_campaign_pool.md)
+**[Optional]**
+ - [fn_discount_cloud_events_principals](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_discount_cloud_events_resource_principals.md) if you want to create the same cloud_events function but using Resource Principals Authentication (improved security and avoid vulnerabilities).
 
-**[Optional]** Alternative python code for upload function at [fn_discount_upload_py](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_upload_py.md)
+- [fn_discount_campaign_pool](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_campaign_pool.md) if you want to test the difference between a direct conection or pooled connection.
+
+- Alternative python code for upload function at [fn_discount_upload_py](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_upload_py.md) 
+
 ## Function Testing
 Now that you create and configure the entire project, you [could test the serverless app and serverless functions](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/funtion_testing.md).
