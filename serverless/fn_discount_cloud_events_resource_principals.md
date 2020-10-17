@@ -4,9 +4,12 @@ This serverless function will get **cloud events** in json format then access **
 ### Instance Principal Authentication.
 There are many different ways to authenticate when using the OCI SDKs - for example, you can use your credentials directly in an authentication provider **(SimpleAuthenticationDetailsProvider)** or you can use a config file located on a disk **(ConfigFileAuthenticationDetailsProvider)**. Both of this methods require you to provide your credentials (either in the form of variables/strings or stored as text file on the disk). 
 
-When you are developing your app this is usually not a problem because you already have a config file on your local disk to work with the OCI CLI. But if you want to use one of these auth methods when you deploy an application to a VM in the Oracle Cloud (OCI), you have to manage these config values including them in the VM and this becomes another potential security vulnerability in your infrastructure if it is not properly managed. 
+When you are developing your application this is usually not a problem because you already have a config file on your local disk to work with the OCI CLI. But if you want to use one of these auth methods when you deploy an application to a VM/Instence in the Oracle Cloud (OCI), you have to manage these config values including them in the VM and this becomes another potential security vulnerability in your infrastructure if it is not properly managed. 
 
 To improve the security with the SDK calls and avoid a possible vulnerability when you include that sensitive config information in a VM or other OCI resource, OCI has the **instance principal authentication**. The instance itself, when configured properly, uses a certificate that is frequently refreshed to sign the SDK requests so you do not have to worry about providing the credentials.
+
+### Resource Principal Authentication.
+Resource principal auth, is very similar to instance principal auth but used for OCI resources that are not VM/instances such as **serverless functions**. The implementation is slightly different, but the goal is the same - to sign SDK requests from a function deployed to the Oracle Cloud in a way that does not require developer provided credentials. If you want to read more about instance principals, you can visit our colleague [Todd Sharp's blog](https://blogs.oracle.com/developers/instance-and-resource-principal-authentication-with-the-oci-typescriptjavascript-sdk) 
 
 Table of Contents:
 1. [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-ide-preparation)
