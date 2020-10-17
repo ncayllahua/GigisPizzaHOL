@@ -1,4 +1,4 @@
-# Function fn discount cloud-events
+# Function fn discount cloud-events-resource-principal
 This serverless function will get **cloud events** in json format then access **campaigns.json** file, parse it and send each campaign inside the camapigns.json file to **fn_discount_upload** serverless function, using **resource principal authentication**. But what is a Resource Principal Authenticarion?
 
 ### Instance Principal Authentication.
@@ -65,7 +65,7 @@ You can click n HelloFunction.java to review your serverless function code. Same
 ![](./images/fn-discount-cloud-events/faas-create-function11.PNG)
 
 ## fn discount cloud-events java code
-The function code is in the next github [repository](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events). You can open it in other web brower tab, to review the project.
+The function code is in the next github [repository](https://github.com/oraclespainpresales/fn-pizza-discount-cloud-events-principals). You can open it in other web brower tab (CTRL+Click), to review the project.
 
 You can access java code to copy and paste it in your develpment machine IDE project. You could clone this github repository if you want, instead of copy and paste the different files. You can learn how to clone the git repo in this [section](clone-git project to IDE).
 
