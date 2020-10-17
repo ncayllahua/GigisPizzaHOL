@@ -158,9 +158,9 @@ To deploy your serverless function please follow next steps, your function will 
 
 Open a terminal in your development machine and execute:
 ```sh
-cd $HOME/holserverless/fn_discount_cloud_events
+cd $HOME/holserverless/fn_discount_cloud_events_principals
 ```
-Then you must login in OCIR registry (remember use your OCIR [region](https://docs.cloud.oracle.com/en-us/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab)) with ```docker login``` command. Introduce your OCI user like ```<Object Storage namespace>/<user>``` when docker login ask you about username and your previously created **OCI Authtoken** as password.
+Then you must login in OCIR registry (remember use your OCIR [region](https://docs.cloud.oracle.com/en-us/iaas/Content/Registry/Concepts/registryprerequisites.htm#Availab)) with ```docker login``` command. Introduce your OCI user like ```<Object Storage namespace>/<user>``` when docker login ask you about username and your previously created **OCI AuthToken** as password.
 ```sh
 docker login <your_region>.ocir.io
 ```
@@ -200,6 +200,9 @@ Create 3 additional variables:
 You must change your Fucntion time-out. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds. Then Click Save Changes Button.
 
 ![](./images/fn-discount-cloud-events/faas-create-function30.PNG)
+
+## Create the appropiate security policies in OCI Console.
+
 
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain you such changes:
