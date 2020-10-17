@@ -201,8 +201,42 @@ You must change your Fucntion time-out. Click in Edit Function button and then c
 
 ![](./images/fn-discount-cloud-events/faas-create-function30.PNG)
 
-## Create the appropiate security policies in OCI Console.
+## Grant OCI access
+You must create the security policies in OCI to grant access to Object Storage and Functions from Other Serverless Functions.
 
+### Create a Dymanic Group
+First, you must to create a Dynamic Group. A dynamic Group is a special group that contains OCI resources instead of regular users. More information about Dynamic Groups in the [Oracle Cloud SDK Documentation](https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/2.14.0/oci_cli_docs/cmdref/iam/dynamic-group.html) and [OCI Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)
+
+Click on Main menu icon (hamburguer)->Identity->Dynamic Groups.
+
+![](./images/fn-discount-cloud-events/faas-create-function-policies01.PNG)
+
+Click in the Create Dynamic Group Button to create a new dynamic group. Put a descriptive name as **gigisserverlesshol-functions** and then copy next rule in the RULE 1 field but using your compartment OCID.
+
+```
+ALL{resource.type='fnfunc', resource.compartment.id='<your comaprtment OCID>'}
+```
+
+![](./images/fn-discount-cloud-events/faas-create-function-policies02.PNG)
+
+Now you have a Dynamic Group created and ir can be used in the OCI Security Policies.
+
+### Security Policies with Dynamic Groups
+Next you must create the security policies for the recently created Dynamic Group.
+Click on Main menu icon (hamburguer)->Identity->Policies or Click on Policies if you are in Identity menu.
+
+![](./images/fn-discount-cloud-events/faas-create-function-policies03.PNG)
+
+Select your root compartment in the List Scope Section. A best practice is to create the security policies in the root compartment as only the administrator has access to this special compartment. You could create in your hol compartment too if you want.
+
+![](./images/fn-discount-cloud-events/faas-create-function-policies04.PNG)
+
+Search your Functions Policy rules that you create before in the lab to grant access Functions to manage all-resources in tenancy or your compartment
+
+```
+allow dynamic-group gigisserverlesshol-functions to manage object-family in tenancy
+allow dynamic-group gigisserverlesshol-functions to manage function-family in tenancy
+```
 
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain you such changes:
