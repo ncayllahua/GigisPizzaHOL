@@ -761,7 +761,7 @@ Then you must modify each function with the appropiate code (you can ```CTRL + m
 
 - [fn_discount_campaign_pool](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_campaign_pool.md) if you want to test the difference between a direct conection or pooled connection.
 
-- [Optional]** Alternative python code for upload function at [fn_discount_upload_py](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_upload_py.md) if you want to use python instead of java in the discount upload function.
+- Alternative python code for upload function at [fn_discount_upload_py](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/fn_pizza_discount_upload_py.md) 
 
 # Function Testing
 Now that you create and configure the entire project, you [could test the serverless app and serverless functions](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/funtion_testing.md).
