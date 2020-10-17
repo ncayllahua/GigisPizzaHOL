@@ -186,7 +186,7 @@ after you have created and deployed fn_discount_upload and fn_discount_cloud_eve
 
 Click in [fn_discount_cloud_events_principals] function and next **Configuration** menu.
 
-![](./images/fn-discount-cloud-events/faas-create-function28.PNG)
+![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function28.png)
 
 Create 3 additional variables:
 || Key | Value | Section |
@@ -195,7 +195,7 @@ Create 3 additional variables:
 |02|UPLOAD_FUNCTION_ID|ocid1.fnfunc.oc1.eu-frankfurt-1.aaaaaaaaack6vdtmj7n2w...|OCID of **fn_discount_upload**|
 |03|OBJECT_STORAGE_URL_BASE|```https://objectstorage.<YOUR_OCI_REGION>.oraclecloud.com/```|[Regions](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/regions.htm)|
 
-![](./images/fn-discount-cloud-events/faas-create-function29.PNG)
+![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function29.png)
 
 You must change your Fucntion time-out. Click in Edit Function button and then change **TIMEOUT** from [30] to [120] seconds. Then Click Save Changes Button.
 
