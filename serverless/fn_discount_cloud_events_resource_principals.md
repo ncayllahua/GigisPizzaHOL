@@ -206,7 +206,7 @@ You must change your Fucntion time-out. Click in Edit Function button and then c
 You must create the security policies in OCI to grant access to Object Storage and Functions from Other Serverless Functions.
 
 ### Create a Dymanic Group
-First, you must to create a Dynamic Group. A dynamic Group is a special group that contains OCI resources instead of regular users. More information about Dynamic Groups in the [Oracle Cloud SDK Documentation](https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/2.14.0/oci_cli_docs/cmdref/iam/dynamic-group.html) and [OCI Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)
+First, you must to create a **Dynamic Group**. A Dynamic Group is a special group that contains OCI resources instead of regular users. More information about Dynamic Groups in the [Oracle Cloud SDK Documentation](https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/2.14.0/oci_cli_docs/cmdref/iam/dynamic-group.html) and [OCI Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)
 
 Click on Main menu icon (hamburguer)->Identity->Dynamic Groups.
 
@@ -220,7 +220,7 @@ ALL{resource.type='fnfunc', resource.compartment.id='<your comaprtment OCID>'}
 
 ![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function-policies02.png)
 
-Now you have a Dynamic Group created and ir can be used in the OCI Security Policies.
+Now you have a Dynamic Group created and it can be used in the OCI Security Policies.
 
 ### Security Policies with Dynamic Groups
 Next you must create the security policies for the recently created Dynamic Group.
@@ -252,7 +252,7 @@ allow dynamic-group gigisserverlesshol-functions to manage function-family in te
 
 Then Click Save Changes to apply the new policy statements.
 
-Note: If you receive error messages like the dynamic group doesn't exits, please review the dynamic group name that you write in the create Dynamic Group section.
+Note: If you receive an error message like the dynamic group doesn't exits, please review the dynamic group name that you write in the create Dynamic Group section.
 
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain you such changes:
@@ -264,9 +264,9 @@ public class DiscountCampaignUploader {
 
     public String handleRequest(CloudEvent event) {
         String responseMess         = "";
-        String objectStorageURLBase = System.getenv().get("OBJECT_STORAGE_URL_BASE");
-        String invokeEndpointURL    = System.getenv().get("INVOKE_ENDPOINT_URL");
-        String functionId           = System.getenv().get("UPLOAD_FUNCTION_ID");
+        String objectStorageURLBase = System.getenv("OBJECT_STORAGE_URL_BASE");
+        String invokeEndpointURL    = System.getenv("INVOKE_ENDPOINT_URL");
+        String functionId           = System.getenv("UPLOAD_FUNCTION_ID");
 
 ```
 Next is the code for cloud event trigger catch. After a cloud event trigger is fired, you'll must receive a cloud event (JSON format) similar to:
@@ -313,7 +313,7 @@ Next piece of code, parse the cloud-event json description and it get the import
 ```
 That relevant data will be used to access (in authProvider object) to the object storage bucket and get the **campaigns.json** file (resourceName variable from cloud-event JSON file).
 ```java
-    AuthenticationDetailsProvider authProvider = new ConfigFileAuthenticationDetailsProvider("/.oci/config","DEFAULT");
+    AuthenticationDetailsProvider authProvider = getAuthProvider();
     ObjectStorageClient objStoreClient         = ObjectStorageClient.builder().build(authProvider);
     GetObjectResponse jsonFile                 = objStoreClient.getObject(jsonFileRequest);
 
@@ -340,7 +340,29 @@ Next the json file is parsed to get the discount campaings (JSONArray) and then 
 	responseMess += invokeCreateCampaingFunction (invokeEndpointURL,functionId,obj.toString());
     }
 ```
-This serverless function has a private method [invokeCreateCampaingFunction] used to send the payload (camapaign) data to the next serverless function in the application. The method uses the endpoint and OCID destination function data to send it the campaign (in json format) that it was parsed previously from campaigns.json file. 
+This serverless function a private method [getAuthProvider] that create the authprovider depending on the local config file (like first cloud_events function) or using the resource principals (improved functionality and security). We’ll use a **ResourcePrincipalAuthenticationDetailsProvider** if we’re running  on the Oracle Cloud, otherwise we’ll use a **ConfigFileAuthenticationDetailsProvider** when running locally.
+```
+    private BasicAuthenticationDetailsProvider getAuthProvider() throws IOException {
+        BasicAuthenticationDetailsProvider provider = null;
+        String version                              = System.getenv("OCI_RESOURCE_PRINCIPAL_VERSION");
+
+        System.out.println("Version Resource Principal: " + version);
+        if( version != null ) {
+            provider = ResourcePrincipalAuthenticationDetailsProvider.builder().build();
+        }
+        else {
+            try {
+                provider = new ConfigFileAuthenticationDetailsProvider("/.oci/config", "DEFAULT");
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return provider;
+    }
+```
+This serverless function has other private method [invokeCreateCampaingFunction] used to send the payload (camapaign) data to the next serverless function in the application. The method uses the endpoint and OCID destination function data to send it the campaign (in json format) that it was parsed previously from campaigns.json file. 
 ```java
 private String invokeCreateCampaingFunction (String invokeEndpointURL, String functionId, String payload) throws IOException {
 	String response                            = "";
@@ -492,17 +514,9 @@ RUN ["mvn", "package", "dependency:copy-dependencies", "-DincludeScope=runtime",
 ADD src /function/src
 RUN ["mvn", "package", "-DskipTests=true"]
 ```
-Second stage is the final stage and the final docker image. First stage was jdk:11 and that one is jre:11. It takes the output from first stage named build-stage to create the final docker image. At this stage you might create the **.oci** config dir to include your OCI private api key [oci_api_key.pem] file and your OCI [config] file.
+Second stage is the final stage and the final docker image. First stage was jdk:11 and that one is jre:11. It takes the output from first stage named build-stage to create the final docker image.
 ```dockerfile
 FROM fnproject/fn-java-fdk:jre11-1.0.105
-#RUN mkdir -p /home/builder/.oci
-RUN mkdir -p /.oci
-
-#COPY config /.oci/config
-#COPY oci_api_key.pem /home/builder/.oci/oci_api_key.pem
-
-COPY /oci-config/config /.oci/config
-COPY /oci-config/oci_api_key.pem /.oci/oci_api_key.pem
 ```
 Copy the jar function from build stage temporal layer and set the entrypoint to execute the funcion handleRequest method when the docker container will be created.
 ```dockerfile
