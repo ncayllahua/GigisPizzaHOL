@@ -19,8 +19,9 @@ Table of Contents:
 5. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
 6. [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
 7. [New Environment Variables](#new-environment-variables)
-8. [Code recap (OPTIONAL)](#code-recap-optional)
-9. [Continue the HOL](#continue-the-hol)
+8. [Grant OCI access](#grant-oci-access)
+9. [Code recap (OPTIONAL)](#code-recap-optional)
+10. [Continue the HOL](#continue-the-hol)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
@@ -209,7 +210,7 @@ First, you must to create a Dynamic Group. A dynamic Group is a special group th
 
 Click on Main menu icon (hamburguer)->Identity->Dynamic Groups.
 
-![](./images/fn-discount-cloud-events/faas-create-function-policies01.png)
+![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function-policies01.png)
 
 Click in the Create Dynamic Group Button to create a new dynamic group. Put a descriptive name as **gigisserverlesshol-functions** and then copy next rule in the RULE 1 field but using your compartment OCID.
 
@@ -217,7 +218,7 @@ Click in the Create Dynamic Group Button to create a new dynamic group. Put a de
 ALL{resource.type='fnfunc', resource.compartment.id='<your comaprtment OCID>'}
 ```
 
-![](./images/fn-discount-cloud-events/faas-create-function-policies02.png)
+![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function-policies02.png)
 
 Now you have a Dynamic Group created and ir can be used in the OCI Security Policies.
 
@@ -225,15 +226,15 @@ Now you have a Dynamic Group created and ir can be used in the OCI Security Poli
 Next you must create the security policies for the recently created Dynamic Group.
 Click on Main menu icon (hamburguer)->Identity->Policies or Click on Policies if you are in Identity menu.
 
-![](./images/fn-discount-cloud-events/faas-create-function-policies03.png)
+![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function-policies03.png)
 
 Select your root compartment in the List Scope Section. A best practice is to create the security policies in the root compartment as only the administrator has access to this special compartment. You could create in your hol compartment too if you want.
 
-![](./images/fn-discount-cloud-events/faas-create-function-policies04.png)
+![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function-policies04.png)
 
 Search your Functions Policy **[FaaSPolicy]** that you create before in the lab to grant access Functions to manage all-resources in tenancy or your compartment and click on the Policy name.
 
-![](./images/fn-discount-cloud-events/faas-create-function-policies05.png)
+![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function-policies05.png)
 
 Click on Edit Policy Statements button to edit/add the policy statements.
 
@@ -241,13 +242,13 @@ Click on Edit Policy Statements button to edit/add the policy statements.
 
 Then click in the +Another Statement twice to add next statements:
 
-![](./images/fn-discount-cloud-events/faas-create-function-policies06.png)
+![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function-policies06.png)
 
 ```
 allow dynamic-group gigisserverlesshol-functions to manage object-family in tenancy
 allow dynamic-group gigisserverlesshol-functions to manage function-family in tenancy
 ```
-![](./images/fn-discount-cloud-events/faas-create-function-policies07.png)
+![](./images/fn-discount-campaign-cloud-events-principal/faas-create-function-policies07.png)
 
 Then Click Save Changes to apply the new policy statements.
 
