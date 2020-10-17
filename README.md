@@ -6,16 +6,12 @@ Demo is known as Gigi’s Pizza. The Use Case is focused in microservices/server
 Hands on Labs - Gigis pizza microservices/serverless app (Oracle Cloud Infraestructure OCI)
 
 - [x] [HOL 5967 - Microservices](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/microservices/hol5967_userguide.md)
-- [x] [HOL serverless](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md)
+- [x] [HOL serverless](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md) and Instance/Resource Principals
 - [X] [HOL serverless Fast with Terraform](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL-FF.md)
 - [x] [HOL serverless with pipelines](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/devcs2fn.md)
 
 * To connect serverless HOL to microservices HOL you can follow the Api Gateway HOL.
 - [X] [HOL Api Gateway](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/api-gateway/oci_apigateway.md)
-
-* Using Serverless Functions with Resource Principals to improve security.
-- [X] [HOL Serverless Resource Principals - Coming Soon!!!]()
-
 
 ## Other interesting information for the HOL
 - [HOL additional information](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/microservices/notes.md)
