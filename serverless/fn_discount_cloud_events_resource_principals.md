@@ -9,24 +9,23 @@ When you are developing your application this is usually not a problem because y
 To improve the security with the SDK calls and avoid a possible vulnerability when you include that sensitive config information in a VM or other OCI resource, OCI has the **instance principal authentication**. The instance itself, when configured properly, uses a certificate that is frequently refreshed to sign the SDK requests so you do not have to worry about providing the credentials.
 
 ### Resource Principal Authentication.
-Resource principal auth, is very similar to instance principal auth but used for OCI resources that are not VM/instances such as **serverless functions**. The implementation is slightly different, but the goal is the same - to sign SDK requests from a function deployed to the Oracle Cloud in a way that does not require developer provided credentials. If you want to read more about instance principals, you can visit our colleague [Todd Sharp's blog](https://blogs.oracle.com/developers/instance-and-resource-principal-authentication-with-the-oci-typescriptjavascript-sdk) as this lab was based on his awesome blog.
+Resource principal auth, is very similar to instance principal auth but used for OCI resources that are not VM/instances such as **serverless functions**. The implementation is slightly different, but the goal is the same - to sign SDK requests from a function deployed to the Oracle Cloud in a way that does not require developer provided credentials. If you want to read more about instance principals, you can visit our colleague [Todd Sharp's blog](https://blogs.oracle.com/developers/instance-and-resource-principal-authentication-with-the-oci-typescriptjavascript-sdk) as this lab was based on his awesome blog. Other information resource is the [OCI documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsaccessingociresources.htm)
 
 Table of Contents:
 1. [fn discount cloud-events IDE preparation](#fn-discount-cloud-events-ide-preparation)
 2. [fn discount cloud-events java code](#fn-discount-cloud-events-java-code)
 3. [Changing func.yaml file](#changing-funcyaml-file)
 4. [Overwriting pom.xml file](#overwriting-pomxml-file)
-5. [Creating OCI config and oci_api_key.pem files](#creating-oci-config-and-oci_api_keypem-files)
-6. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
-7. [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
-8. [New Environment Variables](#new-environment-variables)
-9. [Code recap (OPTIONAL)](#code-recap-optional)
-10. [Continue the HOL](#continue-the-hol)
+5. [Creating Multi Stage Dockerfile](#creating-multi-stage-dockerfile)
+6. [Deploy fn discount cloud-events function](#deploy-fn-discount-cloud-events-function)
+7. [New Environment Variables](#new-environment-variables)
+8. [Code recap (OPTIONAL)](#code-recap-optional)
+9. [Continue the HOL](#continue-the-hol)
 
 Verify that your cloud_events function has 2 files (func.yaml and pom.xml) and a **src** directory.
 
 ```sh 
-cd fn_discount_cloud_events
+cd fn_discount_cloud_events_principals
 
 ls -la
 ```
