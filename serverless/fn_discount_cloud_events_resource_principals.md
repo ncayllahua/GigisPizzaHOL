@@ -231,12 +231,27 @@ Select your root compartment in the List Scope Section. A best practice is to cr
 
 ![](./images/fn-discount-cloud-events/faas-create-function-policies04.PNG)
 
-Search your Functions Policy rules that you create before in the lab to grant access Functions to manage all-resources in tenancy or your compartment
+Search your Functions Policy **[FaaSPolicy]** that you create before in the lab to grant access Functions to manage all-resources in tenancy or your compartment and click on the Policy name.
+
+![](./images/fn-discount-cloud-events/faas-create-function-policies05.PNG)
+
+Click on Edit Policy Statements button to edit/add the policy statements.
+
+![](./images/faas-configure-policies04.PNG)
+
+Then click in the +Another Statement twice to add next statements:
+
+![](./images/fn-discount-cloud-events/faas-create-function-policies06.PNG)
 
 ```
 allow dynamic-group gigisserverlesshol-functions to manage object-family in tenancy
 allow dynamic-group gigisserverlesshol-functions to manage function-family in tenancy
 ```
+![](./images/fn-discount-cloud-events/faas-create-function-policies07.PNG)
+
+Then Click Save Changes to apply the new policy statements.
+
+Note: If you receive error messages like the dynamic group doesn't exits, please review the dynamic group name that you write in the create Dynamic Group section.
 
 ## Code recap (OPTIONAL)
 You copy the function code and made several changes in the configuration files like func.yaml and pom.xml then you created a new Dockerfile to deploy the function. Now we'll explain you such changes:
