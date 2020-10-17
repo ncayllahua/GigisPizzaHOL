@@ -1,7 +1,7 @@
 # Function fn discount cloud-events
 This serverless function will get **cloud events** in json format then access **campaigns.json** file, parse it and send each campaign inside the camapigns.json file to **fn_discount_upload** serverless function, using **resource principal authentication**. But what is a Resource Principal Authenticarion?
 
-## Instance Principal Authentication.
+### Instance Principal Authentication.
 There are many different ways to authenticate when using the OCI SDKs - for example, you can use your credentials directly in an authentication provider **(SimpleAuthenticationDetailsProvider)** or you can use a config file located on a disk **(ConfigFileAuthenticationDetailsProvider)**. Both of this methods require you to provide your credentials (either in the form of variables/strings or stored as text file on the disk). 
 
 When you are developing your app this is usually not a problem because you already have a config file on your local disk to work with the OCI CLI. But if you want to use one of these auth methods when you deploy an application to a VM in the Oracle Cloud (OCI), you have to manage these config values including them in the VM and this becomes another potential security vulnerability in your infrastructure if it is not properly managed. 
