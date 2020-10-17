@@ -3,9 +3,9 @@ Gigi's pizza Hands On Labs are a series of labs based on a Demo developed by WeD
 
 Demo is known as Gigi’s Pizza. The Use Case is focused in microservices/serverless (fn) and Multitenant DataBase. We have three microservices coded in different languages like nodejs and of course Java (Helidon framework). This three microservices are part of a delivery pizza app, one microservice controls the orders, other one controls the pizza delivery and the last one controls the accounting. We coded a serverless function to calculate discounts, according to several bussiness rules like credit card type or pizza order total prize.
 
-Hands on Labs - Gigis pizza microservices/serverless app (Oracle Cloud Infraestructure OCI). 
+**Recently added the use of Resource Principals to improve the security avoiding vulnerabilities. You can access this new labs in the HOL serverless or HOL serverless fast with terraform.**
 
-Recently added the use of Resource Principals to improve the security avoiding vulnerabilities. You can access this new labs in the HOL serverless or HOL serverless fast with terraform.
+Hands on Labs - Gigis pizza microservices/serverless app (Oracle Cloud Infraestructure OCI). 
 
 - [x] [HOL 5967 - Microservices](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/microservices/hol5967_userguide.md)
 - [x] [HOL serverless](https://github.com/oraclespainpresales/GigisPizzaHOL/blob/master/serverless/gigis-serverless-HOL.md)
