@@ -149,7 +149,7 @@ COPY --from=build-stage /function/target/*.jar /function/app/
 
 CMD ["com.example.fn.DiscountCampaignUploader::handleRequest"]
 ```
-![](./images/fn-discount-cloud-events/faas-create-function23.PNG)
+![](./images/fn_discount_cloud_events_resource_principal/faas-create-function23.PNG)
 
 After that, click in File -> Save All in your IDE to save all changes.
 
