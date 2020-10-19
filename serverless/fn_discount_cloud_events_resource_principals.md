@@ -204,6 +204,13 @@ You must change your Fucntion time-out. Click in Edit Function button and then c
 
 ## Grant OCI access
 You must create the security policies in OCI to grant access to Object Storage and Functions from Other Serverless Functions.
+When you receive error like next:
+
+![](./images/fn-discount-campaign-cloud-events-principal/faas-resource-principals-error01.png)
+
+![](./images/fn-discount-campaign-cloud-events-principal/faas-resource-principals-error02.png)
+
+You must create several security policies in your tenant to use the Resource Principals. But you must create a Dinamyc Group first.
 
 ### Create a Dymanic Group
 First, you must to create a **Dynamic Group**. A Dynamic Group is a special group that contains OCI resources instead of regular users. More information about Dynamic Groups in the [Oracle Cloud SDK Documentation](https://docs.cloud.oracle.com/en-us/iaas/tools/oci-cli/2.14.0/oci_cli_docs/cmdref/iam/dynamic-group.html) and [OCI Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/Identity/Tasks/managingdynamicgroups.htm)
